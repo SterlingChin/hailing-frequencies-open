@@ -1,0 +1,346 @@
+{
+  "schema_version": 1,
+  "imported_on": "2026-10-11",
+  "package_version": "0.1.0-alpha.10",
+  "base_archive_sha256": "4469fee7ebb81854e5a3fdde348531d2a10a2fd9e1508359386914cdc1767bd2",
+  "source_repositories_modified": false,
+  "method": "Whole named stacks copied from the curated contestant-kit V2; additional authored notes saved through Sannr CLI. No private request evidence or credentials imported.",
+  "files": [
+    {
+      "source": "contestant-kit-v2/twilio/.sannr/stacks/lookups/sannr.json",
+      "destination": ".sannr/stacks/lookups/sannr.json",
+      "source_sha256": "b8ee80687972084cfa072cf5e2673cb08c40705a96c55ebcafaea445a94f46b1",
+      "imported_sha256": "b8ee80687972084cfa072cf5e2673cb08c40705a96c55ebcafaea445a94f46b1",
+      "adapted": false
+    },
+    {
+      "source": "contestant-kit-v2/twilio/.sannr/stacks/lookups/stack.json",
+      "destination": ".sannr/stacks/lookups/stack.json",
+      "source_sha256": "15b84a7b24cf61f4a72d76b402e67b752b82fecb279950e1d89ccee810001ac4",
+      "imported_sha256": "15b84a7b24cf61f4a72d76b402e67b752b82fecb279950e1d89ccee810001ac4",
+      "adapted": false
+    },
+    {
+      "source": "contestant-kit-v2/twilio/.sannr/stacks/lookups/twilio_lookups_v2.yaml",
+      "destination": ".sannr/stacks/lookups/twilio_lookups_v2.yaml",
+      "source_sha256": "41d4d6f74271b7fcd70fd7de8d6acd30a20210d7f4bb58dd920821161c52d177",
+      "imported_sha256": "41d4d6f74271b7fcd70fd7de8d6acd30a20210d7f4bb58dd920821161c52d177",
+      "adapted": false
+    },
+    {
+      "source": "contestant-kit-v2/twilio/.sannr/stacks/messaging/sannr.json",
+      "destination": ".sannr/stacks/messaging/sannr.json",
+      "source_sha256": "9671fdfb59c8c9c8d13161d0ffd0a4f5ee26107ab95049642d0d3cd729350755",
+      "imported_sha256": "9671fdfb59c8c9c8d13161d0ffd0a4f5ee26107ab95049642d0d3cd729350755",
+      "adapted": false
+    },
+    {
+      "source": "contestant-kit-v2/twilio/.sannr/stacks/messaging/stack.json",
+      "destination": ".sannr/stacks/messaging/stack.json",
+      "source_sha256": "dc0667ad02807a250651408ef652e2c28b389857278b8f54b6eb21f82c12895e",
+      "imported_sha256": "dc0667ad02807a250651408ef652e2c28b389857278b8f54b6eb21f82c12895e",
+      "adapted": false
+    },
+    {
+      "source": "contestant-kit-v2/twilio/.sannr/stacks/messaging/twilio_messaging_v1.yaml",
+      "destination": ".sannr/stacks/messaging/twilio_messaging_v1.yaml",
+      "source_sha256": "83264cd708ae69cb63dd6f55e4e557127a313b9a8b3a1a765b05bc271bf94673",
+      "imported_sha256": "83264cd708ae69cb63dd6f55e4e557127a313b9a8b3a1a765b05bc271bf94673",
+      "adapted": false
+    },
+    {
+      "source": "contestant-kit-v2/twilio/.sannr/stacks/twilio/sannr.json",
+      "destination": ".sannr/stacks/twilio/sannr.json",
+      "source_sha256": "736398b14669ccdf22d7a758bfb41d0c6cce8415eef62a3485dd69b52c5b4b46",
+      "imported_sha256": "736398b14669ccdf22d7a758bfb41d0c6cce8415eef62a3485dd69b52c5b4b46",
+      "adapted": false
+    },
+    {
+      "source": "contestant-kit-v2/twilio/.sannr/stacks/twilio/stack.json",
+      "destination": ".sannr/stacks/twilio/stack.json",
+      "source_sha256": "340e9ad691ca45e9eaacc36e580624c0bca6c883722a8e65be6f5328f280dee8",
+      "imported_sha256": "340e9ad691ca45e9eaacc36e580624c0bca6c883722a8e65be6f5328f280dee8",
+      "adapted": false
+    },
+    {
+      "source": "contestant-kit-v2/twilio/.sannr/stacks/twilio/twilio_api_v2010.yaml",
+      "destination": ".sannr/stacks/twilio/twilio_api_v2010.yaml",
+      "source_sha256": "052b294839a56c89a921c77639305d99ad15be6e248bdeaef8975aea6cfcb339",
+      "imported_sha256": "052b294839a56c89a921c77639305d99ad15be6e248bdeaef8975aea6cfcb339",
+      "adapted": false
+    },
+    {
+      "source": "contestant-kit-v2/twilio/.sannr/stacks/verify/sannr.json",
+      "destination": ".sannr/stacks/verify/sannr.json",
+      "source_sha256": "65264f58b905038e9340402b40885506c71b82aa211b6ef64c4c8fbaae18ebe2",
+      "imported_sha256": "65264f58b905038e9340402b40885506c71b82aa211b6ef64c4c8fbaae18ebe2",
+      "adapted": false
+    },
+    {
+      "source": "contestant-kit-v2/twilio/.sannr/stacks/verify/stack.json",
+      "destination": ".sannr/stacks/verify/stack.json",
+      "source_sha256": "56061fe74ffb71b267c767ea8c6c6bbf72224243eca59f2fef28345b220d5413",
+      "imported_sha256": "56061fe74ffb71b267c767ea8c6c6bbf72224243eca59f2fef28345b220d5413",
+      "adapted": false
+    },
+    {
+      "source": "contestant-kit-v2/twilio/.sannr/stacks/verify/twilio_verify_v2.yaml",
+      "destination": ".sannr/stacks/verify/twilio_verify_v2.yaml",
+      "source_sha256": "054c2ca4b0ce15613a19a4dd03910abff790acc929f2958670a92124250b3ec0",
+      "imported_sha256": "054c2ca4b0ce15613a19a4dd03910abff790acc929f2958670a92124250b3ec0",
+      "adapted": false
+    },
+    {
+      "source": "contestant-kit-v2/twilio/docs/CLIENT-LIMITATIONS.json",
+      "destination": "docs/api-prep/twilio/docs/CLIENT-LIMITATIONS.json",
+      "source_sha256": "62ddee34bab59343b83e0900cce40f6259742e13c4839c92097efc12f1db4b90",
+      "imported_sha256": "62ddee34bab59343b83e0900cce40f6259742e13c4839c92097efc12f1db4b90",
+      "adapted": false
+    },
+    {
+      "source": "contestant-kit-v2/twilio/docs/LESSON-SOURCES.json",
+      "destination": "docs/api-prep/twilio/docs/LESSON-SOURCES.json",
+      "source_sha256": "7d73fa7af0163be6aa5614203c93f30e6075ec13edab99e10d708a0b13044fed",
+      "imported_sha256": "7d73fa7af0163be6aa5614203c93f30e6075ec13edab99e10d708a0b13044fed",
+      "adapted": false
+    },
+    {
+      "source": "contestant-kit-v2/twilio/specs/LICENSE",
+      "destination": "docs/api-prep/twilio/specs/LICENSE",
+      "source_sha256": "282418d5a4ca0a6cd3476637c41bb229e592fc289156d22fbfa188cec1169ff3",
+      "imported_sha256": "282418d5a4ca0a6cd3476637c41bb229e592fc289156d22fbfa188cec1169ff3",
+      "adapted": false
+    },
+    {
+      "source": "contestant-kit-v2/twilio/specs/provenance.json",
+      "destination": "docs/api-prep/twilio/specs/provenance.json",
+      "source_sha256": "e01cbee7333be03eb314db38be91035c644452a5215ab7e01aa440942dcacbee",
+      "imported_sha256": "e01cbee7333be03eb314db38be91035c644452a5215ab7e01aa440942dcacbee",
+      "adapted": false
+    },
+    {
+      "source": "contestant-kit-v2/twilio/examples/README.md",
+      "destination": "docs/api-prep/twilio/examples/README.md",
+      "source_sha256": "74a6cfacddbb0481bb0c4652e0eb663e50c9bcf580af8f0b23c7b5e21ba650ce",
+      "imported_sha256": "2da3e56ec5c90637f1784194bf92fd67fc47bef41fa400defdb3a016956e7e0a",
+      "adapted": true
+    },
+    {
+      "source": "contestant-kit-v2/twilio/examples/accounts-read.json",
+      "destination": "docs/api-prep/twilio/examples/accounts-read.json",
+      "source_sha256": "3af06baf5c8dead15da6c5de22e1e23cb73a5fa03af5a86b08d2f37e87f79ac6",
+      "imported_sha256": "3af06baf5c8dead15da6c5de22e1e23cb73a5fa03af5a86b08d2f37e87f79ac6",
+      "adapted": false
+    },
+    {
+      "source": "contestant-kit-v2/twilio/examples/verify-services-read.json",
+      "destination": "docs/api-prep/twilio/examples/verify-services-read.json",
+      "source_sha256": "babb665efd3f3cd3c2ac5b142a969e31fbd598a3cfa846814795cbb5e49cc8ec",
+      "imported_sha256": "babb665efd3f3cd3c2ac5b142a969e31fbd598a3cfa846814795cbb5e49cc8ec",
+      "adapted": false
+    },
+    {
+      "source": "contestant-kit-v2/twilio/GOTCHAS.md",
+      "destination": "docs/api-prep/twilio/GOTCHAS.md",
+      "source_sha256": "4713b403960955d4a638d83492a93e83c876784e68cf1145c2185542f4ad97e2",
+      "imported_sha256": "4713b403960955d4a638d83492a93e83c876784e68cf1145c2185542f4ad97e2",
+      "adapted": false
+    },
+    {
+      "source": "contestant-kit-v2/twilio/BUGS.md",
+      "destination": "docs/api-prep/twilio/BUGS.md",
+      "source_sha256": "104926ca4d4fbe483ea758243fdfa53aa68bef797defb6c9acafd6e2a43a7c1e",
+      "imported_sha256": "104926ca4d4fbe483ea758243fdfa53aa68bef797defb6c9acafd6e2a43a7c1e",
+      "adapted": false
+    },
+    {
+      "source": "contestant-kit-v2/openai/.sannr/stacks/openai/openapi.yaml",
+      "destination": ".sannr/stacks/openai/openapi.yaml",
+      "source_sha256": "9e0991b213ec975ac36134f0b3218450b534fd2dea15aa4d5a98c90de821aecf",
+      "imported_sha256": "9e0991b213ec975ac36134f0b3218450b534fd2dea15aa4d5a98c90de821aecf",
+      "adapted": false
+    },
+    {
+      "source": "contestant-kit-v2/openai/.sannr/stacks/openai/sannr.json",
+      "destination": ".sannr/stacks/openai/sannr.json",
+      "source_sha256": "d28a1c0e24537a28170aa875bbe0b48585bb316428e17360f93b5a147ac23126",
+      "imported_sha256": "f6d7599fbfc53d89e3081bd59b28b277ec06aea4d3bfdcd7253ac592b807fba9",
+      "adapted": true
+    },
+    {
+      "source": "contestant-kit-v2/openai/.sannr/stacks/openai/stack.json",
+      "destination": ".sannr/stacks/openai/stack.json",
+      "source_sha256": "5dc5c5efc7797be78ddc2317a7fdeeea250c8857a418f6fc09358ddd3d5f56e0",
+      "imported_sha256": "5dc5c5efc7797be78ddc2317a7fdeeea250c8857a418f6fc09358ddd3d5f56e0",
+      "adapted": false
+    },
+    {
+      "source": "contestant-kit-v2/openai/.sannr/stacks/unsorted/sannr.json",
+      "destination": ".sannr/stacks/unsorted/sannr.json",
+      "source_sha256": "f3138947692e7ae5355532e762888fa2de402094999b5bb4ae47a1e0ecaeed7b",
+      "imported_sha256": "f3138947692e7ae5355532e762888fa2de402094999b5bb4ae47a1e0ecaeed7b",
+      "adapted": false
+    },
+    {
+      "source": "contestant-kit-v2/openai/.sannr/stacks/unsorted/stack.json",
+      "destination": ".sannr/stacks/unsorted/stack.json",
+      "source_sha256": "f0c8969860c568eefb66232e1d0a865768dfdd1fd60edb3a6842c751d3fc5a21",
+      "imported_sha256": "f0c8969860c568eefb66232e1d0a865768dfdd1fd60edb3a6842c751d3fc5a21",
+      "adapted": false
+    },
+    {
+      "source": "contestant-kit-v2/openai/docs/CLIENT-LIMITATIONS.json",
+      "destination": "docs/api-prep/openai/docs/CLIENT-LIMITATIONS.json",
+      "source_sha256": "d830b2392988c54d645e47b151d6ffc044db744fc434353e19dad42be52fbb4f",
+      "imported_sha256": "d830b2392988c54d645e47b151d6ffc044db744fc434353e19dad42be52fbb4f",
+      "adapted": false
+    },
+    {
+      "source": "contestant-kit-v2/openai/docs/LESSON-SOURCES.json",
+      "destination": "docs/api-prep/openai/docs/LESSON-SOURCES.json",
+      "source_sha256": "d27a1509e0c353379ded79dba4b8f977bf4cedcc9aab699389ba029adc2751b9",
+      "imported_sha256": "d27a1509e0c353379ded79dba4b8f977bf4cedcc9aab699389ba029adc2751b9",
+      "adapted": false
+    },
+    {
+      "source": "contestant-kit-v2/openai/specs/LICENSE",
+      "destination": "docs/api-prep/openai/specs/LICENSE",
+      "source_sha256": "bcba3de214851cce46ed5af42d6698044616eeace887c3231bc7a20474ab639e",
+      "imported_sha256": "bcba3de214851cce46ed5af42d6698044616eeace887c3231bc7a20474ab639e",
+      "adapted": false
+    },
+    {
+      "source": "contestant-kit-v2/openai/specs/provenance.json",
+      "destination": "docs/api-prep/openai/specs/provenance.json",
+      "source_sha256": "2e296901b6aede4d82069b1459e6f7e719f760e7e6adb83fed3b82ea8aa0f409",
+      "imported_sha256": "2e296901b6aede4d82069b1459e6f7e719f760e7e6adb83fed3b82ea8aa0f409",
+      "adapted": false
+    },
+    {
+      "source": "contestant-kit-v2/openai/examples/README.md",
+      "destination": "docs/api-prep/openai/examples/README.md",
+      "source_sha256": "faefd4b4edd46c3871c47375c07c5e3ec4356ddb7da4d5270502fa7f54aa7b32",
+      "imported_sha256": "42ccccabd6fdfc669c9a013d465cccf7dd1957dcb1fb2f812042d919df6781ce",
+      "adapted": true
+    },
+    {
+      "source": "contestant-kit-v2/openai/examples/chat-structured-small.json",
+      "destination": "docs/api-prep/openai/examples/chat-structured-small.json",
+      "source_sha256": "43d9339e9854fef9c1e1b59bcc1e2ea12cfe9e2f73c88791baf1fee05c799071",
+      "imported_sha256": "43d9339e9854fef9c1e1b59bcc1e2ea12cfe9e2f73c88791baf1fee05c799071",
+      "adapted": false
+    },
+    {
+      "source": "contestant-kit-v2/openai/examples/models-read.json",
+      "destination": "docs/api-prep/openai/examples/models-read.json",
+      "source_sha256": "15a90b4f74e4dec0ce572027feb92be25038381026148d301723e9cbadd16ca7",
+      "imported_sha256": "15a90b4f74e4dec0ce572027feb92be25038381026148d301723e9cbadd16ca7",
+      "adapted": false
+    },
+    {
+      "source": "contestant-kit-v2/openai/examples/responses-small.json",
+      "destination": "docs/api-prep/openai/examples/responses-small.json",
+      "source_sha256": "755594b0844ea0cb3cabe942e82de843b68b12f3d0bb67892df8c519f6b51999",
+      "imported_sha256": "755594b0844ea0cb3cabe942e82de843b68b12f3d0bb67892df8c519f6b51999",
+      "adapted": false
+    },
+    {
+      "source": "contestant-kit-v2/openai/GOTCHAS.md",
+      "destination": "docs/api-prep/openai/GOTCHAS.md",
+      "source_sha256": "a7506eea958bfc9e45e962a3ac7b4258c80b8b3d8c6b0a17590f98677db35906",
+      "imported_sha256": "a7506eea958bfc9e45e962a3ac7b4258c80b8b3d8c6b0a17590f98677db35906",
+      "adapted": false
+    },
+    {
+      "source": "contestant-kit-v2/openai/BUGS.md",
+      "destination": "docs/api-prep/openai/BUGS.md",
+      "source_sha256": "40482f360a157145575e5d47cdbb1d39e7b40d764f66a62befdea3cc96289299",
+      "imported_sha256": "40482f360a157145575e5d47cdbb1d39e7b40d764f66a62befdea3cc96289299",
+      "adapted": false
+    },
+    {
+      "source": "contestant-kit-v2/VOICE-PREP.md",
+      "destination": "docs/api-prep/VOICE-PREP.md",
+      "source_sha256": "8bd4473e1652daac932272807634317fac10507bc446198742195f26d892b067",
+      "imported_sha256": "8bd4473e1652daac932272807634317fac10507bc446198742195f26d892b067",
+      "adapted": false
+    },
+    {
+      "source": "contestant-kit-v2/HISTORY.md",
+      "destination": "docs/api-prep/HISTORY.md",
+      "source_sha256": "703e822044f0c9c42bd1e3d2fa75dd4dd0f03394a5c47fe996f4571f6c950989",
+      "imported_sha256": "703e822044f0c9c42bd1e3d2fa75dd4dd0f03394a5c47fe996f4571f6c950989",
+      "adapted": false
+    },
+    {
+      "source": "openai/.sannr/stacks/openai/docs/live/create-session.md",
+      "destination": ".sannr/stacks/openai/docs/live/create-session.md",
+      "source_sha256": "2976020a58e68eea40ebf881f4311a89d1a5db8d58b5f3c57e480075cc7dd9c5",
+      "imported_sha256": "4d5b97324a5f3a8cde19c19c89cf7136806527bda35368ed49d178b113c7b422",
+      "adapted": true
+    },
+    {
+      "source": "openai/.sannr/stacks/openai/docs/live/primary-websocket.md",
+      "destination": ".sannr/stacks/openai/docs/live/primary-websocket.md",
+      "source_sha256": "2150c118bbcee3f9be5723fc07797aa29f2d087ae5577e2006b2e86d7846420d",
+      "imported_sha256": "81b6305f71ecb731a6670483e2dd0eade70287ddb3646efe394a3630833f3efe",
+      "adapted": true
+    },
+    {
+      "source": "openai/.sannr/stacks/openai/docs/live/sideband-websocket.md",
+      "destination": ".sannr/stacks/openai/docs/live/sideband-websocket.md",
+      "source_sha256": "ae28f4abb56587b34ebaa752b851a98a6a1cb317600ab082bf870f3d76a4e85c",
+      "imported_sha256": "778adb22b8fa576284425fee5e0126dfdde02126b32cc520d64d24bff3c21727",
+      "adapted": true
+    },
+    {
+      "source": "openai/.sannr/stacks/openai/docs/live/fork-websocket.md",
+      "destination": ".sannr/stacks/openai/docs/live/fork-websocket.md",
+      "source_sha256": "24c5419dd9145bc38f9ffb914180ca8b5086a2978a879d645c2e27db63da18a6",
+      "imported_sha256": "40241e3a7395eec5e64c27c2b74b9042b39253ecb18a24357af3ee3b71300b8f",
+      "adapted": true
+    },
+    {
+      "source": "openai/.sannr/stacks/openai/docs/live/accept-call.md",
+      "destination": ".sannr/stacks/openai/docs/live/accept-call.md",
+      "source_sha256": "57ac08a7dab4cd1a8697b7c04f5b6b5605edaa7bf98283b3b7e42f4301ec38cc",
+      "imported_sha256": "ac05ce60309395742e904c9b4fad1124797f17b04ffb9f3952d0ac45cdd97cc6",
+      "adapted": true
+    },
+    {
+      "source": "openai/.sannr/stacks/openai/docs/live/fork-session.md",
+      "destination": ".sannr/stacks/openai/docs/live/fork-session.md",
+      "source_sha256": "18999f5a5c2b1f4d544375ae33f9e7d1316b8a461d563c87be1d0a61f5fef430",
+      "imported_sha256": "64ad17b9bfd820299f0a8c0339dd748c81b07c30db4ace410d2ace84acfe2154",
+      "adapted": true
+    },
+    {
+      "source": "openai/.sannr/stacks/openai/docs/live/download-recording.md",
+      "destination": ".sannr/stacks/openai/docs/live/download-recording.md",
+      "source_sha256": "65f1d140ba04fbf59590694aa6f28c77f7b3e761747008bec565dd761d199d9a",
+      "imported_sha256": "65f1d140ba04fbf59590694aa6f28c77f7b3e761747008bec565dd761d199d9a",
+      "adapted": false
+    },
+    {
+      "source": "openai/.sannr/stacks/openai/docs/live/hangup-session.md",
+      "destination": ".sannr/stacks/openai/docs/live/hangup-session.md",
+      "source_sha256": "04323614381c614df1be1344ce88031ff23dea47cf979604f68f1397c9443900",
+      "imported_sha256": "04323614381c614df1be1344ce88031ff23dea47cf979604f68f1397c9443900",
+      "adapted": false
+    },
+    {
+      "source": "openai/.sannr/stacks/openai/docs/live/transfer-call.md",
+      "destination": ".sannr/stacks/openai/docs/live/transfer-call.md",
+      "source_sha256": "c550a9a7c4322f9bc1455855f2775e30cce6a1e6f02eba75704f4b216cf5a9fb",
+      "imported_sha256": "c550a9a7c4322f9bc1455855f2775e30cce6a1e6f02eba75704f4b216cf5a9fb",
+      "adapted": false
+    },
+    {
+      "source": "openai/.sannr/stacks/openai/docs/live/reject-call.md",
+      "destination": ".sannr/stacks/openai/docs/live/reject-call.md",
+      "source_sha256": "591f8e496da0005aaf8f37a8d7492942df5a07c33798146f2e6ec03efdeddb3f",
+      "imported_sha256": "591f8e496da0005aaf8f37a8d7492942df5a07c33798146f2e6ec03efdeddb3f",
+      "adapted": false
+    }
+  ]
+}

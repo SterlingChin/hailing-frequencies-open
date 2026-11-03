@@ -1,0 +1,66 @@
+/* Hailing Frequencies Open. Import this before components.css. */
+.hf-app {
+  --hf-space-1: 0.5rem;
+  --hf-space-2: 1rem;
+  --hf-space-3: 1.5rem;
+  --hf-space-4: 2rem;
+  --hf-space-5: 2.5rem;
+  --hf-space-6: 3rem;
+
+  --hf-radius-inner: 0.5rem;
+  --hf-radius-card: 1rem;
+  --hf-radius-elbow: 2rem;
+  --hf-radius-pill: 999px;
+
+  --hf-font-body: "Atkinson Hyperlegible", system-ui, sans-serif;
+  --hf-font-display: "Antonio", Impact, sans-serif;
+  --hf-font-mono: "IBM Plex Mono", ui-monospace, monospace;
+
+  --hf-type-meta: 0.875rem;
+  --hf-type-body: 1.125rem;
+  --hf-type-title: clamp(1.75rem, 2.6vw, 2.5rem);
+  --hf-type-caption: clamp(1.75rem, 3.5vw, 3.25rem);
+
+  --hf-amber: #f4a83a;
+  --hf-coral: #f07a5f;
+  --hf-lavender: #b7a3f0;
+  --hf-mint: #7fd6a4;
+  --hf-yellow: #ffe14d;
+  --hf-error: #e5675a;
+
+  --hf-duration-fast: 150ms;
+  --hf-duration-enter: 220ms;
+  --hf-focus: var(--hf-yellow);
+}
+
+.hf-app[data-hf-theme="bridge"] {
+  color-scheme: dark;
+  --hf-bg: #0b0a0f;
+  --hf-panel: #17151d;
+  --hf-panel-raised: #1c1b20;
+  --hf-text: #f3eee6;
+  --hf-text-muted: #c9c2d4;
+  --hf-border: #33303a;
+  --hf-agent: var(--hf-coral);
+  --hf-caller: var(--hf-lavender);
+  --hf-engineering: var(--hf-amber);
+  --hf-logistics: var(--hf-lavender);
+  --hf-success: var(--hf-mint);
+}
+
+.hf-app[data-hf-theme="desk"] {
+  color-scheme: light;
+  --hf-bg: #f4f1ea;
+  --hf-panel: #ffffff;
+  --hf-panel-raised: #e9e4d8;
+  --hf-text: #1c1d22;
+  --hf-text-muted: #4a4840;
+  --hf-border: #d3ccbd;
+  --hf-agent: #1c1d22;
+  --hf-caller: #3f5fa8;
+  --hf-engineering: #8a510f;
+  --hf-logistics: #3f5fa8;
+  --hf-success: #216643;
+  --hf-error: #a12d27;
+  --hf-focus: #3f5fa8;
+}

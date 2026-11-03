@@ -1,0 +1,1019 @@
+{
+  "v": 0,
+  "api": {
+    "contract": ".sannr/stacks/messaging/twilio_messaging_v1.yaml",
+    "contract_digest": "sha256:83264cd708ae69cb63dd6f55e4e557127a313b9a8b3a1a765b05bc271bf94673"
+  },
+  "generated_at": "2026-10-09T00:00:00.000Z",
+  "operations": {
+    "POST /v1/Services/{ServiceSid}/AlphaSenders": {
+      "source_file": null,
+      "verified_at": null,
+      "contract_digest": null,
+      "shape_hash": null,
+      "status_codes": [],
+      "effect": "write",
+      "fields": {},
+      "note_integrity": {
+        "v": 1,
+        "digest": "sha256:6f39514932a08859ca98d26e4558c2dd7de0c4038de53705e1c4e06d017d3607",
+        "prior_integrity": "recorded",
+        "acknowledgements": []
+      }
+    },
+    "GET /v1/Services/{ServiceSid}/AlphaSenders": {
+      "source_file": null,
+      "verified_at": null,
+      "contract_digest": null,
+      "shape_hash": null,
+      "status_codes": [],
+      "effect": "read",
+      "fields": {},
+      "note_integrity": {
+        "v": 1,
+        "digest": "sha256:6f39514932a08859ca98d26e4558c2dd7de0c4038de53705e1c4e06d017d3607",
+        "prior_integrity": "recorded",
+        "acknowledgements": []
+      }
+    },
+    "GET /v1/Services/{ServiceSid}/AlphaSenders/{Sid}": {
+      "source_file": null,
+      "verified_at": null,
+      "contract_digest": null,
+      "shape_hash": null,
+      "status_codes": [],
+      "effect": "read",
+      "fields": {},
+      "note_integrity": {
+        "v": 1,
+        "digest": "sha256:6f39514932a08859ca98d26e4558c2dd7de0c4038de53705e1c4e06d017d3607",
+        "prior_integrity": "recorded",
+        "acknowledgements": []
+      }
+    },
+    "DELETE /v1/Services/{ServiceSid}/AlphaSenders/{Sid}": {
+      "source_file": null,
+      "verified_at": null,
+      "contract_digest": null,
+      "shape_hash": null,
+      "status_codes": [],
+      "effect": "write",
+      "fields": {},
+      "note_integrity": {
+        "v": 1,
+        "digest": "sha256:6f39514932a08859ca98d26e4558c2dd7de0c4038de53705e1c4e06d017d3607",
+        "prior_integrity": "recorded",
+        "acknowledgements": []
+      }
+    },
+    "POST /v1/a2p/BrandRegistrations/{BrandRegistrationSid}/SmsOtp": {
+      "source_file": null,
+      "verified_at": null,
+      "contract_digest": null,
+      "shape_hash": null,
+      "status_codes": [],
+      "effect": "write",
+      "fields": {},
+      "note_integrity": {
+        "v": 1,
+        "digest": "sha256:6f39514932a08859ca98d26e4558c2dd7de0c4038de53705e1c4e06d017d3607",
+        "prior_integrity": "recorded",
+        "acknowledgements": []
+      }
+    },
+    "GET /v1/a2p/BrandRegistrations/{Sid}": {
+      "source_file": null,
+      "verified_at": null,
+      "contract_digest": null,
+      "shape_hash": null,
+      "status_codes": [],
+      "effect": "read",
+      "fields": {},
+      "note_integrity": {
+        "v": 1,
+        "digest": "sha256:6f39514932a08859ca98d26e4558c2dd7de0c4038de53705e1c4e06d017d3607",
+        "prior_integrity": "recorded",
+        "acknowledgements": []
+      }
+    },
+    "POST /v1/a2p/BrandRegistrations/{Sid}": {
+      "source_file": null,
+      "verified_at": null,
+      "contract_digest": null,
+      "shape_hash": null,
+      "status_codes": [],
+      "effect": "write",
+      "fields": {},
+      "note_integrity": {
+        "v": 1,
+        "digest": "sha256:6f39514932a08859ca98d26e4558c2dd7de0c4038de53705e1c4e06d017d3607",
+        "prior_integrity": "recorded",
+        "acknowledgements": []
+      }
+    },
+    "GET /v1/a2p/BrandRegistrations": {
+      "source_file": null,
+      "verified_at": null,
+      "contract_digest": null,
+      "shape_hash": null,
+      "status_codes": [],
+      "effect": "read",
+      "fields": {},
+      "note_integrity": {
+        "v": 1,
+        "digest": "sha256:6f39514932a08859ca98d26e4558c2dd7de0c4038de53705e1c4e06d017d3607",
+        "prior_integrity": "recorded",
+        "acknowledgements": []
+      }
+    },
+    "POST /v1/a2p/BrandRegistrations": {
+      "source_file": null,
+      "verified_at": null,
+      "contract_digest": null,
+      "shape_hash": null,
+      "status_codes": [],
+      "effect": "write",
+      "fields": {},
+      "note_integrity": {
+        "v": 1,
+        "digest": "sha256:6f39514932a08859ca98d26e4558c2dd7de0c4038de53705e1c4e06d017d3607",
+        "prior_integrity": "recorded",
+        "acknowledgements": []
+      }
+    },
+    "POST /v1/a2p/BrandRegistrations/{BrandSid}/Vettings": {
+      "source_file": null,
+      "verified_at": null,
+      "contract_digest": null,
+      "shape_hash": null,
+      "status_codes": [],
+      "effect": "write",
+      "fields": {},
+      "note_integrity": {
+        "v": 1,
+        "digest": "sha256:6f39514932a08859ca98d26e4558c2dd7de0c4038de53705e1c4e06d017d3607",
+        "prior_integrity": "recorded",
+        "acknowledgements": []
+      }
+    },
+    "GET /v1/a2p/BrandRegistrations/{BrandSid}/Vettings": {
+      "source_file": null,
+      "verified_at": null,
+      "contract_digest": null,
+      "shape_hash": null,
+      "status_codes": [],
+      "effect": "read",
+      "fields": {},
+      "note_integrity": {
+        "v": 1,
+        "digest": "sha256:6f39514932a08859ca98d26e4558c2dd7de0c4038de53705e1c4e06d017d3607",
+        "prior_integrity": "recorded",
+        "acknowledgements": []
+      }
+    },
+    "GET /v1/a2p/BrandRegistrations/{BrandSid}/Vettings/{BrandVettingSid}": {
+      "source_file": null,
+      "verified_at": null,
+      "contract_digest": null,
+      "shape_hash": null,
+      "status_codes": [],
+      "effect": "read",
+      "fields": {},
+      "note_integrity": {
+        "v": 1,
+        "digest": "sha256:6f39514932a08859ca98d26e4558c2dd7de0c4038de53705e1c4e06d017d3607",
+        "prior_integrity": "recorded",
+        "acknowledgements": []
+      }
+    },
+    "GET /v1/Services/{MessagingServiceSid}/ChannelSenders": {
+      "source_file": null,
+      "verified_at": null,
+      "contract_digest": null,
+      "shape_hash": null,
+      "status_codes": [],
+      "effect": "read",
+      "fields": {},
+      "note_integrity": {
+        "v": 1,
+        "digest": "sha256:6f39514932a08859ca98d26e4558c2dd7de0c4038de53705e1c4e06d017d3607",
+        "prior_integrity": "recorded",
+        "acknowledgements": []
+      }
+    },
+    "POST /v1/Services/{MessagingServiceSid}/ChannelSenders": {
+      "source_file": null,
+      "verified_at": null,
+      "contract_digest": null,
+      "shape_hash": null,
+      "status_codes": [],
+      "effect": "write",
+      "fields": {},
+      "note_integrity": {
+        "v": 1,
+        "digest": "sha256:6f39514932a08859ca98d26e4558c2dd7de0c4038de53705e1c4e06d017d3607",
+        "prior_integrity": "recorded",
+        "acknowledgements": []
+      }
+    },
+    "GET /v1/Services/{MessagingServiceSid}/ChannelSenders/{Sid}": {
+      "source_file": null,
+      "verified_at": null,
+      "contract_digest": null,
+      "shape_hash": null,
+      "status_codes": [],
+      "effect": "read",
+      "fields": {},
+      "note_integrity": {
+        "v": 1,
+        "digest": "sha256:6f39514932a08859ca98d26e4558c2dd7de0c4038de53705e1c4e06d017d3607",
+        "prior_integrity": "recorded",
+        "acknowledgements": []
+      }
+    },
+    "DELETE /v1/Services/{MessagingServiceSid}/ChannelSenders/{Sid}": {
+      "source_file": null,
+      "verified_at": null,
+      "contract_digest": null,
+      "shape_hash": null,
+      "status_codes": [],
+      "effect": "write",
+      "fields": {},
+      "note_integrity": {
+        "v": 1,
+        "digest": "sha256:6f39514932a08859ca98d26e4558c2dd7de0c4038de53705e1c4e06d017d3607",
+        "prior_integrity": "recorded",
+        "acknowledgements": []
+      }
+    },
+    "GET /v1/Deactivations": {
+      "source_file": null,
+      "verified_at": null,
+      "contract_digest": null,
+      "shape_hash": null,
+      "status_codes": [],
+      "effect": "read",
+      "fields": {},
+      "note_integrity": {
+        "v": 1,
+        "digest": "sha256:6f39514932a08859ca98d26e4558c2dd7de0c4038de53705e1c4e06d017d3607",
+        "prior_integrity": "recorded",
+        "acknowledgements": []
+      }
+    },
+    "POST /v1/Services/{ServiceSid}/DestinationAlphaSenders": {
+      "source_file": null,
+      "verified_at": null,
+      "contract_digest": null,
+      "shape_hash": null,
+      "status_codes": [],
+      "effect": "write",
+      "fields": {},
+      "note_integrity": {
+        "v": 1,
+        "digest": "sha256:6f39514932a08859ca98d26e4558c2dd7de0c4038de53705e1c4e06d017d3607",
+        "prior_integrity": "recorded",
+        "acknowledgements": []
+      }
+    },
+    "GET /v1/Services/{ServiceSid}/DestinationAlphaSenders": {
+      "source_file": null,
+      "verified_at": null,
+      "contract_digest": null,
+      "shape_hash": null,
+      "status_codes": [],
+      "effect": "read",
+      "fields": {},
+      "note_integrity": {
+        "v": 1,
+        "digest": "sha256:6f39514932a08859ca98d26e4558c2dd7de0c4038de53705e1c4e06d017d3607",
+        "prior_integrity": "recorded",
+        "acknowledgements": []
+      }
+    },
+    "GET /v1/Services/{ServiceSid}/DestinationAlphaSenders/{Sid}": {
+      "source_file": null,
+      "verified_at": null,
+      "contract_digest": null,
+      "shape_hash": null,
+      "status_codes": [],
+      "effect": "read",
+      "fields": {},
+      "note_integrity": {
+        "v": 1,
+        "digest": "sha256:6f39514932a08859ca98d26e4558c2dd7de0c4038de53705e1c4e06d017d3607",
+        "prior_integrity": "recorded",
+        "acknowledgements": []
+      }
+    },
+    "DELETE /v1/Services/{ServiceSid}/DestinationAlphaSenders/{Sid}": {
+      "source_file": null,
+      "verified_at": null,
+      "contract_digest": null,
+      "shape_hash": null,
+      "status_codes": [],
+      "effect": "write",
+      "fields": {},
+      "note_integrity": {
+        "v": 1,
+        "digest": "sha256:6f39514932a08859ca98d26e4558c2dd7de0c4038de53705e1c4e06d017d3607",
+        "prior_integrity": "recorded",
+        "acknowledgements": []
+      }
+    },
+    "POST /v1/LinkShortening/Domains/{DomainSid}/Certificate": {
+      "source_file": null,
+      "verified_at": null,
+      "contract_digest": null,
+      "shape_hash": null,
+      "status_codes": [],
+      "effect": "write",
+      "fields": {},
+      "note_integrity": {
+        "v": 1,
+        "digest": "sha256:6f39514932a08859ca98d26e4558c2dd7de0c4038de53705e1c4e06d017d3607",
+        "prior_integrity": "recorded",
+        "acknowledgements": []
+      }
+    },
+    "GET /v1/LinkShortening/Domains/{DomainSid}/Certificate": {
+      "source_file": null,
+      "verified_at": null,
+      "contract_digest": null,
+      "shape_hash": null,
+      "status_codes": [],
+      "effect": "read",
+      "fields": {},
+      "note_integrity": {
+        "v": 1,
+        "digest": "sha256:6f39514932a08859ca98d26e4558c2dd7de0c4038de53705e1c4e06d017d3607",
+        "prior_integrity": "recorded",
+        "acknowledgements": []
+      }
+    },
+    "DELETE /v1/LinkShortening/Domains/{DomainSid}/Certificate": {
+      "source_file": null,
+      "verified_at": null,
+      "contract_digest": null,
+      "shape_hash": null,
+      "status_codes": [],
+      "effect": "write",
+      "fields": {},
+      "note_integrity": {
+        "v": 1,
+        "digest": "sha256:6f39514932a08859ca98d26e4558c2dd7de0c4038de53705e1c4e06d017d3607",
+        "prior_integrity": "recorded",
+        "acknowledgements": []
+      }
+    },
+    "POST /v1/LinkShortening/Domains/{DomainSid}/Config": {
+      "source_file": null,
+      "verified_at": null,
+      "contract_digest": null,
+      "shape_hash": null,
+      "status_codes": [],
+      "effect": "write",
+      "fields": {},
+      "note_integrity": {
+        "v": 1,
+        "digest": "sha256:6f39514932a08859ca98d26e4558c2dd7de0c4038de53705e1c4e06d017d3607",
+        "prior_integrity": "recorded",
+        "acknowledgements": []
+      }
+    },
+    "GET /v1/LinkShortening/Domains/{DomainSid}/Config": {
+      "source_file": null,
+      "verified_at": null,
+      "contract_digest": null,
+      "shape_hash": null,
+      "status_codes": [],
+      "effect": "read",
+      "fields": {},
+      "note_integrity": {
+        "v": 1,
+        "digest": "sha256:6f39514932a08859ca98d26e4558c2dd7de0c4038de53705e1c4e06d017d3607",
+        "prior_integrity": "recorded",
+        "acknowledgements": []
+      }
+    },
+    "GET /v1/LinkShortening/MessagingService/{MessagingServiceSid}/DomainConfig": {
+      "source_file": null,
+      "verified_at": null,
+      "contract_digest": null,
+      "shape_hash": null,
+      "status_codes": [],
+      "effect": "read",
+      "fields": {},
+      "note_integrity": {
+        "v": 1,
+        "digest": "sha256:6f39514932a08859ca98d26e4558c2dd7de0c4038de53705e1c4e06d017d3607",
+        "prior_integrity": "recorded",
+        "acknowledgements": []
+      }
+    },
+    "GET /v1/LinkShortening/Domains/{DomainSid}/ValidateDns": {
+      "source_file": null,
+      "verified_at": null,
+      "contract_digest": null,
+      "shape_hash": null,
+      "status_codes": [],
+      "effect": "read",
+      "fields": {},
+      "note_integrity": {
+        "v": 1,
+        "digest": "sha256:6f39514932a08859ca98d26e4558c2dd7de0c4038de53705e1c4e06d017d3607",
+        "prior_integrity": "recorded",
+        "acknowledgements": []
+      }
+    },
+    "POST /v1/Services/PreregisteredUsa2p": {
+      "source_file": null,
+      "verified_at": null,
+      "contract_digest": null,
+      "shape_hash": null,
+      "status_codes": [],
+      "effect": "write",
+      "fields": {},
+      "note_integrity": {
+        "v": 1,
+        "digest": "sha256:6f39514932a08859ca98d26e4558c2dd7de0c4038de53705e1c4e06d017d3607",
+        "prior_integrity": "recorded",
+        "acknowledgements": []
+      }
+    },
+    "POST /v1/LinkShortening/Domains/{DomainSid}/MessagingServices/{MessagingServiceSid}": {
+      "source_file": null,
+      "verified_at": null,
+      "contract_digest": null,
+      "shape_hash": null,
+      "status_codes": [],
+      "effect": "write",
+      "fields": {},
+      "note_integrity": {
+        "v": 1,
+        "digest": "sha256:6f39514932a08859ca98d26e4558c2dd7de0c4038de53705e1c4e06d017d3607",
+        "prior_integrity": "recorded",
+        "acknowledgements": []
+      }
+    },
+    "DELETE /v1/LinkShortening/Domains/{DomainSid}/MessagingServices/{MessagingServiceSid}": {
+      "source_file": null,
+      "verified_at": null,
+      "contract_digest": null,
+      "shape_hash": null,
+      "status_codes": [],
+      "effect": "write",
+      "fields": {},
+      "note_integrity": {
+        "v": 1,
+        "digest": "sha256:6f39514932a08859ca98d26e4558c2dd7de0c4038de53705e1c4e06d017d3607",
+        "prior_integrity": "recorded",
+        "acknowledgements": []
+      }
+    },
+    "GET /v1/LinkShortening/MessagingServices/{MessagingServiceSid}/Domain": {
+      "source_file": null,
+      "verified_at": null,
+      "contract_digest": null,
+      "shape_hash": null,
+      "status_codes": [],
+      "effect": "read",
+      "fields": {},
+      "note_integrity": {
+        "v": 1,
+        "digest": "sha256:6f39514932a08859ca98d26e4558c2dd7de0c4038de53705e1c4e06d017d3607",
+        "prior_integrity": "recorded",
+        "acknowledgements": []
+      }
+    },
+    "POST /v1/Services/{ServiceSid}/PhoneNumbers": {
+      "source_file": null,
+      "verified_at": null,
+      "contract_digest": null,
+      "shape_hash": null,
+      "status_codes": [],
+      "effect": "write",
+      "fields": {},
+      "note_integrity": {
+        "v": 1,
+        "digest": "sha256:6f39514932a08859ca98d26e4558c2dd7de0c4038de53705e1c4e06d017d3607",
+        "prior_integrity": "recorded",
+        "acknowledgements": []
+      }
+    },
+    "GET /v1/Services/{ServiceSid}/PhoneNumbers": {
+      "source_file": null,
+      "verified_at": null,
+      "contract_digest": null,
+      "shape_hash": null,
+      "status_codes": [],
+      "effect": "read",
+      "fields": {},
+      "note_integrity": {
+        "v": 1,
+        "digest": "sha256:6f39514932a08859ca98d26e4558c2dd7de0c4038de53705e1c4e06d017d3607",
+        "prior_integrity": "recorded",
+        "acknowledgements": []
+      }
+    },
+    "DELETE /v1/Services/{ServiceSid}/PhoneNumbers/{Sid}": {
+      "source_file": null,
+      "verified_at": null,
+      "contract_digest": null,
+      "shape_hash": null,
+      "status_codes": [],
+      "effect": "write",
+      "fields": {},
+      "note_integrity": {
+        "v": 1,
+        "digest": "sha256:6f39514932a08859ca98d26e4558c2dd7de0c4038de53705e1c4e06d017d3607",
+        "prior_integrity": "recorded",
+        "acknowledgements": []
+      }
+    },
+    "GET /v1/Services/{ServiceSid}/PhoneNumbers/{Sid}": {
+      "source_file": null,
+      "verified_at": null,
+      "contract_digest": null,
+      "shape_hash": null,
+      "status_codes": [],
+      "effect": "read",
+      "fields": {},
+      "note_integrity": {
+        "v": 1,
+        "digest": "sha256:6f39514932a08859ca98d26e4558c2dd7de0c4038de53705e1c4e06d017d3607",
+        "prior_integrity": "recorded",
+        "acknowledgements": []
+      }
+    },
+    "POST /v1/LinkShortening/Domains/{DomainSid}/RequestManagedCert": {
+      "source_file": null,
+      "verified_at": null,
+      "contract_digest": null,
+      "shape_hash": null,
+      "status_codes": [],
+      "effect": "write",
+      "fields": {},
+      "note_integrity": {
+        "v": 1,
+        "digest": "sha256:6f39514932a08859ca98d26e4558c2dd7de0c4038de53705e1c4e06d017d3607",
+        "prior_integrity": "recorded",
+        "acknowledgements": []
+      }
+    },
+    "POST /v1/Services": {
+      "source_file": null,
+      "verified_at": null,
+      "contract_digest": null,
+      "shape_hash": null,
+      "status_codes": [],
+      "effect": "write",
+      "fields": {},
+      "notes": [
+        "Historical prep report: 2026-10-07 on a Trial account: a form-encoded create returned 401 code 20003 'This feature is not available on a Trial account'. Raw execution evidence is not included; this does not establish current behavior for your account."
+      ],
+      "notes_provenance": [
+        {
+          "by": "CodeTV prep shared-summary editor",
+          "at": "2026-10-09"
+        }
+      ],
+      "notes_superseded": [
+        null
+      ],
+      "noted_at": "2026-10-09",
+      "noted_by": "CodeTV prep shared-summary editor",
+      "note_integrity": {
+        "v": 1,
+        "digest": "sha256:4fc0e03a10e539d644d21e145c22a1364a05c367ba32946aef4a8604fd8cfa36",
+        "prior_integrity": "recorded",
+        "acknowledgements": []
+      }
+    },
+    "GET /v1/Services": {
+      "source_file": null,
+      "verified_at": null,
+      "contract_digest": null,
+      "shape_hash": null,
+      "status_codes": [],
+      "effect": "read",
+      "fields": {},
+      "note_integrity": {
+        "v": 1,
+        "digest": "sha256:6c29243b701df831a8987f83223e7e227e84875c37e578f2d1d8e3c7ebe121b0",
+        "prior_integrity": "recorded",
+        "acknowledgements": []
+      },
+      "notes": [
+        "Sannr client limitation (@sannr/sannr 0.1.0-alpha.10), reported in CodeTV preparation October 7–9, 2026; not a provider defect or a new execution: The earlier default map command sent unrequested probes and tested paths from other stacks against the wrong Twilio host. Do not use it as a no-traffic setup check. Retrieve the selected stack locally; when a request is authorized, use this operation with its own stack/host. Source: BUGS.md / MAP-001; this package retains the authored summary, not private raw evidence."
+      ],
+      "notes_provenance": [
+        {
+          "by": "agent",
+          "at": "2026-10-10"
+        }
+      ],
+      "notes_superseded": [
+        null
+      ],
+      "noted_at": "2026-10-10",
+      "noted_by": "agent"
+    },
+    "POST /v1/Services/{Sid}": {
+      "source_file": null,
+      "verified_at": null,
+      "contract_digest": null,
+      "shape_hash": null,
+      "status_codes": [],
+      "effect": "write",
+      "fields": {},
+      "note_integrity": {
+        "v": 1,
+        "digest": "sha256:6f39514932a08859ca98d26e4558c2dd7de0c4038de53705e1c4e06d017d3607",
+        "prior_integrity": "recorded",
+        "acknowledgements": []
+      }
+    },
+    "GET /v1/Services/{Sid}": {
+      "source_file": null,
+      "verified_at": null,
+      "contract_digest": null,
+      "shape_hash": null,
+      "status_codes": [],
+      "effect": "read",
+      "fields": {},
+      "note_integrity": {
+        "v": 1,
+        "digest": "sha256:6f39514932a08859ca98d26e4558c2dd7de0c4038de53705e1c4e06d017d3607",
+        "prior_integrity": "recorded",
+        "acknowledgements": []
+      }
+    },
+    "DELETE /v1/Services/{Sid}": {
+      "source_file": null,
+      "verified_at": null,
+      "contract_digest": null,
+      "shape_hash": null,
+      "status_codes": [],
+      "effect": "write",
+      "fields": {},
+      "note_integrity": {
+        "v": 1,
+        "digest": "sha256:6f39514932a08859ca98d26e4558c2dd7de0c4038de53705e1c4e06d017d3607",
+        "prior_integrity": "recorded",
+        "acknowledgements": []
+      }
+    },
+    "POST /v1/Services/{ServiceSid}/ShortCodes": {
+      "source_file": null,
+      "verified_at": null,
+      "contract_digest": null,
+      "shape_hash": null,
+      "status_codes": [],
+      "effect": "write",
+      "fields": {},
+      "note_integrity": {
+        "v": 1,
+        "digest": "sha256:6f39514932a08859ca98d26e4558c2dd7de0c4038de53705e1c4e06d017d3607",
+        "prior_integrity": "recorded",
+        "acknowledgements": []
+      }
+    },
+    "GET /v1/Services/{ServiceSid}/ShortCodes": {
+      "source_file": null,
+      "verified_at": null,
+      "contract_digest": null,
+      "shape_hash": null,
+      "status_codes": [],
+      "effect": "read",
+      "fields": {},
+      "note_integrity": {
+        "v": 1,
+        "digest": "sha256:6f39514932a08859ca98d26e4558c2dd7de0c4038de53705e1c4e06d017d3607",
+        "prior_integrity": "recorded",
+        "acknowledgements": []
+      }
+    },
+    "DELETE /v1/Services/{ServiceSid}/ShortCodes/{Sid}": {
+      "source_file": null,
+      "verified_at": null,
+      "contract_digest": null,
+      "shape_hash": null,
+      "status_codes": [],
+      "effect": "write",
+      "fields": {},
+      "note_integrity": {
+        "v": 1,
+        "digest": "sha256:6f39514932a08859ca98d26e4558c2dd7de0c4038de53705e1c4e06d017d3607",
+        "prior_integrity": "recorded",
+        "acknowledgements": []
+      }
+    },
+    "GET /v1/Services/{ServiceSid}/ShortCodes/{Sid}": {
+      "source_file": null,
+      "verified_at": null,
+      "contract_digest": null,
+      "shape_hash": null,
+      "status_codes": [],
+      "effect": "read",
+      "fields": {},
+      "note_integrity": {
+        "v": 1,
+        "digest": "sha256:6f39514932a08859ca98d26e4558c2dd7de0c4038de53705e1c4e06d017d3607",
+        "prior_integrity": "recorded",
+        "acknowledgements": []
+      }
+    },
+    "GET /v1/Tollfree/Verifications/{Sid}": {
+      "source_file": null,
+      "verified_at": null,
+      "contract_digest": null,
+      "shape_hash": null,
+      "status_codes": [],
+      "effect": "read",
+      "fields": {},
+      "note_integrity": {
+        "v": 1,
+        "digest": "sha256:6f39514932a08859ca98d26e4558c2dd7de0c4038de53705e1c4e06d017d3607",
+        "prior_integrity": "recorded",
+        "acknowledgements": []
+      }
+    },
+    "POST /v1/Tollfree/Verifications/{Sid}": {
+      "source_file": null,
+      "verified_at": null,
+      "contract_digest": null,
+      "shape_hash": null,
+      "status_codes": [],
+      "effect": "write",
+      "fields": {},
+      "note_integrity": {
+        "v": 1,
+        "digest": "sha256:6f39514932a08859ca98d26e4558c2dd7de0c4038de53705e1c4e06d017d3607",
+        "prior_integrity": "recorded",
+        "acknowledgements": []
+      }
+    },
+    "DELETE /v1/Tollfree/Verifications/{Sid}": {
+      "source_file": null,
+      "verified_at": null,
+      "contract_digest": null,
+      "shape_hash": null,
+      "status_codes": [],
+      "effect": "write",
+      "fields": {},
+      "note_integrity": {
+        "v": 1,
+        "digest": "sha256:6f39514932a08859ca98d26e4558c2dd7de0c4038de53705e1c4e06d017d3607",
+        "prior_integrity": "recorded",
+        "acknowledgements": []
+      }
+    },
+    "GET /v1/Tollfree/Verifications": {
+      "source_file": null,
+      "verified_at": null,
+      "contract_digest": null,
+      "shape_hash": null,
+      "status_codes": [],
+      "effect": "read",
+      "fields": {},
+      "note_integrity": {
+        "v": 1,
+        "digest": "sha256:6f39514932a08859ca98d26e4558c2dd7de0c4038de53705e1c4e06d017d3607",
+        "prior_integrity": "recorded",
+        "acknowledgements": []
+      }
+    },
+    "POST /v1/Tollfree/Verifications": {
+      "source_file": null,
+      "verified_at": null,
+      "contract_digest": null,
+      "shape_hash": null,
+      "status_codes": [],
+      "effect": "write",
+      "fields": {},
+      "note_integrity": {
+        "v": 1,
+        "digest": "sha256:6f39514932a08859ca98d26e4558c2dd7de0c4038de53705e1c4e06d017d3607",
+        "prior_integrity": "recorded",
+        "acknowledgements": []
+      }
+    },
+    "POST /v1/Services/{MessagingServiceSid}/Compliance/Usa2p": {
+      "source_file": null,
+      "verified_at": null,
+      "contract_digest": null,
+      "shape_hash": null,
+      "status_codes": [],
+      "effect": "write",
+      "fields": {},
+      "note_integrity": {
+        "v": 1,
+        "digest": "sha256:6f39514932a08859ca98d26e4558c2dd7de0c4038de53705e1c4e06d017d3607",
+        "prior_integrity": "recorded",
+        "acknowledgements": []
+      }
+    },
+    "GET /v1/Services/{MessagingServiceSid}/Compliance/Usa2p": {
+      "source_file": null,
+      "verified_at": null,
+      "contract_digest": null,
+      "shape_hash": null,
+      "status_codes": [],
+      "effect": "read",
+      "fields": {},
+      "note_integrity": {
+        "v": 1,
+        "digest": "sha256:6f39514932a08859ca98d26e4558c2dd7de0c4038de53705e1c4e06d017d3607",
+        "prior_integrity": "recorded",
+        "acknowledgements": []
+      }
+    },
+    "DELETE /v1/Services/{MessagingServiceSid}/Compliance/Usa2p/{Sid}": {
+      "source_file": null,
+      "verified_at": null,
+      "contract_digest": null,
+      "shape_hash": null,
+      "status_codes": [],
+      "effect": "write",
+      "fields": {},
+      "note_integrity": {
+        "v": 1,
+        "digest": "sha256:6f39514932a08859ca98d26e4558c2dd7de0c4038de53705e1c4e06d017d3607",
+        "prior_integrity": "recorded",
+        "acknowledgements": []
+      }
+    },
+    "GET /v1/Services/{MessagingServiceSid}/Compliance/Usa2p/{Sid}": {
+      "source_file": null,
+      "verified_at": null,
+      "contract_digest": null,
+      "shape_hash": null,
+      "status_codes": [],
+      "effect": "read",
+      "fields": {},
+      "note_integrity": {
+        "v": 1,
+        "digest": "sha256:6f39514932a08859ca98d26e4558c2dd7de0c4038de53705e1c4e06d017d3607",
+        "prior_integrity": "recorded",
+        "acknowledgements": []
+      }
+    },
+    "POST /v1/Services/{MessagingServiceSid}/Compliance/Usa2p/{Sid}": {
+      "source_file": null,
+      "verified_at": null,
+      "contract_digest": null,
+      "shape_hash": null,
+      "status_codes": [],
+      "effect": "write",
+      "fields": {},
+      "note_integrity": {
+        "v": 1,
+        "digest": "sha256:6f39514932a08859ca98d26e4558c2dd7de0c4038de53705e1c4e06d017d3607",
+        "prior_integrity": "recorded",
+        "acknowledgements": []
+      }
+    },
+    "GET /v1/Services/{MessagingServiceSid}/Compliance/Usa2p/Usecases": {
+      "source_file": null,
+      "verified_at": null,
+      "contract_digest": null,
+      "shape_hash": null,
+      "status_codes": [],
+      "effect": "read",
+      "fields": {},
+      "note_integrity": {
+        "v": 1,
+        "digest": "sha256:6f39514932a08859ca98d26e4558c2dd7de0c4038de53705e1c4e06d017d3607",
+        "prior_integrity": "recorded",
+        "acknowledgements": []
+      }
+    },
+    "GET /v1/Services/Usecases": {
+      "source_file": null,
+      "verified_at": null,
+      "contract_digest": null,
+      "shape_hash": null,
+      "status_codes": [],
+      "effect": "read",
+      "fields": {},
+      "note_integrity": {
+        "v": 1,
+        "digest": "sha256:6f39514932a08859ca98d26e4558c2dd7de0c4038de53705e1c4e06d017d3607",
+        "prior_integrity": "recorded",
+        "acknowledgements": []
+      }
+    }
+  },
+  "api_context": {
+    "v": 1,
+    "operations": {
+      "sha256:4519da7c47c83d06d465275bcf43454a020c51371608b5edccfa15a8014095b4": {
+        "identity": {
+          "v": 1,
+          "stack": "messaging",
+          "provider": "https://messaging.twilio.com",
+          "environment": "default",
+          "protocol": "http",
+          "operation": "GET /v1/Services",
+          "endpoint": "https://messaging.twilio.com/v1/Services",
+          "contractDigest": "sha256:83264cd708ae69cb63dd6f55e4e557127a313b9a8b3a1a765b05bc271bf94673"
+        },
+        "observations": [
+          {
+            "id": "7103736d-10dc-445b-b997-5fee19c2009e",
+            "recorded_at": "2026-10-26T15:43:24.314Z",
+            "observed_at": "2026-10-26T15:43:24.314Z",
+            "basis": "observed",
+            "source": {
+              "kind": "client",
+              "tool": "api_request:http"
+            },
+            "verification": "client-observation",
+            "outcome": "success",
+            "complete": true,
+            "evidence": [
+              {
+                "path": ".sannr/evidence/messaging/run-89c9a469-0370-497b-94b4-8406c28d5430.json",
+                "digest": "sha256:065327795e467d2355a74c6d04c3e2b45f1fa03513ed912855785dad7175beff"
+              }
+            ],
+            "notes": [
+              "HTTP response status 200."
+            ],
+            "omissions": [
+              "Only bounded HTTP request and response structure is committed; payload values remain in private execution evidence.",
+              "A completed HTTP response does not establish complete collection traversal.",
+              "Only supported declaration metadata was retained."
+            ],
+            "note_contradictions": [],
+            "response_status": 200,
+            "attempts": 1,
+            "request_shape": {
+              "type": "object",
+              "properties": {
+                "params": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "body": {
+                  "type": "null"
+                }
+              }
+            },
+            "response_shape": {
+              "type": "object",
+              "properties": {
+                "meta": {
+                  "type": "object",
+                  "properties": {
+                    "first_page_url": {
+                      "type": "string"
+                    },
+                    "key": {
+                      "type": "string"
+                    },
+                    "next_page_url": {
+                      "type": "null"
+                    },
+                    "page": {
+                      "type": "number"
+                    },
+                    "page_size": {
+                      "type": "number"
+                    },
+                    "previous_page_url": {
+                      "type": "null"
+                    },
+                    "url": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "services": {
+                  "type": "array",
+                  "sampled": 0,
+                  "items": []
+                }
+              }
+            },
+            "assertions": {
+              "passed": 1,
+              "failed": 0
+            },
+            "declaration": {
+              "protocol": "http",
+              "method": "GET",
+              "operation": "GET /v1/Services",
+              "validationScope": "declared-method-and-path-only",
+              "schemaValidated": false,
+              "requestValidated": false,
+              "responseValidated": false
+            }
+          }
+        ],
+        "omitted_observations": 0
+      }
+    }
+  }
+}

@@ -1,0 +1,8 @@
+node_modules/
+dist/
+dist-rehearsal/
+.env
+.env.*
+!.env.example
+.certs/
+test-results/

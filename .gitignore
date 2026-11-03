@@ -1,0 +1,12 @@
+node_modules/
+.env
+.env.*
+!.env.example
+.mcp.json
+.codex/
+.claude/settings.local.json
+.sannr/evidence/
+.sannr/feedback.md
+.sannr/feedback-*.md
+.DS_Store
+.setup-logs/

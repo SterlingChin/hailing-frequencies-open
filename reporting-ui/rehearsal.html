@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="A rehearsal console for the real Avery CRM and Decisions workflow, with a separate offline fixture mode." />
+    <title>Hailing Frequencies · Workflow rehearsal</title>
+    <link rel="icon" type="image/svg+xml" href="/communicator.svg" />
+  </head>
+  <body class="hf-app" data-hf-theme="bridge">
+    <div class="hf-shell rehearsal-shell">
+      <header class="hf-command-bar">
+        <span class="hf-command-bar__brand">Hailing Frequencies</span>
+        <strong id="rehearsal-badge" class="fixture-badge">FAKE-DATA REHEARSAL</strong>
+      </header>
+      <nav class="rehearsal-controls" aria-label="Rehearsal mode"><a href="/rehearsal.html?mode=real">Real CRM and Decisions</a><a href="/rehearsal.html?mode=fixture">Offline fixture</a></nav>
+      <p id="rehearsal-notice" class="rehearsal-notice">Every person, case, result and call below is an invented fixture. No microphone, CRM connection, agent invocation or phone call. Changes last only until reset or reload.</p>
+      <p id="rehearsal-error" role="alert" hidden></p>
+      <div class="rehearsal-controls">
+        <label for="scenario">Rehearsal story</label>
+        <select id="scenario">
+          <option value="solution">Use an existing solution</option>
+          <option value="it">IT owns the callback</option>
+          <option value="maintenance">Maintenance owns the callback</option>
+        </select>
+        <button id="reset" class="hf-action" data-kind="secondary">Reset rehearsal</button>
+        <span id="scenario-hint" class="hf-muted">Changing the story starts a new fixture.</span>
+      </div>
+      <main>
+        <div class="hf-console rehearsal-console">
+          <aside class="hf-zone hf-stack context-zone" data-zone="context" aria-labelledby="context-title">
+            <h2 id="context-title" class="hf-kicker">Crew &amp; case context</h2>
+            <p id="identity-state" class="hf-status">Identity not confirmed</p>
+            <p id="context-lock" class="hf-muted">CRM context is locked until the demo identity is confirmed.</p>
+            <div id="context-content" class="hf-stack" hidden>
+              <dl class="hf-context-list" id="context-list"></dl>
+              <details><summary>History, queued work &amp; solutions</summary><div id="context-history" class="hf-stack"></div></details>
+              <p class="context-audience">Same fixture context available to the reporting agent and decision step.</p>
+            </div>
+          </aside>
+          <section class="hf-zone conversation-zone" data-zone="conversation" aria-labelledby="caption">
+            <div class="hf-card__head"><span class="hf-kicker">Reporting channel</span><span id="connection" class="hf-status">Simulation · standby</span></div>
+            <p id="speaker" class="hf-speaker"></p>
+            <h1 id="caption" class="hf-caption" tabindex="-1"></h1>
+            <p id="phase" class="phase-label"></p>
+            <p id="solution-source" class="hf-muted" hidden></p>
+            <form id="identity-form" class="hf-card hf-stack" hidden>
+              <label for="identity-code">Demo authorization code</label>
+              <p id="code-help" class="hf-muted">Enter <strong>DEMO-484</strong> to simulate identity confirmation. This is not sign-in or voiceprint verification.</p>
+              <input id="identity-code" aria-describedby="code-help identity-error" autocomplete="off" spellcheck="false" required />
+              <p id="identity-error" role="alert" hidden></p>
+              <button class="hf-action" type="submit">Confirm demo identity</button>
+            </form>
+            <div id="action-panel" class="hf-stack">
+              <p class="hf-kicker">Simulate the next event</p>
+              <button id="next" class="hf-action"></button>
+              <button id="alternative" class="hf-action" data-kind="secondary" hidden></button>
+            </div>
+            <section id="real-answer" class="hf-card hf-stack" aria-label="Decision and suggested reply" hidden>
+              <h2 class="hf-kicker">Four Decisions answers</h2>
+              <p id="real-evaluated-request" class="hf-muted"></p>
+              <dl id="real-answer-list" class="hf-context-list"></dl>
+              <h3 class="hf-card__title">Suggested reply</h3>
+              <p id="real-reply"></p>
+              <p id="real-next-action" class="hf-muted"></p>
+            </section>
+            <p id="completion" class="completion-note" hidden>Completed in this fixture only. No live case was changed.</p>
+            <p id="announcement" class="sr-only" role="status" aria-live="polite" aria-atomic="true"></p>
+          </section>
+          <aside class="hf-zone hf-stack" data-zone="specialists" aria-labelledby="specialist-title">
+            <h2 id="specialist-title" class="hf-kicker">Specialist &amp; callback</h2>
+            <div class="hf-card hf-task hf-stack" id="task-card">
+              <h3 id="task-owner" class="hf-card__title">No specialist assigned</h3>
+              <p id="task-status" class="hf-status">Not queued</p>
+              <p id="task-detail" class="hf-muted">The reporting agent handles intake. A usable existing solution can stay on this call.</p>
+              <details id="assignment" hidden><summary>Context passed to specialist</summary><p id="assignment-detail"></p></details>
+            </div>
+            <div class="hf-card hf-followup hf-stack">
+              <h3 class="hf-card__title">Specialist-owned callback</h3>
+              <p id="callback-status" class="hf-status">Not requested</p>
+              <p id="callback-detail" class="hf-muted">A preference is not consent. No call is placed automatically.</p>
+              <p id="case-status">Case open · fixture</p>
+            </div>
+          </aside>
+        </div>
+        <section class="hf-app hf-zone recap" data-hf-theme="desk" aria-labelledby="recap-title">
+          <div class="hf-card__head"><h2 id="recap-title" class="hf-title">Communications desk</h2><strong id="timeline-badge" class="fixture-badge">FIXTURE TIMELINE</strong></div>
+          <p class="hf-muted">Ordered simulated events. Specialist results and call attempts stay separate from caller-confirmed resolution.</p>
+          <p id="timeline-empty">Start intake to begin the record.</p>
+          <ol id="timeline" class="hf-timeline"></ol>
+        </section>
+      </main>
+      <footer id="rehearsal-footer">LOCAL REHEARSAL / No provider behavior verified</footer>
+    </div>
+    <audio id="rehearsal-audio" autoplay playsinline hidden></audio>
+    <script type="module" src="/src/rehearsal/entry.js"></script>
+  </body>
+</html>

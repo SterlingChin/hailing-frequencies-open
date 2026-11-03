@@ -1,0 +1,2664 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Hailing Frequencies App",
+    "version": "1.2.0",
+    "description": "Source contract for the main app, deployed caller-context API, and opt-in CRM/Decisions composition. Operation descriptions distinguish availability; this inventory is not deployment verification."
+  },
+  "paths": {
+    "/health": {
+      "get": {
+        "operationId": "getAppHealth",
+        "summary": "Check application and migration-table readiness without provider requests",
+        "description": "Feature flags describe this process. Ready does not verify OpenAI or Twilio, real calls, or SMS delivery.",
+        "responses": {
+          "200": {
+            "description": "Application ready",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "status",
+                    "database",
+                    "companion",
+                    "voiceEnabled",
+                    "smsEnabled",
+                    "decisionsEnabled",
+                    "callbackEnabled"
+                  ],
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "enum": [
+                        "ready",
+                        "unavailable"
+                      ]
+                    },
+                    "database": {
+                      "type": "string",
+                      "enum": [
+                        "ready",
+                        "unavailable",
+                        "not_configured"
+                      ]
+                    },
+                    "companion": {
+                      "type": "string",
+                      "enum": [
+                        "fixture"
+                      ]
+                    },
+                    "voiceEnabled": {
+                      "type": "boolean"
+                    },
+                    "smsEnabled": {
+                      "type": "boolean"
+                    },
+                    "decisionsEnabled": {
+                      "type": "boolean"
+                    },
+                    "callbackEnabled": {
+                      "type": "boolean"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Database unavailable",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "status",
+                    "database",
+                    "companion",
+                    "voiceEnabled",
+                    "smsEnabled",
+                    "decisionsEnabled",
+                    "callbackEnabled"
+                  ],
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "enum": [
+                        "ready",
+                        "unavailable"
+                      ]
+                    },
+                    "database": {
+                      "type": "string",
+                      "enum": [
+                        "ready",
+                        "unavailable",
+                        "not_configured"
+                      ]
+                    },
+                    "companion": {
+                      "type": "string",
+                      "enum": [
+                        "fixture"
+                      ]
+                    },
+                    "voiceEnabled": {
+                      "type": "boolean"
+                    },
+                    "smsEnabled": {
+                      "type": "boolean"
+                    },
+                    "decisionsEnabled": {
+                      "type": "boolean"
+                    },
+                    "callbackEnabled": {
+                      "type": "boolean"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/reporting": {
+      "post": {
+        "operationId": "reportingCRM",
+        "summary": "Authorize a reporting conversation and access its CRM case",
+        "description": "Server-to-server only; requires REPORTING_API_TOKEN and CRM. Start returns tool definitions and a one-hour session token. No profile or context until the spoken code loads a profile; case selection requires caller confirmation and ownership. No provider calls, dispatch or messaging. Only start/end are generally idempotent; retain channel IDs and deduplicate model tool calls in the caller backend. Locally implemented; deployment not verified. Separate interface from caller-context: load_crew_profile still accepts arguments.spoken_code, not name/authorization. Local source only; not included in the caller-context deployment.",
+        "security": [
+          {
+            "ReportingServiceToken": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "oneOf": [
+                  {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "required": [
+                      "action",
+                      "channel_id"
+                    ],
+                    "properties": {
+                      "action": {
+                        "type": "string",
+                        "enum": [
+                          "start"
+                        ]
+                      },
+                      "channel_id": {
+                        "type": "string",
+                        "pattern": "^[a-zA-Z0-9_-]{8,64}$"
+                      }
+                    }
+                  },
+                  {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "required": [
+                      "action",
+                      "session_token",
+                      "name",
+                      "arguments"
+                    ],
+                    "properties": {
+                      "action": {
+                        "type": "string",
+                        "enum": [
+                          "tool"
+                        ]
+                      },
+                      "session_token": {
+                        "type": "string",
+                        "maxLength": 160,
+                        "description": "Server-held session token returned by start; never a model argument."
+                      },
+                      "name": {
+                        "type": "string",
+                        "enum": [
+                          "load_crew_profile"
+                        ]
+                      },
+                      "arguments": {
+                        "type": "object",
+                        "additionalProperties": false,
+                        "properties": {
+                          "spoken_code": {
+                            "type": "string",
+                            "minLength": 1,
+                            "maxLength": 250
+                          }
+                        },
+                        "required": [
+                          "spoken_code"
+                        ]
+                      }
+                    }
+                  },
+                  {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "required": [
+                      "action",
+                      "session_token",
+                      "name",
+                      "arguments"
+                    ],
+                    "properties": {
+                      "action": {
+                        "type": "string",
+                        "enum": [
+                          "tool"
+                        ]
+                      },
+                      "session_token": {
+                        "type": "string",
+                        "maxLength": 160,
+                        "description": "Server-held session token returned by start; never a model argument."
+                      },
+                      "name": {
+                        "type": "string",
+                        "enum": [
+                          "resume_case"
+                        ]
+                      },
+                      "arguments": {
+                        "type": "object",
+                        "additionalProperties": false,
+                        "properties": {
+                          "case_id": {
+                            "type": "string",
+                            "minLength": 1,
+                            "maxLength": 300,
+                            "pattern": "^HF-\\d{3,12}$"
+                          },
+                          "caller_confirmed": {
+                            "type": "boolean",
+                            "enum": [
+                              true
+                            ]
+                          }
+                        },
+                        "required": [
+                          "case_id",
+                          "caller_confirmed"
+                        ]
+                      }
+                    }
+                  },
+                  {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "required": [
+                      "action",
+                      "session_token",
+                      "name",
+                      "arguments"
+                    ],
+                    "properties": {
+                      "action": {
+                        "type": "string",
+                        "enum": [
+                          "tool"
+                        ]
+                      },
+                      "session_token": {
+                        "type": "string",
+                        "maxLength": 160,
+                        "description": "Server-held session token returned by start; never a model argument."
+                      },
+                      "name": {
+                        "type": "string",
+                        "enum": [
+                          "review_case"
+                        ]
+                      },
+                      "arguments": {
+                        "type": "object",
+                        "additionalProperties": false,
+                        "properties": {
+                          "case_id": {
+                            "type": "string",
+                            "minLength": 1,
+                            "maxLength": 300,
+                            "pattern": "^HF-\\d{3,12}$"
+                          },
+                          "caller_confirmed": {
+                            "type": "boolean",
+                            "enum": [
+                              true
+                            ]
+                          }
+                        },
+                        "required": [
+                          "case_id",
+                          "caller_confirmed"
+                        ]
+                      }
+                    }
+                  },
+                  {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "required": [
+                      "action",
+                      "session_token",
+                      "name",
+                      "arguments"
+                    ],
+                    "properties": {
+                      "action": {
+                        "type": "string",
+                        "enum": [
+                          "tool"
+                        ]
+                      },
+                      "session_token": {
+                        "type": "string",
+                        "maxLength": 160,
+                        "description": "Server-held session token returned by start; never a model argument."
+                      },
+                      "name": {
+                        "type": "string",
+                        "enum": [
+                          "open_case"
+                        ]
+                      },
+                      "arguments": {
+                        "type": "object",
+                        "additionalProperties": false,
+                        "properties": {
+                          "equipment_id": {
+                            "type": "string",
+                            "minLength": 1,
+                            "maxLength": 300,
+                            "pattern": "^[a-fA-F0-9]{8}-(?:[a-fA-F0-9]{4}-){3}[a-fA-F0-9]{12}$"
+                          },
+                          "symptom": {
+                            "type": "string",
+                            "minLength": 1,
+                            "maxLength": 300
+                          }
+                        },
+                        "required": [
+                          "equipment_id",
+                          "symptom"
+                        ]
+                      }
+                    }
+                  },
+                  {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "required": [
+                      "action",
+                      "session_token",
+                      "name",
+                      "arguments"
+                    ],
+                    "properties": {
+                      "action": {
+                        "type": "string",
+                        "enum": [
+                          "tool"
+                        ]
+                      },
+                      "session_token": {
+                        "type": "string",
+                        "maxLength": 160,
+                        "description": "Server-held session token returned by start; never a model argument."
+                      },
+                      "name": {
+                        "type": "string",
+                        "enum": [
+                          "update_symptom"
+                        ]
+                      },
+                      "arguments": {
+                        "type": "object",
+                        "additionalProperties": false,
+                        "properties": {
+                          "symptom": {
+                            "type": "string",
+                            "minLength": 1,
+                            "maxLength": 300
+                          }
+                        },
+                        "required": [
+                          "symptom"
+                        ]
+                      }
+                    }
+                  },
+                  {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "required": [
+                      "action",
+                      "session_token",
+                      "name",
+                      "arguments"
+                    ],
+                    "properties": {
+                      "action": {
+                        "type": "string",
+                        "enum": [
+                          "tool"
+                        ]
+                      },
+                      "session_token": {
+                        "type": "string",
+                        "maxLength": 160,
+                        "description": "Server-held session token returned by start; never a model argument."
+                      },
+                      "name": {
+                        "type": "string",
+                        "enum": [
+                          "get_case_brief"
+                        ]
+                      },
+                      "arguments": {
+                        "type": "object",
+                        "additionalProperties": false,
+                        "properties": {},
+                        "required": []
+                      }
+                    }
+                  },
+                  {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "required": [
+                      "action",
+                      "session_token",
+                      "name",
+                      "arguments"
+                    ],
+                    "properties": {
+                      "action": {
+                        "type": "string",
+                        "enum": [
+                          "tool"
+                        ]
+                      },
+                      "session_token": {
+                        "type": "string",
+                        "maxLength": 160,
+                        "description": "Server-held session token returned by start; never a model argument."
+                      },
+                      "name": {
+                        "type": "string",
+                        "enum": [
+                          "get_crm_context"
+                        ]
+                      },
+                      "arguments": {
+                        "type": "object",
+                        "additionalProperties": false,
+                        "properties": {},
+                        "required": []
+                      }
+                    }
+                  },
+                  {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "required": [
+                      "action",
+                      "session_token",
+                      "name",
+                      "arguments"
+                    ],
+                    "properties": {
+                      "action": {
+                        "type": "string",
+                        "enum": [
+                          "tool"
+                        ]
+                      },
+                      "session_token": {
+                        "type": "string",
+                        "maxLength": 160,
+                        "description": "Server-held session token returned by start; never a model argument."
+                      },
+                      "name": {
+                        "type": "string",
+                        "enum": [
+                          "record_repair_outcome"
+                        ]
+                      },
+                      "arguments": {
+                        "type": "object",
+                        "additionalProperties": false,
+                        "properties": {
+                          "outcome": {
+                            "type": "string",
+                            "enum": [
+                              "confirmed_fixed",
+                              "not_fixed"
+                            ],
+                            "minLength": 1,
+                            "maxLength": 300
+                          },
+                          "caller_confirmed": {
+                            "type": "boolean",
+                            "enum": [
+                              true
+                            ]
+                          }
+                        },
+                        "required": [
+                          "outcome",
+                          "caller_confirmed"
+                        ]
+                      }
+                    }
+                  },
+                  {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "required": [
+                      "action",
+                      "session_token",
+                      "name",
+                      "arguments"
+                    ],
+                    "properties": {
+                      "action": {
+                        "type": "string",
+                        "enum": [
+                          "tool"
+                        ]
+                      },
+                      "session_token": {
+                        "type": "string",
+                        "maxLength": 160,
+                        "description": "Server-held session token returned by start; never a model argument."
+                      },
+                      "name": {
+                        "type": "string",
+                        "enum": [
+                          "close_case"
+                        ]
+                      },
+                      "arguments": {
+                        "type": "object",
+                        "additionalProperties": false,
+                        "properties": {
+                          "caller_confirmed": {
+                            "type": "boolean",
+                            "enum": [
+                              true
+                            ]
+                          }
+                        },
+                        "required": [
+                          "caller_confirmed"
+                        ]
+                      }
+                    }
+                  },
+                  {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "required": [
+                      "action",
+                      "session_token"
+                    ],
+                    "properties": {
+                      "action": {
+                        "type": "string",
+                        "enum": [
+                          "end"
+                        ]
+                      },
+                      "session_token": {
+                        "type": "string",
+                        "maxLength": 160,
+                        "description": "Server-held session token returned by start; never a model argument."
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success. Start: session_token, expires_at, tools, instructions. Profile load: state, profile, crm_context. Case tools: crm_context. Brief: brief. End: state=ended.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "ok"
+                  ],
+                  "properties": {
+                    "ok": {
+                      "type": "boolean",
+                      "enum": [
+                        true
+                      ]
+                    },
+                    "session_token": {
+                      "type": "string",
+                      "maxLength": 160,
+                      "description": "Server-held session token returned by start; never a model argument."
+                    },
+                    "expires_at": {
+                      "type": "string",
+                      "format": "date-time"
+                    },
+                    "tools": {
+                      "type": "array",
+                      "items": {
+                        "type": "object"
+                      }
+                    },
+                    "instructions": {
+                      "type": "string"
+                    },
+                    "state": {
+                      "type": "string",
+                      "enum": [
+                        "demo_profile_loaded",
+                        "ended"
+                      ]
+                    },
+                    "profile": {
+                      "type": "object"
+                    },
+                    "crm_context": {
+                      "type": "object",
+                      "description": "Safe versioned CRM context: profile, selected_case, queue, channel, request, text."
+                    },
+                    "brief": {
+                      "type": "string",
+                      "maxLength": 600
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid request, JSON or tool arguments",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReportingError"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Invalid service credential or session token",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReportingError"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Identity required, phrase mismatch or browser Origin rejected",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReportingError"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Endpoint disabled or record not available",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReportingError"
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "POST required",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReportingError"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Interaction or case state conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReportingError"
+                }
+              }
+            }
+          },
+          "413": {
+            "description": "Body exceeds 16384 bytes",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReportingError"
+                }
+              }
+            }
+          },
+          "415": {
+            "description": "application/json required",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReportingError"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Three authorization attempts exhausted",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReportingError"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "CRM unavailable",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReportingError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/caller-context/start": {
+      "post": {
+        "operationId": "startCallerContext",
+        "summary": "Start a private caller session",
+        "description": "Server-to-server only. The bearer token authenticates Michael\u2019s service; the fictional phrase loads a demo profile and is not real identity proof. Uses CONTEXT_API_TOKEN, JSON POST, and a private 15-minute in-memory session lost on restart; tokens are not interchangeable with /api/reporting sessions. No OpenAI or Twilio requests.",
+        "security": [
+          {
+            "partnerBearer": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/StartRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "No profile or candidate data is returned.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SessionStarted"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid input",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Service token absent or invalid",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Session or request limit reached",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "CRM unavailable",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "CONTEXT_API_TOKEN not configured",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "POST required",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            }
+          },
+          "413": {
+            "description": "Body exceeds 4096 bytes",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            }
+          },
+          "415": {
+            "description": "application/json required",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/caller-context/authorize": {
+      "post": {
+        "operationId": "authorizeCallerContext",
+        "summary": "Load a demo profile by name and fictional authorization phrase",
+        "description": "Server-to-server only. The bearer token authenticates Michael\u2019s service. Name and authorization must match the same demo CRM record; this is not real identity proof. Replaces the spoken_phrase request field; existing name-prefixed demo hashes remain supported. Uses CONTEXT_API_TOKEN, JSON POST, and a private 15-minute in-memory session lost on restart; tokens are not interchangeable with /api/reporting sessions. No OpenAI or Twilio requests. Successful responses include top-level crew_member_id (crew_members.id), stable for the authorized session and directly usable by POST /api/decisions.",
+        "security": [
+          {
+            "partnerBearer": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AuthorizeRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Demo profile loaded",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ContextLoaded"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Name or phrase not accepted, or session invalid; the response does not reveal which field mismatched",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Profile already loaded",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Attempt limit reached",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "CRM unavailable",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Missing, malformed or unexpected request field",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "CONTEXT_API_TOKEN not configured",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "POST required",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            }
+          },
+          "413": {
+            "description": "Body exceeds 4096 bytes",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            }
+          },
+          "415": {
+            "description": "application/json required",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/caller-context/context": {
+      "post": {
+        "operationId": "getCallerContext",
+        "summary": "Refresh context after phrase acceptance",
+        "description": "Server-to-server only. The bearer token authenticates Michael\u2019s service; the fictional phrase loads a demo profile and is not real identity proof. Uses CONTEXT_API_TOKEN, JSON POST, and a private 15-minute in-memory session lost on restart; tokens are not interchangeable with /api/reporting sessions. No OpenAI or Twilio requests. Successful responses include top-level crew_member_id (crew_members.id), stable for the authorized session and directly usable by POST /api/decisions.",
+        "security": [
+          {
+            "partnerBearer": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SessionRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Current safe CRM profile",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ContextLoaded"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Service or session token invalid",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Phrase not yet accepted",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "CRM unavailable",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Malformed JSON or invalid/unexpected field",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "CONTEXT_API_TOKEN not configured",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "POST required",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            }
+          },
+          "413": {
+            "description": "Body exceeds 4096 bytes",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            }
+          },
+          "415": {
+            "description": "application/json required",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/caller-context/end": {
+      "post": {
+        "operationId": "endCallerContext",
+        "summary": "End the caller session",
+        "description": "Server-to-server only. The bearer token authenticates Michael\u2019s service; the fictional phrase loads a demo profile and is not real identity proof. Uses CONTEXT_API_TOKEN, JSON POST, and a private 15-minute in-memory session lost on restart; tokens are not interchangeable with /api/reporting sessions. No OpenAI or Twilio requests.",
+        "security": [
+          {
+            "partnerBearer": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SessionRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Session closed",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SessionEnded"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Service or session token invalid",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "CRM unavailable",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Malformed JSON or invalid/unexpected field",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "CONTEXT_API_TOKEN not configured",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "POST required",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            }
+          },
+          "413": {
+            "description": "Body exceeds 4096 bytes",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            }
+          },
+          "415": {
+            "description": "application/json required",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/decisions": {
+      "post": {
+        "operationId": "routeCRMDecision",
+        "summary": "Choose a reporting action using authorized CRM context",
+        "description": "Accepts a trusted reporting backend crew_member_id and free-text context blob under REPORTING_API_TOKEN; caller authentication belongs to the reporter, with no caller session or phrase check on this intake. Rejects the intentionally nonexistent USS Nebraska with 404 crew_member_not_found and reason ship_not_found before storing a blob or calling Decisions. Other valid blobs are appended to private CRM before classification and assembled with caller-owned history. Returns respond, gather_context, or route_to_expert with full context; never calls MCP. Existing {session_token, request} requests remain supported. DECISIONS_ENABLED=false still saves accepted blobs but makes no provider request. Live requests require separate authorization; deployment of migration 006_reporter_context.sql is required for the new intake.",
+        "responses": {
+          "200": {
+            "description": "Decision attempt handled; inspect outcome, not just HTTP success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DecisionResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid JSON or arguments",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReportingError"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Invalid service token or expired/invalid reporting session",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReportingError"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Caller identity required or browser Origin rejected",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReportingError"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Unknown crew_member_id, nonexistent assigned ship, or service token not configured. The nonexistent USS Nebraska response includes reason ship_not_found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReportingError"
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "POST required",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReportingError"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Interaction ended or unavailable",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReportingError"
+                }
+              }
+            }
+          },
+          "413": {
+            "description": "JSON body exceeds 512000 bytes",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReportingError"
+                }
+              }
+            }
+          },
+          "415": {
+            "description": "application/json required",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReportingError"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "CRM or decision service unavailable",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReportingError"
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DecisionRequest"
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "ReportingServiceToken": []
+          }
+        ]
+      }
+    },
+    "/events": {
+      "get": {
+        "operationId": "getFixtureEvents",
+        "summary": "Read the companion fixture stream",
+        "description": "Invented demo snapshots, not live CRM, delivery or specialist events; at most 32 concurrent clients.",
+        "responses": {
+          "200": {
+            "description": "Finite SSE snapshot/complete events",
+            "content": {
+              "text/event-stream": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Unknown fixture"
+          },
+          "503": {
+            "description": "Preview busy"
+          }
+        },
+        "security": [],
+        "parameters": [
+          {
+            "name": "scenario",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "after",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Last-Event-ID",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      }
+    },
+    "/incoming-call": {
+      "post": {
+        "operationId": "incomingVoiceWebhook",
+        "summary": "Accept a signed voice webhook",
+        "description": "Signed inbound Twilio webhook. Caller phone is a private lookup hint, never proof of identity. Disabled voice returns 404. A successful TwiML response does not prove connected audio or a completed callback; later media admission can open an OpenAI Live connection. No live invocation is authorized by this contract.",
+        "responses": {
+          "200": {
+            "description": "TwiML stream instructions or busy response",
+            "content": {
+              "text/xml": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Malformed form"
+          },
+          "403": {
+            "description": "Signature, account, call SID or ticket invalid"
+          },
+          "404": {
+            "description": "Voice disabled"
+          },
+          "413": {
+            "description": "Form exceeds 16384 bytes"
+          },
+          "415": {
+            "description": "Form encoding required"
+          },
+          "429": {
+            "description": "Pending ticket capacity reached"
+          }
+        },
+        "security": [
+          {
+            "TwilioSignature": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "AccountSid": {
+                    "type": "string"
+                  },
+                  "CallSid": {
+                    "type": "string"
+                  },
+                  "From": {
+                    "type": "string"
+                  },
+                  "To": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "AccountSid",
+                  "CallSid"
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "/outbound-call": {
+      "post": {
+        "operationId": "outboundVoiceWebhook",
+        "summary": "Accept a signed voice webhook",
+        "description": "Signed return-call webhook. Requires a 10-minute one-use ticket bound to the stored callee. Reporting-agent callback is not an IT/Maintenance callback implementation. Disabled voice returns 404. A successful TwiML response does not prove connected audio or a completed callback; later media admission can open an OpenAI Live connection. No live invocation is authorized by this contract.",
+        "responses": {
+          "200": {
+            "description": "TwiML stream instructions or busy response",
+            "content": {
+              "text/xml": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Malformed form"
+          },
+          "403": {
+            "description": "Signature, account, call SID or ticket invalid"
+          },
+          "404": {
+            "description": "Voice disabled"
+          },
+          "413": {
+            "description": "Form exceeds 16384 bytes"
+          },
+          "415": {
+            "description": "Form encoding required"
+          },
+          "429": {
+            "description": "Pending ticket capacity reached"
+          }
+        },
+        "security": [
+          {
+            "TwilioSignature": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "AccountSid": {
+                    "type": "string"
+                  },
+                  "CallSid": {
+                    "type": "string"
+                  },
+                  "From": {
+                    "type": "string"
+                  },
+                  "To": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "AccountSid",
+                  "CallSid"
+                ]
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "ticket",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "pattern": "^[a-f0-9]{48}$"
+            }
+          }
+        ]
+      }
+    },
+    "/media-stream/": {
+      "get": {
+        "operationId": "upgradeVoiceMedia",
+        "summary": "Upgrade a signed Twilio media WebSocket",
+        "description": "WebSocket upgrade only. Voice flag, signature, capacity and a bound one-use start ticket are required. Connection/start frames precede media; a valid start may open billable OpenAI Live traffic. HTTP inventory does not validate the WebSocket message protocol.",
+        "responses": {
+          "101": {
+            "description": "WebSocket upgrade accepted; start ticket still required"
+          },
+          "403": {
+            "description": "Upgrade rejected"
+          }
+        },
+        "security": [
+          {
+            "TwilioSignature": []
+          }
+        ]
+      }
+    },
+    "/sms/status/{messageId}": {
+      "post": {
+        "operationId": "recordSmsStatus",
+        "summary": "Record a signed SMS delivery callback",
+        "description": "Available even when SMS sending is disabled. Validates exact URL/form signature, account, stored message and provider SID. Preserves first terminal outcome and retains later observations; makes no outbound provider request.",
+        "responses": {
+          "204": {
+            "description": "Observation recorded; does not imply delivered unless callback said delivered"
+          },
+          "400": {
+            "description": "Duplicate form key or unknown status"
+          },
+          "403": {
+            "description": "Invalid signature/account/SID"
+          },
+          "404": {
+            "description": "Message not found"
+          },
+          "409": {
+            "description": "Message state conflict"
+          },
+          "413": {
+            "description": "Form exceeds 16384 bytes"
+          },
+          "415": {
+            "description": "Form encoding required"
+          },
+          "503": {
+            "description": "Callback credentials or CRM unavailable"
+          }
+        },
+        "security": [
+          {
+            "TwilioSignature": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "messageId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "AccountSid": {
+                    "type": "string"
+                  },
+                  "MessageSid": {
+                    "type": "string"
+                  },
+                  "MessageStatus": {
+                    "type": "string"
+                  },
+                  "ErrorCode": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "AccountSid",
+                  "MessageSid",
+                  "MessageStatus"
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "ReportingServiceToken": {
+        "type": "http",
+        "scheme": "bearer",
+        "description": "Server-to-server REPORTING_API_TOKEN. Do not send to browsers or models."
+      },
+      "partnerBearer": {
+        "type": "http",
+        "scheme": "bearer",
+        "description": "Private CONTEXT_API_TOKEN shared with Michael\u2019s backend."
+      },
+      "TwilioSignature": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "X-Twilio-Signature",
+        "description": "Validate Twilio signature against exact public URL and form fields; not a bearer token."
+      }
+    },
+    "schemas": {
+      "ReportingError": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "ok",
+          "error"
+        ],
+        "properties": {
+          "ok": {
+            "type": "boolean",
+            "enum": [
+              false
+            ]
+          },
+          "error": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "code"
+            ],
+            "properties": {
+              "code": {
+                "type": "string"
+              },
+              "reason": {
+                "type": "string",
+                "description": "ship_not_found when the demo crew row claims USS Nebraska."
+              },
+              "message": {
+                "type": "string",
+                "description": "A short explanation for ship_not_found."
+              }
+            }
+          }
+        }
+      },
+      "StartRequest": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "caller_phone": {
+            "type": "string",
+            "nullable": true,
+            "pattern": "^\\+[1-9][0-9]{1,14}$",
+            "description": "Unverified lookup hint."
+          }
+        }
+      },
+      "SessionRequest": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "session_token"
+        ],
+        "properties": {
+          "session_token": {
+            "type": "string",
+            "pattern": "^[a-f0-9]{64}$"
+          }
+        }
+      },
+      "AuthorizeRequest": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "session_token",
+          "name",
+          "authorization"
+        ],
+        "properties": {
+          "session_token": {
+            "type": "string",
+            "pattern": "^[a-f0-9]{64}$"
+          },
+          "name": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 120,
+            "description": "Full CRM display name; case-insensitive with whitespace normalized. Must match the same record as the authorization phrase."
+          },
+          "authorization": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 250,
+            "description": "Spoken fictional authorization phrase, without the caller name."
+          }
+        }
+      },
+      "SessionStarted": {
+        "type": "object",
+        "required": [
+          "session_token",
+          "expires_at",
+          "state"
+        ],
+        "properties": {
+          "session_token": {
+            "type": "string"
+          },
+          "expires_at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "state": {
+            "type": "string",
+            "enum": [
+              "authorization_required"
+            ]
+          }
+        }
+      },
+      "ContextLoaded": {
+        "type": "object",
+        "required": [
+          "state",
+          "assurance",
+          "crew_member_id",
+          "profile"
+        ],
+        "properties": {
+          "state": {
+            "type": "string",
+            "enum": [
+              "demo_profile_loaded"
+            ]
+          },
+          "assurance": {
+            "type": "string",
+            "enum": [
+              "fictional_phrase_only"
+            ]
+          },
+          "profile": {
+            "type": "object",
+            "description": "Safe CRM profile. Contains no phone numbers, contact records or authorization hashes.",
+            "required": [
+              "display_name",
+              "open_cases",
+              "equipment",
+              "preferences",
+              "contact_count"
+            ],
+            "properties": {
+              "display_name": {
+                "type": "string"
+              },
+              "rank": {
+                "type": "string"
+              },
+              "ship": {
+                "type": "string"
+              },
+              "language": {
+                "type": "string"
+              },
+              "department": {
+                "type": "string",
+                "nullable": true
+              },
+              "section": {
+                "type": "string",
+                "nullable": true
+              },
+              "clearance_level": {
+                "type": "integer",
+                "nullable": true
+              },
+              "posting": {
+                "type": "string",
+                "nullable": true
+              },
+              "service_number": {
+                "type": "string",
+                "nullable": true
+              },
+              "status": {
+                "type": "string"
+              },
+              "contact_count": {
+                "type": "integer"
+              },
+              "last_contact": {
+                "type": "object",
+                "nullable": true
+              },
+              "equipment": {
+                "type": "array",
+                "items": {
+                  "type": "object"
+                }
+              },
+              "preferences": {
+                "type": "array",
+                "items": {
+                  "type": "object"
+                }
+              },
+              "open_cases": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "required": [
+                    "caseId",
+                    "title",
+                    "status",
+                    "lastActivityAt",
+                    "brief"
+                  ],
+                  "properties": {
+                    "caseId": {
+                      "type": "string"
+                    },
+                    "title": {
+                      "type": "string"
+                    },
+                    "status": {
+                      "type": "string"
+                    },
+                    "lastActivityAt": {
+                      "type": "string",
+                      "format": "date-time"
+                    },
+                    "brief": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "crew_member_id": {
+            "type": "string",
+            "format": "uuid",
+            "description": "The authenticated demo record primary key, crew_members.id. Returned only after successful name/phrase authorization; send unchanged as crew_member_id to POST /api/decisions."
+          }
+        }
+      },
+      "SessionEnded": {
+        "type": "object",
+        "required": [
+          "state"
+        ],
+        "properties": {
+          "state": {
+            "type": "string",
+            "enum": [
+              "ended"
+            ]
+          }
+        }
+      },
+      "ApiError": {
+        "type": "object",
+        "required": [
+          "error"
+        ],
+        "properties": {
+          "error": {
+            "type": "string"
+          }
+        }
+      },
+      "SharedCRMContext": {
+        "type": "object",
+        "properties": {
+          "version": {
+            "type": "integer",
+            "enum": [
+              1
+            ]
+          },
+          "profile": {
+            "type": "object",
+            "properties": {},
+            "description": "Allowlisted CRM profile; no contact numbers or authorization hashes."
+          },
+          "selected_case": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "nullable": true
+              },
+              "status": {
+                "type": "string",
+                "nullable": true
+              },
+              "symptom": {
+                "type": "string",
+                "nullable": true
+              },
+              "symptom_revision": {
+                "type": "integer"
+              },
+              "brief": {
+                "type": "string",
+                "maxLength": 600
+              },
+              "solution": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/StoredSolution"
+                  }
+                ],
+                "nullable": true,
+                "type": "object"
+              }
+            },
+            "nullable": true
+          },
+          "queue": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "specialist": {
+                  "type": "string"
+                },
+                "status": {
+                  "type": "string"
+                },
+                "symptom_revision": {
+                  "type": "integer"
+                },
+                "assignment": {
+                  "type": "string",
+                  "maxLength": 300
+                },
+                "result": {
+                  "type": "object",
+                  "properties": {},
+                  "nullable": true
+                }
+              }
+            }
+          },
+          "channel": {
+            "type": "string",
+            "enum": [
+              "voice",
+              "sms"
+            ]
+          },
+          "request": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 500
+          },
+          "text": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "version",
+          "profile",
+          "selected_case",
+          "queue",
+          "channel",
+          "request",
+          "text"
+        ],
+        "description": "Same safe context supplied to Live, Decisions and the persisted specialist assignment. Working queue status alone is not proof an expert has started."
+      },
+      "StoredSolution": {
+        "type": "object",
+        "properties": {
+          "source": {
+            "type": "string",
+            "enum": [
+              "case",
+              "specialist_result"
+            ]
+          },
+          "task_id": {
+            "type": "string",
+            "nullable": true
+          },
+          "specialist": {
+            "type": "string"
+          },
+          "confirmed_fixed": {
+            "type": "boolean"
+          },
+          "result": {
+            "type": "object",
+            "properties": {
+              "summary": {
+                "type": "string",
+                "maxLength": 300
+              },
+              "diagnosis": {
+                "type": "string",
+                "maxLength": 300
+              },
+              "next_step": {
+                "type": "string",
+                "maxLength": 300
+              },
+              "source_id": {
+                "type": "string",
+                "maxLength": 300
+              }
+            }
+          }
+        },
+        "required": [
+          "source",
+          "task_id",
+          "confirmed_fixed",
+          "result"
+        ],
+        "description": "Caller-confirmed case finding or current specialist result; rejected or obsolete results cannot be reused as a fix."
+      },
+      "DecisionRequest": {
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/ReporterDecisionRequest"
+          },
+          {
+            "$ref": "#/components/schemas/LegacyDecisionRequest"
+          }
+        ]
+      },
+      "DecisionResponse": {
+        "type": "object",
+        "properties": {
+          "ok": {
+            "type": "boolean",
+            "enum": [
+              true
+            ]
+          },
+          "fictional": {
+            "type": "boolean",
+            "enum": [
+              true
+            ]
+          },
+          "outcome": {
+            "type": "string",
+            "enum": [
+              "queue",
+              "solution",
+              "needs_more_details",
+              "undecided"
+            ]
+          },
+          "reason": {
+            "type": "string",
+            "nullable": true
+          },
+          "route": {
+            "type": "string",
+            "enum": [
+              "it",
+              "maintenance",
+              null
+            ],
+            "nullable": true
+          },
+          "urgency": {
+            "type": "string",
+            "enum": [
+              "routine",
+              "elevated",
+              "urgent",
+              "critical",
+              null
+            ],
+            "nullable": true
+          },
+          "state": {
+            "type": "string",
+            "enum": [
+              "queued",
+              "solution",
+              "needs_more_details",
+              "undecided"
+            ],
+            "description": "queued means the handoff was persisted, not expert execution."
+          },
+          "task_id": {
+            "type": "string",
+            "nullable": true
+          },
+          "reused": {
+            "type": "boolean"
+          },
+          "callback_owner": {
+            "type": "string",
+            "nullable": true
+          },
+          "callback_status": {
+            "type": "string",
+            "enum": [
+              "not_requested",
+              "callback_requested",
+              "placement_unknown",
+              "call_placed",
+              "failed",
+              "unavailable",
+              null
+            ],
+            "nullable": true
+          },
+          "crm_context": {
+            "type": "object",
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/SharedCRMContext"
+              },
+              {
+                "$ref": "#/components/schemas/ReporterCRMContext"
+              }
+            ],
+            "description": "Shared context; crm_context and context are identical aliases. Version 2 for trusted reporter intake, version 1 for legacy sessions."
+          },
+          "solution": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/StoredSolution"
+              }
+            ],
+            "nullable": true,
+            "type": "object"
+          },
+          "next_action": {
+            "type": "string"
+          },
+          "context": {
+            "type": "object",
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/SharedCRMContext"
+              },
+              {
+                "$ref": "#/components/schemas/ReporterCRMContext"
+              }
+            ],
+            "description": "Shared context; crm_context and context are identical aliases. Version 2 for trusted reporter intake, version 1 for legacy sessions."
+          },
+          "action": {
+            "$ref": "#/components/schemas/ReportingAction"
+          },
+          "tool_catalog": {
+            "$ref": "#/components/schemas/ExpertToolCatalog"
+          },
+          "answers": {
+            "type": "object",
+            "required": [
+              "route",
+              "resolvable_now",
+              "needs_more_details",
+              "urgency"
+            ],
+            "properties": {
+              "route": {
+                "type": "object",
+                "required": [
+                  "value",
+                  "confidence"
+                ],
+                "properties": {
+                  "value": {
+                    "type": "string",
+                    "nullable": true
+                  },
+                  "confidence": {
+                    "type": "number",
+                    "nullable": true
+                  }
+                }
+              },
+              "resolvable_now": {
+                "type": "number",
+                "nullable": true
+              },
+              "needs_more_details": {
+                "type": "number",
+                "nullable": true
+              },
+              "urgency": {
+                "type": "object",
+                "required": [
+                  "score",
+                  "label"
+                ],
+                "properties": {
+                  "score": {
+                    "type": "number",
+                    "nullable": true
+                  },
+                  "label": {
+                    "type": "string",
+                    "nullable": true
+                  }
+                }
+              },
+              "issue": {
+                "type": "object",
+                "properties": {
+                  "value": {
+                    "type": "string",
+                    "nullable": true
+                  },
+                  "confidence": {
+                    "type": "number",
+                    "nullable": true
+                  }
+                },
+                "required": [
+                  "value",
+                  "confidence"
+                ]
+              }
+            }
+          },
+          "context_id": {
+            "type": "string",
+            "format": "uuid",
+            "nullable": true,
+            "description": "Receipt for a saved reporter blob, including failed/disabled classification; null on the legacy session path."
+          },
+          "issue": {
+            "type": "string",
+            "nullable": true,
+            "description": "Raw classifier choice: case ID, new:<equipment UUID>, new:unassigned, or unclear; null on the legacy path. An expert route above 0.50 can create a general case despite an unclear or low-confidence match; context.selected_case identifies the actual case."
+          }
+        },
+        "required": [
+          "ok",
+          "fictional",
+          "outcome",
+          "reason",
+          "route",
+          "urgency",
+          "state",
+          "task_id",
+          "reused",
+          "callback_owner",
+          "callback_status",
+          "crm_context",
+          "solution",
+          "next_action",
+          "context",
+          "action",
+          "tool_catalog",
+          "answers",
+          "context_id",
+          "issue"
+        ]
+      },
+      "ReportingAction": {
+        "type": "object",
+        "nullable": true,
+        "required": [
+          "type"
+        ],
+        "description": "respond includes solution; gather_context instructs a caller question and explicit reclassification; route_to_expert includes desk, task_id, dispatch_key, dispatch_policy and tool_call. Null for an undecided result or an unavailable handoff. This is a proposal, never a record of MCP execution.",
+        "properties": {
+          "type": {
+            "type": "string",
+            "enum": [
+              "respond",
+              "gather_context",
+              "route_to_expert"
+            ]
+          },
+          "solution": {
+            "$ref": "#/components/schemas/StoredSolution"
+          },
+          "desk": {
+            "type": "string",
+            "enum": [
+              "it",
+              "maintenance"
+            ]
+          },
+          "task_id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "dispatch_key": {
+            "type": "string",
+            "format": "uuid",
+            "description": "Same task_id; reporting backend must durably claim/reconcile it. Not an MCP idempotency guarantee."
+          },
+          "dispatch_policy": {
+            "type": "string",
+            "enum": [
+              "claim_before_dispatch",
+              "reconcile_existing"
+            ]
+          },
+          "tool_call": {
+            "type": "object",
+            "required": [
+              "name",
+              "arguments"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "name": {
+                "type": "string",
+                "enum": [
+                  "expert_engineering"
+                ]
+              },
+              "arguments": {
+                "type": "object",
+                "required": [
+                  "question",
+                  "context"
+                ],
+                "additionalProperties": false,
+                "properties": {
+                  "question": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 20000
+                  },
+                  "context": {
+                    "type": "string",
+                    "maxLength": 200000,
+                    "description": "JSON-serialized original safe CRM handoff snapshot; reused tasks preserve it unchanged."
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "ExpertToolCatalog": {
+        "type": "object",
+        "required": [
+          "source",
+          "live_verified",
+          "expert_arguments",
+          "lifecycle_tools",
+          "tools"
+        ],
+        "description": "Repository declarations, not a live tools/list observation. The reporting backend confirms actual availability.",
+        "properties": {
+          "source": {
+            "type": "string"
+          },
+          "live_verified": {
+            "type": "boolean",
+            "enum": [
+              false
+            ]
+          },
+          "expert_arguments": {
+            "type": "object",
+            "required": [
+              "question",
+              "context"
+            ],
+            "properties": {
+              "question": {
+                "type": "string"
+              },
+              "context": {
+                "type": "string"
+              }
+            }
+          },
+          "lifecycle_tools": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "tools": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "name",
+                "routes",
+                "description"
+              ],
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "routes": {
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "enum": [
+                      "it",
+                      "maintenance"
+                    ]
+                  }
+                },
+                "description": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      },
+      "LegacyDecisionRequest": {
+        "type": "object",
+        "properties": {
+          "session_token": {
+            "type": "string",
+            "maxLength": 160
+          },
+          "request": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 300
+          }
+        },
+        "required": [
+          "session_token",
+          "request"
+        ],
+        "additionalProperties": false,
+        "description": "Compatibility path using the authorized reporting session and selected case."
+      },
+      "ReporterDecisionRequest": {
+        "type": "object",
+        "required": [
+          "crew_member_id",
+          "context"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "crew_member_id": {
+            "type": "string",
+            "format": "uuid",
+            "description": "Caller identity already authenticated by the reporting backend; must exist in CRM."
+          },
+          "context": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 64000,
+            "description": "Nonblank, well-formed free text without NUL; stored verbatim in private CRM. Limit is JavaScript UTF-16 string length. No truncation or automatic retry."
+          }
+        }
+      },
+      "ReporterBlob": {
+        "type": "object",
+        "required": [
+          "id",
+          "case_id",
+          "created_at",
+          "text"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "case_id": {
+            "type": "string",
+            "nullable": true
+          },
+          "created_at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "text": {
+            "type": "string",
+            "description": "Complete saved reporter text projection with phone-like numbers withheld; CRM retains the verbatim original."
+          }
+        }
+      },
+      "ReporterCase": {
+        "type": "object",
+        "description": "Complete caller-owned case facts, eligible stored solution, task history, parts, message statuses and timeline summaries. Private contact/provider identifiers are excluded.",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "equipment_id": {
+            "type": "string",
+            "format": "uuid",
+            "nullable": true
+          },
+          "status": {
+            "type": "string"
+          },
+          "symptom_revision": {
+            "type": "integer"
+          },
+          "solution": {
+            "type": "object",
+            "nullable": true,
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/StoredSolution"
+              }
+            ]
+          },
+          "task_history": {
+            "type": "array",
+            "items": {
+              "type": "object"
+            }
+          },
+          "parts": {
+            "type": "array",
+            "items": {
+              "type": "object"
+            }
+          },
+          "messages": {
+            "type": "array",
+            "items": {
+              "type": "object"
+            }
+          },
+          "events": {
+            "type": "array",
+            "items": {
+              "type": "object"
+            }
+          }
+        }
+      },
+      "ReporterCRMContext": {
+        "type": "object",
+        "required": [
+          "version",
+          "crew_member_id",
+          "current_reporter_context_id",
+          "profile",
+          "reporter_contexts",
+          "cases",
+          "selected_case",
+          "queue",
+          "history"
+        ],
+        "description": "Complete caller-scoped context. No five-case or ten-task preview cap. Large contexts fail classification explicitly instead of silently dropping records.",
+        "properties": {
+          "version": {
+            "type": "integer",
+            "enum": [
+              2
+            ]
+          },
+          "crew_member_id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "current_reporter_context_id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "profile": {
+            "type": "object",
+            "description": "Full caller profile, equipment, preferences and case references, excluding authentication/contact secrets."
+          },
+          "reporter_contexts": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ReporterBlob"
+            }
+          },
+          "cases": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ReporterCase"
+            }
+          },
+          "selected_case": {
+            "type": "object",
+            "nullable": true,
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/ReporterCase"
+              }
+            ]
+          },
+          "queue": {
+            "type": "array",
+            "items": {
+              "type": "object"
+            },
+            "description": "All current-revision, non-obsolete tasks for this caller\u2019s cases."
+          },
+          "history": {
+            "type": "array",
+            "items": {
+              "type": "object"
+            },
+            "description": "Caller interaction metadata without provider identifiers."
+          }
+        }
+      }
+    }
+  },
+  "servers": [
+    {
+      "url": "https://hailing-frequencies-app-production.up.railway.app"
+    }
+  ]
+}

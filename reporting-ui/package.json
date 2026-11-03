@@ -1,0 +1,19 @@
+{
+  "name": "hailing-frequencies-reporting",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "engines": { "node": ">=22.12" },
+  "scripts": {
+    "dev": "node --env-file-if-exists=.env server/index.mjs",
+    "dev:rehearsal": "vite --config vite.rehearsal.config.js",
+    "build:rehearsal": "vite build --config vite.rehearsal.config.js",
+    "preview:rehearsal": "vite preview --config vite.rehearsal.config.js",
+    "test:rehearsal:browser": "node tests/rehearsal.browser.mjs",
+    "build": "vite build",
+    "start": "node --env-file-if-exists=.env server/index.mjs --production",
+    "test": "node --test tests/*.test.mjs"
+  },
+  "dependencies": { "ws": "8.22.0" },
+  "devDependencies": { "vite": "8.3.4" }
+}

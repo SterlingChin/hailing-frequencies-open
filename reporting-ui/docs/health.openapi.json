@@ -1,0 +1,28 @@
+{
+  "openapi": "3.0.3",
+  "info": { "title": "Reporting UI API", "version": "0.1.0" },
+  "servers": [{ "url": "https://hailing-frequencies-reporting-production.up.railway.app" }],
+  "paths": {
+    "/health": {
+      "get": {
+        "operationId": "reportingHealth",
+        "summary": "Report reporting-UI process readiness and enabled integrations; makes no provider requests.",
+        "responses": {
+          "200": {
+            "description": "Reporting UI process is running.",
+            "content": { "application/json": { "schema": {
+              "type": "object",
+              "required": ["status", "service", "liveEnabled", "externalDeliveryEnabled"],
+              "properties": {
+                "status": { "type": "string", "enum": ["ready"] },
+                "service": { "type": "string", "enum": ["reporting-ui"] },
+                "liveEnabled": { "type": "boolean" },
+                "externalDeliveryEnabled": { "type": "boolean", "enum": [false] }
+              }
+            } } }
+          }
+        }
+      }
+    }
+  }
+}

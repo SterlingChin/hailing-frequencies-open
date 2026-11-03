@@ -1,0 +1,50 @@
+{
+  "retrieved_on": "2026-10-06",
+  "repository": "https://github.com/twilio/twilio-oai",
+  "commit": "141f1201b55abcc16b3aa8089e71c4a927326975",
+  "files": [
+    {
+      "file": "specs/twilio_api_v2010.yaml",
+      "upstream_path": "spec/yaml/twilio_api_v2010.yaml",
+      "sha256": "052b294839a56c89a921c77639305d99ad15be6e248bdeaef8975aea6cfcb339"
+    },
+    {
+      "file": "specs/twilio_messaging_v1.yaml",
+      "upstream_path": "spec/yaml/twilio_messaging_v1.yaml",
+      "sha256": "83264cd708ae69cb63dd6f55e4e557127a313b9a8b3a1a765b05bc271bf94673"
+    },
+    {
+      "file": "specs/twilio_lookups_v2.yaml",
+      "upstream_path": "spec/yaml/twilio_lookups_v2.yaml",
+      "sha256": "41d4d6f74271b7fcd70fd7de8d6acd30a20210d7f4bb58dd920821161c52d177"
+    },
+    {
+      "file": "specs/twilio_verify_v2.yaml",
+      "upstream_path": "spec/yaml/twilio_verify_v2.yaml",
+      "sha256": "054c2ca4b0ce15613a19a4dd03910abff790acc929f2958670a92124250b3ec0"
+    }
+  ],
+  "export_date": "2026-10-09",
+  "current_locations": [
+    {
+      "original_path": "specs/twilio_lookups_v2.yaml",
+      "file": ".sannr/stacks/lookups/twilio_lookups_v2.yaml",
+      "sha256": "41d4d6f74271b7fcd70fd7de8d6acd30a20210d7f4bb58dd920821161c52d177"
+    },
+    {
+      "original_path": "specs/twilio_messaging_v1.yaml",
+      "file": ".sannr/stacks/messaging/twilio_messaging_v1.yaml",
+      "sha256": "83264cd708ae69cb63dd6f55e4e557127a313b9a8b3a1a765b05bc271bf94673"
+    },
+    {
+      "original_path": "specs/twilio_api_v2010.yaml",
+      "file": ".sannr/stacks/twilio/twilio_api_v2010.yaml",
+      "sha256": "052b294839a56c89a921c77639305d99ad15be6e248bdeaef8975aea6cfcb339"
+    },
+    {
+      "original_path": "specs/twilio_verify_v2.yaml",
+      "file": ".sannr/stacks/verify/twilio_verify_v2.yaml",
+      "sha256": "054c2ca4b0ce15613a19a4dd03910abff790acc929f2958670a92124250b3ec0"
+    }
+  ]
+}

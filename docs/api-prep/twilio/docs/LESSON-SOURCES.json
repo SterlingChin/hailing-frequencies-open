@@ -1,0 +1,259 @@
+{
+  "source": "../../SOURCE-SNAPSHOT.json",
+  "evidence_included": false,
+  "notes": [
+    {
+      "api": "twilio",
+      "stack": "lookups",
+      "operation": "GET /v2/PhoneNumbers/{PhoneNumber}",
+      "shared_text_sha256": "3be18ccda30122dbcd64bacd3779d3cddd47803f9fe6d11e1989ae792113a5f6",
+      "source_note_id": "sha256:a20b62bd19b7c41c75735922b497fc8e6e1c5e09cf82312c08bb995bc0e303f3",
+      "source_text_sha256": "3be18ccda30122dbcd64bacd3779d3cddd47803f9fe6d11e1989ae792113a5f6",
+      "basis": "dated-documentation-note",
+      "edit": "Dated documentation wording retained",
+      "execution_verified_in_package": false
+    },
+    {
+      "api": "twilio",
+      "stack": "lookups",
+      "operation": "GET /v2/PhoneNumbers/{PhoneNumber}",
+      "shared_text_sha256": "4529b02e86fa6c38cc4aa0f5e6f3a88a0cc3ae92b9ebb7c61e5f8d024a293520",
+      "source_note_id": "sha256:5db1175cc436c487f2cc9363d2f60881806783ec7595bf198a7190323b6ac0b8",
+      "source_text_sha256": "4529b02e86fa6c38cc4aa0f5e6f3a88a0cc3ae92b9ebb7c61e5f8d024a293520",
+      "basis": "dated-documentation-note",
+      "edit": "Dated documentation wording retained",
+      "execution_verified_in_package": false
+    },
+    {
+      "api": "twilio",
+      "stack": "lookups",
+      "operation": "GET /v2/PhoneNumbers/{PhoneNumber}",
+      "shared_text_sha256": "38d2e062bf38a66d27a81d7d4ee45f1792173e5561c61403f0272c52cac1faec",
+      "source_note_id": "sha256:ba178891a148cdb2ce52608dae15476b07e56e65be6598bba0c039ee0650397b",
+      "source_text_sha256": "38d2e062bf38a66d27a81d7d4ee45f1792173e5561c61403f0272c52cac1faec",
+      "basis": "dated-documentation-note",
+      "edit": "Dated documentation wording retained",
+      "execution_verified_in_package": false
+    },
+    {
+      "api": "twilio",
+      "stack": "messaging",
+      "operation": "POST /v1/Services",
+      "shared_text_sha256": "ede73ff3a68c9d0a9d2bf428c99f0f48603bb91bce09d1e6d55ff7208cd6db61",
+      "source_note_id": "sha256:b44077b7cf9a81317bad7db6bc1962dbb733370087188aab14ef6e411845dca5",
+      "source_text_sha256": "fa0c382de758d6857d11cb889741bc781f64e6e007a728acb2acf997cb2c3741",
+      "basis": "historical-author-report",
+      "edit": "Bounded observation retained; causal/generalized conclusion removed; private evidence excluded",
+      "execution_verified_in_package": false
+    },
+    {
+      "api": "twilio",
+      "stack": "twilio",
+      "operation": "GET /2010-04-01/Accounts.json",
+      "shared_text_sha256": "f47249e1d10d571ea0e5be98a6800272b107bf35e222c9b8017120163650cd6a",
+      "source_note_id": "sha256:48b76487123af0f68c88d116a077ce9755501891fd26b550138d41bb0529eb03",
+      "source_text_sha256": "f47249e1d10d571ea0e5be98a6800272b107bf35e222c9b8017120163650cd6a",
+      "basis": "dated-documentation-note",
+      "edit": "Dated documentation wording retained",
+      "execution_verified_in_package": false
+    },
+    {
+      "api": "twilio",
+      "stack": "twilio",
+      "operation": "GET /2010-04-01/Accounts.json",
+      "shared_text_sha256": "8556789a5d2358f1ccf7115e02d8f3bf402b5bb4d7f80a77a5dc7ad0decf024f",
+      "source_note_id": "sha256:1192438a58212bd8b42516039563537dd1512c0b6db5b6f06bad77a651ee8e9e",
+      "source_text_sha256": "8556789a5d2358f1ccf7115e02d8f3bf402b5bb4d7f80a77a5dc7ad0decf024f",
+      "basis": "dated-documentation-note",
+      "edit": "Dated documentation wording retained",
+      "execution_verified_in_package": false
+    },
+    {
+      "api": "twilio",
+      "stack": "twilio",
+      "operation": "GET /2010-04-01/Accounts.json",
+      "shared_text_sha256": "8940a1bc35e8eff1bd62956cf0297090a3c72b6718b53807f94977e855b3dcb5",
+      "source_note_id": "sha256:2921cd1908d0947113ae2b0d91544177e1ab24980263bb678a17066c02e8d481",
+      "source_text_sha256": "8940a1bc35e8eff1bd62956cf0297090a3c72b6718b53807f94977e855b3dcb5",
+      "basis": "dated-documentation-note",
+      "edit": "Dated documentation wording retained",
+      "execution_verified_in_package": false
+    },
+    {
+      "api": "twilio",
+      "stack": "twilio",
+      "operation": "POST /2010-04-01/Accounts/{AccountSid}/IncomingPhoneNumbers/{Sid}.json",
+      "shared_text_sha256": "ac9cf9d498ecae953d1538d47993f102286af9ea19c65017af2892d6cc679739",
+      "source_note_id": "sha256:ee98fdd74cdf7f3c2ed020bff39a412dbb83cc2d9926321e303b92fcd990d980",
+      "source_text_sha256": "ac9cf9d498ecae953d1538d47993f102286af9ea19c65017af2892d6cc679739",
+      "basis": "dated-documentation-note",
+      "edit": "Dated documentation wording retained",
+      "execution_verified_in_package": false
+    },
+    {
+      "api": "twilio",
+      "stack": "twilio",
+      "operation": "POST /2010-04-01/Accounts/{AccountSid}/Messages.json",
+      "shared_text_sha256": "9b8f1e37cc32dcfd0188730a7c6f04b263b5d74e6c0b5c65d903763008d02d99",
+      "source_note_id": "sha256:52829932519c134dd0a9ac99622ded70a96432f77859a679344ec7ec382f684f",
+      "source_text_sha256": "9b8f1e37cc32dcfd0188730a7c6f04b263b5d74e6c0b5c65d903763008d02d99",
+      "basis": "dated-documentation-note",
+      "edit": "Dated documentation wording retained",
+      "execution_verified_in_package": false
+    },
+    {
+      "api": "twilio",
+      "stack": "twilio",
+      "operation": "POST /2010-04-01/Accounts/{AccountSid}/Messages.json",
+      "shared_text_sha256": "0329518e2abb617ead43781891fe11b45b3faabce9948aed21b8735471f726b1",
+      "source_note_id": "sha256:de730908ce8516936ff2ff55b1e36e6d2205191eb50467ebeda508d45a4f72ad",
+      "source_text_sha256": "0329518e2abb617ead43781891fe11b45b3faabce9948aed21b8735471f726b1",
+      "basis": "dated-documentation-note",
+      "edit": "Dated documentation wording retained",
+      "execution_verified_in_package": false
+    },
+    {
+      "api": "twilio",
+      "stack": "twilio",
+      "operation": "POST /2010-04-01/Accounts/{AccountSid}/Messages.json",
+      "shared_text_sha256": "c15a2f7209337c2468868b0a945e73b6426184a127d75eb26244b49c3b2f061e",
+      "source_note_id": "sha256:9956a1d8fe708220a3ad93b5127a53c1cc09d03ee0cea7c4556fa741f39b7b16",
+      "source_text_sha256": "c15a2f7209337c2468868b0a945e73b6426184a127d75eb26244b49c3b2f061e",
+      "basis": "dated-documentation-note",
+      "edit": "Dated documentation wording retained",
+      "execution_verified_in_package": false
+    },
+    {
+      "api": "twilio",
+      "stack": "twilio",
+      "operation": "POST /2010-04-01/Accounts/{AccountSid}/Messages.json",
+      "shared_text_sha256": "9e3a289a647f13cc07aef4d697bd2eb2c24b6499fc727801de45eca1befdb9af",
+      "source_note_id": "sha256:a53fdd82158f47b01f7bfd3284919f3f07102b9a057ae4e785e1aa633786d125",
+      "source_text_sha256": "9e3a289a647f13cc07aef4d697bd2eb2c24b6499fc727801de45eca1befdb9af",
+      "basis": "dated-documentation-note",
+      "edit": "Dated documentation wording retained",
+      "execution_verified_in_package": false
+    },
+    {
+      "api": "twilio",
+      "stack": "twilio",
+      "operation": "POST /2010-04-01/Accounts/{AccountSid}/Messages.json",
+      "shared_text_sha256": "e21c1b0373e6e7af15f092de540709d72a10814f511e3878ccae69682caf7fbd",
+      "source_note_id": "sha256:e682b5754e96eb29e7cdee7b009da3fe8ee54425c58b1eaae19641b7f57fa10b",
+      "source_text_sha256": "d812afc015ed3c3d58094c7e01484613eae54dea5d53cf0aa18077f7c3abf635",
+      "basis": "historical-author-report",
+      "edit": "Bounded observation retained; causal/generalized conclusion removed; private evidence excluded",
+      "execution_verified_in_package": false
+    },
+    {
+      "api": "twilio",
+      "stack": "twilio",
+      "operation": "DELETE /2010-04-01/Accounts/{AccountSid}/Queues/{Sid}.json",
+      "shared_text_sha256": "9703da93045d3d3f24f35090a9d0a7ad9d50b3f2f8d43c33ff322f7173ca10fe",
+      "source_note_id": "sha256:9c4074018885b1c0a925571dcda3054e6714442da1e292cfb60222e52786ce07",
+      "source_text_sha256": "15e4da43ad4a55ae9468a73bb9b647d058c53c4c0ab315e78707a1468392b31f",
+      "basis": "historical-author-report",
+      "edit": "Bounded observation retained; causal/generalized conclusion removed; private evidence excluded",
+      "execution_verified_in_package": false
+    },
+    {
+      "api": "twilio",
+      "stack": "twilio",
+      "operation": "POST /2010-04-01/Accounts/{AccountSid}/Queues.json",
+      "shared_text_sha256": "58049a4ecaa71b285b47b8e8296d523464c420218ed521d0fafe761fa12a7571",
+      "source_note_id": "sha256:ddba3a3ad1b0645430dd06d411a65e30000d2f5e0021897d3c6425799af9e224",
+      "source_text_sha256": "e39f0e8ba009a8e759a21c0d5af3f248d8ea84c1abc6f711a52bdb9f083334d8",
+      "basis": "historical-author-report",
+      "edit": "Bounded observation retained; causal/generalized conclusion removed; private evidence excluded",
+      "execution_verified_in_package": false
+    },
+    {
+      "api": "twilio",
+      "stack": "verify",
+      "operation": "POST /v2/Services",
+      "shared_text_sha256": "707dfa49800904a8f2327d547086da3fcb0e19a5be1ffcbbb286d53a92ceb66e",
+      "source_note_id": "sha256:6aee3bbaf4b4fbe4d0a8bb0376b348fe9d386812d9eee8fa0f3aca653c132b62",
+      "source_text_sha256": "f71ae2fecaad0c7ca109cd27ef645c5b3abed92f06416b36c46c9f4a35ed96cd",
+      "basis": "historical-author-report",
+      "edit": "Bounded observation retained; causal/generalized conclusion removed; private evidence excluded",
+      "execution_verified_in_package": false
+    },
+    {
+      "api": "twilio",
+      "stack": "verify",
+      "operation": "POST /v2/Services",
+      "shared_text_sha256": "a0ff04d15212fe185b89e0b9d08edb199a3bd7f5d4808902b21d3d984e3cd5c5",
+      "source_note_id": "sha256:e5a209f5df5f730ec220933f506a0f0e22804b5d36d38262347906091e6726b7",
+      "source_text_sha256": "9f7c515163709b9685914f35db7f0e1f7a192c31a2265730966690ec1ed7c114",
+      "basis": "historical-author-report",
+      "edit": "Bounded observation retained; causal/generalized conclusion removed; private evidence excluded",
+      "execution_verified_in_package": false
+    },
+    {
+      "api": "twilio",
+      "stack": "verify",
+      "operation": "GET /v2/Services",
+      "shared_text_sha256": "5e4e5f57b7c7b71083c8c214740a1bb623b4c7d2ac361be8f0674dcc563861f5",
+      "source_note_id": "sha256:2f68e9ca63a4fc6f43af54558cf1815b0a0eca60b103db60d361f969adf3ec01",
+      "source_text_sha256": "5e4e5f57b7c7b71083c8c214740a1bb623b4c7d2ac361be8f0674dcc563861f5",
+      "basis": "dated-documentation-note",
+      "edit": "Dated documentation wording retained",
+      "execution_verified_in_package": false
+    },
+    {
+      "api": "twilio",
+      "stack": "verify",
+      "operation": "DELETE /v2/Services/{Sid}",
+      "shared_text_sha256": "84ac3c4650682e9d80ef41ddffcf82373b73b7a844ccd2c805d81a0b704caf38",
+      "source_note_id": "sha256:30ec2e9e6a98c8147751f2881626f7aaecdbb8bc50b1a35209681931d0d1df78",
+      "source_text_sha256": "de5e63f7a2c224ba792d5ab27e3a744425b4bd1b3a54c12229770d59b7629aea",
+      "basis": "historical-author-report",
+      "edit": "Bounded observation retained; causal/generalized conclusion removed; private evidence excluded",
+      "execution_verified_in_package": false
+    },
+    {
+      "api": "twilio",
+      "stack": "verify",
+      "operation": "POST /v2/Services/{ServiceSid}/Verifications",
+      "shared_text_sha256": "a5505bfc3154a76702d575d1e596ec0750fb57406350a9e79c706f994787c704",
+      "source_note_id": "sha256:181f77ad345d6e71388898aeca7428ed8129db4a9482968abbd9d5ffcb83fd4c",
+      "source_text_sha256": "a5505bfc3154a76702d575d1e596ec0750fb57406350a9e79c706f994787c704",
+      "basis": "dated-documentation-note",
+      "edit": "Dated documentation wording retained",
+      "execution_verified_in_package": false
+    },
+    {
+      "api": "twilio",
+      "stack": "verify",
+      "operation": "POST /v2/Services/{ServiceSid}/Verifications",
+      "shared_text_sha256": "c1aed4c9119364b2740916ed434de5d49bf79eb7996ae87e947afcfd2e0ce954",
+      "source_note_id": "sha256:ae1d80011d9a44cadfc3662a50c07511991b4dfa316df0b4db332d6432337062",
+      "source_text_sha256": "c1aed4c9119364b2740916ed434de5d49bf79eb7996ae87e947afcfd2e0ce954",
+      "basis": "dated-documentation-note",
+      "edit": "Dated documentation wording retained",
+      "execution_verified_in_package": false
+    },
+    {
+      "api": "twilio",
+      "stack": "verify",
+      "operation": "GET /v2/Services/{ServiceSid}/Verifications/{Sid}",
+      "shared_text_sha256": "5351c8e441f083d132995e6947a0491896dd542ed41767ab8fbe72054fcacdb8",
+      "source_note_id": "sha256:2381d44d736df177f4b3058e6ca737300cabd30224d946b4a2703a7c28c4e957",
+      "source_text_sha256": "5351c8e441f083d132995e6947a0491896dd542ed41767ab8fbe72054fcacdb8",
+      "basis": "dated-documentation-note",
+      "edit": "Dated documentation wording retained",
+      "execution_verified_in_package": false
+    },
+    {
+      "api": "twilio",
+      "stack": "verify",
+      "operation": "POST /v2/Services/{ServiceSid}/VerificationCheck",
+      "shared_text_sha256": "bde51af3317d62974348666eace4b20cd181d7ea14a313b48d1982d38e35628f",
+      "source_note_id": "sha256:5d67e3bd319ca2987087aab0c5368a00a4f5fb73d39e740b32c8aff4fc9342bc",
+      "source_text_sha256": "bde51af3317d62974348666eace4b20cd181d7ea14a313b48d1982d38e35628f",
+      "basis": "dated-documentation-note",
+      "edit": "Dated documentation wording retained",
+      "execution_verified_in_package": false
+    }
+  ]
+}

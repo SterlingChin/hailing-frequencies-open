@@ -1,0 +1,269 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Hailing Frequencies Expert MCP transport",
+    "version": "0.1.0",
+    "description": "HTTP transport inventory from expert-agents-mcp source and inherited discovery evidence. Not a complete MCP protocol schema and not evidence of expert execution."
+  },
+  "paths": {
+    "/healthz": {
+      "get": {
+        "operationId": "expertHealth",
+        "summary": "Read expert service process health",
+        "description": "Unauthenticated process liveness only; does not exercise a model or expert.",
+        "responses": {
+          "200": {
+            "description": "Process responds",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "ok": {
+                      "type": "boolean",
+                      "enum": [
+                        true
+                      ]
+                    }
+                  },
+                  "required": [
+                    "ok"
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "security": []
+      }
+    },
+    "/mcp": {
+      "post": {
+        "operationId": "expertMcpRequest",
+        "summary": "Send a stateless MCP request",
+        "description": "MCP 2026-07-28, per-request version/client metadata; legacy initialize is unsupported. tools/call may incur OpenAI usage or run expert tools and requires explicit authorization. This client does not negotiate Tasks. ANSWERED.answer is a completed answer; EXPERT_AGENT_DISPATCHED requires expert_collect until completed.report. Triage summary alone is not a final result. The Decisions backend returns a proposed expert_engineering call for IT/Maintenance, with a JSON-string context snapshot; the reporting backend owns actual MCP calls and dispatch tracking. Decisions never invokes this transport. The catalog is repository-declared, not currently verified by live discovery. Bearer token is SPECIALISTS_MCP_TOKEN on the caller, EXPERT_MCP_TOKEN on the server.",
+        "responses": {
+          "200": {
+            "description": "JSON-RPC response; HTTP 200 can include JSON-RPC or tool errors",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "jsonrpc": {
+                      "type": "string",
+                      "enum": [
+                        "2.0"
+                      ]
+                    },
+                    "id": {
+                      "oneOf": [
+                        {
+                          "type": "string"
+                        },
+                        {
+                          "type": "number"
+                        }
+                      ]
+                    },
+                    "result": {
+                      "type": "object",
+                      "properties": {}
+                    },
+                    "error": {
+                      "type": "object",
+                      "properties": {}
+                    }
+                  },
+                  "required": [
+                    "jsonrpc",
+                    "id"
+                  ]
+                }
+              },
+              "text/event-stream": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Bearer token rejected",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "error"
+                  ]
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Host or Origin rejected"
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "jsonrpc": {
+                    "type": "string",
+                    "enum": [
+                      "2.0"
+                    ]
+                  },
+                  "id": {
+                    "oneOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "number"
+                      }
+                    ]
+                  },
+                  "method": {
+                    "type": "string",
+                    "enum": [
+                      "server/discover",
+                      "tools/list",
+                      "tools/call"
+                    ]
+                  },
+                  "params": {
+                    "type": "object",
+                    "properties": {
+                      "_meta": {
+                        "type": "object",
+                        "properties": {
+                          "io.modelcontextprotocol/protocolVersion": {
+                            "type": "string",
+                            "enum": [
+                              "2026-07-28"
+                            ]
+                          },
+                          "io.modelcontextprotocol/clientInfo": {
+                            "type": "object",
+                            "properties": {
+                              "name": {
+                                "type": "string"
+                              },
+                              "version": {
+                                "type": "string"
+                              }
+                            },
+                            "required": [
+                              "name",
+                              "version"
+                            ]
+                          },
+                          "io.modelcontextprotocol/clientCapabilities": {
+                            "type": "object",
+                            "properties": {}
+                          }
+                        },
+                        "required": [
+                          "io.modelcontextprotocol/protocolVersion",
+                          "io.modelcontextprotocol/clientInfo",
+                          "io.modelcontextprotocol/clientCapabilities"
+                        ]
+                      },
+                      "name": {
+                        "type": "string",
+                        "description": "For tools/call: expert_engineering, expert_research, expert_logistics, list_experts, expert_status, expert_collect or expert_cancel."
+                      },
+                      "arguments": {
+                        "type": "object",
+                        "properties": {},
+                        "description": "Expert consultation: question and optional context. Status/collect/cancel: dispatchId. Tool catalog remains authoritative."
+                      }
+                    },
+                    "required": [
+                      "_meta"
+                    ]
+                  }
+                },
+                "required": [
+                  "jsonrpc",
+                  "id",
+                  "method",
+                  "params"
+                ]
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "ExpertServiceToken": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "MCP-Protocol-Version",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "2026-07-28"
+              ]
+            }
+          },
+          {
+            "name": "Mcp-Method",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "server/discover",
+                "tools/list",
+                "tools/call"
+              ]
+            }
+          },
+          {
+            "name": "Mcp-Name",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "description": "Required for tools/call; match params.name."
+            }
+          },
+          {
+            "name": "Accept",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "application/json, text/event-stream"
+              ]
+            }
+          }
+        ]
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "ExpertServiceToken": {
+        "type": "http",
+        "scheme": "bearer"
+      }
+    }
+  }
+}

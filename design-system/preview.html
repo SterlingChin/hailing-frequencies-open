@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hailing Frequencies Open · Design System Preview</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Antonio:wght@400;600;700&family=Atkinson+Hyperlegible:wght@400;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="tokens.css">
+  <link rel="stylesheet" href="components.css">
+  <style>
+    body { margin: 0; }
+    .preview-note { padding: 1rem 1.5rem; background: #ffe14d; color: #0b0a0f; font: 600 1rem/1.4 system-ui, sans-serif; }
+    .preview-note a { color: inherit; }
+    .preview-section { min-height: 100vh; padding: 3rem max(1rem, calc((100vw - 100rem) / 2)); }
+    .preview-section__intro { max-width: 65rem; margin-bottom: 2rem; }
+    .preview-section__intro p { margin-top: 0.5rem; }
+    .preview-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
+    @media (max-width: 700px) { .preview-section { padding: 2rem 1rem; } .preview-grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <div class="preview-note">Static component preview · All people, equipment, cases, and messages are invented demo data. <a href="README.md">Read the design rules</a>.</div>
+
+  <main>
+    <section class="hf-app hf-shell" data-hf-theme="bridge" aria-labelledby="live-title">
+      <div class="hf-console">
+        <header class="hf-command-bar hf-console__header">
+          <div>
+            <p class="hf-kicker hf-muted">Hailing Frequencies Open</p>
+            <h1 id="live-title" class="hf-command-bar__brand">Ship bridge</h1>
+          </div>
+          <span class="hf-status" data-state="connected">Call connected · Dev Phone</span>
+          <span class="hf-kicker hf-muted">Case HF-042</span>
+        </header>
+
+        <aside class="hf-zone hf-stack" data-zone="context" aria-labelledby="context-title">
+          <p class="hf-kicker" id="context-title">Crew &amp; equipment</p>
+          <dl class="hf-context-list">
+            <div><dt>Crew member</dt><dd>Commander Avery Chen</dd></div>
+            <div><dt>Ship</dt><dd>USS Wayfinder</dd></div>
+            <div><dt>Equipment</dt><dd>Replicator RPL-2400 · Deck 7</dd></div>
+            <div><dt>Relevant history</dt><dd>Thermal calibration completed two weeks ago</dd></div>
+          </dl>
+          <p class="hf-muted">Demo profile loaded after spoken authorization.</p>
+        </aside>
+
+        <section class="hf-zone" data-zone="conversation" aria-labelledby="conversation-title">
+          <div class="hf-stack" data-gap="small">
+            <p class="hf-kicker hf-muted" id="conversation-title">Live conversation</p>
+            <div class="hf-speaker" data-role="agent"><span class="hf-speaker__glyph" aria-hidden="true">◆</span><span>Agent speaking</span></div>
+          </div>
+          <p class="hf-caption">Engineering is checking the thermal calibration procedure.</p>
+          <div class="hf-transcript" aria-label="Earlier conversation">
+            <div class="hf-transcript__line"><strong>Avery</strong><p>My replicator is making cold coffee.</p></div>
+            <div class="hf-transcript__line"><strong>Agent</strong><p>I have your RPL-2400 on Deck 7. What is it doing?</p></div>
+          </div>
+          <p class="hf-muted">Call controls remain in Dev Phone. You can keep talking while Engineering works.</p>
+          <a class="hf-action" href="#recap">See case recap</a>
+        </section>
+
+        <aside class="hf-zone hf-stack" data-zone="specialists" aria-labelledby="specialists-title">
+          <p class="hf-kicker" id="specialists-title">Specialists</p>
+          <article class="hf-card hf-task hf-stack" data-specialist="engineering" data-state="working">
+            <div class="hf-card__head"><h2 class="hf-card__title">Engineering</h2><span class="hf-status" data-state="working">Working</span></div>
+            <p>Check the thermal calibration procedure for this model.</p>
+          </article>
+          <article class="hf-card hf-task hf-stack" data-specialist="logistics" data-state="queued">
+            <div class="hf-card__head"><h2 class="hf-card__title">Logistics</h2><span class="hf-status" data-state="queued">Queued</span></div>
+            <p>Check availability of a compatible thermal regulator.</p>
+          </article>
+          <p class="hf-muted">Queued work is not a completed finding or a part reservation.</p>
+        </aside>
+      </div>
+    </section>
+
+    <section class="hf-app preview-section" data-hf-theme="desk" id="recap" aria-labelledby="recap-title">
+      <div class="preview-section__intro">
+        <p class="hf-kicker hf-muted">Communications desk · after call</p>
+        <h2 class="hf-title" id="recap-title">Case HF-042</h2>
+        <p>One record connects the conversation, specialist work, and requested follow-up. The outcome remains a possible cause until the caller confirms a repair.</p>
+      </div>
+      <div class="preview-grid">
+        <section class="hf-zone hf-stack" aria-labelledby="timeline-title">
+          <h3 class="hf-card__title" id="timeline-title">Case timeline</h3>
+          <ol class="hf-timeline">
+            <li class="hf-timeline__item"><time class="hf-timeline__time">14:02</time><span class="hf-timeline__mark" aria-hidden="true">☎</span><div class="hf-timeline__body"><strong>Avery reported cold coffee</strong><p>Replicator RPL-2400 · Deck 7. Other hot drinks have not yet been checked.</p></div></li>
+            <li class="hf-timeline__item" data-kind="task"><time class="hf-timeline__time">14:04</time><span class="hf-timeline__mark" aria-hidden="true">E</span><div class="hf-timeline__body"><strong>Engineering result</strong><p>Calibration drift is a possible cause. Check whether another hot drink is also cold.</p></div></li>
+            <li class="hf-timeline__item" data-kind="message"><time class="hf-timeline__time">14:06</time><span class="hf-timeline__mark" aria-hidden="true">SMS</span><div class="hf-timeline__body"><strong>Avery requested a text recap</strong><p>Written repair steps are preferred by SMS; the request is what starts this message.</p></div></li>
+          </ol>
+        </section>
+        <div class="hf-stack">
+          <article class="hf-card hf-next-step hf-stack">
+            <div class="hf-card__head"><h3 class="hf-card__title">Next useful step</h3><span class="hf-status">Proposed</span></div>
+            <p>Try a different hot drink and check whether it is cold. The cause has not been confirmed.</p>
+          </article>
+          <article class="hf-card hf-followup hf-stack">
+            <div class="hf-card__head"><h3 class="hf-card__title">Repair summary</h3><span class="hf-status" data-state="queued">Queued</span></div>
+            <p>To mobile ending 0147 · SMS requested by Avery. Delivery has not been confirmed.</p>
+          </article>
+          <p class="hf-muted">The call has ended. The parts check is still pending.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

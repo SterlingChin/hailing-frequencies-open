@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hailing Frequencies Open · Bridge companion</title>
+  <link rel="stylesheet" href="/design-system/tokens.css">
+  <link rel="stylesheet" href="/design-system/components.css">
+  <link rel="stylesheet" href="/web/app.css">
+  <script src="/web/app.js" defer></script>
+</head>
+<body class="hf-app" data-hf-theme="bridge">
+  <a class="hf-skip" href="#conversation">Skip to conversation</a>
+  <div class="hf-shell">
+    <header class="hf-command-bar hf-header">
+      <div class="hf-command-bar__brand">Hailing Frequencies Open</div>
+      <span class="hf-kicker">Federation support / 01</span>
+      <a href="#recap">Case recap ↗</a>
+    </header>
+    <div class="hf-demo-bar">
+      <p><strong>Fixture preview</strong> · Invented crew, call and delivery states. Live calls are not connected to this screen.</p>
+      <span id="feed-status" class="hf-kicker" role="status">Connecting to preview…</span>
+    </div>
+    <main class="hf-console">
+      <aside class="hf-zone hf-stack" data-zone="context" aria-labelledby="context-title">
+        <p class="hf-kicker hf-muted">01 / Crew &amp; context</p>
+        <h2 id="context-title" class="hf-card__title">Your station</h2>
+        <span id="profile-state" class="hf-status">No profile loaded</span>
+        <dl class="hf-context-list">
+          <div><dt>Crew</dt><dd id="crew-name">Waiting for authorization</dd></div>
+          <div><dt>Ship</dt><dd id="ship">—</dd></div>
+          <div><dt>Equipment</dt><dd id="equipment">—</dd></div>
+          <div><dt>Case</dt><dd id="case-id">No case selected</dd></div>
+          <div><dt>Reported symptom</dt><dd id="symptom">—</dd></div>
+        </dl>
+        <details><summary>History &amp; preferences</summary><div class="hf-stack hf-details"><p id="history">No history loaded.</p><p id="preferences">A channel preference never sends a message.</p></div></details>
+        <p class="hf-muted hf-small">Use Twilio Dev Phone for calls, microphone, mute and hang-up. This companion has no dialer.</p>
+      </aside>
+      <section id="conversation" class="hf-zone" data-zone="conversation" aria-labelledby="conversation-title" tabindex="-1">
+        <div class="hf-card__head"><h1 id="conversation-title" class="hf-kicker">02 / Open channel</h1><span id="connection" class="hf-status" data-state="connecting" role="status">Fixture · connecting</span></div>
+        <div class="hf-live-line">
+          <p id="speaker" class="hf-speaker" data-role="caller"><span class="hf-speaker__glyph" aria-hidden="true">CR</span><span id="speaker-name">Caller</span></p>
+          <p id="speaker-state" class="hf-kicker hf-muted">Opening a channel</p>
+          <p id="caption" class="hf-caption" aria-live="polite" aria-atomic="true">Open a channel to Federation Customer Service.</p>
+        </div>
+        <article id="next-step" class="hf-card hf-next-step hf-stack" hidden>
+          <p class="hf-kicker">Next step</p><h2 id="next-title" class="hf-card__title"></h2><p id="next-text"></p><p id="next-status" class="hf-small"></p><p id="next-source" class="hf-muted hf-small"></p>
+        </article>
+        <p id="waiting" class="hf-muted">The support officer will ask about the problem before proposing a repair.</p>
+      </section>
+      <aside class="hf-zone hf-stack" data-zone="specialists" aria-labelledby="specialists-title">
+        <p class="hf-kicker hf-muted">03 / Specialist desk</p><h2 id="specialists-title" class="hf-card__title">Working with you</h2>
+        <div id="tasks" class="hf-stack" aria-live="polite"><p class="hf-muted">No specialist assigned yet.</p></div>
+        <p class="hf-muted hf-small">Authored fictional catalogs. A parts check does not reserve, order or ship anything.</p>
+      </aside>
+    </main>
+    <section class="hf-preview-controls" aria-label="Fixture controls">
+      <label for="scenario" class="hf-kicker">Rehearse a story</label>
+      <select id="scenario"><option value="repair">Cold coffee → screen summary</option><option value="returning">Returning caller → shipment history</option><option value="failure">SMS failure → screen summary</option><option value="revised">Symptom correction → obsolete task</option></select>
+      <button id="replay" class="hf-action" type="button">Replay fixture</button>
+      <button id="pause" class="hf-action" data-kind="secondary" type="button">Pause preview</button>
+    </section>
+    <section id="recap" class="hf-app hf-recap" data-hf-theme="desk" aria-labelledby="recap-title">
+      <div class="hf-recap-header"><div><p class="hf-kicker">04 / Communications desk</p><h2 id="recap-title" class="hf-title">One case. Every next step.</h2></div><p class="hf-muted">Fictional recap · review at your own pace</p></div>
+      <div class="hf-recap-grid">
+        <ol id="timeline" class="hf-timeline" aria-label="Case timeline"></ol>
+        <article class="hf-card hf-followup hf-stack" aria-labelledby="followup-title">
+          <p class="hf-kicker">Repair follow-up</p><h3 id="followup-title" class="hf-card__title">Keep the details with you</h3>
+          <span id="message-status" class="hf-status">Not requested</span><p id="message-destination" class="hf-muted"></p><p id="message-text">No text has been requested.</p>
+          <div id="summary-box" class="hf-stack" hidden><p class="hf-kicker">On-screen repair summary</p><p id="repair-summary" class="hf-summary"></p><button id="copy" class="hf-action" data-kind="secondary" type="button">Copy repair summary</button><p id="copy-status" role="status" class="hf-small"></p></div>
+          <p class="hf-muted hf-small">This preview sends nothing. Delivery must be confirmed before a real message is labeled delivered.</p>
+        </article>
+      </div>
+    </section>
+    <footer class="hf-footer hf-kicker hf-muted">USS Wayfinder / Fictional support exercise <a href="#conversation">Back to channel ↑</a></footer>
+    <noscript><p>Enable JavaScript to receive the fixture captions and recap. This page does not start calls or send texts.</p></noscript>
+  </div>
+</body>
+</html>

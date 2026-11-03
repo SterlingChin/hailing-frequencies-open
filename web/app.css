@@ -1,0 +1,23 @@
+.hf-app [hidden] { display: none !important; }
+.hf-header, .hf-demo-bar, .hf-preview-controls, .hf-recap, .hf-footer { max-width: 100rem; margin-inline: auto; }
+.hf-header { margin-bottom: var(--hf-space-2); }
+.hf-demo-bar { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: var(--hf-space-1); padding: var(--hf-space-1) 0 var(--hf-space-2); color: var(--hf-text-muted); font-size: var(--hf-type-meta); }
+.hf-demo-bar strong { color: var(--hf-amber); }
+.hf-live-line { display: flex; flex-direction: column; gap: var(--hf-space-2); min-height: 19rem; padding-block: var(--hf-space-2); }
+.hf-small { font-size: var(--hf-type-meta); }
+.hf-details { padding-top: var(--hf-space-2); }
+.hf-app summary { cursor: pointer; color: var(--hf-text-muted); }
+.hf-app :where(select, summary):focus-visible { outline: 3px solid var(--hf-focus); outline-offset: 4px; }
+.hf-preview-controls { display: flex; flex-wrap: wrap; align-items: center; gap: var(--hf-space-2); padding: var(--hf-space-3) 0; }
+.hf-preview-controls select { min-width: 0; max-width: 100%; min-height: 2.75rem; padding: var(--hf-space-1); color: var(--hf-text); background: var(--hf-panel); border: 1px solid var(--hf-border); border-radius: var(--hf-radius-inner); font: inherit; }
+.hf-recap { padding: var(--hf-space-4); border-radius: var(--hf-radius-elbow); scroll-margin-top: var(--hf-space-2); }
+.hf-recap-header { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: end; gap: var(--hf-space-2); margin-bottom: var(--hf-space-4); }
+.hf-recap-header h2 { margin-top: var(--hf-space-1); }
+.hf-recap-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(17rem, 0.8fr); gap: var(--hf-space-4); align-items: start; }
+.hf-summary { white-space: pre-wrap; }
+.hf-footer { display: flex; flex-wrap: wrap; justify-content: space-between; gap: var(--hf-space-2); padding: var(--hf-space-3) 0; }
+.hf-app p, .hf-app dd { overflow-wrap: anywhere; }
+.hf-skip { position: absolute; left: var(--hf-space-2); top: -10rem; padding: var(--hf-space-1); background: var(--hf-panel); z-index: 5; }
+.hf-skip:focus { top: var(--hf-space-2); }
+@media (max-width: 900px) { .hf-recap-grid { grid-template-columns: 1fr; } }
+@media (max-width: 650px) { .hf-live-line { min-height: 15rem; } .hf-recap { padding: var(--hf-space-2); } .hf-preview-controls { align-items: stretch; } .hf-preview-controls label { width: 100%; } }

@@ -1,0 +1,118 @@
+{
+  "v": 0,
+  "api": {
+    "name": "Unsorted API inventory"
+  },
+  "generated_at": "2026-10-09T00:00:00.000Z",
+  "operations": {
+    "POST /responses?beta=true": {
+      "source_file": null,
+      "verified_at": null,
+      "contract_digest": null,
+      "shape_hash": null,
+      "status_codes": [],
+      "effect": "write",
+      "fields": {},
+      "note_integrity": {
+        "v": 1,
+        "digest": "sha256:6f39514932a08859ca98d26e4558c2dd7de0c4038de53705e1c4e06d017d3607",
+        "prior_integrity": "recorded",
+        "acknowledgements": []
+      }
+    },
+    "GET /responses/{response_id}?beta=true": {
+      "source_file": null,
+      "verified_at": null,
+      "contract_digest": null,
+      "shape_hash": null,
+      "status_codes": [],
+      "effect": "read",
+      "fields": {},
+      "note_integrity": {
+        "v": 1,
+        "digest": "sha256:6f39514932a08859ca98d26e4558c2dd7de0c4038de53705e1c4e06d017d3607",
+        "prior_integrity": "recorded",
+        "acknowledgements": []
+      }
+    },
+    "DELETE /responses/{response_id}?beta=true": {
+      "source_file": null,
+      "verified_at": null,
+      "contract_digest": null,
+      "shape_hash": null,
+      "status_codes": [],
+      "effect": "write",
+      "fields": {},
+      "note_integrity": {
+        "v": 1,
+        "digest": "sha256:6f39514932a08859ca98d26e4558c2dd7de0c4038de53705e1c4e06d017d3607",
+        "prior_integrity": "recorded",
+        "acknowledgements": []
+      }
+    },
+    "POST /responses/{response_id}/cancel?beta=true": {
+      "source_file": null,
+      "verified_at": null,
+      "contract_digest": null,
+      "shape_hash": null,
+      "status_codes": [],
+      "effect": "write",
+      "fields": {},
+      "note_integrity": {
+        "v": 1,
+        "digest": "sha256:6f39514932a08859ca98d26e4558c2dd7de0c4038de53705e1c4e06d017d3607",
+        "prior_integrity": "recorded",
+        "acknowledgements": []
+      }
+    },
+    "POST /responses/compact?beta=true": {
+      "source_file": null,
+      "verified_at": null,
+      "contract_digest": null,
+      "shape_hash": null,
+      "status_codes": [],
+      "effect": "write",
+      "fields": {},
+      "note_integrity": {
+        "v": 1,
+        "digest": "sha256:6f39514932a08859ca98d26e4558c2dd7de0c4038de53705e1c4e06d017d3607",
+        "prior_integrity": "recorded",
+        "acknowledgements": []
+      }
+    },
+    "GET /responses/{response_id}/input_items?beta=true": {
+      "source_file": null,
+      "verified_at": null,
+      "contract_digest": null,
+      "shape_hash": null,
+      "status_codes": [],
+      "effect": "read",
+      "fields": {},
+      "note_integrity": {
+        "v": 1,
+        "digest": "sha256:6f39514932a08859ca98d26e4558c2dd7de0c4038de53705e1c4e06d017d3607",
+        "prior_integrity": "recorded",
+        "acknowledgements": []
+      }
+    },
+    "POST /responses/input_tokens?beta=true": {
+      "source_file": null,
+      "verified_at": null,
+      "contract_digest": null,
+      "shape_hash": null,
+      "status_codes": [],
+      "effect": "write",
+      "fields": {},
+      "note_integrity": {
+        "v": 1,
+        "digest": "sha256:6f39514932a08859ca98d26e4558c2dd7de0c4038de53705e1c4e06d017d3607",
+        "prior_integrity": "recorded",
+        "acknowledgements": []
+      }
+    }
+  },
+  "api_context": {
+    "v": 1,
+    "operations": {}
+  }
+}

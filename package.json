@@ -1,0 +1,32 @@
+{
+  "name": "hailing-frequencies-open",
+  "private": true,
+  "description": "Shared project workspace for Sterling and Michael",
+  "license": "MIT",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "sannr:setup": "sannr connect",
+    "sannr:stacks": "sannr stacks --json",
+    "test:voice": "node --test voice/*.test.mjs",
+    "test:crm": "node --test crm/*.test.mjs",
+    "db:migrate": "node scripts/db-migrate.mjs",
+    "db:seed": "node crm/seed.mjs",
+    "db:seed:roster": "node crm/roster.mjs",
+    "start:voice": "node app/server.mjs",
+    "start": "node app/server.mjs",
+    "test:app": "node --test app/*.test.mjs",
+    "test": "npm run test:voice && npm run test:crm && npm run test:app && npm run test:sms && npm run test:decisions",
+    "test:decisions": "node --test decisions/*.test.mjs queue/*.test.mjs",
+    "test:sms": "node --test sms/*.test.mjs"
+  },
+  "devDependencies": {
+    "@sannr/sannr": "^0.1.0-beta.1"
+  },
+  "dependencies": {
+    "pg": "8.23.1",
+    "twilio": "6.1.2",
+    "ws": "8.22.0"
+  }
+}

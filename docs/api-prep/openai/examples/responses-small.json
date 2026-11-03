@@ -1,0 +1,25 @@
+{
+  "v": 2,
+  "protocol": "http",
+  "method": "POST",
+  "path": "/responses",
+  "body": {
+    "model": "gpt-4.1-nano",
+    "input": "Say hi",
+    "max_output_tokens": 16,
+    "store": false
+  },
+  "expect": [
+    {
+      "status": 200
+    },
+    {
+      "json": "status",
+      "equals": "completed"
+    },
+    {
+      "json": "usage.output_tokens",
+      "lt": 17
+    }
+  ]
+}

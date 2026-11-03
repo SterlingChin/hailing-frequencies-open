@@ -1,0 +1,18 @@
+{
+  "v": 2,
+  "protocol": "http",
+  "method": "GET",
+  "path": "/v2/Services",
+  "params": {
+    "PageSize": 1
+  },
+  "expect": [
+    {
+      "status": 200
+    },
+    {
+      "json": "services",
+      "type": "array"
+    }
+  ]
+}

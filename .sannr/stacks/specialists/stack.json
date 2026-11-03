@@ -1,0 +1,19 @@
+{
+  "v": 1,
+  "name": "specialists",
+  "default_environment": "production",
+  "environments": {
+    "production": {
+      "baseUrl": "https://web-dev-challenge-production.up.railway.app",
+      "auth": "bearer:SPECIALISTS_MCP_TOKEN",
+      "envFile": "../../../.env",
+      "production": true
+    },
+    "reporting-test": {
+      "baseUrl": "https://web-dev-challenge-production.up.railway.app",
+      "auth": "bearer:REPORTING_EXPERT_TOKEN",
+      "production": true
+    }
+  },
+  "contract": "specialists.openapi.json"
+}

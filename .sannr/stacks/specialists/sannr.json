@@ -1,0 +1,571 @@
+{
+  "v": 0,
+  "api": {
+    "contract": ".sannr/stacks/specialists/specialists.openapi.json",
+    "contract_digest": "sha256:42f98d6b67a4de77"
+  },
+  "generated_at": "2026-10-12",
+  "operations": {
+    "POST /mcp": {
+      "source_file": null,
+      "verified_at": null,
+      "contract_digest": null,
+      "shape_hash": null,
+      "status_codes": [],
+      "effect": null,
+      "fields": {},
+      "notes": [
+        "Observed on 2026-10-12 in specialists/production: expert-agents-mcp 0.1.0 accepts authenticated server/discover with MCP 2026-07-28 per-request metadata and headers, while legacy initialize is rejected with -32022; no expert was invoked.",
+        "Declared by the specialists/production tools/list response on 2026-10-12: expert_engineering, expert_research and expert_logistics accept question plus optional context and may return EXPERT_AGENT_DISPATCHED with dispatchId for expert_collect; this is catalog metadata, not observed tool execution.",
+        "Source inspection of expert-agents-mcp at 7eed58e and local scripted integration tests on 2026-10-12 establish that clients without the Tasks extension receive ANSWERED.answer or EXPERT_AGENT_DISPATCHED.dispatchId, then expert_collect returns working or completed.report; the triage summary is not the answer, and deployed expert execution remains unverified.",
+        "Observed 2026-10-12 using the live expert-service token in reporting-test: tools/list required protocolVersion,clientInfo,clientCapabilities metadata for MCP2026-07-28 and returned only maintenance with question and optional context; this supersedes assumptions that the deployed catalog currently includes engineering or IT, and no expert execution was invoked in this discovery."
+      ],
+      "notes_provenance": [
+        {
+          "by": "agent",
+          "at": "2026-10-12",
+          "evidence": [
+            {
+              "run_id": "run-6f3248e6-8399-4ba2-9aec-a182ecfe90eb",
+              "state": "available",
+              "digest": "sha256:cd3b49e6d264cf4e81a981a7f5aabe13878b9920132aedf6ca32f9e47a3cee6b",
+              "provenance": {
+                "initiator": "cli.protocol",
+                "transport": "api_request:http",
+                "observed_at": "2026-10-12T16:01:28.562Z",
+                "package_version": "0.1.0-alpha.10",
+                "build_id": "ce82818f-288a-46c3-9173-601e11b92ac1"
+              },
+              "scope": {
+                "operation": null,
+                "protocol": "http",
+                "environment": "production",
+                "provider": "https://web-dev-challenge-production.up.railway.app",
+                "contract_digest": null
+              }
+            }
+          ]
+        },
+        {
+          "by": "agent",
+          "at": "2026-10-12",
+          "evidence": [
+            {
+              "run_id": "run-b905f0a5-a4fd-4618-8ea1-3a69deb9f856",
+              "state": "available",
+              "digest": "sha256:b2122ceb24437a96855706042e2d53cc4cd66a269ea65bba53a59c23af42d9e3",
+              "provenance": {
+                "initiator": "cli.protocol",
+                "transport": "api_request:http",
+                "observed_at": "2026-10-12T16:01:29.046Z",
+                "package_version": "0.1.0-alpha.10",
+                "build_id": "ce82818f-288a-46c3-9173-601e11b92ac1"
+              },
+              "scope": {
+                "operation": null,
+                "protocol": "http",
+                "environment": "production",
+                "provider": "https://web-dev-challenge-production.up.railway.app",
+                "contract_digest": null
+              }
+            }
+          ]
+        },
+        {
+          "by": "agent",
+          "at": "2026-10-12"
+        },
+        {
+          "by": "Michael Watson",
+          "at": "2026-10-12",
+          "evidence": [
+            {
+              "run_id": "run-d0b0d95d-0bd5-4795-8c67-9a7dc9079eec",
+              "state": "scope_mismatch",
+              "digest": "sha256:aa58682509b6067b565ff84f45406b9cecb08dfdc164a3bf7ea66a89b260d2a1",
+              "provenance": {
+                "initiator": "cli.protocol",
+                "transport": "api_request:http",
+                "observed_at": "2026-10-12T19:52:44.940Z",
+                "package_version": "0.1.0-alpha.10",
+                "build_id": "ce82818f-288a-46c3-9173-601e11b92ac1"
+              },
+              "scope": {
+                "operation": "POST /mcp",
+                "protocol": "http",
+                "environment": "reporting-test",
+                "provider": "https://web-dev-challenge-production.up.railway.app",
+                "contract_digest": "sha256:7994875f2fec29634eaa5c2f4d92bb404f30e697c0f8565613b7842062c20e61"
+              },
+              "code": "EVIDENCE_SCOPE_MISMATCH"
+            }
+          ]
+        }
+      ],
+      "notes_superseded": [
+        null,
+        null,
+        null,
+        null
+      ],
+      "noted_at": "2026-10-12",
+      "noted_by": "Michael Watson",
+      "note_integrity": {
+        "v": 1,
+        "digest": "sha256:08e0a0247040609dcef9990f3a9a966b93670841bca5261310e488187e83b3fe",
+        "prior_integrity": "recorded",
+        "acknowledgements": []
+      }
+    },
+    "GET /healthz": {
+      "source_file": "expert-agents-mcp/src/http.ts",
+      "verified_at": null,
+      "contract_digest": null,
+      "shape_hash": null,
+      "status_codes": [],
+      "effect": "read",
+      "fields": {},
+      "note_integrity": {
+        "v": 1,
+        "digest": "sha256:6f39514932a08859ca98d26e4558c2dd7de0c4038de53705e1c4e06d017d3607",
+        "prior_integrity": "recorded",
+        "acknowledgements": []
+      }
+    }
+  },
+  "api_context": {
+    "v": 1,
+    "operations": {
+      "sha256:e4738d649f5b93c8376e00523a41cfd98ef8a60e6f87cee94528a9c5c0ba55cc": {
+        "identity": {
+          "v": 1,
+          "stack": "specialists",
+          "provider": "https://web-dev-challenge-production.up.railway.app",
+          "environment": "reporting-test",
+          "protocol": "http",
+          "operation": "POST /mcp",
+          "endpoint": "https://web-dev-challenge-production.up.railway.app/mcp",
+          "contractDigest": "sha256:7994875f2fec29634eaa5c2f4d92bb404f30e697c0f8565613b7842062c20e61"
+        },
+        "observations": [
+          {
+            "id": "630b5a02-5284-4924-8887-7674d3160c3f",
+            "recorded_at": "2026-10-12T19:52:28.976Z",
+            "observed_at": "2026-10-12T19:52:28.976Z",
+            "basis": "observed",
+            "source": {
+              "kind": "client",
+              "tool": "api_request:http"
+            },
+            "verification": "client-observation",
+            "outcome": "error",
+            "complete": true,
+            "evidence": [
+              {
+                "path": ".sannr/evidence/specialists/run-00f562b9-96ab-4593-bf85-0b8f9487eb45.json",
+                "digest": "sha256:2c7077736ceae45c7788ac9e83223bba0ae00f49ecb79e68c813bb22378b7e6c"
+              }
+            ],
+            "notes": [
+              "HTTP response status 400."
+            ],
+            "omissions": [
+              "Only bounded HTTP request and response structure is committed; payload values remain in private execution evidence.",
+              "A completed HTTP response does not establish complete collection traversal.",
+              "Only supported declaration metadata was retained."
+            ],
+            "response_status": 400,
+            "attempts": 1,
+            "request_shape": {
+              "type": "object",
+              "properties": {
+                "params": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "body": {
+                  "type": "object",
+                  "properties": {
+                    "jsonrpc": {
+                      "type": "string"
+                    },
+                    "id": {
+                      "type": "number"
+                    },
+                    "method": {
+                      "type": "string"
+                    },
+                    "params": {
+                      "type": "object",
+                      "properties": {
+                        "_meta": {
+                          "type": "object",
+                          "properties": {
+                            "io.modelcontextprotocol/protocolVersion": {
+                              "type": "string"
+                            },
+                            "io.modelcontextprotocol/clientInfo": {
+                              "type": "object",
+                              "properties": {
+                                "name": {
+                                  "type": "string"
+                                },
+                                "version": {
+                                  "type": "string"
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "response_shape": {
+              "type": "object",
+              "properties": {
+                "jsonrpc": {
+                  "type": "string"
+                },
+                "error": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "number"
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "envelope": {
+                          "type": "object",
+                          "properties": {
+                            "key": {
+                              "type": "string"
+                            },
+                            "problem": {
+                              "type": "string"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "id": {
+                  "type": "number"
+                }
+              }
+            },
+            "assertions": {
+              "passed": 0,
+              "failed": 2
+            },
+            "declaration": {
+              "protocol": "http",
+              "method": "POST",
+              "operation": "POST /mcp",
+              "validationScope": "declared-method-and-path-only",
+              "schemaValidated": false,
+              "requestValidated": false,
+              "responseValidated": false
+            }
+          },
+          {
+            "id": "6c6c58d4-ead9-48b2-9780-166a7223f7a4",
+            "recorded_at": "2026-10-12T19:52:44.958Z",
+            "observed_at": "2026-10-12T19:52:44.958Z",
+            "basis": "observed",
+            "source": {
+              "kind": "client",
+              "tool": "api_request:http"
+            },
+            "verification": "client-observation",
+            "outcome": "success",
+            "complete": true,
+            "evidence": [
+              {
+                "path": ".sannr/evidence/specialists/run-d0b0d95d-0bd5-4795-8c67-9a7dc9079eec.json",
+                "digest": "sha256:aa58682509b6067b565ff84f45406b9cecb08dfdc164a3bf7ea66a89b260d2a1"
+              }
+            ],
+            "notes": [
+              "HTTP response status 200."
+            ],
+            "omissions": [
+              "Only bounded HTTP request and response structure is committed; payload values remain in private execution evidence.",
+              "A completed HTTP response does not establish complete collection traversal.",
+              "Only supported declaration metadata was retained."
+            ],
+            "response_status": 200,
+            "attempts": 1,
+            "request_shape": {
+              "type": "object",
+              "properties": {
+                "params": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "body": {
+                  "type": "object",
+                  "properties": {
+                    "jsonrpc": {
+                      "type": "string"
+                    },
+                    "id": {
+                      "type": "number"
+                    },
+                    "method": {
+                      "type": "string"
+                    },
+                    "params": {
+                      "type": "object",
+                      "properties": {
+                        "_meta": {
+                          "type": "object",
+                          "properties": {
+                            "io.modelcontextprotocol/protocolVersion": {
+                              "type": "string"
+                            },
+                            "io.modelcontextprotocol/clientInfo": {
+                              "type": "object",
+                              "properties": {
+                                "name": {
+                                  "type": "string"
+                                },
+                                "version": {
+                                  "type": "string"
+                                }
+                              }
+                            },
+                            "io.modelcontextprotocol/clientCapabilities": {
+                              "type": "object",
+                              "properties": {}
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "response_shape": {
+              "type": "object",
+              "properties": {
+                "result": {
+                  "type": "object",
+                  "properties": {
+                    "tools": {
+                      "type": "array",
+                      "sampled": 1,
+                      "items": [
+                        {
+                          "type": "object",
+                          "properties": {
+                            "name": {
+                              "type": "string"
+                            },
+                            "title": {
+                              "type": "string"
+                            },
+                            "description": {
+                              "type": "string"
+                            },
+                            "inputSchema": {
+                              "type": "object",
+                              "properties": {
+                                "type": {
+                                  "type": "string"
+                                },
+                                "$schema": {
+                                  "type": "string"
+                                },
+                                "properties": {
+                                  "type": "object",
+                                  "properties": {
+                                    "question": {
+                                      "type": "object",
+                                      "properties": {
+                                        "type": {
+                                          "type": "string"
+                                        },
+                                        "minLength": {
+                                          "type": "number"
+                                        },
+                                        "maxLength": {
+                                          "type": "number"
+                                        },
+                                        "description": {
+                                          "type": "string"
+                                        }
+                                      }
+                                    },
+                                    "context": {
+                                      "type": "object",
+                                      "properties": {
+                                        "description": {
+                                          "type": "string"
+                                        },
+                                        "type": {
+                                          "type": "string"
+                                        },
+                                        "maxLength": {
+                                          "type": "number"
+                                        }
+                                      }
+                                    }
+                                  }
+                                },
+                                "required": {
+                                  "type": "array",
+                                  "sampled": 1,
+                                  "items": [
+                                    {
+                                      "type": "string"
+                                    }
+                                  ]
+                                }
+                              }
+                            }
+                          }
+                        }
+                      ]
+                    },
+                    "resultType": {
+                      "type": "string"
+                    },
+                    "ttlMs": {
+                      "type": "number"
+                    },
+                    "cacheScope": {
+                      "type": "string"
+                    },
+                    "_meta": {
+                      "type": "object",
+                      "properties": {
+                        "io.modelcontextprotocol/serverInfo": {
+                          "type": "object",
+                          "properties": {
+                            "name": {
+                              "type": "string"
+                            },
+                            "version": {
+                              "type": "string"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "jsonrpc": {
+                  "type": "string"
+                },
+                "id": {
+                  "type": "number"
+                }
+              }
+            },
+            "assertions": {
+              "passed": 2,
+              "failed": 0
+            },
+            "declaration": {
+              "protocol": "http",
+              "method": "POST",
+              "operation": "POST /mcp",
+              "validationScope": "declared-method-and-path-only",
+              "schemaValidated": false,
+              "requestValidated": false,
+              "responseValidated": false
+            }
+          }
+        ],
+        "omitted_observations": 0
+      },
+      "sha256:4af5bf942a9c34a4d94d252979d582164cd9821ceba27773553dd01ec1be7f1e": {
+        "identity": {
+          "v": 1,
+          "stack": "specialists",
+          "provider": "https://web-dev-challenge-production.up.railway.app",
+          "environment": "production",
+          "protocol": "http",
+          "operation": "GET /healthz",
+          "endpoint": "https://web-dev-challenge-production.up.railway.app/healthz",
+          "contractDigest": "sha256:42f98d6b67a4de7785feb66fc387023444620c0daa28eaa72fe28df6acd81332"
+        },
+        "observations": [
+          {
+            "id": "30457a72-95eb-4a98-be98-4222e1fbf857",
+            "recorded_at": "2026-10-26T15:43:21.388Z",
+            "observed_at": "2026-10-26T15:43:21.388Z",
+            "basis": "observed",
+            "source": {
+              "kind": "client",
+              "tool": "api_request:http"
+            },
+            "verification": "client-observation",
+            "outcome": "success",
+            "complete": true,
+            "evidence": [
+              {
+                "path": ".sannr/evidence/specialists/run-05ae8f04-a4fe-40a9-8f2a-cfc9e0d3dac9.json",
+                "digest": "sha256:4f320f9b77ddb0338d374abf0a9ab36f63c3a0b04dff3b8d4cccc0e69f21a45d"
+              }
+            ],
+            "notes": [
+              "HTTP response status 200."
+            ],
+            "omissions": [
+              "Only bounded HTTP request and response structure is committed; payload values remain in private execution evidence.",
+              "A completed HTTP response does not establish complete collection traversal.",
+              "Only supported declaration metadata was retained."
+            ],
+            "note_contradictions": [],
+            "response_status": 200,
+            "attempts": 1,
+            "request_shape": {
+              "type": "object",
+              "properties": {
+                "params": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "body": {
+                  "type": "null"
+                }
+              }
+            },
+            "response_shape": {
+              "type": "object",
+              "properties": {
+                "ok": {
+                  "type": "boolean"
+                }
+              }
+            },
+            "assertions": {
+              "passed": 1,
+              "failed": 0
+            },
+            "declaration": {
+              "protocol": "http",
+              "method": "GET",
+              "operation": "GET /healthz",
+              "validationScope": "declared-method-and-path-only",
+              "schemaValidated": false,
+              "requestValidated": false,
+              "responseValidated": false
+            }
+          }
+        ],
+        "omitted_observations": 0
+      }
+    }
+  }
+}

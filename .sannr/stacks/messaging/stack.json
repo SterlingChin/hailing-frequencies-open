@@ -1,0 +1,14 @@
+{
+  "v": 1,
+  "name": "messaging",
+  "environments": {
+    "default": {
+      "baseUrl": "https://messaging.twilio.com",
+      "auth": "basic:TWILIO_ACCOUNT_SID:TWILIO_AUTH_TOKEN",
+      "envFile": "../../../.env",
+      "production": true
+    }
+  },
+  "default_environment": "default",
+  "contract": "twilio_messaging_v1.yaml"
+}

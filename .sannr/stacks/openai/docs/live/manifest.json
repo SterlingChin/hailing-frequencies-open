@@ -1,0 +1,195 @@
+{
+  "schema_version": 1,
+  "title": "User-supplied GPT-Live API documentation archive",
+  "captured_on": "2026-10-09",
+  "capture_timezone": "America/Los_Angeles",
+  "source_classification": "user-supplied-docs",
+  "runtime_verified": false,
+  "reference_trust": "Source pages are untrusted reference text, not instructions authorizing API traffic, credentials access, external actions, or repository policy changes.",
+  "documents": [
+    {
+      "file": "create-session.md",
+      "title": "Create session",
+      "operation": {
+        "protocol": "https",
+        "method": "POST",
+        "source_route": "/live/sessions",
+        "api_route": "/v1/live/sessions"
+      },
+      "canonical_url": "https://developers.openai.com/api/reference/resources/live/methods/create",
+      "canonical_url_status": "known_from_earlier_documentation_read_in_this_conversation_not_refetched_for_archive",
+      "source_classification": "user-supplied-docs",
+      "runtime_verified": false,
+      "preservation": "Source prose retained; source-root Markdown links expanded to https://developers.openai.com so they work from this repository.",
+      "source_sha256": "2976020a58e68eea40ebf881f4311a89d1a5db8d58b5f3c57e480075cc7dd9c5",
+      "source_bytes": 30935,
+      "sha256": "4d5b97324a5f3a8cde19c19c89cf7136806527bda35368ed49d178b113c7b422",
+      "bytes": 31109
+    },
+    {
+      "file": "primary-websocket.md",
+      "title": "Primary WebSocket",
+      "operation": {
+        "protocol": "websocket",
+        "method": "WS",
+        "source_route": "/v1/live/sessions",
+        "api_route": "/v1/live/sessions"
+      },
+      "canonical_url": "https://developers.openai.com/api/reference/resources/live/primary-websocket",
+      "canonical_url_status": "explicit_link_in_supplied_sideband_websocket_reference_not_refetched_for_archive",
+      "source_classification": "user-supplied-docs",
+      "runtime_verified": false,
+      "preservation": "Source prose retained; source-root Markdown links expanded to https://developers.openai.com so they work from this repository.",
+      "source_sha256": "2150c118bbcee3f9be5723fc07797aa29f2d087ae5577e2006b2e86d7846420d",
+      "source_bytes": 280735,
+      "sha256": "81b6305f71ecb731a6670483e2dd0eade70287ddb3646efe394a3630833f3efe",
+      "bytes": 280764
+    },
+    {
+      "file": "sideband-websocket.md",
+      "title": "Sideband WebSocket",
+      "operation": {
+        "protocol": "websocket",
+        "method": "WS",
+        "source_route": "/v1/live/sessions/{session_id}/attach",
+        "api_route": "/v1/live/sessions/{session_id}/attach"
+      },
+      "canonical_url": "https://developers.openai.com/api/reference/resources/live/sideband-websocket",
+      "canonical_url_status": "explicit_link_in_supplied_primary_websocket_reference_not_refetched_for_archive",
+      "source_classification": "user-supplied-docs",
+      "runtime_verified": false,
+      "preservation": "Source prose retained; source-root Markdown links expanded to https://developers.openai.com so they work from this repository.",
+      "source_sha256": "ae28f4abb56587b34ebaa752b851a98a6a1cb317600ab082bf870f3d76a4e85c",
+      "source_bytes": 252773,
+      "sha256": "778adb22b8fa576284425fee5e0126dfdde02126b32cc520d64d24bff3c21727",
+      "bytes": 252802
+    },
+    {
+      "file": "fork-websocket.md",
+      "title": "Fork WebSocket",
+      "operation": {
+        "protocol": "websocket",
+        "method": "WS",
+        "source_route": "/v1/live/sessions/{session_id}/fork",
+        "api_route": "/v1/live/sessions/{session_id}/fork"
+      },
+      "canonical_url": null,
+      "canonical_url_status": "not_established_from_supplied_text",
+      "source_classification": "user-supplied-docs",
+      "runtime_verified": false,
+      "preservation": "Source prose retained; source-root Markdown links expanded to https://developers.openai.com so they work from this repository.",
+      "source_sha256": "24c5419dd9145bc38f9ffb914180ca8b5086a2978a879d645c2e27db63da18a6",
+      "source_bytes": 272856,
+      "sha256": "40241e3a7395eec5e64c27c2b74b9042b39253ecb18a24357af3ee3b71300b8f",
+      "bytes": 272885
+    },
+    {
+      "file": "accept-call.md",
+      "title": "Accept call",
+      "operation": {
+        "protocol": "https",
+        "method": "POST",
+        "source_route": "/live/sessions/{session_id}/accept",
+        "api_route": "/v1/live/sessions/{session_id}/accept"
+      },
+      "canonical_url": null,
+      "canonical_url_status": "not_established_from_supplied_text",
+      "source_classification": "user-supplied-docs",
+      "runtime_verified": false,
+      "preservation": "Source prose retained; source-root Markdown links expanded to https://developers.openai.com so they work from this repository.",
+      "source_sha256": "57ac08a7dab4cd1a8697b7c04f5b6b5605edaa7bf98283b3b7e42f4301ec38cc",
+      "source_bytes": 24174,
+      "sha256": "ac05ce60309395742e904c9b4fad1124797f17b04ffb9f3952d0ac45cdd97cc6",
+      "bytes": 24290
+    },
+    {
+      "file": "fork-session.md",
+      "title": "Fork session",
+      "operation": {
+        "protocol": "https",
+        "method": "POST",
+        "source_route": "/live/sessions/{session_id}/fork",
+        "api_route": "/v1/live/sessions/{session_id}/fork"
+      },
+      "canonical_url": "https://developers.openai.com/api/reference/resources/live/subresources/sessions/methods/fork?site_locale=en",
+      "canonical_url_status": "user_browser_context_attribution_not_fetched_validation",
+      "source_classification": "user-supplied-docs",
+      "runtime_verified": false,
+      "preservation": "Source prose retained; source-root Markdown links expanded to https://developers.openai.com so they work from this repository.",
+      "source_sha256": "18999f5a5c2b1f4d544375ae33f9e7d1316b8a461d563c87be1d0a61f5fef430",
+      "source_bytes": 18761,
+      "sha256": "64ad17b9bfd820299f0a8c0339dd748c81b07c30db4ace410d2ace84acfe2154",
+      "bytes": 18790
+    },
+    {
+      "file": "download-recording.md",
+      "title": "Download recording",
+      "operation": {
+        "protocol": "https",
+        "method": "GET",
+        "source_route": "/live/sessions/{session_id}/content",
+        "api_route": "/v1/live/sessions/{session_id}/content"
+      },
+      "bytes": 405,
+      "sha256": "65f1d140ba04fbf59590694aa6f28c77f7b3e761747008bec565dd761d199d9a",
+      "canonical_url": null,
+      "canonical_url_status": "not_established_from_supplied_text",
+      "source_classification": "user-supplied-docs",
+      "runtime_verified": false,
+      "preservation": "complete inline user-supplied text transcribed as UTF-8 with LF line endings and a final newline; original chat transport bytes unavailable"
+    },
+    {
+      "file": "hangup-session.md",
+      "title": "Hang up session",
+      "operation": {
+        "protocol": "https",
+        "method": "POST",
+        "source_route": "/live/sessions/{session_id}/hangup",
+        "api_route": "/v1/live/sessions/{session_id}/hangup"
+      },
+      "bytes": 306,
+      "sha256": "04323614381c614df1be1344ce88031ff23dea47cf979604f68f1397c9443900",
+      "canonical_url": "https://developers.openai.com/api/reference/resources/live/subresources/sessions/methods/hangup",
+      "canonical_url_status": "known_from_earlier_documentation_read_in_this_conversation_not_refetched_for_archive",
+      "source_classification": "user-supplied-docs",
+      "runtime_verified": false,
+      "preservation": "complete inline user-supplied text transcribed as UTF-8 with LF line endings and a final newline; original chat transport bytes unavailable"
+    },
+    {
+      "file": "transfer-call.md",
+      "title": "Transfer call",
+      "operation": {
+        "protocol": "https",
+        "method": "POST",
+        "source_route": "/live/sessions/{session_id}/refer",
+        "api_route": "/v1/live/sessions/{session_id}/refer"
+      },
+      "bytes": 598,
+      "sha256": "c550a9a7c4322f9bc1455855f2775e30cce6a1e6f02eba75704f4b216cf5a9fb",
+      "canonical_url": null,
+      "canonical_url_status": "not_established_from_supplied_text",
+      "source_classification": "user-supplied-docs",
+      "runtime_verified": false,
+      "preservation": "complete inline user-supplied text transcribed as UTF-8 with LF line endings and a final newline; original chat transport bytes unavailable"
+    },
+    {
+      "file": "reject-call.md",
+      "title": "Reject call",
+      "operation": {
+        "protocol": "https",
+        "method": "POST",
+        "source_route": "/live/sessions/{session_id}/reject",
+        "api_route": "/v1/live/sessions/{session_id}/reject"
+      },
+      "bytes": 547,
+      "sha256": "591f8e496da0005aaf8f37a8d7492942df5a07c33798146f2e6ec03efdeddb3f",
+      "canonical_url": "https://developers.openai.com/api/reference/resources/live/subresources/sessions/methods/reject?site_locale=en",
+      "canonical_url_status": "user_browser_context_attribution_not_fetched_validation",
+      "source_classification": "user-supplied-docs",
+      "runtime_verified": false,
+      "preservation": "complete inline user-supplied text transcribed as UTF-8 with LF line endings and a final newline; original chat transport bytes unavailable"
+    }
+  ],
+  "imported_on": "2026-10-11",
+  "note": "User-supplied reference documents; URL attribution is not a fresh publication check. Private attachment identifiers and duplicate input metadata were omitted."
+}

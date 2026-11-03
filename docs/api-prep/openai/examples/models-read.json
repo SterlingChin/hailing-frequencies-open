@@ -1,0 +1,15 @@
+{
+  "v": 2,
+  "protocol": "http",
+  "method": "GET",
+  "path": "/models",
+  "expect": [
+    {
+      "status": 200
+    },
+    {
+      "json": "data",
+      "type": "array"
+    }
+  ]
+}

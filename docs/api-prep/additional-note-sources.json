@@ -1,0 +1,157 @@
+{
+  "source_file_sha256": "4c25c5281ad182458b04fe633332716e73bac384fd1c1e064607b6be9b6338e3",
+  "imported_on": "2026-10-11",
+  "private_evidence_imported": false,
+  "notes": [
+    {
+      "stack": "openai",
+      "operation": "POST /live/sessions",
+      "source": "openai/.sannr/stacks/openai/sannr.json",
+      "source_text_sha256": "c63425a575fd95aa7da0c66963fe9544700de783c22bbdf6ac922f56fc1e1cea",
+      "shared_text": "Historical preparation report from the first October 9, 2026 Pacific WebRTC trial, imported October 11 without private evidence or new execution: session creation returned 201 but Responses delegation with gpt-6-luna, default reasoning and max_output_tokens 256 reported incomplete with invalid_request_error; the cause was unconfirmed, and the later October 9 note records the subsequent configuration trial.",
+      "shared_text_sha256": "c8f5971b1499a2ea8259036783411ae2e2f296602527d8f844c20d9cbc43ab8e",
+      "saved_and_retrieved": true,
+      "execution_verified_here": false
+    },
+    {
+      "stack": "openai",
+      "operation": "POST /live/sessions",
+      "source": "openai/.sannr/stacks/openai/sannr.json",
+      "source_text_sha256": "115cc597be3debfa28bdaa27cb5a6ed03b63f3520422e5fc9e5bcd519ab5aaa0",
+      "shared_text": "User-supplied documentation archived on 2026-10-09 Pacific: .sannr/stacks/openai/docs/live/README.md indexes the full create-session.md, primary-websocket.md, sideband-websocket.md, and fork-websocket.md references, with source provenance in manifest.json; this archive does not establish new runtime behavior.",
+      "shared_text_sha256": "115cc597be3debfa28bdaa27cb5a6ed03b63f3520422e5fc9e5bcd519ab5aaa0",
+      "saved_and_retrieved": true,
+      "execution_verified_here": false
+    },
+    {
+      "stack": "openai",
+      "operation": "POST /live/sessions",
+      "source": "openai/.sannr/stacks/openai/sannr.json",
+      "source_text_sha256": "4783ab030225832b956cc7044dc3a80a73f6d8828cc39756507c11a9c29258f4",
+      "shared_text": "Written down from user-supplied Live documentation archived 2026-10-09 Pacific, not observed: after submitting a Responses tool result with response.item.create, request continuation with response.create or the delegation can remain waiting (.sannr/stacks/openai/docs/live/primary-websocket.md, response.item.create and response.create).",
+      "shared_text_sha256": "4783ab030225832b956cc7044dc3a80a73f6d8828cc39756507c11a9c29258f4",
+      "saved_and_retrieved": true,
+      "execution_verified_here": false
+    },
+    {
+      "stack": "openai",
+      "operation": "POST /live/sessions",
+      "source": "openai/.sannr/stacks/openai/sannr.json",
+      "source_text_sha256": "c6b643e8614f75fecd27359a836f8d0d39aa40b8bc9817df9659e2eaf83ec469",
+      "shared_text": "Written down from user-supplied Live documentation archived 2026-10-09 Pacific, not observed: session.commentary.appended acknowledges accepted context without guaranteeing exact wording or completed playback, so do not mark an announcement delivered from that acknowledgment alone (.sannr/stacks/openai/docs/live/primary-websocket.md, session.commentary.appended).",
+      "shared_text_sha256": "c6b643e8614f75fecd27359a836f8d0d39aa40b8bc9817df9659e2eaf83ec469",
+      "saved_and_retrieved": true,
+      "execution_verified_here": false
+    },
+    {
+      "stack": "openai",
+      "operation": "POST /live/sessions",
+      "source": "openai/.sannr/stacks/openai/sannr.json",
+      "source_text_sha256": "ed0ac0017edc463ab98be94120726fd90e2b7ca83bc38e5e50958d2291724d82",
+      "shared_text": "Written down from user-supplied Live documentation archived 2026-10-09 Pacific, not observed: the final snapshot still has status active, so confirm finalization from session.closed rather than the snapshot status or a disconnected socket (.sannr/stacks/openai/docs/live/primary-websocket.md, session.closed).",
+      "shared_text_sha256": "ed0ac0017edc463ab98be94120726fd90e2b7ca83bc38e5e50958d2291724d82",
+      "saved_and_retrieved": true,
+      "execution_verified_here": false
+    },
+    {
+      "stack": "openai",
+      "operation": "POST /live/sessions",
+      "source": "openai/.sannr/stacks/openai/sannr.json",
+      "source_text_sha256": "330667f2b2b109c23bfe5cf2927b8263416578d5829ae218fb300766c61adf94",
+      "shared_text": "Written down from user-supplied Live documentation archived 2026-10-09 Pacific, not observed: sideband attachment does not replay earlier events, so missing errors or delegation events in a late capture cannot prove they never occurred; attach early and retain application history when those events matter (.sannr/stacks/openai/docs/live/sideband-websocket.md, Connection).",
+      "shared_text_sha256": "330667f2b2b109c23bfe5cf2927b8263416578d5829ae218fb300766c61adf94",
+      "saved_and_retrieved": true,
+      "execution_verified_here": false
+    },
+    {
+      "stack": "openai",
+      "operation": "POST /live/sessions",
+      "source": "openai/.sannr/stacks/openai/sannr.json",
+      "source_text_sha256": "fa61da653330c0b9eb368b872050449f010370901e61c7113cc19d7fad7734b1",
+      "shared_text": "Written down from user-supplied Live documentation archived 2026-10-09 Pacific, not observed: session.input_audio.muted stops model input while sideband audio reflection continues, so a microphone-off control must separately stop capture or media transmission (.sannr/stacks/openai/docs/live/sideband-websocket.md, session.input_audio.muted).",
+      "shared_text_sha256": "fa61da653330c0b9eb368b872050449f010370901e61c7113cc19d7fad7734b1",
+      "saved_and_retrieved": true,
+      "execution_verified_here": false
+    },
+    {
+      "stack": "openai",
+      "operation": "POST /live/sessions",
+      "source": "openai/.sannr/stacks/openai/sannr.json",
+      "source_text_sha256": "1e2a9d161b14535a65738e474da892dcd0d2f2ede4dc008b71c6f5839683d3bf",
+      "shared_text": "Historical preparation report from later October 9, 2026 Pacific WebRTC trials, imported October 11 without private evidence or new execution: creation requests with gpt-6-luna, reasoning.effort none and max_output_tokens 512 returned 201, but the retained late sideband captures did not establish a completed delegated reply or confirm the earlier failure cause.",
+      "shared_text_sha256": "39d9b686472cb5c17f94f32e0d2c9b34546f139f86048f1f7b42566151f4d97a",
+      "saved_and_retrieved": true,
+      "execution_verified_here": false
+    },
+    {
+      "stack": "openai",
+      "operation": "POST /live/sessions/{session_id}/accept",
+      "source": "openai/.sannr/stacks/openai/sannr.json",
+      "source_text_sha256": "8befe7e663dd7e3bab280e5a3c7b630cb05a8607df6894ecd19437cea51fb935",
+      "shared_text": "User-supplied documentation archived on 2026-10-09 Pacific: the complete incoming SIP accept reference is saved at .sannr/stacks/openai/docs/live/accept-call.md with provenance in .sannr/stacks/openai/docs/live/manifest.json; copying this reference is not an executed API check.",
+      "shared_text_sha256": "8befe7e663dd7e3bab280e5a3c7b630cb05a8607df6894ecd19437cea51fb935",
+      "saved_and_retrieved": true,
+      "execution_verified_here": false
+    },
+    {
+      "stack": "openai",
+      "operation": "POST /live/sessions/{session_id}/fork",
+      "source": "openai/.sannr/stacks/openai/sannr.json",
+      "source_text_sha256": "a70634607455ba7d80cc834ea0dbd9d1600fb86aaa0f0910d661b57e1765c388",
+      "shared_text": "User-supplied documentation archived on 2026-10-09 Pacific: the full WebRTC fork reference is saved at .sannr/stacks/openai/docs/live/fork-session.md and its WebSocket counterpart at .sannr/stacks/openai/docs/live/fork-websocket.md, with provenance in manifest.json; these copies are documentation rather than execution verification.",
+      "shared_text_sha256": "a70634607455ba7d80cc834ea0dbd9d1600fb86aaa0f0910d661b57e1765c388",
+      "saved_and_retrieved": true,
+      "execution_verified_here": false
+    },
+    {
+      "stack": "openai",
+      "operation": "POST /live/sessions/{session_id}/fork",
+      "source": "openai/.sannr/stacks/openai/sannr.json",
+      "source_text_sha256": "7196a8ac7e586a2ee5ffb79579d09e7b0198e561d3b7a4c57df357453a17cf1a",
+      "shared_text": "Implementation inference from user-supplied Live documentation archived 2026-10-09 Pacific, not observed: forks inherit the stored voice and expose no voice override, so compare voices by creating new sessions rather than using forks (.sannr/stacks/openai/docs/live/fork-session.md and fork-websocket.md, fork configuration).",
+      "shared_text_sha256": "7196a8ac7e586a2ee5ffb79579d09e7b0198e561d3b7a4c57df357453a17cf1a",
+      "saved_and_retrieved": true,
+      "execution_verified_here": false
+    },
+    {
+      "stack": "openai",
+      "operation": "POST /live/sessions/{session_id}/hangup",
+      "source": "openai/.sannr/stacks/openai/sannr.json",
+      "source_text_sha256": "b3feffb3b79369d196e1940c5a1d66deda44886fb07e47151881f5c057e2d481",
+      "shared_text": "User-supplied documentation archived on 2026-10-09 Pacific: the SIP hangup reference is saved at .sannr/stacks/openai/docs/live/hangup-session.md with provenance in .sannr/stacks/openai/docs/live/manifest.json; the endpoint was not executed by this documentation update.",
+      "shared_text_sha256": "b3feffb3b79369d196e1940c5a1d66deda44886fb07e47151881f5c057e2d481",
+      "saved_and_retrieved": true,
+      "execution_verified_here": false
+    },
+    {
+      "stack": "openai",
+      "operation": "POST /live/sessions/{session_id}/refer",
+      "source": "openai/.sannr/stacks/openai/sannr.json",
+      "source_text_sha256": "e50423cbdfd7092ec99e9304d3f20c861da2f3ded3bc2d99546cc70ca85e1393",
+      "shared_text": "User-supplied documentation archived on 2026-10-09 Pacific: the SIP transfer reference is saved at .sannr/stacks/openai/docs/live/transfer-call.md with provenance in .sannr/stacks/openai/docs/live/manifest.json; the endpoint was not executed by this documentation update.",
+      "shared_text_sha256": "e50423cbdfd7092ec99e9304d3f20c861da2f3ded3bc2d99546cc70ca85e1393",
+      "saved_and_retrieved": true,
+      "execution_verified_here": false
+    },
+    {
+      "stack": "openai",
+      "operation": "POST /live/sessions/{session_id}/reject",
+      "source": "openai/.sannr/stacks/openai/sannr.json",
+      "source_text_sha256": "b03b78c75fa2a8dc03e4834d92a2819af81bb0c7b724f52c6f9f1d4a095d739a",
+      "shared_text": "User-supplied documentation archived on 2026-10-09 Pacific: the incoming SIP rejection reference is saved at .sannr/stacks/openai/docs/live/reject-call.md with provenance in .sannr/stacks/openai/docs/live/manifest.json; the endpoint was not executed by this documentation update.",
+      "shared_text_sha256": "b03b78c75fa2a8dc03e4834d92a2819af81bb0c7b724f52c6f9f1d4a095d739a",
+      "saved_and_retrieved": true,
+      "execution_verified_here": false
+    },
+    {
+      "stack": "openai",
+      "operation": "GET /live/sessions/{session_id}/content",
+      "source": "openai/.sannr/stacks/openai/sannr.json",
+      "source_text_sha256": "b67c8fff4d2ab7d27da2a7bef5d651d7446d30fb07e762394d0fd3d779df12be",
+      "shared_text": "User-supplied documentation archived on 2026-10-09 Pacific: the stored-session recording download reference is saved at .sannr/stacks/openai/docs/live/download-recording.md with provenance in .sannr/stacks/openai/docs/live/manifest.json; the endpoint was not executed by this documentation update.",
+      "shared_text_sha256": "b67c8fff4d2ab7d27da2a7bef5d651d7446d30fb07e762394d0fd3d779df12be",
+      "saved_and_retrieved": true,
+      "execution_verified_here": false
+    }
+  ]
+}

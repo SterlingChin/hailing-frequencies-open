@@ -1,0 +1,4298 @@
+{
+  "v": 0,
+  "api": {
+    "name": "Hailing Frequencies App",
+    "contract": ".sannr/stacks/app/app.openapi.json",
+    "contract_digest": "sha256:c97047f6df246d2e"
+  },
+  "generated_at": "2026-10-11",
+  "operations": {
+    "GET /health": {
+      "source_file": null,
+      "verified_at": null,
+      "contract_digest": null,
+      "shape_hash": null,
+      "status_codes": [],
+      "effect": "read",
+      "fields": {},
+      "note_integrity": {
+        "v": 1,
+        "digest": "sha256:280dcd6e36074c1a4595b09ad5b3958b2fedeb92012f3cd3e2ad0fbaa6f107af",
+        "prior_integrity": "recorded",
+        "acknowledgements": []
+      },
+      "notes": [
+        "Asserted 2026-10-26 in app/production via api_request: the unauthenticated GET /health returned 200 with status ready, database ready, a boolean decisionsEnabled and Cache-Control no-store, the first passing assertion set recorded for the deployed health endpoint; shared capture failed with CONTEXT_INVALID so only this note and the private run evidence retain it."
+      ],
+      "notes_provenance": [
+        {
+          "by": "agent",
+          "at": "2026-10-26",
+          "evidence": [
+            {
+              "run_id": "run-70aae2dd-faab-4e14-ba67-8826a741cdff",
+              "state": "available",
+              "digest": "sha256:d278db72c4f57b63b2510e438aa31ad97b1c01c73dffdd94f4f7b7c1b194722a",
+              "provenance": {
+                "initiator": "mcp.api_request",
+                "transport": "api_request:http",
+                "observed_at": "2026-10-26T22:54:53.764Z",
+                "package_version": "0.1.0-alpha.12",
+                "build_id": "32697f38-b399-487d-b7fa-f03e20f8a15b"
+              },
+              "scope": {
+                "operation": "GET /health",
+                "protocol": "http",
+                "environment": "production",
+                "provider": "https://hailing-frequencies-app-production.up.railway.app",
+                "contract_digest": "sha256:caf395636ca7dc07fcfc2a5ae4935231563e8f1846a32998a4f38489c211c921"
+              }
+            }
+          ]
+        }
+      ],
+      "notes_superseded": [
+        null
+      ],
+      "noted_at": "2026-10-26",
+      "noted_by": "agent"
+    },
+    "POST /api/reporting": {
+      "source_file": "app/reporting-api.mjs",
+      "verified_at": null,
+      "contract_digest": null,
+      "shape_hash": null,
+      "status_codes": [],
+      "effect": "write",
+      "fields": {},
+      "note_integrity": {
+        "v": 1,
+        "digest": "sha256:b956f040bb42e91124d06addb0d26f0bcbf323430d7045342c4ac26367ae3ac0",
+        "prior_integrity": "recorded",
+        "acknowledgements": []
+      },
+      "notes": [
+        "Observed 2026-10-12 in reporting-test against the context-service host: using the existing caller-context token for reporting start returned 401 unauthorized, so caller-context access does not establish reporting/Decisions token compatibility.",
+        "Observed 2026-10-12 in reporting-test: the separate user-supplied REPORTING_API_TOKEN returned 200 for reporting start, load_crew_profile with the approved Avery phrase returned 200 with crm_context, and end returned 200, correcting the prior shared-token 401; Decisions and expert execution were not invoked."
+      ],
+      "notes_provenance": [
+        {
+          "by": "Michael Watson",
+          "at": "2026-10-12",
+          "evidence": [
+            {
+              "run_id": "run-d2a929a9-4b07-4447-8195-add12f3ff393",
+              "state": "scope_mismatch",
+              "digest": "sha256:993a6ee168273cf319f7d86bed341d108fbc2c0656242d98ad3d84529c0cc64c",
+              "provenance": {
+                "initiator": "cli.protocol",
+                "transport": "api_request:http",
+                "observed_at": "2026-10-12T19:35:55.835Z",
+                "package_version": "0.1.0-alpha.10",
+                "build_id": "ce82818f-288a-46c3-9173-601e11b92ac1"
+              },
+              "scope": {
+                "operation": "POST /api/reporting",
+                "protocol": "http",
+                "environment": "reporting-test",
+                "provider": "https://hailing-frequencies-app-production.up.railway.app",
+                "contract_digest": "sha256:4680dd40a2d0b3daca0f0bf8b1d25561fe8486f0608b05dae90225f66ae42fd3"
+              },
+              "code": "EVIDENCE_SCOPE_MISMATCH"
+            }
+          ]
+        },
+        {
+          "by": "Michael Watson",
+          "at": "2026-10-12",
+          "evidence": [
+            {
+              "run_id": "run-d6e14b40-5120-4dde-93f9-e46e3092253b",
+              "state": "scope_mismatch",
+              "digest": "sha256:8b31fe99a849f81ea42f8ab96b43bd70e4a8d3b3d0d75140922201a0530a1536",
+              "provenance": {
+                "initiator": "cli.protocol",
+                "transport": "api_request:http",
+                "observed_at": "2026-10-12T19:48:41.110Z",
+                "package_version": "0.1.0-alpha.10",
+                "build_id": "ce82818f-288a-46c3-9173-601e11b92ac1"
+              },
+              "scope": {
+                "operation": "POST /api/reporting",
+                "protocol": "http",
+                "environment": "reporting-test",
+                "provider": "https://hailing-frequencies-app-production.up.railway.app",
+                "contract_digest": "sha256:4680dd40a2d0b3daca0f0bf8b1d25561fe8486f0608b05dae90225f66ae42fd3"
+              },
+              "code": "EVIDENCE_SCOPE_MISMATCH"
+            }
+          ]
+        }
+      ],
+      "notes_superseded": [
+        null,
+        null
+      ],
+      "noted_at": "2026-10-12",
+      "noted_by": "Michael Watson"
+    },
+    "POST /api/v1/caller-context/start": {
+      "source_file": "reporting-ui/server/api.mjs",
+      "verified_at": null,
+      "contract_digest": null,
+      "shape_hash": null,
+      "status_codes": [],
+      "effect": "write",
+      "fields": {},
+      "note_integrity": {
+        "v": 1,
+        "digest": "sha256:55a778a6af4bbc36320ad6a46cae1e098e2a9d5a133399f547095144e8a29fa5",
+        "prior_integrity": "unknown",
+        "acknowledgements": [
+          {
+            "by": "Michael Watson",
+            "at": "2026-10-12",
+            "reason": "baseline_mismatch",
+            "previous_digest": "sha256:9ac9b917d4b719dd44437500ae6441a4d4b570d36286eb62057e9911d23b466b",
+            "accepted_digest": "sha256:55a778a6af4bbc36320ad6a46cae1e098e2a9d5a133399f547095144e8a29fa5"
+          }
+        ]
+      },
+      "notes": [
+        "On 2026-10-12 the repository-bound MCP client matched the setup binding but refused the authorized app/production POST with PRODUCTION_WRITE_REFUSED before any network attempt despite both saved launch registrations declaring API_ALLOW_PRODUCTION_WRITES=1, so binding identity alone did not establish that launch-policy changes had reached the running process; this is a client observation, not an API response.",
+        "Observed 2026-10-12 in reporting-test against the hailing-frequencies-app production URL using the reporting service CONTEXT_API_TOKEN: an empty JSON start body returned HTTP 401 unauthorized, so the configured service credential was rejected before session creation; the provider-side token value and deployment were not inspected.",
+        "Observed 2026-10-12 in reporting-test against the hailing-frequencies-app production URL: updating the reporting service to the replacement token supplied by the user changed the empty JSON start response from 401 unauthorized to 201 with authorization_required and a session token; the test session was explicitly ended afterward."
+      ],
+      "notes_provenance": [
+        {
+          "by": "agent",
+          "at": "2026-10-12"
+        },
+        {
+          "by": "Michael Watson",
+          "at": "2026-10-12",
+          "evidence": [
+            {
+              "run_id": "run-1a72427e-d842-48bb-8ec7-5dd7b98fec2a",
+              "state": "scope_mismatch",
+              "digest": "sha256:02fcacd13dca901735378e542fab1bd4f387e9e7c04a7511c1626c2d8e38ca48",
+              "provenance": {
+                "initiator": "cli.protocol",
+                "transport": "api_request:http",
+                "observed_at": "2026-10-12T18:38:45.299Z",
+                "package_version": "0.1.0-alpha.10",
+                "build_id": "ce82818f-288a-46c3-9173-601e11b92ac1"
+              },
+              "scope": {
+                "operation": "POST /api/v1/caller-context/start",
+                "protocol": "http",
+                "environment": "reporting-test",
+                "provider": "https://hailing-frequencies-app-production.up.railway.app",
+                "contract_digest": "sha256:cff2003215973132372a652f5830bd3b59b37eabbe5bafed560b54c7c5c3bff2"
+              },
+              "code": "EVIDENCE_SCOPE_MISMATCH"
+            }
+          ]
+        },
+        {
+          "by": "Michael Watson",
+          "at": "2026-10-12",
+          "evidence": [
+            {
+              "run_id": "run-d0a14eac-0f2f-424b-a7e7-ea934469d7a8",
+              "state": "scope_mismatch",
+              "digest": "sha256:8b19ce812803f1426d30d647caf9023dbcf09dcaba7411b14c0cdc5e93f52fcc",
+              "provenance": {
+                "initiator": "cli.protocol",
+                "transport": "api_request:http",
+                "observed_at": "2026-10-12T18:42:42.772Z",
+                "package_version": "0.1.0-alpha.10",
+                "build_id": "ce82818f-288a-46c3-9173-601e11b92ac1"
+              },
+              "scope": {
+                "operation": "POST /api/v1/caller-context/start",
+                "protocol": "http",
+                "environment": "reporting-test",
+                "provider": "https://hailing-frequencies-app-production.up.railway.app",
+                "contract_digest": "sha256:cff2003215973132372a652f5830bd3b59b37eabbe5bafed560b54c7c5c3bff2"
+              },
+              "code": "EVIDENCE_SCOPE_MISMATCH"
+            }
+          ]
+        }
+      ],
+      "notes_superseded": [
+        null,
+        null,
+        null
+      ],
+      "noted_at": "2026-10-12",
+      "noted_by": "Michael Watson"
+    },
+    "POST /api/v1/caller-context/authorize": {
+      "source_file": "reporting-ui/server/api.mjs",
+      "verified_at": null,
+      "contract_digest": null,
+      "shape_hash": null,
+      "status_codes": [],
+      "effect": "write",
+      "fields": {},
+      "note_integrity": {
+        "v": 1,
+        "digest": "sha256:57da01546cfba660bfbdab741825e336f79b116dbc1885ad677f4eac1d748015",
+        "prior_integrity": "recorded",
+        "acknowledgements": []
+      },
+      "notes": [
+        "Observed 2026-10-12 against the deployed hailing-frequencies-app URL in reporting-test: authorize with session_token,name,authorization_phrase returned 400 invalid_body while start returned 201 and end returned 200, so rejection of the authorization body must not be described as service unavailability; deployed accepted field names were not established by this test.",
+        "Observed 2026-10-12 in reporting-test against the deployed hailing-frequencies-app URL: sending session_token,name,authorization returned 200 for the approved Avery Chen fixture, correcting the prior authorization_phrase request that returned 400 invalid_body; the diagnostic context session was ended successfully.",
+        "Observed 2026-10-12 in reporting-test: Avery Chen with authorization Alpha seven Bravo nine Echo two returned 200 with preferred_language english but no crew_member_id in the response or profile, so PR12 trusted Decisions intake still requires the identity API UUID addition rather than inferring an ID from name."
+      ],
+      "notes_provenance": [
+        {
+          "by": "Michael Watson",
+          "at": "2026-10-12",
+          "evidence": [
+            {
+              "run_id": "run-2405464b-bdc0-4c12-8e7a-33d438a4980d",
+              "state": "scope_mismatch",
+              "digest": "sha256:9daaf57e801a27dc71489607685a2096f07d3ac6ca3ed3e4e32570a34136aa73",
+              "provenance": {
+                "initiator": "cli.protocol",
+                "transport": "api_request:http",
+                "observed_at": "2026-10-12T18:45:05.473Z",
+                "package_version": "0.1.0-alpha.10",
+                "build_id": "ce82818f-288a-46c3-9173-601e11b92ac1"
+              },
+              "scope": {
+                "operation": "POST /api/v1/caller-context/authorize",
+                "protocol": "http",
+                "environment": "reporting-test",
+                "provider": "https://hailing-frequencies-app-production.up.railway.app",
+                "contract_digest": "sha256:cff2003215973132372a652f5830bd3b59b37eabbe5bafed560b54c7c5c3bff2"
+              },
+              "code": "EVIDENCE_SCOPE_MISMATCH"
+            }
+          ]
+        },
+        {
+          "by": "Michael Watson",
+          "at": "2026-10-12",
+          "evidence": [
+            {
+              "run_id": "run-7d0df4f6-c40a-4ea3-9b99-d8398f2ea6f9",
+              "state": "scope_mismatch",
+              "digest": "sha256:b853a30265935ed5c6257cec404b71fe4c4bb624d06b52ded0dd8e879155442f",
+              "provenance": {
+                "initiator": "cli.protocol",
+                "transport": "api_request:http",
+                "observed_at": "2026-10-12T18:49:01.784Z",
+                "package_version": "0.1.0-alpha.10",
+                "build_id": "ce82818f-288a-46c3-9173-601e11b92ac1"
+              },
+              "scope": {
+                "operation": "POST /api/v1/caller-context/authorize",
+                "protocol": "http",
+                "environment": "reporting-test",
+                "provider": "https://hailing-frequencies-app-production.up.railway.app",
+                "contract_digest": "sha256:dfee2c200b076e6cca88acd9a50ac3f1f6ceccc086879105d321234dbebb496e"
+              },
+              "code": "EVIDENCE_SCOPE_MISMATCH"
+            }
+          ]
+        },
+        {
+          "by": "Michael Watson",
+          "at": "2026-10-12",
+          "evidence": [
+            {
+              "run_id": "run-1dc99154-049e-4bf0-bae4-bd74b2e8dd76",
+              "state": "scope_mismatch",
+              "digest": "sha256:35e3feded491211196ce62dd57336dc883ed888e04d359e91ba7a34e2b5e6d8e",
+              "provenance": {
+                "initiator": "cli.protocol",
+                "transport": "api_request:http",
+                "observed_at": "2026-10-12T21:19:13.579Z",
+                "package_version": "0.1.0-alpha.10",
+                "build_id": "ce82818f-288a-46c3-9173-601e11b92ac1"
+              },
+              "scope": {
+                "operation": "POST /api/v1/caller-context/authorize",
+                "protocol": "http",
+                "environment": "reporting-test",
+                "provider": "https://hailing-frequencies-app-production.up.railway.app",
+                "contract_digest": "sha256:4680dd40a2d0b3daca0f0bf8b1d25561fe8486f0608b05dae90225f66ae42fd3"
+              },
+              "code": "EVIDENCE_SCOPE_MISMATCH"
+            }
+          ]
+        }
+      ],
+      "notes_superseded": [
+        null,
+        null,
+        null
+      ],
+      "noted_at": "2026-10-12",
+      "noted_by": "Michael Watson"
+    },
+    "POST /api/v1/caller-context/context": {
+      "source_file": "reporting-ui/server/api.mjs",
+      "verified_at": null,
+      "contract_digest": null,
+      "shape_hash": null,
+      "status_codes": [],
+      "effect": "write",
+      "fields": {},
+      "note_integrity": {
+        "v": 1,
+        "digest": "sha256:6f39514932a08859ca98d26e4558c2dd7de0c4038de53705e1c4e06d017d3607",
+        "prior_integrity": "recorded",
+        "acknowledgements": []
+      }
+    },
+    "POST /api/v1/caller-context/end": {
+      "source_file": "reporting-ui/server/api.mjs",
+      "verified_at": null,
+      "contract_digest": null,
+      "shape_hash": null,
+      "status_codes": [],
+      "effect": "write",
+      "fields": {},
+      "note_integrity": {
+        "v": 1,
+        "digest": "sha256:6f39514932a08859ca98d26e4558c2dd7de0c4038de53705e1c4e06d017d3607",
+        "prior_integrity": "recorded",
+        "acknowledgements": []
+      }
+    },
+    "POST /api/decisions": {
+      "source_file": "app/decisions-api.mjs",
+      "verified_at": null,
+      "contract_digest": null,
+      "shape_hash": null,
+      "status_codes": [],
+      "effect": "write",
+      "fields": {},
+      "note_integrity": {
+        "v": 1,
+        "digest": "sha256:e802de86b5bd5b38c3857b4433945dfaff2856e70daf0a06372032e5e57adaaa",
+        "prior_integrity": "recorded",
+        "acknowledgements": []
+      },
+      "notes": [
+        "In the 2026-10-12 Avery browser rehearsal, crm_context reflected the pre-routing queue snapshot after a new task; refresh CRM context to display the newly queued task, based on local page behavior and service source rather than a Sannr client receipt.",
+        "Source inspection and injected-client tests on 2026-10-12 show that reason decisions_unavailable with null answers is returned before model classification when the Decisions client is disabled, so this shape cannot support threshold calibration or a gather-context instruction; this is local evidence, not a new production check.",
+        "Local source and fake regression on 2026-10-12 reproduce both supplied personal-log score sets: a valid expert route above 0.50 takes priority over missing details and an uncertain CRM issue match, using a general case with null equipment instead of inventing a match; access approval still requires a recorded expert result.",
+        "Local source inspection plus memory and disposable Postgres tests on 2026-10-12 show that a reporter crew row assigned to the intentionally nonexistent USS Nebraska is rejected as crew_member_not_found with reason ship_not_found before reporter-context storage, model classification or queue work; production behavior remains unverified until deployment."
+      ],
+      "notes_provenance": [
+        {
+          "by": "agent",
+          "at": "2026-10-12"
+        },
+        {
+          "by": "agent",
+          "at": "2026-10-12"
+        },
+        {
+          "by": "agent",
+          "at": "2026-10-12"
+        },
+        {
+          "by": "agent",
+          "at": "2026-10-12"
+        }
+      ],
+      "notes_superseded": [
+        null,
+        null,
+        null,
+        null
+      ],
+      "noted_at": "2026-10-12",
+      "noted_by": "agent"
+    },
+    "GET /events": {
+      "source_file": "app/companion.mjs",
+      "verified_at": null,
+      "contract_digest": null,
+      "shape_hash": null,
+      "status_codes": [],
+      "effect": "read",
+      "fields": {},
+      "note_integrity": {
+        "v": 1,
+        "digest": "sha256:292e45343dbdd9ab165fcadc8e5488857b1dd2b9afc95317abb528ddceebd7c6",
+        "prior_integrity": "recorded",
+        "acknowledgements": []
+      },
+      "notes": [
+        "Asserted 2026-10-26 in app/production via api_request: GET /events with an unknown scenario query returned 400 with Cache-Control no-store and X-Content-Type-Options nosniff before any event stream opened, so the fixture name is validated up front and the error path can be checked without holding an SSE connection."
+      ],
+      "notes_provenance": [
+        {
+          "by": "agent",
+          "at": "2026-10-26",
+          "evidence": [
+            {
+              "run_id": "run-e67f3d4d-10e8-4aec-86a6-bef488687694",
+              "state": "available",
+              "digest": "sha256:d4c2875470026c72320335c13756fb13e6c164b87f4c0c941cb18e525dda09bf",
+              "provenance": {
+                "initiator": "mcp.api_request",
+                "transport": "api_request:http",
+                "observed_at": "2026-10-26T22:55:33.478Z",
+                "package_version": "0.1.0-alpha.12",
+                "build_id": "32697f38-b399-487d-b7fa-f03e20f8a15b"
+              },
+              "scope": {
+                "operation": "GET /events",
+                "protocol": "http",
+                "environment": "production",
+                "provider": "https://hailing-frequencies-app-production.up.railway.app",
+                "contract_digest": "sha256:caf395636ca7dc07fcfc2a5ae4935231563e8f1846a32998a4f38489c211c921"
+              }
+            }
+          ]
+        }
+      ],
+      "notes_superseded": [
+        null
+      ],
+      "noted_at": "2026-10-26",
+      "noted_by": "agent"
+    },
+    "POST /incoming-call": {
+      "source_file": "voice/server.mjs",
+      "verified_at": null,
+      "contract_digest": null,
+      "shape_hash": null,
+      "status_codes": [],
+      "effect": "write",
+      "fields": {},
+      "note_integrity": {
+        "v": 1,
+        "digest": "sha256:6f39514932a08859ca98d26e4558c2dd7de0c4038de53705e1c4e06d017d3607",
+        "prior_integrity": "recorded",
+        "acknowledgements": []
+      }
+    },
+    "POST /outbound-call": {
+      "source_file": "voice/server.mjs",
+      "verified_at": null,
+      "contract_digest": null,
+      "shape_hash": null,
+      "status_codes": [],
+      "effect": "write",
+      "fields": {},
+      "note_integrity": {
+        "v": 1,
+        "digest": "sha256:6f39514932a08859ca98d26e4558c2dd7de0c4038de53705e1c4e06d017d3607",
+        "prior_integrity": "recorded",
+        "acknowledgements": []
+      }
+    },
+    "GET /media-stream/": {
+      "source_file": "voice/server.mjs",
+      "verified_at": null,
+      "contract_digest": null,
+      "shape_hash": null,
+      "status_codes": [],
+      "effect": "read",
+      "fields": {},
+      "note_integrity": {
+        "v": 1,
+        "digest": "sha256:6f39514932a08859ca98d26e4558c2dd7de0c4038de53705e1c4e06d017d3607",
+        "prior_integrity": "recorded",
+        "acknowledgements": []
+      }
+    },
+    "POST /sms/status/{messageId}": {
+      "source_file": "reply/sms.mjs",
+      "verified_at": null,
+      "contract_digest": null,
+      "shape_hash": null,
+      "status_codes": [],
+      "effect": "write",
+      "fields": {},
+      "note_integrity": {
+        "v": 1,
+        "digest": "sha256:6f39514932a08859ca98d26e4558c2dd7de0c4038de53705e1c4e06d017d3607",
+        "prior_integrity": "recorded",
+        "acknowledgements": []
+      }
+    }
+  },
+  "api_context": {
+    "v": 1,
+    "operations": {
+      "sha256:1d4fcf67f1fa97ac3b9d1db5e2f5c569ede06ca8efe6a02bbc612392a04f751f": {
+        "identity": {
+          "v": 1,
+          "stack": "app",
+          "provider": "https://hailing-frequencies-app-production.up.railway.app",
+          "environment": "production",
+          "protocol": "http",
+          "operation": "GET /health",
+          "endpoint": "https://hailing-frequencies-app-production.up.railway.app/health",
+          "contractDigest": "sha256:603d1bbbbf2dbcd4d01d4e43a5b36cb2baa907ebb798d36ac62aab666b81612a"
+        },
+        "observations": [
+          {
+            "id": "c897518c-55c6-4cb8-acd0-0ab27a2d1c50",
+            "recorded_at": "2026-10-12T14:30:17.030Z",
+            "observed_at": "2026-10-12T14:30:17.030Z",
+            "basis": "observed",
+            "source": {
+              "kind": "client",
+              "tool": "api_request:http"
+            },
+            "verification": "client-observation",
+            "outcome": "success",
+            "complete": true,
+            "evidence": [
+              {
+                "path": ".sannr/evidence/app/run-2581999f-be13-41b6-a694-bd71774c5fbe.json",
+                "digest": "sha256:415d83f060ff37304596fd588f21ad9aeabedfac42d85f8fddc3e50816421d3f"
+              }
+            ],
+            "notes": [
+              "HTTP response status 200."
+            ],
+            "omissions": [
+              "Only bounded HTTP request and response structure is committed; payload values remain in private execution evidence.",
+              "A completed HTTP response does not establish complete collection traversal.",
+              "Only supported declaration metadata was retained."
+            ],
+            "response_status": 200,
+            "attempts": 1,
+            "request_shape": {
+              "type": "object",
+              "properties": {
+                "params": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "body": {
+                  "type": "null"
+                }
+              }
+            },
+            "response_shape": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "string"
+                },
+                "database": {
+                  "type": "string"
+                },
+                "companion": {
+                  "type": "string"
+                },
+                "voiceEnabled": {
+                  "type": "boolean"
+                },
+                "smsEnabled": {
+                  "type": "boolean"
+                }
+              }
+            },
+            "assertions": {
+              "passed": 6,
+              "failed": 2
+            },
+            "declaration": {
+              "protocol": "http",
+              "method": "GET",
+              "operation": "GET /health",
+              "validationScope": "declared-method-and-path-only",
+              "schemaValidated": false,
+              "requestValidated": false,
+              "responseValidated": false
+            }
+          },
+          {
+            "id": "5a0cf75b-06f9-43fd-89a5-c4df82de2100",
+            "recorded_at": "2026-10-12T14:30:29.291Z",
+            "observed_at": "2026-10-12T14:30:29.291Z",
+            "basis": "observed",
+            "source": {
+              "kind": "client",
+              "tool": "api_request:http"
+            },
+            "verification": "client-observation",
+            "outcome": "success",
+            "complete": true,
+            "evidence": [
+              {
+                "path": ".sannr/evidence/app/run-5ea1c26f-cc4f-4739-8912-e24cb897ec62.json",
+                "digest": "sha256:73f96274385f43c2c745004767919980c2063b73ac75a5a6e70e0a2cfb8b21f4"
+              }
+            ],
+            "notes": [
+              "HTTP response status 200."
+            ],
+            "omissions": [
+              "Only bounded HTTP request and response structure is committed; payload values remain in private execution evidence.",
+              "A completed HTTP response does not establish complete collection traversal.",
+              "Only supported declaration metadata was retained."
+            ],
+            "response_status": 200,
+            "attempts": 1,
+            "request_shape": {
+              "type": "object",
+              "properties": {
+                "params": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "body": {
+                  "type": "null"
+                }
+              }
+            },
+            "response_shape": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "string"
+                },
+                "database": {
+                  "type": "string"
+                },
+                "companion": {
+                  "type": "string"
+                },
+                "voiceEnabled": {
+                  "type": "boolean"
+                },
+                "smsEnabled": {
+                  "type": "boolean"
+                }
+              }
+            },
+            "assertions": {
+              "passed": 6,
+              "failed": 2
+            },
+            "declaration": {
+              "protocol": "http",
+              "method": "GET",
+              "operation": "GET /health",
+              "validationScope": "declared-method-and-path-only",
+              "schemaValidated": false,
+              "requestValidated": false,
+              "responseValidated": false
+            }
+          },
+          {
+            "id": "b73a6522-1fdc-4ed2-849e-0c9acfce7b93",
+            "recorded_at": "2026-10-12T14:30:39.756Z",
+            "observed_at": "2026-10-12T14:30:39.756Z",
+            "basis": "observed",
+            "source": {
+              "kind": "client",
+              "tool": "api_request:http"
+            },
+            "verification": "client-observation",
+            "outcome": "success",
+            "complete": true,
+            "evidence": [
+              {
+                "path": ".sannr/evidence/app/run-1a8668ba-6b9d-4276-a01c-1a53ce822b2d.json",
+                "digest": "sha256:2a5e152d8c4b4f68066474d93f7f03e76df98e7b98316d54a6f212a4de2801e9"
+              }
+            ],
+            "notes": [
+              "HTTP response status 200."
+            ],
+            "omissions": [
+              "Only bounded HTTP request and response structure is committed; payload values remain in private execution evidence.",
+              "A completed HTTP response does not establish complete collection traversal.",
+              "Only supported declaration metadata was retained."
+            ],
+            "response_status": 200,
+            "attempts": 1,
+            "request_shape": {
+              "type": "object",
+              "properties": {
+                "params": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "body": {
+                  "type": "null"
+                }
+              }
+            },
+            "response_shape": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "string"
+                },
+                "database": {
+                  "type": "string"
+                },
+                "companion": {
+                  "type": "string"
+                },
+                "voiceEnabled": {
+                  "type": "boolean"
+                },
+                "smsEnabled": {
+                  "type": "boolean"
+                }
+              }
+            },
+            "assertions": {
+              "passed": 6,
+              "failed": 2
+            },
+            "declaration": {
+              "protocol": "http",
+              "method": "GET",
+              "operation": "GET /health",
+              "validationScope": "declared-method-and-path-only",
+              "schemaValidated": false,
+              "requestValidated": false,
+              "responseValidated": false
+            }
+          },
+          {
+            "id": "9eb3790f-5cf7-4abb-926e-93348ff92691",
+            "recorded_at": "2026-10-12T14:30:52.873Z",
+            "observed_at": "2026-10-12T14:30:52.873Z",
+            "basis": "observed",
+            "source": {
+              "kind": "client",
+              "tool": "api_request:http"
+            },
+            "verification": "client-observation",
+            "outcome": "success",
+            "complete": true,
+            "evidence": [
+              {
+                "path": ".sannr/evidence/app/run-04b4897b-0cdd-494d-8278-d4b19d7f33d3.json",
+                "digest": "sha256:1e723c8a40381ea5a266626ae23bbc4d5a032df9d1edd3b362238aefcd27587c"
+              }
+            ],
+            "notes": [
+              "HTTP response status 200."
+            ],
+            "omissions": [
+              "Only bounded HTTP request and response structure is committed; payload values remain in private execution evidence.",
+              "A completed HTTP response does not establish complete collection traversal.",
+              "Only supported declaration metadata was retained."
+            ],
+            "response_status": 200,
+            "attempts": 1,
+            "request_shape": {
+              "type": "object",
+              "properties": {
+                "params": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "body": {
+                  "type": "null"
+                }
+              }
+            },
+            "response_shape": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "string"
+                },
+                "database": {
+                  "type": "string"
+                },
+                "companion": {
+                  "type": "string"
+                },
+                "voiceEnabled": {
+                  "type": "boolean"
+                },
+                "smsEnabled": {
+                  "type": "boolean"
+                }
+              }
+            },
+            "assertions": {
+              "passed": 6,
+              "failed": 2
+            },
+            "declaration": {
+              "protocol": "http",
+              "method": "GET",
+              "operation": "GET /health",
+              "validationScope": "declared-method-and-path-only",
+              "schemaValidated": false,
+              "requestValidated": false,
+              "responseValidated": false
+            }
+          },
+          {
+            "id": "1eb93b67-f463-40d6-8a94-be1008af354e",
+            "recorded_at": "2026-10-12T14:31:02.779Z",
+            "observed_at": "2026-10-12T14:31:02.779Z",
+            "basis": "observed",
+            "source": {
+              "kind": "client",
+              "tool": "api_request:http"
+            },
+            "verification": "client-observation",
+            "outcome": "success",
+            "complete": true,
+            "evidence": [
+              {
+                "path": ".sannr/evidence/app/run-14b4f34b-e003-4bae-ad28-cf1ba5315a7b.json",
+                "digest": "sha256:85b9f1a5072348f052c0e5d162765633352130582dae5cd8bf1c191baf62540a"
+              }
+            ],
+            "notes": [
+              "HTTP response status 200."
+            ],
+            "omissions": [
+              "Only bounded HTTP request and response structure is committed; payload values remain in private execution evidence.",
+              "A completed HTTP response does not establish complete collection traversal.",
+              "Only supported declaration metadata was retained."
+            ],
+            "response_status": 200,
+            "attempts": 1,
+            "request_shape": {
+              "type": "object",
+              "properties": {
+                "params": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "body": {
+                  "type": "null"
+                }
+              }
+            },
+            "response_shape": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "string"
+                },
+                "database": {
+                  "type": "string"
+                },
+                "companion": {
+                  "type": "string"
+                },
+                "voiceEnabled": {
+                  "type": "boolean"
+                },
+                "smsEnabled": {
+                  "type": "boolean"
+                }
+              }
+            },
+            "assertions": {
+              "passed": 3,
+              "failed": 1
+            },
+            "declaration": {
+              "protocol": "http",
+              "method": "GET",
+              "operation": "GET /health",
+              "validationScope": "declared-method-and-path-only",
+              "schemaValidated": false,
+              "requestValidated": false,
+              "responseValidated": false
+            }
+          },
+          {
+            "id": "ba04aad6-8fac-494e-b47e-47b270bbc734",
+            "recorded_at": "2026-10-12T14:31:03.028Z",
+            "observed_at": "2026-10-12T14:31:03.028Z",
+            "basis": "observed",
+            "source": {
+              "kind": "client",
+              "tool": "api_request:http"
+            },
+            "verification": "client-observation",
+            "outcome": "success",
+            "complete": true,
+            "evidence": [
+              {
+                "path": ".sannr/evidence/app/run-04f38440-f0d3-4ea9-adef-219d00851a55.json",
+                "digest": "sha256:8adefb4cc5650464c55f6e95cee40e0853c823cd6727a27177ccb12dfddc7276"
+              }
+            ],
+            "notes": [
+              "HTTP response status 200."
+            ],
+            "omissions": [
+              "Only bounded HTTP request and response structure is committed; payload values remain in private execution evidence.",
+              "A completed HTTP response does not establish complete collection traversal.",
+              "Only supported declaration metadata was retained."
+            ],
+            "response_status": 200,
+            "attempts": 1,
+            "request_shape": {
+              "type": "object",
+              "properties": {
+                "params": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "body": {
+                  "type": "null"
+                }
+              }
+            },
+            "response_shape": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "string"
+                },
+                "database": {
+                  "type": "string"
+                },
+                "companion": {
+                  "type": "string"
+                },
+                "voiceEnabled": {
+                  "type": "boolean"
+                },
+                "smsEnabled": {
+                  "type": "boolean"
+                }
+              }
+            },
+            "assertions": {
+              "passed": 6,
+              "failed": 2
+            },
+            "declaration": {
+              "protocol": "http",
+              "method": "GET",
+              "operation": "GET /health",
+              "validationScope": "declared-method-and-path-only",
+              "schemaValidated": false,
+              "requestValidated": false,
+              "responseValidated": false
+            }
+          },
+          {
+            "id": "d0282e6f-7d15-41c2-ae33-8fca8c034477",
+            "recorded_at": "2026-10-12T14:31:13.526Z",
+            "observed_at": "2026-10-12T14:31:13.526Z",
+            "basis": "observed",
+            "source": {
+              "kind": "client",
+              "tool": "api_request:http"
+            },
+            "verification": "client-observation",
+            "outcome": "success",
+            "complete": true,
+            "evidence": [
+              {
+                "path": ".sannr/evidence/app/run-9f5f836d-cbeb-46aa-b27f-f42e124f22b9.json",
+                "digest": "sha256:e35e3bd05233f4f1d1a6c382797e087fabfb56a693d904fffbb591cf582c6b49"
+              }
+            ],
+            "notes": [
+              "HTTP response status 200."
+            ],
+            "omissions": [
+              "Only bounded HTTP request and response structure is committed; payload values remain in private execution evidence.",
+              "A completed HTTP response does not establish complete collection traversal.",
+              "Only supported declaration metadata was retained."
+            ],
+            "response_status": 200,
+            "attempts": 1,
+            "request_shape": {
+              "type": "object",
+              "properties": {
+                "params": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "body": {
+                  "type": "null"
+                }
+              }
+            },
+            "response_shape": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "string"
+                },
+                "database": {
+                  "type": "string"
+                },
+                "companion": {
+                  "type": "string"
+                },
+                "voiceEnabled": {
+                  "type": "boolean"
+                },
+                "smsEnabled": {
+                  "type": "boolean"
+                }
+              }
+            },
+            "assertions": {
+              "passed": 6,
+              "failed": 2
+            },
+            "declaration": {
+              "protocol": "http",
+              "method": "GET",
+              "operation": "GET /health",
+              "validationScope": "declared-method-and-path-only",
+              "schemaValidated": false,
+              "requestValidated": false,
+              "responseValidated": false
+            }
+          },
+          {
+            "id": "e9a4771f-476e-41ad-be52-f899607dfbff",
+            "recorded_at": "2026-10-12T14:31:29.443Z",
+            "observed_at": "2026-10-12T14:31:29.443Z",
+            "basis": "observed",
+            "source": {
+              "kind": "client",
+              "tool": "api_request:http"
+            },
+            "verification": "client-observation",
+            "outcome": "success",
+            "complete": true,
+            "evidence": [
+              {
+                "path": ".sannr/evidence/app/run-31a9b539-eed4-4323-811e-347bcdc7de13.json",
+                "digest": "sha256:99ff11d06bf1434bf87b4117a4b9d7c163f822ee2c3cab917bc4f909ef2fa2c2"
+              }
+            ],
+            "notes": [
+              "HTTP response status 200."
+            ],
+            "omissions": [
+              "Only bounded HTTP request and response structure is committed; payload values remain in private execution evidence.",
+              "A completed HTTP response does not establish complete collection traversal.",
+              "Only supported declaration metadata was retained."
+            ],
+            "response_status": 200,
+            "attempts": 1,
+            "request_shape": {
+              "type": "object",
+              "properties": {
+                "params": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "body": {
+                  "type": "null"
+                }
+              }
+            },
+            "response_shape": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "string"
+                },
+                "database": {
+                  "type": "string"
+                },
+                "companion": {
+                  "type": "string"
+                },
+                "voiceEnabled": {
+                  "type": "boolean"
+                },
+                "smsEnabled": {
+                  "type": "boolean"
+                }
+              }
+            },
+            "assertions": {
+              "passed": 6,
+              "failed": 2
+            },
+            "declaration": {
+              "protocol": "http",
+              "method": "GET",
+              "operation": "GET /health",
+              "validationScope": "declared-method-and-path-only",
+              "schemaValidated": false,
+              "requestValidated": false,
+              "responseValidated": false
+            }
+          },
+          {
+            "id": "0b8cf2a9-6f29-4a48-ba7e-b29b3eda9745",
+            "recorded_at": "2026-10-12T14:31:39.902Z",
+            "observed_at": "2026-10-12T14:31:39.902Z",
+            "basis": "observed",
+            "source": {
+              "kind": "client",
+              "tool": "api_request:http"
+            },
+            "verification": "client-observation",
+            "outcome": "success",
+            "complete": true,
+            "evidence": [
+              {
+                "path": ".sannr/evidence/app/run-68a71a6f-0d7b-404a-92ff-cea9cb8a5f2e.json",
+                "digest": "sha256:de5885ff563a3c9b18b4b476441f42ecd167ab95f503a939299ac65db0a8a776"
+              }
+            ],
+            "notes": [
+              "HTTP response status 200."
+            ],
+            "omissions": [
+              "Only bounded HTTP request and response structure is committed; payload values remain in private execution evidence.",
+              "A completed HTTP response does not establish complete collection traversal.",
+              "Only supported declaration metadata was retained."
+            ],
+            "response_status": 200,
+            "attempts": 1,
+            "request_shape": {
+              "type": "object",
+              "properties": {
+                "params": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "body": {
+                  "type": "null"
+                }
+              }
+            },
+            "response_shape": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "string"
+                },
+                "database": {
+                  "type": "string"
+                },
+                "companion": {
+                  "type": "string"
+                },
+                "voiceEnabled": {
+                  "type": "boolean"
+                },
+                "smsEnabled": {
+                  "type": "boolean"
+                }
+              }
+            },
+            "assertions": {
+              "passed": 6,
+              "failed": 2
+            },
+            "declaration": {
+              "protocol": "http",
+              "method": "GET",
+              "operation": "GET /health",
+              "validationScope": "declared-method-and-path-only",
+              "schemaValidated": false,
+              "requestValidated": false,
+              "responseValidated": false
+            }
+          },
+          {
+            "id": "02ae7c98-f4e3-4532-b7ff-c815fcfbdc26",
+            "recorded_at": "2026-10-12T14:31:50.399Z",
+            "observed_at": "2026-10-12T14:31:50.399Z",
+            "basis": "observed",
+            "source": {
+              "kind": "client",
+              "tool": "api_request:http"
+            },
+            "verification": "client-observation",
+            "outcome": "success",
+            "complete": true,
+            "evidence": [
+              {
+                "path": ".sannr/evidence/app/run-9a17c9e7-8b8e-4030-a524-260fcc6f547b.json",
+                "digest": "sha256:370f309ba1dbc913c8a1a1604aded380117ba94e5489691159ba9a2d97fb2b8b"
+              }
+            ],
+            "notes": [
+              "HTTP response status 200."
+            ],
+            "omissions": [
+              "Only bounded HTTP request and response structure is committed; payload values remain in private execution evidence.",
+              "A completed HTTP response does not establish complete collection traversal.",
+              "Only supported declaration metadata was retained."
+            ],
+            "response_status": 200,
+            "attempts": 1,
+            "request_shape": {
+              "type": "object",
+              "properties": {
+                "params": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "body": {
+                  "type": "null"
+                }
+              }
+            },
+            "response_shape": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "string"
+                },
+                "database": {
+                  "type": "string"
+                },
+                "companion": {
+                  "type": "string"
+                },
+                "voiceEnabled": {
+                  "type": "boolean"
+                },
+                "smsEnabled": {
+                  "type": "boolean"
+                }
+              }
+            },
+            "assertions": {
+              "passed": 6,
+              "failed": 2
+            },
+            "declaration": {
+              "protocol": "http",
+              "method": "GET",
+              "operation": "GET /health",
+              "validationScope": "declared-method-and-path-only",
+              "schemaValidated": false,
+              "requestValidated": false,
+              "responseValidated": false
+            }
+          },
+          {
+            "id": "40b6e74f-0f79-4d23-b971-b028c31f3c32",
+            "recorded_at": "2026-10-12T14:32:00.876Z",
+            "observed_at": "2026-10-12T14:32:00.876Z",
+            "basis": "observed",
+            "source": {
+              "kind": "client",
+              "tool": "api_request:http"
+            },
+            "verification": "client-observation",
+            "outcome": "success",
+            "complete": true,
+            "evidence": [
+              {
+                "path": ".sannr/evidence/app/run-cff3ab35-40f6-4d57-93be-33d0e44b1f4a.json",
+                "digest": "sha256:22d295d52347f2d9a2b8b7f5d7e58157e6be137f5364afb987b5ecc173d87889"
+              }
+            ],
+            "notes": [
+              "HTTP response status 200."
+            ],
+            "omissions": [
+              "Only bounded HTTP request and response structure is committed; payload values remain in private execution evidence.",
+              "A completed HTTP response does not establish complete collection traversal.",
+              "Only supported declaration metadata was retained."
+            ],
+            "response_status": 200,
+            "attempts": 1,
+            "request_shape": {
+              "type": "object",
+              "properties": {
+                "params": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "body": {
+                  "type": "null"
+                }
+              }
+            },
+            "response_shape": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "string"
+                },
+                "database": {
+                  "type": "string"
+                },
+                "companion": {
+                  "type": "string"
+                },
+                "voiceEnabled": {
+                  "type": "boolean"
+                },
+                "smsEnabled": {
+                  "type": "boolean"
+                }
+              }
+            },
+            "assertions": {
+              "passed": 6,
+              "failed": 2
+            },
+            "declaration": {
+              "protocol": "http",
+              "method": "GET",
+              "operation": "GET /health",
+              "validationScope": "declared-method-and-path-only",
+              "schemaValidated": false,
+              "requestValidated": false,
+              "responseValidated": false
+            }
+          },
+          {
+            "id": "085c74c9-0674-4ce4-875d-6d4a6a906ee7",
+            "recorded_at": "2026-10-12T14:32:11.342Z",
+            "observed_at": "2026-10-12T14:32:11.342Z",
+            "basis": "observed",
+            "source": {
+              "kind": "client",
+              "tool": "api_request:http"
+            },
+            "verification": "client-observation",
+            "outcome": "success",
+            "complete": true,
+            "evidence": [
+              {
+                "path": ".sannr/evidence/app/run-8efc31cb-23cf-4f8b-a98b-384711534db9.json",
+                "digest": "sha256:1de532c1c71a0bf57dbdbc25877ca6d0bcec29f3be68d9e0e85372113e390d1a"
+              }
+            ],
+            "notes": [
+              "HTTP response status 200."
+            ],
+            "omissions": [
+              "Only bounded HTTP request and response structure is committed; payload values remain in private execution evidence.",
+              "A completed HTTP response does not establish complete collection traversal.",
+              "Only supported declaration metadata was retained."
+            ],
+            "response_status": 200,
+            "attempts": 1,
+            "request_shape": {
+              "type": "object",
+              "properties": {
+                "params": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "body": {
+                  "type": "null"
+                }
+              }
+            },
+            "response_shape": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "string"
+                },
+                "database": {
+                  "type": "string"
+                },
+                "companion": {
+                  "type": "string"
+                },
+                "voiceEnabled": {
+                  "type": "boolean"
+                },
+                "smsEnabled": {
+                  "type": "boolean"
+                }
+              }
+            },
+            "assertions": {
+              "passed": 6,
+              "failed": 2
+            },
+            "declaration": {
+              "protocol": "http",
+              "method": "GET",
+              "operation": "GET /health",
+              "validationScope": "declared-method-and-path-only",
+              "schemaValidated": false,
+              "requestValidated": false,
+              "responseValidated": false
+            }
+          },
+          {
+            "id": "4e98e766-f008-4747-ad9d-a6885ac0796e",
+            "recorded_at": "2026-10-12T14:32:22.754Z",
+            "observed_at": "2026-10-12T14:32:22.754Z",
+            "basis": "observed",
+            "source": {
+              "kind": "client",
+              "tool": "api_request:http"
+            },
+            "verification": "client-observation",
+            "outcome": "success",
+            "complete": true,
+            "evidence": [
+              {
+                "path": ".sannr/evidence/app/run-45970608-73dc-4612-8d42-7129958ef4b5.json",
+                "digest": "sha256:141e736ea051c3cf71db70d34bffe51f40f02f204ba4cf9e63458f19353133fc"
+              }
+            ],
+            "notes": [
+              "HTTP response status 200."
+            ],
+            "omissions": [
+              "Only bounded HTTP request and response structure is committed; payload values remain in private execution evidence.",
+              "A completed HTTP response does not establish complete collection traversal.",
+              "Only supported declaration metadata was retained."
+            ],
+            "response_status": 200,
+            "attempts": 1,
+            "request_shape": {
+              "type": "object",
+              "properties": {
+                "params": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "body": {
+                  "type": "null"
+                }
+              }
+            },
+            "response_shape": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "string"
+                },
+                "database": {
+                  "type": "string"
+                },
+                "companion": {
+                  "type": "string"
+                },
+                "voiceEnabled": {
+                  "type": "boolean"
+                },
+                "smsEnabled": {
+                  "type": "boolean"
+                }
+              }
+            },
+            "assertions": {
+              "passed": 6,
+              "failed": 2
+            },
+            "declaration": {
+              "protocol": "http",
+              "method": "GET",
+              "operation": "GET /health",
+              "validationScope": "declared-method-and-path-only",
+              "schemaValidated": false,
+              "requestValidated": false,
+              "responseValidated": false
+            }
+          },
+          {
+            "id": "83a8c027-af2b-441c-9363-c2747b943270",
+            "recorded_at": "2026-10-12T14:32:23.897Z",
+            "observed_at": "2026-10-12T14:32:23.897Z",
+            "basis": "observed",
+            "source": {
+              "kind": "client",
+              "tool": "api_request:http"
+            },
+            "verification": "client-observation",
+            "outcome": "success",
+            "complete": true,
+            "evidence": [
+              {
+                "path": ".sannr/evidence/app/run-15cbeb48-f2d7-4dce-8e5d-fe672ff8027e.json",
+                "digest": "sha256:67b39948e5c7ec6a123aaa2b817b53ebbed1d7457cb6796c23d54562547e44e7"
+              }
+            ],
+            "notes": [
+              "HTTP response status 200."
+            ],
+            "omissions": [
+              "Only bounded HTTP request and response structure is committed; payload values remain in private execution evidence.",
+              "A completed HTTP response does not establish complete collection traversal.",
+              "Only supported declaration metadata was retained."
+            ],
+            "response_status": 200,
+            "attempts": 1,
+            "request_shape": {
+              "type": "object",
+              "properties": {
+                "params": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "body": {
+                  "type": "null"
+                }
+              }
+            },
+            "response_shape": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "string"
+                },
+                "database": {
+                  "type": "string"
+                },
+                "companion": {
+                  "type": "string"
+                },
+                "voiceEnabled": {
+                  "type": "boolean"
+                },
+                "smsEnabled": {
+                  "type": "boolean"
+                }
+              }
+            },
+            "assertions": {
+              "passed": 6,
+              "failed": 2
+            },
+            "declaration": {
+              "protocol": "http",
+              "method": "GET",
+              "operation": "GET /health",
+              "validationScope": "declared-method-and-path-only",
+              "schemaValidated": false,
+              "requestValidated": false,
+              "responseValidated": false
+            }
+          },
+          {
+            "id": "ac023110-ce12-4522-a899-e34ade741a3a",
+            "recorded_at": "2026-10-12T14:32:34.728Z",
+            "observed_at": "2026-10-12T14:32:34.728Z",
+            "basis": "observed",
+            "source": {
+              "kind": "client",
+              "tool": "api_request:http"
+            },
+            "verification": "client-observation",
+            "outcome": "success",
+            "complete": true,
+            "evidence": [
+              {
+                "path": ".sannr/evidence/app/run-882cf310-8649-4221-8b61-d3e34fbc2bbe.json",
+                "digest": "sha256:d16e0d3f74d45dd28f73e9c0bd3c5ad8b1e113b56a196df7c61145df6eca7a79"
+              }
+            ],
+            "notes": [
+              "HTTP response status 200."
+            ],
+            "omissions": [
+              "Only bounded HTTP request and response structure is committed; payload values remain in private execution evidence.",
+              "A completed HTTP response does not establish complete collection traversal.",
+              "Only supported declaration metadata was retained."
+            ],
+            "response_status": 200,
+            "attempts": 1,
+            "request_shape": {
+              "type": "object",
+              "properties": {
+                "params": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "body": {
+                  "type": "null"
+                }
+              }
+            },
+            "response_shape": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "string"
+                },
+                "database": {
+                  "type": "string"
+                },
+                "companion": {
+                  "type": "string"
+                },
+                "voiceEnabled": {
+                  "type": "boolean"
+                },
+                "smsEnabled": {
+                  "type": "boolean"
+                }
+              }
+            },
+            "assertions": {
+              "passed": 6,
+              "failed": 2
+            },
+            "declaration": {
+              "protocol": "http",
+              "method": "GET",
+              "operation": "GET /health",
+              "validationScope": "declared-method-and-path-only",
+              "schemaValidated": false,
+              "requestValidated": false,
+              "responseValidated": false
+            }
+          },
+          {
+            "id": "cd2bdd2b-bff7-4f1c-868d-a531f256a5b2",
+            "recorded_at": "2026-10-12T14:32:45.264Z",
+            "observed_at": "2026-10-12T14:32:45.264Z",
+            "basis": "observed",
+            "source": {
+              "kind": "client",
+              "tool": "api_request:http"
+            },
+            "verification": "client-observation",
+            "outcome": "success",
+            "complete": true,
+            "evidence": [
+              {
+                "path": ".sannr/evidence/app/run-144dea18-5064-437a-94ad-b92d42ddd9d1.json",
+                "digest": "sha256:9719900a5ab774cd06a46a3f76a3cba7b4434db5d6e90921e72dab1568fe011f"
+              }
+            ],
+            "notes": [
+              "HTTP response status 200."
+            ],
+            "omissions": [
+              "Only bounded HTTP request and response structure is committed; payload values remain in private execution evidence.",
+              "A completed HTTP response does not establish complete collection traversal.",
+              "Only supported declaration metadata was retained."
+            ],
+            "response_status": 200,
+            "attempts": 1,
+            "request_shape": {
+              "type": "object",
+              "properties": {
+                "params": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "body": {
+                  "type": "null"
+                }
+              }
+            },
+            "response_shape": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "string"
+                },
+                "database": {
+                  "type": "string"
+                },
+                "companion": {
+                  "type": "string"
+                },
+                "voiceEnabled": {
+                  "type": "boolean"
+                },
+                "smsEnabled": {
+                  "type": "boolean"
+                }
+              }
+            },
+            "assertions": {
+              "passed": 6,
+              "failed": 2
+            },
+            "declaration": {
+              "protocol": "http",
+              "method": "GET",
+              "operation": "GET /health",
+              "validationScope": "declared-method-and-path-only",
+              "schemaValidated": false,
+              "requestValidated": false,
+              "responseValidated": false
+            }
+          },
+          {
+            "id": "df3bb107-108f-4ff6-8d61-7221dcd15c60",
+            "recorded_at": "2026-10-12T14:32:55.734Z",
+            "observed_at": "2026-10-12T14:32:55.734Z",
+            "basis": "observed",
+            "source": {
+              "kind": "client",
+              "tool": "api_request:http"
+            },
+            "verification": "client-observation",
+            "outcome": "success",
+            "complete": true,
+            "evidence": [
+              {
+                "path": ".sannr/evidence/app/run-3938c132-471f-4115-9241-8c53b50c21cd.json",
+                "digest": "sha256:df9cf918ec85d6618d7a507ad8cf9d3e1720f360bb4cd2f04152bb2895440a0f"
+              }
+            ],
+            "notes": [
+              "HTTP response status 200."
+            ],
+            "omissions": [
+              "Only bounded HTTP request and response structure is committed; payload values remain in private execution evidence.",
+              "A completed HTTP response does not establish complete collection traversal.",
+              "Only supported declaration metadata was retained."
+            ],
+            "response_status": 200,
+            "attempts": 1,
+            "request_shape": {
+              "type": "object",
+              "properties": {
+                "params": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "body": {
+                  "type": "null"
+                }
+              }
+            },
+            "response_shape": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "string"
+                },
+                "database": {
+                  "type": "string"
+                },
+                "companion": {
+                  "type": "string"
+                },
+                "voiceEnabled": {
+                  "type": "boolean"
+                },
+                "smsEnabled": {
+                  "type": "boolean"
+                }
+              }
+            },
+            "assertions": {
+              "passed": 6,
+              "failed": 2
+            },
+            "declaration": {
+              "protocol": "http",
+              "method": "GET",
+              "operation": "GET /health",
+              "validationScope": "declared-method-and-path-only",
+              "schemaValidated": false,
+              "requestValidated": false,
+              "responseValidated": false
+            }
+          },
+          {
+            "id": "2d431a1b-3b9c-4389-b5bd-61b720d9711d",
+            "recorded_at": "2026-10-12T14:33:06.182Z",
+            "observed_at": "2026-10-12T14:33:06.182Z",
+            "basis": "observed",
+            "source": {
+              "kind": "client",
+              "tool": "api_request:http"
+            },
+            "verification": "client-observation",
+            "outcome": "success",
+            "complete": true,
+            "evidence": [
+              {
+                "path": ".sannr/evidence/app/run-17709005-d8d8-45f5-8d31-9769807920a9.json",
+                "digest": "sha256:7635eea3090c548304230d97f72b376b26f2b392af6606988a6413a196edf8f0"
+              }
+            ],
+            "notes": [
+              "HTTP response status 200."
+            ],
+            "omissions": [
+              "Only bounded HTTP request and response structure is committed; payload values remain in private execution evidence.",
+              "A completed HTTP response does not establish complete collection traversal.",
+              "Only supported declaration metadata was retained."
+            ],
+            "response_status": 200,
+            "attempts": 1,
+            "request_shape": {
+              "type": "object",
+              "properties": {
+                "params": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "body": {
+                  "type": "null"
+                }
+              }
+            },
+            "response_shape": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "string"
+                },
+                "database": {
+                  "type": "string"
+                },
+                "companion": {
+                  "type": "string"
+                },
+                "voiceEnabled": {
+                  "type": "boolean"
+                },
+                "smsEnabled": {
+                  "type": "boolean"
+                }
+              }
+            },
+            "assertions": {
+              "passed": 6,
+              "failed": 2
+            },
+            "declaration": {
+              "protocol": "http",
+              "method": "GET",
+              "operation": "GET /health",
+              "validationScope": "declared-method-and-path-only",
+              "schemaValidated": false,
+              "requestValidated": false,
+              "responseValidated": false
+            }
+          },
+          {
+            "id": "0df86bb9-c9ee-4235-96dc-a907820f1541",
+            "recorded_at": "2026-10-12T14:33:18.589Z",
+            "observed_at": "2026-10-12T14:33:18.589Z",
+            "basis": "observed",
+            "source": {
+              "kind": "client",
+              "tool": "api_request:http"
+            },
+            "verification": "client-observation",
+            "outcome": "success",
+            "complete": true,
+            "evidence": [
+              {
+                "path": ".sannr/evidence/app/run-5aa90155-1821-44c5-8661-1a17aa1d7aba.json",
+                "digest": "sha256:a5a492a3de6e296edfa6d377096c0ee3a89f3b1a8ea222d9ebfacfa5ed535879"
+              }
+            ],
+            "notes": [
+              "HTTP response status 200."
+            ],
+            "omissions": [
+              "Only bounded HTTP request and response structure is committed; payload values remain in private execution evidence.",
+              "A completed HTTP response does not establish complete collection traversal.",
+              "Only supported declaration metadata was retained."
+            ],
+            "response_status": 200,
+            "attempts": 1,
+            "request_shape": {
+              "type": "object",
+              "properties": {
+                "params": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "body": {
+                  "type": "null"
+                }
+              }
+            },
+            "response_shape": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "string"
+                },
+                "database": {
+                  "type": "string"
+                },
+                "companion": {
+                  "type": "string"
+                },
+                "voiceEnabled": {
+                  "type": "boolean"
+                },
+                "smsEnabled": {
+                  "type": "boolean"
+                },
+                "decisionsEnabled": {
+                  "type": "boolean"
+                },
+                "callbackEnabled": {
+                  "type": "boolean"
+                }
+              }
+            },
+            "assertions": {
+              "passed": 8,
+              "failed": 0
+            },
+            "declaration": {
+              "protocol": "http",
+              "method": "GET",
+              "operation": "GET /health",
+              "validationScope": "declared-method-and-path-only",
+              "schemaValidated": false,
+              "requestValidated": false,
+              "responseValidated": false
+            }
+          },
+          {
+            "id": "f08dd9bb-32ad-4d62-9bc7-327cafc6bf9a",
+            "recorded_at": "2026-10-12T15:19:41.826Z",
+            "observed_at": "2026-10-12T15:19:41.826Z",
+            "basis": "observed",
+            "source": {
+              "kind": "client",
+              "tool": "api_request:http"
+            },
+            "verification": "client-observation",
+            "outcome": "success",
+            "complete": true,
+            "evidence": [
+              {
+                "path": ".sannr/evidence/app/run-a029191b-0561-480c-a630-42a1a8d5926c.json",
+                "digest": "sha256:55eea123778f0a026f42f0f1da795ff01781f2eb20fb95abf16fefbf40e72100"
+              }
+            ],
+            "notes": [
+              "HTTP response status 200."
+            ],
+            "omissions": [
+              "Only bounded HTTP request and response structure is committed; payload values remain in private execution evidence.",
+              "A completed HTTP response does not establish complete collection traversal.",
+              "Only supported declaration metadata was retained."
+            ],
+            "response_status": 200,
+            "attempts": 1,
+            "request_shape": {
+              "type": "object",
+              "properties": {
+                "params": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "body": {
+                  "type": "null"
+                }
+              }
+            },
+            "response_shape": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "string"
+                },
+                "database": {
+                  "type": "string"
+                },
+                "companion": {
+                  "type": "string"
+                },
+                "voiceEnabled": {
+                  "type": "boolean"
+                },
+                "smsEnabled": {
+                  "type": "boolean"
+                },
+                "decisionsEnabled": {
+                  "type": "boolean"
+                },
+                "callbackEnabled": {
+                  "type": "boolean"
+                }
+              }
+            },
+            "assertions": {
+              "passed": 6,
+              "failed": 0
+            },
+            "declaration": {
+              "protocol": "http",
+              "method": "GET",
+              "operation": "GET /health",
+              "validationScope": "declared-method-and-path-only",
+              "schemaValidated": false,
+              "requestValidated": false,
+              "responseValidated": false
+            }
+          },
+          {
+            "id": "6f7eeba1-b692-4785-a34a-78b8608c59cf",
+            "recorded_at": "2026-10-12T14:28:52.961Z",
+            "observed_at": "2026-10-12T14:28:52.961Z",
+            "basis": "observed",
+            "source": {
+              "kind": "client",
+              "tool": "api_request:http"
+            },
+            "verification": "client-observation",
+            "outcome": "success",
+            "complete": true,
+            "evidence": [
+              {
+                "path": ".sannr/evidence/app/run-18c1773f-54da-4355-9f03-b85c895ec0e7.json",
+                "digest": "sha256:0da9c58e3ac777d2aa0dbdd525c979e15697e9cffeccfcda967718a9ec268faf"
+              }
+            ],
+            "notes": [
+              "HTTP response status 200."
+            ],
+            "omissions": [
+              "Only bounded HTTP request and response structure is committed; payload values remain in private execution evidence.",
+              "A completed HTTP response does not establish complete collection traversal.",
+              "Only supported declaration metadata was retained."
+            ],
+            "response_status": 200,
+            "attempts": 1,
+            "request_shape": {
+              "type": "object",
+              "properties": {
+                "params": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "body": {
+                  "type": "null"
+                }
+              }
+            },
+            "response_shape": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "string"
+                },
+                "database": {
+                  "type": "string"
+                },
+                "companion": {
+                  "type": "string"
+                },
+                "voiceEnabled": {
+                  "type": "boolean"
+                },
+                "smsEnabled": {
+                  "type": "boolean"
+                }
+              }
+            },
+            "assertions": {
+              "passed": 6,
+              "failed": 2
+            },
+            "declaration": {
+              "protocol": "http",
+              "method": "GET",
+              "operation": "GET /health",
+              "validationScope": "declared-method-and-path-only",
+              "schemaValidated": false,
+              "requestValidated": false,
+              "responseValidated": false
+            }
+          },
+          {
+            "id": "70fda1a0-8e8b-4a6e-aecd-bfe51e1657fe",
+            "recorded_at": "2026-10-12T14:29:03.513Z",
+            "observed_at": "2026-10-12T14:29:03.513Z",
+            "basis": "observed",
+            "source": {
+              "kind": "client",
+              "tool": "api_request:http"
+            },
+            "verification": "client-observation",
+            "outcome": "success",
+            "complete": true,
+            "evidence": [
+              {
+                "path": ".sannr/evidence/app/run-0e30cff3-700e-4c94-863c-8cc0bbc38b72.json",
+                "digest": "sha256:8d0362f602ba048ffcbd7d37025cc02b765db4a17bf71f7f9e14276d734ab2e2"
+              }
+            ],
+            "notes": [
+              "HTTP response status 200."
+            ],
+            "omissions": [
+              "Only bounded HTTP request and response structure is committed; payload values remain in private execution evidence.",
+              "A completed HTTP response does not establish complete collection traversal.",
+              "Only supported declaration metadata was retained."
+            ],
+            "response_status": 200,
+            "attempts": 1,
+            "request_shape": {
+              "type": "object",
+              "properties": {
+                "params": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "body": {
+                  "type": "null"
+                }
+              }
+            },
+            "response_shape": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "string"
+                },
+                "database": {
+                  "type": "string"
+                },
+                "companion": {
+                  "type": "string"
+                },
+                "voiceEnabled": {
+                  "type": "boolean"
+                },
+                "smsEnabled": {
+                  "type": "boolean"
+                }
+              }
+            },
+            "assertions": {
+              "passed": 6,
+              "failed": 2
+            },
+            "declaration": {
+              "protocol": "http",
+              "method": "GET",
+              "operation": "GET /health",
+              "validationScope": "declared-method-and-path-only",
+              "schemaValidated": false,
+              "requestValidated": false,
+              "responseValidated": false
+            }
+          },
+          {
+            "id": "02d01510-5dc5-4970-8398-0ab486ef1140",
+            "recorded_at": "2026-10-12T14:29:13.924Z",
+            "observed_at": "2026-10-12T14:29:13.924Z",
+            "basis": "observed",
+            "source": {
+              "kind": "client",
+              "tool": "api_request:http"
+            },
+            "verification": "client-observation",
+            "outcome": "success",
+            "complete": true,
+            "evidence": [
+              {
+                "path": ".sannr/evidence/app/run-6cbae4e2-77ed-4c47-8ca4-9f3e9bf1006c.json",
+                "digest": "sha256:f5cf4d6af9dc4e314cecbb658970bbf1a48f3810e7a9dce269362a8a4fa0e0e6"
+              }
+            ],
+            "notes": [
+              "HTTP response status 200."
+            ],
+            "omissions": [
+              "Only bounded HTTP request and response structure is committed; payload values remain in private execution evidence.",
+              "A completed HTTP response does not establish complete collection traversal.",
+              "Only supported declaration metadata was retained."
+            ],
+            "response_status": 200,
+            "attempts": 1,
+            "request_shape": {
+              "type": "object",
+              "properties": {
+                "params": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "body": {
+                  "type": "null"
+                }
+              }
+            },
+            "response_shape": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "string"
+                },
+                "database": {
+                  "type": "string"
+                },
+                "companion": {
+                  "type": "string"
+                },
+                "voiceEnabled": {
+                  "type": "boolean"
+                },
+                "smsEnabled": {
+                  "type": "boolean"
+                }
+              }
+            },
+            "assertions": {
+              "passed": 6,
+              "failed": 2
+            },
+            "declaration": {
+              "protocol": "http",
+              "method": "GET",
+              "operation": "GET /health",
+              "validationScope": "declared-method-and-path-only",
+              "schemaValidated": false,
+              "requestValidated": false,
+              "responseValidated": false
+            }
+          },
+          {
+            "id": "937e1488-1a9a-49fa-ae4f-173ac2166138",
+            "recorded_at": "2026-10-12T14:29:24.433Z",
+            "observed_at": "2026-10-12T14:29:24.433Z",
+            "basis": "observed",
+            "source": {
+              "kind": "client",
+              "tool": "api_request:http"
+            },
+            "verification": "client-observation",
+            "outcome": "success",
+            "complete": true,
+            "evidence": [
+              {
+                "path": ".sannr/evidence/app/run-603993c9-1622-420c-b898-1df1c39e5d34.json",
+                "digest": "sha256:9b872c2248b0b325093d2d45d85f7c7ed6ede3bd57a2a3ccf6207020334c1f93"
+              }
+            ],
+            "notes": [
+              "HTTP response status 200."
+            ],
+            "omissions": [
+              "Only bounded HTTP request and response structure is committed; payload values remain in private execution evidence.",
+              "A completed HTTP response does not establish complete collection traversal.",
+              "Only supported declaration metadata was retained."
+            ],
+            "response_status": 200,
+            "attempts": 1,
+            "request_shape": {
+              "type": "object",
+              "properties": {
+                "params": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "body": {
+                  "type": "null"
+                }
+              }
+            },
+            "response_shape": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "string"
+                },
+                "database": {
+                  "type": "string"
+                },
+                "companion": {
+                  "type": "string"
+                },
+                "voiceEnabled": {
+                  "type": "boolean"
+                },
+                "smsEnabled": {
+                  "type": "boolean"
+                }
+              }
+            },
+            "assertions": {
+              "passed": 6,
+              "failed": 2
+            },
+            "declaration": {
+              "protocol": "http",
+              "method": "GET",
+              "operation": "GET /health",
+              "validationScope": "declared-method-and-path-only",
+              "schemaValidated": false,
+              "requestValidated": false,
+              "responseValidated": false
+            }
+          },
+          {
+            "id": "d43bbd6d-1b69-45a6-ae5f-7d92b6100610",
+            "recorded_at": "2026-10-12T14:29:34.954Z",
+            "observed_at": "2026-10-12T14:29:34.954Z",
+            "basis": "observed",
+            "source": {
+              "kind": "client",
+              "tool": "api_request:http"
+            },
+            "verification": "client-observation",
+            "outcome": "success",
+            "complete": true,
+            "evidence": [
+              {
+                "path": ".sannr/evidence/app/run-9e7e5db5-4e58-4d65-890d-ccc9a6d50065.json",
+                "digest": "sha256:482e5512737854f5cd5e0fe68bd8bc8f746b78a176edef8e056b06940297a369"
+              }
+            ],
+            "notes": [
+              "HTTP response status 200."
+            ],
+            "omissions": [
+              "Only bounded HTTP request and response structure is committed; payload values remain in private execution evidence.",
+              "A completed HTTP response does not establish complete collection traversal.",
+              "Only supported declaration metadata was retained."
+            ],
+            "response_status": 200,
+            "attempts": 1,
+            "request_shape": {
+              "type": "object",
+              "properties": {
+                "params": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "body": {
+                  "type": "null"
+                }
+              }
+            },
+            "response_shape": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "string"
+                },
+                "database": {
+                  "type": "string"
+                },
+                "companion": {
+                  "type": "string"
+                },
+                "voiceEnabled": {
+                  "type": "boolean"
+                },
+                "smsEnabled": {
+                  "type": "boolean"
+                }
+              }
+            },
+            "assertions": {
+              "passed": 6,
+              "failed": 2
+            },
+            "declaration": {
+              "protocol": "http",
+              "method": "GET",
+              "operation": "GET /health",
+              "validationScope": "declared-method-and-path-only",
+              "schemaValidated": false,
+              "requestValidated": false,
+              "responseValidated": false
+            }
+          },
+          {
+            "id": "6a4d3a44-8eba-4dc5-a525-f688f8e9f61d",
+            "recorded_at": "2026-10-12T14:29:45.387Z",
+            "observed_at": "2026-10-12T14:29:45.387Z",
+            "basis": "observed",
+            "source": {
+              "kind": "client",
+              "tool": "api_request:http"
+            },
+            "verification": "client-observation",
+            "outcome": "success",
+            "complete": true,
+            "evidence": [
+              {
+                "path": ".sannr/evidence/app/run-2908c321-9856-4b53-a923-fdab6b917cfd.json",
+                "digest": "sha256:33a90e746fc1281e27a8d4c91c7d39b41b13d6a2d771f72885d205f6ce0336cb"
+              }
+            ],
+            "notes": [
+              "HTTP response status 200."
+            ],
+            "omissions": [
+              "Only bounded HTTP request and response structure is committed; payload values remain in private execution evidence.",
+              "A completed HTTP response does not establish complete collection traversal.",
+              "Only supported declaration metadata was retained."
+            ],
+            "response_status": 200,
+            "attempts": 1,
+            "request_shape": {
+              "type": "object",
+              "properties": {
+                "params": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "body": {
+                  "type": "null"
+                }
+              }
+            },
+            "response_shape": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "string"
+                },
+                "database": {
+                  "type": "string"
+                },
+                "companion": {
+                  "type": "string"
+                },
+                "voiceEnabled": {
+                  "type": "boolean"
+                },
+                "smsEnabled": {
+                  "type": "boolean"
+                }
+              }
+            },
+            "assertions": {
+              "passed": 6,
+              "failed": 2
+            },
+            "declaration": {
+              "protocol": "http",
+              "method": "GET",
+              "operation": "GET /health",
+              "validationScope": "declared-method-and-path-only",
+              "schemaValidated": false,
+              "requestValidated": false,
+              "responseValidated": false
+            }
+          },
+          {
+            "id": "ea363c2b-08b6-4992-aecc-142dbf7add41",
+            "recorded_at": "2026-10-12T14:29:55.959Z",
+            "observed_at": "2026-10-12T14:29:55.959Z",
+            "basis": "observed",
+            "source": {
+              "kind": "client",
+              "tool": "api_request:http"
+            },
+            "verification": "client-observation",
+            "outcome": "success",
+            "complete": true,
+            "evidence": [
+              {
+                "path": ".sannr/evidence/app/run-435b2332-ed1d-4570-b4ba-f2e53278a539.json",
+                "digest": "sha256:e5b36ac88f0b382c1df7b170f4af507dcac409fb1435df5a72ef28812db84602"
+              }
+            ],
+            "notes": [
+              "HTTP response status 200."
+            ],
+            "omissions": [
+              "Only bounded HTTP request and response structure is committed; payload values remain in private execution evidence.",
+              "A completed HTTP response does not establish complete collection traversal.",
+              "Only supported declaration metadata was retained."
+            ],
+            "response_status": 200,
+            "attempts": 1,
+            "request_shape": {
+              "type": "object",
+              "properties": {
+                "params": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "body": {
+                  "type": "null"
+                }
+              }
+            },
+            "response_shape": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "string"
+                },
+                "database": {
+                  "type": "string"
+                },
+                "companion": {
+                  "type": "string"
+                },
+                "voiceEnabled": {
+                  "type": "boolean"
+                },
+                "smsEnabled": {
+                  "type": "boolean"
+                }
+              }
+            },
+            "assertions": {
+              "passed": 6,
+              "failed": 2
+            },
+            "declaration": {
+              "protocol": "http",
+              "method": "GET",
+              "operation": "GET /health",
+              "validationScope": "declared-method-and-path-only",
+              "schemaValidated": false,
+              "requestValidated": false,
+              "responseValidated": false
+            }
+          },
+          {
+            "id": "c9a9e9c6-a125-45e4-bea7-05c88cc62cf8",
+            "recorded_at": "2026-10-12T14:30:06.394Z",
+            "observed_at": "2026-10-12T14:30:06.394Z",
+            "basis": "observed",
+            "source": {
+              "kind": "client",
+              "tool": "api_request:http"
+            },
+            "verification": "client-observation",
+            "outcome": "success",
+            "complete": true,
+            "evidence": [
+              {
+                "path": ".sannr/evidence/app/run-1b4a7ea8-4f1e-4bc2-bb5b-a7944daa7fa8.json",
+                "digest": "sha256:167ea41be99921ab45cfce93cbffda5c3578b98fb9f55059e14bf755bc9ba6ac"
+              }
+            ],
+            "notes": [
+              "HTTP response status 200."
+            ],
+            "omissions": [
+              "Only bounded HTTP request and response structure is committed; payload values remain in private execution evidence.",
+              "A completed HTTP response does not establish complete collection traversal.",
+              "Only supported declaration metadata was retained."
+            ],
+            "response_status": 200,
+            "attempts": 1,
+            "request_shape": {
+              "type": "object",
+              "properties": {
+                "params": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "body": {
+                  "type": "null"
+                }
+              }
+            },
+            "response_shape": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "string"
+                },
+                "database": {
+                  "type": "string"
+                },
+                "companion": {
+                  "type": "string"
+                },
+                "voiceEnabled": {
+                  "type": "boolean"
+                },
+                "smsEnabled": {
+                  "type": "boolean"
+                }
+              }
+            },
+            "assertions": {
+              "passed": 6,
+              "failed": 2
+            },
+            "declaration": {
+              "protocol": "http",
+              "method": "GET",
+              "operation": "GET /health",
+              "validationScope": "declared-method-and-path-only",
+              "schemaValidated": false,
+              "requestValidated": false,
+              "responseValidated": false
+            }
+          }
+        ],
+        "omitted_observations": 16
+      },
+      "sha256:75da2a7beca19ba869950ea7db6083f238020fdfc634536cb0af27c0c1f0d9d7": {
+        "identity": {
+          "v": 1,
+          "stack": "app",
+          "provider": "https://hailing-frequencies-app-production.up.railway.app",
+          "environment": "production",
+          "protocol": "http",
+          "operation": "GET /health",
+          "endpoint": "https://hailing-frequencies-app-production.up.railway.app/health",
+          "contractDigest": "sha256:260e8d401216808485b3bf94286bfe8266874dc7b1c07409f954ab02ddb6cf89"
+        },
+        "observations": [
+          {
+            "id": "20d69aef-1622-41c4-82d3-cf1d30a3d428",
+            "recorded_at": "2026-10-12T18:02:54.891Z",
+            "observed_at": "2026-10-12T18:02:54.891Z",
+            "basis": "observed",
+            "source": {
+              "kind": "client",
+              "tool": "api_request:http"
+            },
+            "verification": "client-observation",
+            "outcome": "success",
+            "complete": true,
+            "evidence": [
+              {
+                "path": ".sannr/evidence/app/run-1e0388d4-0e81-4715-b689-db7ca8998d5e.json",
+                "digest": "sha256:69c05c47212231e4cef7b6c2cec9d746b9b01b4b8f56f97c999d65441f7ac28e"
+              }
+            ],
+            "notes": [
+              "HTTP response status 200."
+            ],
+            "omissions": [
+              "Only bounded HTTP request and response structure is committed; payload values remain in private execution evidence.",
+              "A completed HTTP response does not establish complete collection traversal.",
+              "Only supported declaration metadata was retained."
+            ],
+            "response_status": 200,
+            "attempts": 1,
+            "request_shape": {
+              "type": "object",
+              "properties": {
+                "params": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "body": {
+                  "type": "null"
+                }
+              }
+            },
+            "response_shape": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "string"
+                },
+                "database": {
+                  "type": "string"
+                },
+                "companion": {
+                  "type": "string"
+                },
+                "voiceEnabled": {
+                  "type": "boolean"
+                },
+                "smsEnabled": {
+                  "type": "boolean"
+                },
+                "decisionsEnabled": {
+                  "type": "boolean"
+                },
+                "callbackEnabled": {
+                  "type": "boolean"
+                }
+              }
+            },
+            "assertions": {
+              "passed": 6,
+              "failed": 0
+            },
+            "declaration": {
+              "protocol": "http",
+              "method": "GET",
+              "operation": "GET /health",
+              "validationScope": "declared-method-and-path-only",
+              "schemaValidated": false,
+              "requestValidated": false,
+              "responseValidated": false
+            }
+          },
+          {
+            "id": "f3b865a5-de5f-4b4b-bcb1-819f168b875e",
+            "recorded_at": "2026-10-12T18:12:26.074Z",
+            "observed_at": "2026-10-12T18:12:26.074Z",
+            "basis": "observed",
+            "source": {
+              "kind": "client",
+              "tool": "api_request:http"
+            },
+            "verification": "client-observation",
+            "outcome": "success",
+            "complete": true,
+            "evidence": [
+              {
+                "path": ".sannr/evidence/app/run-7e66e51a-33ab-410e-90c7-c41cc2c9e271.json",
+                "digest": "sha256:903a7cfb2670a11ad80d376eee46c59b522bda0a5d2b969d14928fb4cd4ab427"
+              }
+            ],
+            "notes": [
+              "HTTP response status 200."
+            ],
+            "omissions": [
+              "Only bounded HTTP request and response structure is committed; payload values remain in private execution evidence.",
+              "A completed HTTP response does not establish complete collection traversal.",
+              "Only supported declaration metadata was retained."
+            ],
+            "response_status": 200,
+            "attempts": 1,
+            "request_shape": {
+              "type": "object",
+              "properties": {
+                "params": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "body": {
+                  "type": "null"
+                }
+              }
+            },
+            "response_shape": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "string"
+                },
+                "database": {
+                  "type": "string"
+                },
+                "companion": {
+                  "type": "string"
+                },
+                "voiceEnabled": {
+                  "type": "boolean"
+                },
+                "smsEnabled": {
+                  "type": "boolean"
+                },
+                "decisionsEnabled": {
+                  "type": "boolean"
+                },
+                "callbackEnabled": {
+                  "type": "boolean"
+                }
+              }
+            },
+            "assertions": {
+              "passed": 3,
+              "failed": 1
+            },
+            "declaration": {
+              "protocol": "http",
+              "method": "GET",
+              "operation": "GET /health",
+              "validationScope": "declared-method-and-path-only",
+              "schemaValidated": false,
+              "requestValidated": false,
+              "responseValidated": false
+            }
+          },
+          {
+            "id": "b7f67e5d-5cc3-4cbc-bf40-97c74356152d",
+            "recorded_at": "2026-10-12T18:40:06.897Z",
+            "observed_at": "2026-10-12T18:40:06.897Z",
+            "basis": "observed",
+            "source": {
+              "kind": "client",
+              "tool": "api_request:http"
+            },
+            "verification": "client-observation",
+            "outcome": "success",
+            "complete": true,
+            "evidence": [
+              {
+                "path": ".sannr/evidence/app/run-636f1f37-0ec2-43d5-a081-512bf49491a9.json",
+                "digest": "sha256:fe3077a7de063028b33ab58140553fd0d1659206d5693e40ee620559ffb21792"
+              }
+            ],
+            "notes": [
+              "HTTP response status 200."
+            ],
+            "omissions": [
+              "Only bounded HTTP request and response structure is committed; payload values remain in private execution evidence.",
+              "A completed HTTP response does not establish complete collection traversal.",
+              "Only supported declaration metadata was retained."
+            ],
+            "response_status": 200,
+            "attempts": 1,
+            "request_shape": {
+              "type": "object",
+              "properties": {
+                "params": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "body": {
+                  "type": "null"
+                }
+              }
+            },
+            "response_shape": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "string"
+                },
+                "database": {
+                  "type": "string"
+                },
+                "companion": {
+                  "type": "string"
+                },
+                "voiceEnabled": {
+                  "type": "boolean"
+                },
+                "smsEnabled": {
+                  "type": "boolean"
+                },
+                "decisionsEnabled": {
+                  "type": "boolean"
+                },
+                "callbackEnabled": {
+                  "type": "boolean"
+                }
+              }
+            },
+            "assertions": {
+              "passed": 3,
+              "failed": 0
+            },
+            "declaration": {
+              "protocol": "http",
+              "method": "GET",
+              "operation": "GET /health",
+              "validationScope": "declared-method-and-path-only",
+              "schemaValidated": false,
+              "requestValidated": false,
+              "responseValidated": false
+            }
+          }
+        ],
+        "omitted_observations": 0
+      },
+      "sha256:9bd36f3da874d03feb008ef61a2dd868a9d6c4a9ed5ebb7057753fb6bd944a1c": {
+        "identity": {
+          "v": 1,
+          "stack": "app",
+          "provider": "https://hailing-frequencies-app-production.up.railway.app",
+          "environment": "deployed-context-check",
+          "protocol": "http",
+          "operation": "POST /api/v1/caller-context/start",
+          "endpoint": "https://hailing-frequencies-app-production.up.railway.app/api/v1/caller-context/start",
+          "contractDigest": "sha256:cff2003215973132372a652f5830bd3b59b37eabbe5bafed560b54c7c5c3bff2"
+        },
+        "observations": [
+          {
+            "id": "fd3cb1ff-0c08-4870-8775-89433e5ded8f",
+            "recorded_at": "2026-10-12T18:15:32.914Z",
+            "observed_at": "2026-10-12T18:15:32.914Z",
+            "basis": "observed",
+            "source": {
+              "kind": "client",
+              "tool": "api_request:http"
+            },
+            "verification": "client-observation",
+            "outcome": "success",
+            "complete": true,
+            "evidence": [
+              {
+                "path": ".sannr/evidence/app/run-7a02bd1a-5c04-49cd-a83a-7420e859aafb.json",
+                "digest": "sha256:ec44dd9d52a7d8dfee99cbd0e8dddb286761d83f21c0530d197dcc184d537e15"
+              }
+            ],
+            "notes": [
+              "HTTP response status 201."
+            ],
+            "omissions": [
+              "Only bounded HTTP request and response structure is committed; payload values remain in private execution evidence.",
+              "A completed HTTP response does not establish complete collection traversal.",
+              "Only supported declaration metadata was retained."
+            ],
+            "response_status": 201,
+            "attempts": 1,
+            "request_shape": {
+              "type": "object",
+              "properties": {
+                "params": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "body": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
+            },
+            "response_shape": {
+              "type": "object",
+              "properties": {
+                "session_token": {
+                  "type": "string"
+                },
+                "expires_at": {
+                  "type": "string"
+                },
+                "state": {
+                  "type": "string"
+                }
+              }
+            },
+            "assertions": {
+              "passed": 2,
+              "failed": 0
+            },
+            "declaration": {
+              "protocol": "http",
+              "method": "POST",
+              "operation": "POST /api/v1/caller-context/start",
+              "validationScope": "declared-method-and-path-only",
+              "schemaValidated": false,
+              "requestValidated": false,
+              "responseValidated": false
+            }
+          }
+        ],
+        "omitted_observations": 0
+      },
+      "sha256:f4dbe234059da633bc4183c5928ad6c7f81582a3aad8a2576c00a7b67e7d0747": {
+        "identity": {
+          "v": 1,
+          "stack": "app",
+          "provider": "https://hailing-frequencies-app-production.up.railway.app",
+          "environment": "deployed-context-check",
+          "protocol": "http",
+          "operation": "POST /api/v1/caller-context/authorize",
+          "endpoint": "https://hailing-frequencies-app-production.up.railway.app/api/v1/caller-context/authorize",
+          "contractDigest": "sha256:cff2003215973132372a652f5830bd3b59b37eabbe5bafed560b54c7c5c3bff2"
+        },
+        "observations": [
+          {
+            "id": "2db6a079-bf63-4a03-8c5a-143afd8f9bf1",
+            "recorded_at": "2026-10-12T18:15:33.078Z",
+            "observed_at": "2026-10-12T18:15:33.078Z",
+            "basis": "observed",
+            "source": {
+              "kind": "client",
+              "tool": "api_request:http"
+            },
+            "verification": "client-observation",
+            "outcome": "error",
+            "complete": true,
+            "evidence": [
+              {
+                "path": ".sannr/evidence/app/run-eb395ff4-4474-4133-8618-4d99a9083341.json",
+                "digest": "sha256:9bc4ad44a7a5279400808249ca0f8f3edcbb073a225c2b5d49534ebb992cd336"
+              }
+            ],
+            "notes": [
+              "HTTP response status 401."
+            ],
+            "omissions": [
+              "Only bounded HTTP request and response structure is committed; payload values remain in private execution evidence.",
+              "A completed HTTP response does not establish complete collection traversal.",
+              "Only supported declaration metadata was retained."
+            ],
+            "response_status": 401,
+            "attempts": 1,
+            "request_shape": {
+              "type": "object",
+              "properties": {
+                "params": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "body": {
+                  "type": "object",
+                  "properties": {
+                    "session_token": {
+                      "type": "string"
+                    },
+                    "spoken_phrase": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            },
+            "response_shape": {
+              "type": "object",
+              "properties": {
+                "error": {
+                  "type": "string"
+                }
+              }
+            },
+            "assertions": {
+              "passed": 0,
+              "failed": 3
+            },
+            "declaration": {
+              "protocol": "http",
+              "method": "POST",
+              "operation": "POST /api/v1/caller-context/authorize",
+              "validationScope": "declared-method-and-path-only",
+              "schemaValidated": false,
+              "requestValidated": false,
+              "responseValidated": false
+            }
+          },
+          {
+            "id": "4990358a-fd53-49f7-9f11-bab4fcf4be3f",
+            "recorded_at": "2026-10-12T18:15:51.579Z",
+            "observed_at": "2026-10-12T18:15:51.579Z",
+            "basis": "observed",
+            "source": {
+              "kind": "client",
+              "tool": "api_request:http"
+            },
+            "verification": "client-observation",
+            "outcome": "error",
+            "complete": true,
+            "evidence": [
+              {
+                "path": ".sannr/evidence/app/run-d9000a29-c927-4106-9b4e-a4030034c483.json",
+                "digest": "sha256:6b0538aa420f771ce2e7f24ab42896084cbc31a2169dfd487dd37a516b5dfce6"
+              }
+            ],
+            "notes": [
+              "HTTP response status 401."
+            ],
+            "omissions": [
+              "Only bounded HTTP request and response structure is committed; payload values remain in private execution evidence.",
+              "A completed HTTP response does not establish complete collection traversal.",
+              "Only supported declaration metadata was retained."
+            ],
+            "response_status": 401,
+            "attempts": 1,
+            "request_shape": {
+              "type": "object",
+              "properties": {
+                "params": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "body": {
+                  "type": "object",
+                  "properties": {
+                    "session_token": {
+                      "type": "string"
+                    },
+                    "spoken_phrase": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            },
+            "response_shape": {
+              "type": "object",
+              "properties": {
+                "error": {
+                  "type": "string"
+                }
+              }
+            },
+            "assertions": {
+              "passed": 0,
+              "failed": 3
+            },
+            "declaration": {
+              "protocol": "http",
+              "method": "POST",
+              "operation": "POST /api/v1/caller-context/authorize",
+              "validationScope": "declared-method-and-path-only",
+              "schemaValidated": false,
+              "requestValidated": false,
+              "responseValidated": false
+            }
+          },
+          {
+            "id": "b59a1576-a9f4-4933-a9cb-858f02dc20ba",
+            "recorded_at": "2026-10-12T18:16:01.385Z",
+            "observed_at": "2026-10-12T18:16:01.385Z",
+            "basis": "observed",
+            "source": {
+              "kind": "client",
+              "tool": "api_request:http"
+            },
+            "verification": "client-observation",
+            "outcome": "error",
+            "complete": true,
+            "evidence": [
+              {
+                "path": ".sannr/evidence/app/run-78be30fb-e2bb-4235-992f-f24fc1b87c06.json",
+                "digest": "sha256:75704addf9953730f32e141e171532edc72cf4e10e1dcf230b5aca9291540bf1"
+              }
+            ],
+            "notes": [
+              "HTTP response status 401."
+            ],
+            "omissions": [
+              "Only bounded HTTP request and response structure is committed; payload values remain in private execution evidence.",
+              "A completed HTTP response does not establish complete collection traversal.",
+              "Only supported declaration metadata was retained."
+            ],
+            "response_status": 401,
+            "attempts": 1,
+            "request_shape": {
+              "type": "object",
+              "properties": {
+                "params": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "body": {
+                  "type": "object",
+                  "properties": {
+                    "session_token": {
+                      "type": "string"
+                    },
+                    "spoken_phrase": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            },
+            "response_shape": {
+              "type": "object",
+              "properties": {
+                "error": {
+                  "type": "string"
+                }
+              }
+            },
+            "assertions": {
+              "passed": 0,
+              "failed": 3
+            },
+            "declaration": {
+              "protocol": "http",
+              "method": "POST",
+              "operation": "POST /api/v1/caller-context/authorize",
+              "validationScope": "declared-method-and-path-only",
+              "schemaValidated": false,
+              "requestValidated": false,
+              "responseValidated": false
+            }
+          }
+        ],
+        "omitted_observations": 0
+      },
+      "sha256:98e8797372ad6882db54becb364dac268aa9f51148b50311c92d5cd3a81f28a0": {
+        "identity": {
+          "v": 1,
+          "stack": "app",
+          "provider": "https://hailing-frequencies-app-production.up.railway.app",
+          "environment": "deployed-context-check",
+          "protocol": "http",
+          "operation": "POST /api/v1/caller-context/end",
+          "endpoint": "https://hailing-frequencies-app-production.up.railway.app/api/v1/caller-context/end",
+          "contractDigest": "sha256:cff2003215973132372a652f5830bd3b59b37eabbe5bafed560b54c7c5c3bff2"
+        },
+        "observations": [
+          {
+            "id": "fe31b43e-58fa-4fec-8d0e-fa02f4526b6e",
+            "recorded_at": "2026-10-12T18:16:01.519Z",
+            "observed_at": "2026-10-12T18:16:01.519Z",
+            "basis": "observed",
+            "source": {
+              "kind": "client",
+              "tool": "api_request:http"
+            },
+            "verification": "client-observation",
+            "outcome": "success",
+            "complete": true,
+            "evidence": [
+              {
+                "path": ".sannr/evidence/app/run-dac4f879-0b5c-4d51-b76b-a93a874b80f0.json",
+                "digest": "sha256:92b02a68d9edb870935813956ce9f70aef10f49e26aceae23d8ddd5352faa14a"
+              }
+            ],
+            "notes": [
+              "HTTP response status 200."
+            ],
+            "omissions": [
+              "Only bounded HTTP request and response structure is committed; payload values remain in private execution evidence.",
+              "A completed HTTP response does not establish complete collection traversal.",
+              "Only supported declaration metadata was retained."
+            ],
+            "response_status": 200,
+            "attempts": 1,
+            "request_shape": {
+              "type": "object",
+              "properties": {
+                "params": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "body": {
+                  "type": "object",
+                  "properties": {
+                    "session_token": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            },
+            "response_shape": {
+              "type": "object",
+              "properties": {
+                "state": {
+                  "type": "string"
+                }
+              }
+            },
+            "assertions": {
+              "passed": 2,
+              "failed": 0
+            },
+            "declaration": {
+              "protocol": "http",
+              "method": "POST",
+              "operation": "POST /api/v1/caller-context/end",
+              "validationScope": "declared-method-and-path-only",
+              "schemaValidated": false,
+              "requestValidated": false,
+              "responseValidated": false
+            }
+          }
+        ],
+        "omitted_observations": 0
+      },
+      "sha256:a4190e5b75eb543c87206e6f06af3235f12e37e650156b49b75fd079b45dc00c": {
+        "identity": {
+          "v": 1,
+          "stack": "app",
+          "provider": "https://hailing-frequencies-app-production.up.railway.app",
+          "environment": "production",
+          "protocol": "http",
+          "operation": "GET /health",
+          "endpoint": "https://hailing-frequencies-app-production.up.railway.app/health",
+          "contractDigest": "sha256:98d1389eeb39e05a429749e389d36de79577f72bf94d563aecf0e704edb7c8d4"
+        },
+        "observations": [
+          {
+            "id": "1440279c-a4e5-4c6a-a03b-9b2a14029c3c",
+            "recorded_at": "2026-10-12T18:42:56.172Z",
+            "observed_at": "2026-10-12T18:42:56.172Z",
+            "basis": "observed",
+            "source": {
+              "kind": "client",
+              "tool": "api_request:http"
+            },
+            "verification": "client-observation",
+            "outcome": "success",
+            "complete": true,
+            "evidence": [
+              {
+                "path": ".sannr/evidence/app/run-916bfaf5-50f7-4ae1-8155-da93fedf4bcc.json",
+                "digest": "sha256:9b62b1c49e5f96bcbd37dc77e698c7efcbb69d7e95fb458d3f01c8a98f23e59a"
+              }
+            ],
+            "notes": [
+              "HTTP response status 200."
+            ],
+            "omissions": [
+              "Only bounded HTTP request and response structure is committed; payload values remain in private execution evidence.",
+              "A completed HTTP response does not establish complete collection traversal.",
+              "Only supported declaration metadata was retained."
+            ],
+            "response_status": 200,
+            "attempts": 1,
+            "request_shape": {
+              "type": "object",
+              "properties": {
+                "params": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "body": {
+                  "type": "null"
+                }
+              }
+            },
+            "response_shape": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "string"
+                },
+                "database": {
+                  "type": "string"
+                },
+                "companion": {
+                  "type": "string"
+                },
+                "voiceEnabled": {
+                  "type": "boolean"
+                },
+                "smsEnabled": {
+                  "type": "boolean"
+                },
+                "decisionsEnabled": {
+                  "type": "boolean"
+                },
+                "callbackEnabled": {
+                  "type": "boolean"
+                }
+              }
+            },
+            "assertions": {
+              "passed": 8,
+              "failed": 0
+            },
+            "declaration": {
+              "protocol": "http",
+              "method": "GET",
+              "operation": "GET /health",
+              "validationScope": "declared-method-and-path-only",
+              "schemaValidated": false,
+              "requestValidated": false,
+              "responseValidated": false
+            }
+          },
+          {
+            "id": "879d4707-215d-4732-b253-5d5cd303595a",
+            "recorded_at": "2026-10-12T18:44:36.407Z",
+            "observed_at": "2026-10-12T18:44:36.407Z",
+            "basis": "observed",
+            "source": {
+              "kind": "client",
+              "tool": "api_request:http"
+            },
+            "verification": "client-observation",
+            "outcome": "success",
+            "complete": true,
+            "evidence": [
+              {
+                "path": ".sannr/evidence/app/run-0f1d16cd-8931-4549-9da2-08a8a0b83c02.json",
+                "digest": "sha256:e1c57a8f18e8ef8e64c63b4325768098461d37f1f70eac6c7b4c95822ec6dbd0"
+              }
+            ],
+            "notes": [
+              "HTTP response status 200."
+            ],
+            "omissions": [
+              "Only bounded HTTP request and response structure is committed; payload values remain in private execution evidence.",
+              "A completed HTTP response does not establish complete collection traversal.",
+              "Only supported declaration metadata was retained."
+            ],
+            "response_status": 200,
+            "attempts": 1,
+            "request_shape": {
+              "type": "object",
+              "properties": {
+                "params": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "body": {
+                  "type": "null"
+                }
+              }
+            },
+            "response_shape": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "string"
+                },
+                "database": {
+                  "type": "string"
+                },
+                "companion": {
+                  "type": "string"
+                },
+                "voiceEnabled": {
+                  "type": "boolean"
+                },
+                "smsEnabled": {
+                  "type": "boolean"
+                },
+                "decisionsEnabled": {
+                  "type": "boolean"
+                },
+                "callbackEnabled": {
+                  "type": "boolean"
+                }
+              }
+            },
+            "assertions": {
+              "passed": 4,
+              "failed": 0
+            },
+            "declaration": {
+              "protocol": "http",
+              "method": "GET",
+              "operation": "GET /health",
+              "validationScope": "declared-method-and-path-only",
+              "schemaValidated": false,
+              "requestValidated": false,
+              "responseValidated": false
+            }
+          }
+        ],
+        "omitted_observations": 0
+      },
+      "sha256:d3c0f8bfa1171e3d1f91e673664d583aa51aa8fc3d2efcd95285605edde4364b": {
+        "identity": {
+          "v": 1,
+          "stack": "app",
+          "provider": "https://hailing-frequencies-app-production.up.railway.app",
+          "environment": "reporting-test",
+          "protocol": "http",
+          "operation": "POST /api/v1/caller-context/start",
+          "endpoint": "https://hailing-frequencies-app-production.up.railway.app/api/v1/caller-context/start",
+          "contractDigest": "sha256:cff2003215973132372a652f5830bd3b59b37eabbe5bafed560b54c7c5c3bff2"
+        },
+        "observations": [
+          {
+            "id": "b426f926-8f8a-46ae-a93c-a8a0dcadadd2",
+            "recorded_at": "2026-10-12T18:38:45.309Z",
+            "observed_at": "2026-10-12T18:38:45.309Z",
+            "basis": "observed",
+            "source": {
+              "kind": "client",
+              "tool": "api_request:http"
+            },
+            "verification": "client-observation",
+            "outcome": "error",
+            "complete": true,
+            "evidence": [
+              {
+                "path": ".sannr/evidence/app/run-1a72427e-d842-48bb-8ec7-5dd7b98fec2a.json",
+                "digest": "sha256:02fcacd13dca901735378e542fab1bd4f387e9e7c04a7511c1626c2d8e38ca48"
+              }
+            ],
+            "notes": [
+              "HTTP response status 401."
+            ],
+            "omissions": [
+              "Only bounded HTTP request and response structure is committed; payload values remain in private execution evidence.",
+              "A completed HTTP response does not establish complete collection traversal.",
+              "Only supported declaration metadata was retained."
+            ],
+            "response_status": 401,
+            "attempts": 1,
+            "request_shape": {
+              "type": "object",
+              "properties": {
+                "params": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "body": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
+            },
+            "response_shape": {
+              "type": "object",
+              "properties": {
+                "error": {
+                  "type": "string"
+                }
+              }
+            },
+            "assertions": {
+              "passed": 0,
+              "failed": 3
+            },
+            "declaration": {
+              "protocol": "http",
+              "method": "POST",
+              "operation": "POST /api/v1/caller-context/start",
+              "validationScope": "declared-method-and-path-only",
+              "schemaValidated": false,
+              "requestValidated": false,
+              "responseValidated": false
+            }
+          },
+          {
+            "id": "199c9a0f-4bab-43ba-9295-fbcbc4eb6a5b",
+            "recorded_at": "2026-10-12T18:42:42.786Z",
+            "observed_at": "2026-10-12T18:42:42.786Z",
+            "basis": "observed",
+            "source": {
+              "kind": "client",
+              "tool": "api_request:http"
+            },
+            "verification": "client-observation",
+            "outcome": "success",
+            "complete": true,
+            "evidence": [
+              {
+                "path": ".sannr/evidence/app/run-d0a14eac-0f2f-424b-a7e7-ea934469d7a8.json",
+                "digest": "sha256:8b19ce812803f1426d30d647caf9023dbcf09dcaba7411b14c0cdc5e93f52fcc"
+              }
+            ],
+            "notes": [
+              "HTTP response status 201."
+            ],
+            "omissions": [
+              "Only bounded HTTP request and response structure is committed; payload values remain in private execution evidence.",
+              "A completed HTTP response does not establish complete collection traversal.",
+              "Only supported declaration metadata was retained."
+            ],
+            "response_status": 201,
+            "attempts": 1,
+            "request_shape": {
+              "type": "object",
+              "properties": {
+                "params": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "body": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
+            },
+            "response_shape": {
+              "type": "object",
+              "properties": {
+                "session_token": {
+                  "type": "string"
+                },
+                "expires_at": {
+                  "type": "string"
+                },
+                "state": {
+                  "type": "string"
+                }
+              }
+            },
+            "assertions": {
+              "passed": 3,
+              "failed": 0
+            },
+            "declaration": {
+              "protocol": "http",
+              "method": "POST",
+              "operation": "POST /api/v1/caller-context/start",
+              "validationScope": "declared-method-and-path-only",
+              "schemaValidated": false,
+              "requestValidated": false,
+              "responseValidated": false
+            }
+          },
+          {
+            "id": "f625a7f7-e83f-4088-bfcb-fbeeb4175f9f",
+            "recorded_at": "2026-10-12T18:45:05.158Z",
+            "observed_at": "2026-10-12T18:45:05.158Z",
+            "basis": "observed",
+            "source": {
+              "kind": "client",
+              "tool": "api_request:http"
+            },
+            "verification": "client-observation",
+            "outcome": "success",
+            "complete": true,
+            "evidence": [
+              {
+                "path": ".sannr/evidence/app/run-7e566bf6-fdb8-4564-b2f0-6f207a76194f.json",
+                "digest": "sha256:930b3e2432d09db3855eac21a48d1f259a0bf22153903beceb8844138228af80"
+              }
+            ],
+            "notes": [
+              "HTTP response status 201."
+            ],
+            "omissions": [
+              "Only bounded HTTP request and response structure is committed; payload values remain in private execution evidence.",
+              "A completed HTTP response does not establish complete collection traversal.",
+              "Only supported declaration metadata was retained."
+            ],
+            "response_status": 201,
+            "attempts": 1,
+            "request_shape": {
+              "type": "object",
+              "properties": {
+                "params": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "body": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
+            },
+            "response_shape": {
+              "type": "object",
+              "properties": {
+                "session_token": {
+                  "type": "string"
+                },
+                "expires_at": {
+                  "type": "string"
+                },
+                "state": {
+                  "type": "string"
+                }
+              }
+            },
+            "assertions": {
+              "passed": 1,
+              "failed": 0
+            },
+            "declaration": {
+              "protocol": "http",
+              "method": "POST",
+              "operation": "POST /api/v1/caller-context/start",
+              "validationScope": "declared-method-and-path-only",
+              "schemaValidated": false,
+              "requestValidated": false,
+              "responseValidated": false
+            }
+          }
+        ],
+        "omitted_observations": 0
+      },
+      "sha256:bb879e1dae49ba2c2d0a2611d0ebdbf98b10cfa9746ac58c6da447de3c3ad19a": {
+        "identity": {
+          "v": 1,
+          "stack": "app",
+          "provider": "https://hailing-frequencies-app-production.up.railway.app",
+          "environment": "reporting-test",
+          "protocol": "http",
+          "operation": "POST /api/v1/caller-context/end",
+          "endpoint": "https://hailing-frequencies-app-production.up.railway.app/api/v1/caller-context/end",
+          "contractDigest": "sha256:cff2003215973132372a652f5830bd3b59b37eabbe5bafed560b54c7c5c3bff2"
+        },
+        "observations": [
+          {
+            "id": "1cc9cb19-a128-40ba-ae41-77ebf103e15c",
+            "recorded_at": "2026-10-12T18:43:03.457Z",
+            "observed_at": "2026-10-12T18:43:03.457Z",
+            "basis": "observed",
+            "source": {
+              "kind": "client",
+              "tool": "api_request:http"
+            },
+            "verification": "client-observation",
+            "outcome": "success",
+            "complete": true,
+            "evidence": [
+              {
+                "path": ".sannr/evidence/app/run-6652f56a-6ce3-47dc-ab6c-cdf8a6df6c10.json",
+                "digest": "sha256:36f442aa866dc1d40ac08888e2340fe31d47b471746b5886a28442c79210a17d"
+              }
+            ],
+            "notes": [
+              "HTTP response status 200."
+            ],
+            "omissions": [
+              "Only bounded HTTP request and response structure is committed; payload values remain in private execution evidence.",
+              "A completed HTTP response does not establish complete collection traversal.",
+              "Only supported declaration metadata was retained."
+            ],
+            "response_status": 200,
+            "attempts": 1,
+            "request_shape": {
+              "type": "object",
+              "properties": {
+                "params": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "body": {
+                  "type": "object",
+                  "properties": {
+                    "session_token": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            },
+            "response_shape": {
+              "type": "object",
+              "properties": {
+                "state": {
+                  "type": "string"
+                }
+              }
+            },
+            "assertions": {
+              "passed": 2,
+              "failed": 0
+            },
+            "declaration": {
+              "protocol": "http",
+              "method": "POST",
+              "operation": "POST /api/v1/caller-context/end",
+              "validationScope": "declared-method-and-path-only",
+              "schemaValidated": false,
+              "requestValidated": false,
+              "responseValidated": false
+            }
+          },
+          {
+            "id": "f8f0666a-4e03-415c-9343-ba248f98d1b1",
+            "recorded_at": "2026-10-12T18:45:05.844Z",
+            "observed_at": "2026-10-12T18:45:05.844Z",
+            "basis": "observed",
+            "source": {
+              "kind": "client",
+              "tool": "api_request:http"
+            },
+            "verification": "client-observation",
+            "outcome": "success",
+            "complete": true,
+            "evidence": [
+              {
+                "path": ".sannr/evidence/app/run-6ecae3ea-9fe4-461e-97af-2bdb512dbc5b.json",
+                "digest": "sha256:8fecec61066caaa159a00c6331c7321300228c27dfb1f6de7740ce00e08440c5"
+              }
+            ],
+            "notes": [
+              "HTTP response status 200."
+            ],
+            "omissions": [
+              "Only bounded HTTP request and response structure is committed; payload values remain in private execution evidence.",
+              "A completed HTTP response does not establish complete collection traversal.",
+              "Only supported declaration metadata was retained."
+            ],
+            "response_status": 200,
+            "attempts": 1,
+            "request_shape": {
+              "type": "object",
+              "properties": {
+                "params": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "body": {
+                  "type": "object",
+                  "properties": {
+                    "session_token": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            },
+            "response_shape": {
+              "type": "object",
+              "properties": {
+                "state": {
+                  "type": "string"
+                }
+              }
+            },
+            "assertions": {
+              "passed": 1,
+              "failed": 0
+            },
+            "declaration": {
+              "protocol": "http",
+              "method": "POST",
+              "operation": "POST /api/v1/caller-context/end",
+              "validationScope": "declared-method-and-path-only",
+              "schemaValidated": false,
+              "requestValidated": false,
+              "responseValidated": false
+            }
+          }
+        ],
+        "omitted_observations": 0
+      },
+      "sha256:2f3559a33f90154d39683b2bbab61b21dc2e7de0a8655416b4e04a0137d384ed": {
+        "identity": {
+          "v": 1,
+          "stack": "app",
+          "provider": "https://hailing-frequencies-app-production.up.railway.app",
+          "environment": "reporting-test",
+          "protocol": "http",
+          "operation": "POST /api/v1/caller-context/authorize",
+          "endpoint": "https://hailing-frequencies-app-production.up.railway.app/api/v1/caller-context/authorize",
+          "contractDigest": "sha256:cff2003215973132372a652f5830bd3b59b37eabbe5bafed560b54c7c5c3bff2"
+        },
+        "observations": [
+          {
+            "id": "92868160-1f5c-4b67-81cd-02ab1eb3761e",
+            "recorded_at": "2026-10-12T18:45:05.483Z",
+            "observed_at": "2026-10-12T18:45:05.483Z",
+            "basis": "observed",
+            "source": {
+              "kind": "client",
+              "tool": "api_request:http"
+            },
+            "verification": "client-observation",
+            "outcome": "error",
+            "complete": true,
+            "evidence": [
+              {
+                "path": ".sannr/evidence/app/run-2405464b-bdc0-4c12-8e7a-33d438a4980d.json",
+                "digest": "sha256:9daaf57e801a27dc71489607685a2096f07d3ac6ca3ed3e4e32570a34136aa73"
+              }
+            ],
+            "notes": [
+              "HTTP response status 400."
+            ],
+            "omissions": [
+              "Only bounded HTTP request and response structure is committed; payload values remain in private execution evidence.",
+              "A completed HTTP response does not establish complete collection traversal.",
+              "Only supported declaration metadata was retained."
+            ],
+            "response_status": 400,
+            "attempts": 1,
+            "request_shape": {
+              "type": "object",
+              "properties": {
+                "params": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "body": {
+                  "type": "object",
+                  "properties": {
+                    "session_token": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "authorization_phrase": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            },
+            "response_shape": {
+              "type": "object",
+              "properties": {
+                "error": {
+                  "type": "string"
+                }
+              }
+            },
+            "assertions": {
+              "passed": 0,
+              "failed": 1
+            },
+            "declaration": {
+              "protocol": "http",
+              "method": "POST",
+              "operation": "POST /api/v1/caller-context/authorize",
+              "validationScope": "declared-method-and-path-only",
+              "schemaValidated": false,
+              "requestValidated": false,
+              "responseValidated": false
+            }
+          }
+        ],
+        "omitted_observations": 0
+      },
+      "sha256:0df76b82a283a4838ebc98b842547c41046ee0533dad89e6cbf1807a831564e2": {
+        "identity": {
+          "v": 1,
+          "stack": "app",
+          "provider": "https://hailing-frequencies-app-production.up.railway.app",
+          "environment": "reporting-test",
+          "protocol": "http",
+          "operation": "POST /api/v1/caller-context/start",
+          "endpoint": "https://hailing-frequencies-app-production.up.railway.app/api/v1/caller-context/start",
+          "contractDigest": "sha256:dfee2c200b076e6cca88acd9a50ac3f1f6ceccc086879105d321234dbebb496e"
+        },
+        "observations": [
+          {
+            "id": "6cd51896-60a5-47d4-bc1e-cf0d2c32b722",
+            "recorded_at": "2026-10-12T18:49:01.473Z",
+            "observed_at": "2026-10-12T18:49:01.473Z",
+            "basis": "observed",
+            "source": {
+              "kind": "client",
+              "tool": "api_request:http"
+            },
+            "verification": "client-observation",
+            "outcome": "success",
+            "complete": true,
+            "evidence": [
+              {
+                "path": ".sannr/evidence/app/run-f7c495e5-7e0b-4507-a583-341339ff49e5.json",
+                "digest": "sha256:7aa0484923c77e74700781032bf62a34ba52fef035cfc5dc186528761a682f4c"
+              }
+            ],
+            "notes": [
+              "HTTP response status 201."
+            ],
+            "omissions": [
+              "Only bounded HTTP request and response structure is committed; payload values remain in private execution evidence.",
+              "A completed HTTP response does not establish complete collection traversal.",
+              "Only supported declaration metadata was retained."
+            ],
+            "response_status": 201,
+            "attempts": 1,
+            "request_shape": {
+              "type": "object",
+              "properties": {
+                "params": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "body": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
+            },
+            "response_shape": {
+              "type": "object",
+              "properties": {
+                "session_token": {
+                  "type": "string"
+                },
+                "expires_at": {
+                  "type": "string"
+                },
+                "state": {
+                  "type": "string"
+                }
+              }
+            },
+            "assertions": {
+              "passed": 1,
+              "failed": 0
+            },
+            "declaration": {
+              "protocol": "http",
+              "method": "POST",
+              "operation": "POST /api/v1/caller-context/start",
+              "validationScope": "declared-method-and-path-only",
+              "schemaValidated": false,
+              "requestValidated": false,
+              "responseValidated": false
+            }
+          }
+        ],
+        "omitted_observations": 0
+      },
+      "sha256:84396dac74898904bb739b5f975bf699875fc6bd463248c7773791d67e6b345a": {
+        "identity": {
+          "v": 1,
+          "stack": "app",
+          "provider": "https://hailing-frequencies-app-production.up.railway.app",
+          "environment": "reporting-test",
+          "protocol": "http",
+          "operation": "POST /api/v1/caller-context/authorize",
+          "endpoint": "https://hailing-frequencies-app-production.up.railway.app/api/v1/caller-context/authorize",
+          "contractDigest": "sha256:dfee2c200b076e6cca88acd9a50ac3f1f6ceccc086879105d321234dbebb496e"
+        },
+        "observations": [
+          {
+            "id": "211802d2-abb8-4418-b348-fcf94bf9d53a",
+            "recorded_at": "2026-10-12T18:49:01.793Z",
+            "observed_at": "2026-10-12T18:49:01.793Z",
+            "basis": "observed",
+            "source": {
+              "kind": "client",
+              "tool": "api_request:http"
+            },
+            "verification": "client-observation",
+            "outcome": "success",
+            "complete": true,
+            "evidence": [
+              {
+                "path": ".sannr/evidence/app/run-7d0df4f6-c40a-4ea3-9b99-d8398f2ea6f9.json",
+                "digest": "sha256:b853a30265935ed5c6257cec404b71fe4c4bb624d06b52ded0dd8e879155442f"
+              }
+            ],
+            "notes": [
+              "HTTP response status 200."
+            ],
+            "omissions": [
+              "Only bounded HTTP request and response structure is committed; payload values remain in private execution evidence.",
+              "A completed HTTP response does not establish complete collection traversal.",
+              "Only supported declaration metadata was retained."
+            ],
+            "response_status": 200,
+            "attempts": 1,
+            "request_shape": {
+              "type": "object",
+              "properties": {
+                "params": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "body": {
+                  "type": "object",
+                  "properties": {
+                    "session_token": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "authorization": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            },
+            "response_shape": {
+              "type": "object",
+              "properties": {
+                "state": {
+                  "type": "string"
+                },
+                "assurance": {
+                  "type": "string"
+                },
+                "profile": {
+                  "type": "object",
+                  "properties": {
+                    "display_name": {
+                      "type": "string"
+                    },
+                    "rank": {
+                      "type": "string"
+                    },
+                    "ship": {
+                      "type": "string"
+                    },
+                    "language": {
+                      "type": "string"
+                    },
+                    "department": {
+                      "type": "string"
+                    },
+                    "section": {
+                      "type": "string"
+                    },
+                    "clearance_level": {
+                      "type": "number"
+                    },
+                    "posting": {
+                      "type": "string"
+                    },
+                    "service_number": {
+                      "type": "string"
+                    },
+                    "status": {
+                      "type": "string"
+                    },
+                    "contact_count": {
+                      "type": "number"
+                    },
+                    "last_contact": {
+                      "type": "object",
+                      "properties": {
+                        "at": {
+                          "type": "string"
+                        },
+                        "channel": {
+                          "type": "string"
+                        },
+                        "direction": {
+                          "type": "string"
+                        },
+                        "case_id": {
+                          "type": "null"
+                        }
+                      }
+                    },
+                    "equipment": {
+                      "type": "array",
+                      "sampled": 1,
+                      "items": [
+                        {
+                          "type": "object",
+                          "properties": {
+                            "id": {
+                              "type": "string"
+                            },
+                            "model": {
+                              "type": "string"
+                            },
+                            "location": {
+                              "type": "string"
+                            },
+                            "last_service_at": {
+                              "type": "string"
+                            },
+                            "last_service_note": {
+                              "type": "string"
+                            }
+                          }
+                        }
+                      ]
+                    },
+                    "preferences": {
+                      "type": "array",
+                      "sampled": 2,
+                      "items": [
+                        {
+                          "type": "object",
+                          "properties": {
+                            "topic": {
+                              "type": "string"
+                            },
+                            "channel": {
+                              "type": "string"
+                            }
+                          }
+                        }
+                      ]
+                    },
+                    "open_cases": {
+                      "type": "array",
+                      "sampled": 1,
+                      "items": [
+                        {
+                          "type": "object",
+                          "properties": {
+                            "caseId": {
+                              "type": "string"
+                            },
+                            "title": {
+                              "type": "string"
+                            },
+                            "status": {
+                              "type": "string"
+                            },
+                            "lastActivityAt": {
+                              "type": "string"
+                            },
+                            "brief": {
+                              "type": "string"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            },
+            "assertions": {
+              "passed": 1,
+              "failed": 0
+            },
+            "declaration": {
+              "protocol": "http",
+              "method": "POST",
+              "operation": "POST /api/v1/caller-context/authorize",
+              "validationScope": "declared-method-and-path-only",
+              "schemaValidated": false,
+              "requestValidated": false,
+              "responseValidated": false
+            }
+          }
+        ],
+        "omitted_observations": 0
+      },
+      "sha256:efe7c0ca57943e5509c6de02c7873afdc7f0e8cedd8def7691dd6d876838fca0": {
+        "identity": {
+          "v": 1,
+          "stack": "app",
+          "provider": "https://hailing-frequencies-app-production.up.railway.app",
+          "environment": "reporting-test",
+          "protocol": "http",
+          "operation": "POST /api/v1/caller-context/end",
+          "endpoint": "https://hailing-frequencies-app-production.up.railway.app/api/v1/caller-context/end",
+          "contractDigest": "sha256:dfee2c200b076e6cca88acd9a50ac3f1f6ceccc086879105d321234dbebb496e"
+        },
+        "observations": [
+          {
+            "id": "6ea395a9-f041-4ab6-b82c-9efd20b2f381",
+            "recorded_at": "2026-10-12T18:49:02.160Z",
+            "observed_at": "2026-10-12T18:49:02.160Z",
+            "basis": "observed",
+            "source": {
+              "kind": "client",
+              "tool": "api_request:http"
+            },
+            "verification": "client-observation",
+            "outcome": "success",
+            "complete": true,
+            "evidence": [
+              {
+                "path": ".sannr/evidence/app/run-b83abd1f-0d45-4670-b6be-39c1d6b75712.json",
+                "digest": "sha256:787aea02384cf25026a34654273da15ca3b59b587cd203fde8a73f5410108ac8"
+              }
+            ],
+            "notes": [
+              "HTTP response status 200."
+            ],
+            "omissions": [
+              "Only bounded HTTP request and response structure is committed; payload values remain in private execution evidence.",
+              "A completed HTTP response does not establish complete collection traversal.",
+              "Only supported declaration metadata was retained."
+            ],
+            "response_status": 200,
+            "attempts": 1,
+            "request_shape": {
+              "type": "object",
+              "properties": {
+                "params": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "body": {
+                  "type": "object",
+                  "properties": {
+                    "session_token": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            },
+            "response_shape": {
+              "type": "object",
+              "properties": {
+                "state": {
+                  "type": "string"
+                }
+              }
+            },
+            "assertions": {
+              "passed": 1,
+              "failed": 0
+            },
+            "declaration": {
+              "protocol": "http",
+              "method": "POST",
+              "operation": "POST /api/v1/caller-context/end",
+              "validationScope": "declared-method-and-path-only",
+              "schemaValidated": false,
+              "requestValidated": false,
+              "responseValidated": false
+            }
+          }
+        ],
+        "omitted_observations": 0
+      }
+    }
+  },
+  "verdicts": {
+    "Automatic MCP dispatch from POST /api/decisions": {
+      "verdict": "rejected",
+      "reason": "The October 12 reporting-agent architecture assigns MCP execution to the reporting backend; Decisions prepares the context and tool call only, as exercised by offline app/decisions-api.test.mjs fixtures, with deployed behavior unverified.",
+      "class": "structural",
+      "last_confirmed": "2026-10-12",
+      "held_by": "org",
+      "revisable": false,
+      "recorded_by": "agent",
+      "recorded_at": "2026-10-12"
+    }
+  }
+}

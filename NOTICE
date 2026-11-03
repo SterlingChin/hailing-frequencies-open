@@ -1,0 +1,40 @@
+Hailing Frequencies Open
+Copyright (c) 2026 Sterling Chin and Michael Watson
+
+The application code and documentation in this repository are released under
+the MIT License; see LICENSE.
+
+Third-party API specifications under .sannr/stacks keep their own licenses and
+attribution, as recorded in docs/api-prep/IMPORT.md and the provenance files
+it points to. They are copied without modification:
+
+- OpenAI API specification (.sannr/stacks/openai/openapi.yaml), from
+  github.com/openai/openai-openapi at commit 4a4020d8: MIT License,
+  Copyright (c) OpenAI. License text: docs/api-prep/openai/specs/LICENSE.
+  Provenance: docs/api-prep/openai/specs/provenance.json.
+- Twilio API specifications (.sannr/stacks/twilio/twilio_api_v2010.yaml,
+  .sannr/stacks/messaging/twilio_messaging_v1.yaml,
+  .sannr/stacks/lookups/twilio_lookups_v2.yaml and
+  .sannr/stacks/verify/twilio_verify_v2.yaml), from github.com/twilio/twilio-oai
+  at commit 141f1201. The twilio-oai repository is distributed under the MIT
+  License, Copyright (C) 2023, Twilio, Inc. (text:
+  docs/api-prep/twilio/specs/LICENSE); each specification's own info.license
+  field names the Apache License 2.0
+  (https://www.apache.org/licenses/LICENSE-2.0.html). Both notices are kept.
+  Provenance: docs/api-prep/twilio/specs/provenance.json.
+- The OpenAI Live reference pages in .sannr/stacks/openai/docs/live are
+  archived copies of OpenAI documentation. Their source URLs and hashes are
+  in .sannr/stacks/openai/docs/live/manifest.json. No separate license is
+  recorded for them; they remain OpenAI's.
+
+The Sannr command-line tool (@sannr/sannr) is a development dependency
+installed from npm under its own license. It is not part of this repository.
+
+No credentials and no captured request or response evidence are committed.
+Sannr keeps request evidence in .sannr/evidence/, which Git ignores. Account
+values such as OpenAI keys, Twilio account SIDs and phone numbers were left
+out of the imported API context; the account-SID-shaped strings in the Twilio
+specifications are the upstream examples. Phone numbers in the demo data and
+tests are fictional 555 numbers.
+
+No endorsement by OpenAI, Twilio or CodeTV is implied.

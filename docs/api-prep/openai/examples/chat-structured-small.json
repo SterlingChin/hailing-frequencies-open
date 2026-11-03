@@ -1,0 +1,49 @@
+{
+  "v": 2,
+  "protocol": "http",
+  "method": "POST",
+  "path": "/chat/completions",
+  "body": {
+    "model": "gpt-4.1-nano",
+    "messages": [
+      {
+        "role": "user",
+        "content": "Return the greeting hi"
+      }
+    ],
+    "max_tokens": 20,
+    "store": false,
+    "response_format": {
+      "type": "json_schema",
+      "json_schema": {
+        "name": "greeting",
+        "strict": true,
+        "schema": {
+          "type": "object",
+          "properties": {
+            "greeting": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "greeting"
+          ],
+          "additionalProperties": false
+        }
+      }
+    }
+  },
+  "expect": [
+    {
+      "status": 200
+    },
+    {
+      "json": "choices.0.message.content",
+      "type": "string"
+    },
+    {
+      "json": "choices.0.finish_reason",
+      "equals": "stop"
+    }
+  ]
+}

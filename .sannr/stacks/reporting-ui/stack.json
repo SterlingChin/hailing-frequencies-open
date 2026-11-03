@@ -1,0 +1,16 @@
+{
+  "v": 1,
+  "name": "reporting-ui",
+  "default_environment": "production",
+  "contract": "health.openapi.json",
+  "environments": {
+    "production": {
+      "baseUrl": "https://hailing-frequencies-reporting-production.up.railway.app",
+      "production": true
+    },
+    "custom-domain": {
+      "baseUrl": "https://federation.support",
+      "production": true
+    }
+  }
+}

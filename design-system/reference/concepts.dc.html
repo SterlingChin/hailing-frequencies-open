@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="design_doc_mode" content="canvas">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Antonio:wght@400;600;700&family=Atkinson+Hyperlegible:wght@400;700&family=Bricolage+Grotesque:opsz,wght@12..96,300;12..96,400;12..96,600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#e9e6df;color:#1c1b20;font-family:'Atkinson Hyperlegible',sans-serif;}
+a{color:#7a3f1d;}a:hover{color:#1c1b20;}
+@keyframes hfBreathe{0%,100%{transform:scale(1);opacity:.9}50%{transform:scale(1.06);opacity:1}}
+@keyframes hfRing{0%{transform:scale(.9);opacity:.7}100%{transform:scale(1.35);opacity:0}}
+</style>
+</helmet>
+<section style="padding:72px 80px 120px;display:flex;flex-direction:column;gap:72px;">
+
+<header style="display:flex;flex-direction:column;gap:12px;max-width:1100px;">
+<div style="font-family:'IBM Plex Mono',monospace;font-size:14px;letter-spacing:.08em;color:#6b6670;">HAILING FREQUENCIES OPEN · UI EXPLORATION · PASS 1 · OCT 10, 2026</div>
+<h1 style="margin:0;font-size:56px;line-height:1.05;font-weight:700;letter-spacing:-.01em;">Three desktop concepts for a personal Federation support agent</h1>
+<p style="margin:0;font-size:20px;line-height:1.5;color:#45414a;text-wrap:pretty;">All three use the same moment from the call: Commander Avery Chen has reported cold coffee, Engineering is checking the calibration, and Logistics is queued. Use the toggle above each frame to see one more state. Yellow numbered pins refer to the notes under each frame. Every record shown is invented demo data.</p>
+<nav style="display:flex;gap:20px;font-size:16px;flex-wrap:wrap;"><a href="#1a">1a Bridge console</a><a href="#1b">1b Personal communicator</a><a href="#1c">1c Communications desk</a><a href="#flow">Annotated flow</a><a href="#system">System choices</a><a href="#rec">Recommendation</a></nav>
+</header>
+
+<div style="display:flex;gap:64px;flex-wrap:wrap;align-items:flex-start;">
+
+<!-- 1a BRIDGE -->
+<div id="1a" style="display:flex;flex-direction:column;gap:20px;width:1440px;">
+<div style="display:flex;align-items:center;gap:16px;flex-wrap:wrap;">
+<span style="background:#1c1b20;color:#fff;font-family:'IBM Plex Mono',monospace;font-size:16px;padding:6px 12px;border-radius:6px;">1a</span>
+<h2 style="margin:0;font-size:30px;">Ship bridge console</h2>
+<div style="margin-left:auto;display:flex;gap:4px;padding:4px;border:1px solid #c9c3b8;border-radius:999px;">
+<button onClick="{{ set1c }}" style="border:0;cursor:pointer;font:inherit;font-size:15px;padding:8px 16px;border-radius:999px;background:{{ t1cBg }};color:{{ t1cFg }};">Active call</button>
+<button onClick="{{ set1a }}" style="border:0;cursor:pointer;font:inherit;font-size:15px;padding:8px 16px;border-radius:999px;background:{{ t1aBg }};color:{{ t1aFg }};">Specialist result</button>
+</div>
+</div>
+
+<div style="width:1440px;height:900px;position:relative;overflow:hidden;background:#0b0a0f;color:#f3eee6;display:grid;grid-template-columns:120px minmax(0,1fr);grid-template-rows:96px minmax(0,1fr);font-family:'Atkinson Hyperlegible',sans-serif;">
+<div style="grid-row:1 / 3;display:flex;flex-direction:column;gap:8px;padding:0 0 24px 24px;">
+<div style="height:96px;background:#f4a83a;border-radius:56px 0 0 0;"></div>
+<div style="height:150px;background:#b7a3f0;display:flex;align-items:flex-end;justify-content:flex-end;padding:8px 10px;font-family:'Antonio',sans-serif;font-size:15px;color:#0b0a0f;">CREW</div>
+<div style="height:70px;background:#f07a5f;display:flex;align-items:flex-end;justify-content:flex-end;padding:8px 10px;font-family:'Antonio',sans-serif;font-size:15px;color:#0b0a0f;">VOICE</div>
+<div style="height:150px;background:#f4a83a;display:flex;align-items:flex-end;justify-content:flex-end;padding:8px 10px;font-family:'Antonio',sans-serif;font-size:15px;color:#0b0a0f;">TASKS</div>
+<div style="flex:1;background:#2a2433;border-radius:0 0 0 56px;"></div>
+</div>
+<div style="display:flex;align-items:center;gap:20px;padding:0 32px 0 0;">
+<div style="align-self:flex-start;height:36px;width:56px;background:#f4a83a;border-radius:0 0 0 0;"></div>
+<div style="font-family:'Antonio',sans-serif;font-weight:700;font-size:40px;letter-spacing:.04em;color:#f4a83a;white-space:nowrap;">HAILING FREQUENCIES OPEN</div>
+<div style="flex:1;height:8px;background:#f4a83a;border-radius:4px;"></div>
+<div style="display:flex;align-items:center;gap:10px;background:#17151d;border:2px solid #7fd6a4;border-radius:999px;padding:8px 18px;font-size:17px;"><span style="width:10px;height:10px;border-radius:50%;background:#7fd6a4;"></span><span style="font-weight:700;">Connected</span><span style="color:#a59fb0;">via Dev Phone · 03:12</span></div>
+<div style="background:#f07a5f;color:#0b0a0f;font-family:'Antonio',sans-serif;font-weight:600;font-size:22px;padding:8px 22px;border-radius:999px;letter-spacing:.04em;">CASE HF-042</div>
+</div>
+
+<div style="display:grid;grid-template-columns:300px minmax(0,1fr) 380px;gap:16px;padding:16px 32px 32px 16px;min-height:0;">
+<!-- crew panel -->
+<div style="background:#17151d;border-radius:28px 8px 8px 28px;padding:24px;display:flex;flex-direction:column;gap:22px;min-height:0;">
+<div style="display:flex;flex-direction:column;gap:6px;">
+<div style="font-family:'Antonio',sans-serif;font-size:16px;letter-spacing:.1em;color:#b7a3f0;">CREW MEMBER</div>
+<div style="font-size:26px;font-weight:700;line-height:1.15;">Commander Avery Chen</div>
+<div style="font-size:17px;color:#c9c2d4;">USS Wayfinder</div>
+<div style="align-self:flex-start;margin-top:6px;font-size:14px;border:1px solid #b7a3f0;color:#d8ccff;padding:4px 10px;border-radius:999px;">Demo profile loaded</div>
+</div>
+<div style="height:2px;background:#2a2433;"></div>
+<div style="display:flex;flex-direction:column;gap:6px;">
+<div style="font-family:'Antonio',sans-serif;font-size:16px;letter-spacing:.1em;color:#f4a83a;">EQUIPMENT</div>
+<div style="font-size:22px;font-weight:700;">Replicator RPL-2400</div>
+<div style="font-size:17px;color:#c9c2d4;">Deck 7</div>
+<div style="font-size:16px;color:#c9c2d4;line-height:1.4;margin-top:4px;">Thermal calibration completed two weeks ago</div>
+</div>
+<div style="height:2px;background:#2a2433;"></div>
+<div style="display:flex;flex-direction:column;gap:8px;">
+<div style="font-family:'Antonio',sans-serif;font-size:16px;letter-spacing:.1em;color:#f07a5f;">PREFERENCES</div>
+<div style="font-size:16px;line-height:1.5;color:#e6e0ee;">English<br>Spoken troubleshooting<br>Written repair steps by SMS</div>
+</div>
+<div style="margin-top:auto;font-size:15px;color:#f4a83a;text-decoration:underline;text-underline-offset:4px;">Equipment details and history</div>
+</div>
+
+<!-- conversation -->
+<div style="background:#120f17;border:2px solid #2a2433;border-radius:8px;display:flex;flex-direction:column;min-height:0;overflow:hidden;">
+<sc-if value="{{ c1 }}" hint-placeholder-val="{{ true }}">
+<div style="display:flex;align-items:center;gap:14px;padding:18px 28px;background:#f07a5f;color:#0b0a0f;">
+<span style="font-size:22px;">◆</span><span style="font-family:'Antonio',sans-serif;font-weight:700;font-size:26px;letter-spacing:.06em;">AGENT SPEAKING</span><span style="margin-left:auto;font-size:16px;">Avery can interrupt at any time</span>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;justify-content:flex-end;gap:22px;padding:28px 36px;overflow:hidden;">
+<div style="display:flex;flex-direction:column;gap:4px;color:#8f889b;"><div style="font-size:14px;letter-spacing:.08em;">◆ AGENT · 14:01</div><div style="font-size:19px;">The Federation is always watching. Hailing frequencies open.</div></div>
+<div style="display:flex;flex-direction:column;gap:4px;color:#8f889b;"><div style="font-size:14px;letter-spacing:.08em;">● AVERY CHEN · 14:01</div><div style="font-size:19px;">Authorization, Chen, Avery, Alpha four eight four Beta seven.</div></div>
+<div style="display:flex;flex-direction:column;gap:4px;color:#a59fb0;"><div style="font-size:14px;letter-spacing:.08em;">◆ AGENT · 14:02</div><div style="font-size:20px;">Demo profile loaded. I have your RPL-2400 on Deck 7. What is it doing?</div></div>
+<div style="display:flex;flex-direction:column;gap:4px;"><div style="font-size:15px;letter-spacing:.08em;color:#b7a3f0;">● AVERY CHEN · 14:02</div><div style="font-size:24px;color:#e6e0ee;">My replicator is making cold coffee.</div></div>
+<div style="display:flex;flex-direction:column;gap:8px;border-left:6px solid #f07a5f;padding-left:20px;"><div style="font-size:16px;letter-spacing:.08em;color:#f07a5f;font-weight:700;">◆ AGENT · NOW</div><div style="font-size:36px;line-height:1.25;font-weight:700;text-wrap:pretty;">Engineering is checking the thermal calibration procedure.</div></div>
+</div>
+<div style="display:flex;align-items:center;gap:14px;padding:16px 28px;border-top:2px solid #2a2433;font-size:17px;color:#c9c2d4;"><span style="font-family:'Antonio',sans-serif;color:#f4a83a;font-size:18px;letter-spacing:.08em;">NEXT</span>Engineering will report back. Keep describing the problem if anything else seems off.</div>
+</sc-if>
+<sc-if value="{{ a1 }}" hint-placeholder-val="{{ false }}">
+<div style="display:flex;align-items:center;gap:14px;padding:18px 28px;background:#f07a5f;color:#0b0a0f;">
+<span style="font-size:22px;">◆</span><span style="font-family:'Antonio',sans-serif;font-weight:700;font-size:26px;letter-spacing:.06em;">AGENT SPEAKING</span><span style="margin-left:auto;font-size:16px;">Engineering result received 14:04</span>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;justify-content:flex-end;gap:22px;padding:28px 36px;overflow:hidden;">
+<div style="display:flex;flex-direction:column;gap:4px;color:#a59fb0;"><div style="font-size:14px;letter-spacing:.08em;">● AVERY CHEN · 14:02</div><div style="font-size:20px;">My replicator is making cold coffee.</div></div>
+<div style="display:flex;flex-direction:column;gap:8px;border-left:6px solid #f07a5f;padding-left:20px;"><div style="font-size:16px;letter-spacing:.08em;color:#f07a5f;font-weight:700;">◆ AGENT · NOW</div><div style="font-size:32px;line-height:1.3;font-weight:700;text-wrap:pretty;">Engineering thinks the calibration may have drifted. Is tea cold too, or only coffee?</div></div>
+<div style="background:#1d1924;border:2px solid #f4a83a;border-radius:24px 8px 8px 24px;padding:24px 28px;display:flex;flex-direction:column;gap:14px;">
+<div style="font-family:'Antonio',sans-serif;font-size:18px;letter-spacing:.1em;color:#f4a83a;">NEXT STEP · PROPOSED</div>
+<div style="font-size:26px;font-weight:700;">Replicate a different hot drink and check whether it is also cold.</div>
+<div style="font-size:16px;color:#c9c2d4;">This confirms the cause before any part is ordered. The problem stays open until you confirm it is fixed.</div>
+<div style="display:flex;gap:10px;flex-wrap:wrap;">
+<div style="background:#f4a83a;color:#0b0a0f;font-weight:700;font-size:16px;padding:10px 20px;border-radius:999px;">I'll try it</div>
+<div style="border:2px solid #f4a83a;color:#f4a83a;font-size:16px;padding:8px 18px;border-radius:999px;">Ask a question</div>
+<div style="border:2px solid #b7a3f0;color:#d8ccff;font-size:16px;padding:8px 18px;border-radius:999px;">Text me the steps</div>
+</div>
+</div>
+</div>
+</sc-if>
+</div>
+
+<!-- specialist rail -->
+<div style="display:flex;flex-direction:column;gap:12px;min-height:0;">
+<div style="display:flex;align-items:center;gap:12px;"><div style="background:#f4a83a;height:32px;width:32px;border-radius:16px 0 0 16px;"></div><div style="font-family:'Antonio',sans-serif;font-size:22px;letter-spacing:.1em;color:#f4a83a;">SPECIALISTS ON THIS CASE</div></div>
+<sc-if value="{{ c1 }}" hint-placeholder-val="{{ true }}">
+<div style="background:#17151d;border-radius:8px 28px 28px 8px;padding:22px 24px;display:flex;flex-direction:column;gap:12px;border-left:8px solid #f4a83a;">
+<div style="display:flex;align-items:center;gap:10px;"><span style="font-size:18px;color:#f4a83a;">▲</span><span style="font-family:'Antonio',sans-serif;font-size:24px;letter-spacing:.06em;">ENGINEERING</span><span style="margin-left:auto;font-size:15px;font-weight:700;background:#f4a83a;color:#0b0a0f;padding:4px 12px;border-radius:999px;">Working</span></div>
+<div style="font-size:18px;line-height:1.4;">Check the thermal calibration procedure for this model.</div>
+<div style="font-size:15px;color:#a59fb0;">Assigned 14:02 · RPL-2400 · symptom: coffee arrives cold</div>
+</div>
+<div style="background:#17151d;border-radius:8px 28px 28px 8px;padding:22px 24px;display:flex;flex-direction:column;gap:12px;border-left:8px dashed #b7a3f0;">
+<div style="display:flex;align-items:center;gap:10px;"><span style="font-size:18px;color:#b7a3f0;">■</span><span style="font-family:'Antonio',sans-serif;font-size:24px;letter-spacing:.06em;">LOGISTICS</span><span style="margin-left:auto;font-size:15px;border:2px solid #b7a3f0;color:#d8ccff;padding:2px 12px;border-radius:999px;">Queued</span></div>
+<div style="font-size:18px;line-height:1.4;color:#e6e0ee;">Check availability of a compatible thermal regulator.</div>
+<div style="font-size:15px;color:#a59fb0;">Starts if Engineering points to a part</div>
+</div>
+</sc-if>
+<sc-if value="{{ a1 }}" hint-placeholder-val="{{ false }}">
+<div style="background:#17151d;border-radius:8px 28px 28px 8px;padding:22px 24px;display:flex;flex-direction:column;gap:12px;border-left:8px solid #f4a83a;">
+<div style="display:flex;align-items:center;gap:10px;"><span style="font-size:18px;color:#f4a83a;">▲</span><span style="font-family:'Antonio',sans-serif;font-size:24px;letter-spacing:.06em;">ENGINEERING</span><span style="margin-left:auto;font-size:15px;font-weight:700;border:2px solid #7fd6a4;color:#7fd6a4;padding:2px 12px;border-radius:999px;">✓ Result ready</span></div>
+<div style="font-size:18px;line-height:1.4;font-weight:700;">Calibration drift is a possible cause.</div>
+<div style="font-size:16px;line-height:1.4;color:#c9c2d4;">Ask whether other hot drinks are affected.</div>
+<div style="background:#0b0a0f;border-radius:8px;padding:12px 14px;font-size:15px;color:#c9c2d4;line-height:1.4;"><span style="color:#f4a83a;">Source</span> · Fleet catalog, RPL-2400 thermal calibration procedure. Last calibrated two weeks ago.</div>
+</div>
+<div style="display:flex;align-items:center;gap:10px;padding-left:24px;font-size:14px;color:#a59fb0;"><span style="width:2px;height:22px;background:#b7a3f0;"></span>Handed to Logistics 14:04</div>
+<div style="background:#17151d;border-radius:8px 28px 28px 8px;padding:22px 24px;display:flex;flex-direction:column;gap:12px;border-left:8px solid #b7a3f0;">
+<div style="display:flex;align-items:center;gap:10px;"><span style="font-size:18px;color:#b7a3f0;">■</span><span style="font-family:'Antonio',sans-serif;font-size:24px;letter-spacing:.06em;">LOGISTICS</span><span style="margin-left:auto;font-size:15px;font-weight:700;background:#b7a3f0;color:#0b0a0f;padding:4px 12px;border-radius:999px;">Working</span></div>
+<div style="font-size:18px;line-height:1.4;color:#e6e0ee;">Check availability of a compatible thermal regulator.</div>
+<div style="font-size:15px;color:#a59fb0;">Nothing will be reserved without your OK</div>
+</div>
+</sc-if>
+</div>
+</div>
+
+<div style="position:absolute;top:30px;left:1180px;width:30px;height:30px;border-radius:50%;background:#ffe14d;color:#111;font-weight:700;display:flex;align-items:center;justify-content:center;box-shadow:0 0 0 3px #111;">1</div>
+<div style="position:absolute;top:118px;left:360px;width:30px;height:30px;border-radius:50%;background:#ffe14d;color:#111;font-weight:700;display:flex;align-items:center;justify-content:center;box-shadow:0 0 0 3px #111;">2</div>
+<div style="position:absolute;top:200px;left:470px;width:30px;height:30px;border-radius:50%;background:#ffe14d;color:#111;font-weight:700;display:flex;align-items:center;justify-content:center;box-shadow:0 0 0 3px #111;">3</div>
+<div style="position:absolute;top:150px;left:1390px;width:30px;height:30px;border-radius:50%;background:#ffe14d;color:#111;font-weight:700;display:flex;align-items:center;justify-content:center;box-shadow:0 0 0 3px #111;">4</div>
+</div>
+
+<div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:40px;">
+<ol style="margin:0;padding-left:22px;display:flex;flex-direction:column;gap:10px;font-size:17px;line-height:1.5;color:#33303a;">
+<li>Shows connection status only. Mute, microphone and hang-up stay in the Twilio Dev Phone window placed beside the console. With an embedded dialer later, those controls join this pill.</li>
+<li>Reads “Demo profile loaded”, not “verified”. The profile, case and each task are separate records, so they outlast this screen.</li>
+<li>Each speaker is named in text and also marked by color and glyph (◆ agent, ● caller). Earlier lines scroll on their own; a new line never jumps the reader to the bottom.</li>
+<li>Status words only: Queued, Working, Result ready, Delayed, Failed. No progress percentages. In the result state, the next step moves to the center and the hand-off to Logistics shows in the rail.</li>
+</ol>
+<div style="display:flex;flex-direction:column;gap:12px;font-size:17px;line-height:1.5;color:#33303a;">
+<div><strong>Emphasis.</strong> A fixed three-zone workspace: who (crew), what is being said (voice), who is working (specialists). A viewer can find each zone by color, even in a small video player.</div>
+<div><strong>Voice support.</strong> The current line is the largest text on screen, and the speaker bar shows who has the floor. Specialist work is kept in the rail so it does not compete with the conversation.</div>
+<div><strong>Tradeoff.</strong> The densest of the three. It reads best on a large desktop and needs real work to adapt to a phone. The elbow framing can also start to look like decoration rather than structure.</div>
+</div>
+</div>
+</div>
+
+<!-- 1b COMMUNICATOR -->
+<div id="1b" style="display:flex;flex-direction:column;gap:20px;width:1440px;">
+<div style="display:flex;align-items:center;gap:16px;flex-wrap:wrap;">
+<span style="background:#1c1b20;color:#fff;font-family:'IBM Plex Mono',monospace;font-size:16px;padding:6px 12px;border-radius:6px;">1b</span>
+<h2 style="margin:0;font-size:30px;">Personal communicator</h2>
+<div style="margin-left:auto;display:flex;gap:4px;padding:4px;border:1px solid #c9c3b8;border-radius:999px;">
+<button onClick="{{ set2c }}" style="border:0;cursor:pointer;font:inherit;font-size:15px;padding:8px 16px;border-radius:999px;background:{{ t2cBg }};color:{{ t2cFg }};">Active call</button>
+<button onClick="{{ set2a }}" style="border:0;cursor:pointer;font:inherit;font-size:15px;padding:8px 16px;border-radius:999px;background:{{ t2aBg }};color:{{ t2aFg }};">Interruption and correction</button>
+</div>
+</div>
+
+<div style="width:1440px;height:900px;position:relative;overflow:hidden;background:#0f1416;color:#eef3f1;font-family:'Bricolage Grotesque',sans-serif;display:flex;flex-direction:column;">
+<div style="display:flex;align-items:center;gap:16px;padding:28px 40px;">
+<div style="font-size:20px;font-weight:600;letter-spacing:-.01em;">Hailing Frequencies Open</div>
+<div style="margin-left:auto;display:flex;align-items:center;gap:10px;font-size:17px;color:#b8c6c1;"><span style="width:10px;height:10px;border-radius:50%;background:#8fe3c8;"></span>Connected · 03:12</div>
+</div>
+
+<sc-if value="{{ c2 }}" hint-placeholder-val="{{ true }}">
+<div style="flex:1;display:grid;grid-template-columns:minmax(0,1fr) 380px;gap:40px;padding:0 40px;min-height:0;">
+<div style="display:flex;flex-direction:column;align-items:center;gap:28px;padding-top:10px;">
+<div style="display:flex;align-items:center;gap:12px;background:#1a2225;border-radius:999px;padding:10px 20px;font-size:17px;color:#d5dfdb;"><span style="font-weight:600;color:#eef3f1;">Avery Chen</span><span style="color:#6f817b;">·</span>RPL-2400, Deck 7<span style="color:#6f817b;">·</span>Coffee arrives cold<span style="color:#6f817b;">·</span>Case HF-042</div>
+<div style="height:220px;display:flex;align-items:center;justify-content:center;">{{ orbSpeak }}</div>
+<div style="font-size:18px;letter-spacing:.06em;color:#8fe3c8;font-weight:600;">AGENT SPEAKING</div>
+<div style="max-width:820px;display:flex;flex-direction:column;align-items:center;gap:18px;text-align:center;">
+<div style="font-size:22px;color:#8a9a95;">You: My replicator is making cold coffee.</div>
+<div style="font-size:48px;line-height:1.2;font-weight:400;letter-spacing:-.015em;text-wrap:balance;">Engineering is checking the thermal calibration procedure.</div>
+</div>
+<div style="font-size:16px;color:#8fe3c8;text-decoration:underline;text-underline-offset:4px;">Review the whole conversation</div>
+</div>
+<div style="display:flex;flex-direction:column;justify-content:flex-end;gap:14px;padding-bottom:28px;">
+<div style="font-size:15px;color:#8a9a95;letter-spacing:.04em;">WORKING ON IT</div>
+<div style="background:#1a2225;border-radius:22px;padding:20px 22px;display:flex;flex-direction:column;gap:8px;">
+<div style="display:flex;align-items:center;gap:10px;"><span style="width:28px;height:28px;border-radius:8px;background:#f2c46b;color:#0f1416;display:flex;align-items:center;justify-content:center;font-weight:600;font-size:14px;">E</span><span style="font-weight:600;font-size:18px;">Engineering</span><span style="margin-left:auto;font-size:15px;color:#f2c46b;">Working</span></div>
+<div style="font-size:17px;line-height:1.4;color:#d5dfdb;">Checking the thermal calibration procedure for the RPL-2400.</div>
+</div>
+<div style="background:transparent;border:1.5px dashed #3a4a4e;border-radius:22px;padding:20px 22px;display:flex;flex-direction:column;gap:8px;">
+<div style="display:flex;align-items:center;gap:10px;"><span style="width:28px;height:28px;border-radius:8px;background:#9bb8ff;color:#0f1416;display:flex;align-items:center;justify-content:center;font-weight:600;font-size:14px;">L</span><span style="font-weight:600;font-size:18px;">Logistics</span><span style="margin-left:auto;font-size:15px;color:#9bb8ff;">Queued</span></div>
+<div style="font-size:17px;line-height:1.4;color:#b8c6c1;">Will check for a compatible thermal regulator if needed.</div>
+</div>
+</div>
+</div>
+</sc-if>
+<sc-if value="{{ a2 }}" hint-placeholder-val="{{ false }}">
+<div style="flex:1;display:grid;grid-template-columns:minmax(0,1fr) 380px;gap:40px;padding:0 40px;min-height:0;">
+<div style="display:flex;flex-direction:column;align-items:center;gap:28px;padding-top:10px;">
+<div style="display:flex;align-items:center;gap:12px;background:#1a2225;border-radius:999px;padding:10px 20px;font-size:17px;color:#d5dfdb;border:1.5px solid #8fe3c8;"><span style="font-weight:600;color:#eef3f1;">Avery Chen</span><span style="color:#6f817b;">·</span>RPL-2400, Deck 7<span style="color:#6f817b;">·</span><span style="text-decoration:line-through;color:#6f817b;">Coffee</span> Coffee and tea arrive cold<span style="font-size:13px;background:#8fe3c8;color:#0f1416;padding:2px 8px;border-radius:999px;font-weight:600;">Updated</span></div>
+<div style="height:220px;display:flex;align-items:center;justify-content:center;">{{ orbListen }}</div>
+<div style="font-size:18px;letter-spacing:.06em;color:#eef3f1;font-weight:600;">LISTENING TO YOU</div>
+<div style="max-width:820px;display:flex;flex-direction:column;align-items:center;gap:18px;text-align:center;">
+<div style="font-size:22px;color:#8a9a95;">Agent: Engineering is checking the thermal calib… <span style="font-style:italic;">(paused)</span></div>
+<div style="font-size:48px;line-height:1.2;font-weight:400;letter-spacing:-.015em;text-wrap:balance;"><span style="color:#8fe3c8;font-size:22px;letter-spacing:.06em;font-weight:600;display:block;margin-bottom:8px;">YOU</span>Wait, tea is cold too.</div>
+<div style="font-size:22px;color:#d5dfdb;">Agent next: “Understood. Tea is cold too. I have updated the case.”</div>
+</div>
+</div>
+<div style="display:flex;flex-direction:column;justify-content:flex-end;gap:14px;padding-bottom:28px;">
+<div style="font-size:15px;color:#8a9a95;letter-spacing:.04em;">WORKING ON IT</div>
+<div style="background:#1a2225;border-radius:22px;padding:20px 22px;display:flex;flex-direction:column;gap:8px;">
+<div style="display:flex;align-items:center;gap:10px;"><span style="width:28px;height:28px;border-radius:8px;background:#f2c46b;color:#0f1416;display:flex;align-items:center;justify-content:center;font-weight:600;font-size:14px;">E</span><span style="font-weight:600;font-size:18px;">Engineering</span><span style="margin-left:auto;font-size:15px;color:#f2c46b;">Rechecking</span></div>
+<div style="font-size:17px;line-height:1.4;color:#d5dfdb;">Now checking calibration with the new symptom: coffee and tea both cold.</div>
+<div style="margin-top:6px;border-top:1px solid #2c3a3e;padding-top:10px;font-size:15px;line-height:1.4;color:#8a9a95;"><span style="text-decoration:line-through;">Earlier finding (coffee only)</span> · Replaced. No longer the current recommendation.</div>
+</div>
+<div style="border:1.5px dashed #3a4a4e;border-radius:22px;padding:20px 22px;display:flex;flex-direction:column;gap:8px;">
+<div style="display:flex;align-items:center;gap:10px;"><span style="width:28px;height:28px;border-radius:8px;background:#9bb8ff;color:#0f1416;display:flex;align-items:center;justify-content:center;font-weight:600;font-size:14px;">L</span><span style="font-weight:600;font-size:18px;">Logistics</span><span style="margin-left:auto;font-size:15px;color:#9bb8ff;">Queued</span></div>
+<div style="font-size:17px;line-height:1.4;color:#b8c6c1;">Waiting for the updated diagnosis.</div>
+</div>
+</div>
+</div>
+</sc-if>
+
+<div style="display:flex;align-items:center;justify-content:center;gap:16px;padding:20px 40px 32px;border-top:1px solid #1f2a2d;">
+<div style="font-size:14px;color:#6f817b;margin-right:auto;">Embedded dialer</div>
+<div style="display:flex;align-items:center;gap:8px;background:#1a2225;border-radius:999px;padding:14px 26px;font-size:17px;"><span>⏸</span>Mute</div>
+<div style="display:flex;align-items:center;gap:8px;background:#1a2225;border-radius:999px;padding:14px 26px;font-size:17px;">Keypad</div>
+<div style="display:flex;align-items:center;gap:8px;background:#e5675a;color:#1a0d0b;font-weight:600;border-radius:999px;padding:14px 30px;font-size:17px;">End call</div>
+<div style="margin-left:auto;font-size:15px;color:#8a9a95;">Text instead</div>
+</div>
+
+<div style="position:absolute;top:262px;left:840px;width:30px;height:30px;border-radius:50%;background:#ffe14d;color:#111;font-weight:700;display:flex;align-items:center;justify-content:center;box-shadow:0 0 0 3px #111;">1</div>
+<div style="position:absolute;top:84px;left:880px;width:30px;height:30px;border-radius:50%;background:#ffe14d;color:#111;font-weight:700;display:flex;align-items:center;justify-content:center;box-shadow:0 0 0 3px #111;">2</div>
+<div style="position:absolute;top:470px;left:1390px;width:30px;height:30px;border-radius:50%;background:#ffe14d;color:#111;font-weight:700;display:flex;align-items:center;justify-content:center;box-shadow:0 0 0 3px #111;">3</div>
+<div style="position:absolute;top:822px;left:440px;width:30px;height:30px;border-radius:50%;background:#ffe14d;color:#111;font-weight:700;display:flex;align-items:center;justify-content:center;box-shadow:0 0 0 3px #111;">4</div>
+</div>
+
+<div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:40px;">
+<ol style="margin:0;padding-left:22px;display:flex;flex-direction:column;gap:10px;font-size:17px;line-height:1.5;color:#33303a;">
+<li>One expressive element. A slow breath means the agent is speaking; an outward ring means it is listening. A text label always sits beneath it. With reduced motion, it holds still.</li>
+<li>Compact context strip. A corrected symptom replaces the old one in place with an “Updated” tag, so the change shows without opening anything.</li>
+<li>Specialist cards stay on the right edge and never move the caption. On an interruption, Engineering shows its own status (“Rechecking”), and the earlier finding is marked as replaced so it cannot become the current recommendation.</li>
+<li>Embedded-dialer variant. When the call runs in Dev Phone, this bar becomes a single line, “Call controls are in Dev Phone”, and the companion stops showing buttons it cannot control.</li>
+</ol>
+<div style="display:flex;flex-direction:column;gap:12px;font-size:17px;line-height:1.5;color:#33303a;">
+<div><strong>Emphasis.</strong> The feeling of a single agent that stays with you. Captions are large enough to follow with the sound off, and there is little else on screen.</div>
+<div><strong>Voice support.</strong> Clearest of the three for turn-taking and interruptions: the listening and speaking change is the biggest signal on screen. It adapts to a 390px phone almost directly.</div>
+<div><strong>Tradeoff.</strong> Specialist work reads as secondary. On camera, Engineering’s hand-off to Logistics is easy to miss, and longer case history sits one step away.</div>
+</div>
+</div>
+</div>
+
+<!-- 1c DESK -->
+<div id="1c" style="display:flex;flex-direction:column;gap:20px;width:1440px;">
+<div style="display:flex;align-items:center;gap:16px;flex-wrap:wrap;">
+<span style="background:#1c1b20;color:#fff;font-family:'IBM Plex Mono',monospace;font-size:16px;padding:6px 12px;border-radius:6px;">1c</span>
+<h2 style="margin:0;font-size:30px;">Communications desk</h2>
+<div style="margin-left:auto;display:flex;gap:4px;padding:4px;border:1px solid #c9c3b8;border-radius:999px;">
+<button onClick="{{ set3c }}" style="border:0;cursor:pointer;font:inherit;font-size:15px;padding:8px 16px;border-radius:999px;background:{{ t3cBg }};color:{{ t3cFg }};">Active call</button>
+<button onClick="{{ set3a }}" style="border:0;cursor:pointer;font:inherit;font-size:15px;padding:8px 16px;border-radius:999px;background:{{ t3aBg }};color:{{ t3aFg }};">Text follow-up</button>
+</div>
+</div>
+
+<div style="width:1440px;height:900px;position:relative;overflow:hidden;background:#f4f1ea;color:#1c1d22;font-family:'IBM Plex Sans',sans-serif;display:grid;grid-template-columns:340px minmax(0,1fr);">
+<!-- contact panel -->
+<div style="background:#e9e4d8;border-right:1px solid #d3ccbd;padding:32px 28px;display:flex;flex-direction:column;gap:26px;">
+<div style="font-family:'IBM Plex Mono',monospace;font-size:14px;letter-spacing:.08em;color:#5d5a52;">HAILING FREQUENCIES OPEN</div>
+<div style="display:flex;flex-direction:column;gap:4px;"><div style="font-size:26px;font-weight:600;">Avery Chen</div><div style="font-size:17px;color:#4a4840;">Commander · USS Wayfinder</div><div style="font-size:15px;color:#5d5a52;margin-top:4px;">Demo profile loaded</div></div>
+<div style="display:flex;flex-direction:column;gap:10px;">
+<div style="font-family:'IBM Plex Mono',monospace;font-size:13px;letter-spacing:.08em;color:#5d5a52;">CONTACT</div>
+<div style="display:flex;align-items:center;gap:10px;font-size:17px;"><span style="width:26px;height:26px;border-radius:6px;background:#1c1d22;color:#f4f1ea;display:flex;align-items:center;justify-content:center;font-size:13px;">☎</span>Voice · on call now</div>
+<div style="display:flex;align-items:center;gap:10px;font-size:17px;"><span style="width:26px;height:26px;border-radius:6px;background:#2f7d57;color:#fff;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:600;">SMS</span>Mobile ···· 0147</div>
+<div style="font-size:14px;color:#5d5a52;line-height:1.4;">Contact reference only. It does not confirm identity.</div>
+</div>
+<div style="display:flex;flex-direction:column;gap:10px;">
+<div style="font-family:'IBM Plex Mono',monospace;font-size:13px;letter-spacing:.08em;color:#5d5a52;">PREFERENCES</div>
+<div style="display:grid;grid-template-columns:auto 1fr;gap:6px 14px;font-size:16px;"><span style="color:#5d5a52;">Language</span><span>English</span><span style="color:#5d5a52;">Troubleshooting</span><span>Spoken</span><span style="color:#5d5a52;">Repair steps</span><span>Written, by SMS</span></div>
+<div style="font-size:15px;color:#7a3f1d;text-decoration:underline;text-underline-offset:3px;">Change preferences</div>
+</div>
+<sc-if value="{{ a3 }}" hint-placeholder-val="{{ false }}">
+<div style="background:#f4f1ea;border:1px solid #d3ccbd;border-radius:10px;padding:16px;display:flex;flex-direction:column;gap:8px;font-size:15px;line-height:1.45;">
+<div style="font-family:'IBM Plex Mono',monospace;font-size:13px;letter-spacing:.08em;color:#2f7d57;">WHY SMS</div>
+<div><strong>Request:</strong> Avery asked for a text at 14:06.</div>
+<div><strong>Preference:</strong> written repair steps by SMS.</div>
+<div style="color:#5d5a52;">The preference picks the channel. Only the request sends a message.</div>
+</div>
+</sc-if>
+<div style="margin-top:auto;display:flex;flex-direction:column;gap:6px;font-size:15px;color:#4a4840;"><div style="font-family:'IBM Plex Mono',monospace;font-size:13px;letter-spacing:.08em;color:#5d5a52;">EQUIPMENT</div>Replicator RPL-2400 · Deck 7<br>Calibrated two weeks ago</div>
+</div>
+
+<!-- timeline -->
+<div style="display:flex;flex-direction:column;min-height:0;">
+<div style="display:flex;align-items:center;gap:16px;padding:24px 40px;border-bottom:1px solid #d3ccbd;">
+<div style="font-size:24px;font-weight:600;">Case HF-042</div>
+<div style="font-size:17px;color:#4a4840;">Replicator: hot drinks arrive cold</div>
+<div style="margin-left:auto;display:flex;align-items:center;gap:10px;font-size:16px;border:1px solid #1c1d22;border-radius:999px;padding:6px 14px;"><span style="width:9px;height:9px;border-radius:50%;background:#2f7d57;"></span>Call connected · Dev Phone or browser dialer</div>
+</div>
+<div style="flex:1;overflow:hidden;padding:24px 40px 0;display:flex;flex-direction:column;justify-content:flex-end;gap:16px;position:relative;">
+<div style="display:grid;grid-template-columns:64px 34px minmax(0,1fr);gap:14px;align-items:start;"><div style="font-family:'IBM Plex Mono',monospace;font-size:14px;color:#5d5a52;padding-top:4px;">14:01</div><div style="width:30px;height:30px;border-radius:50%;background:#1c1d22;color:#f4f1ea;display:flex;align-items:center;justify-content:center;font-size:13px;">☎</div><div style="font-size:17px;color:#4a4840;padding-top:4px;">Call started. “The Federation is always watching. Hailing frequencies open.” Demo profile loaded after the spoken authorization.</div></div>
+<div style="display:grid;grid-template-columns:64px 34px minmax(0,1fr);gap:14px;align-items:start;"><div style="font-family:'IBM Plex Mono',monospace;font-size:14px;color:#5d5a52;padding-top:4px;">14:02</div><div style="width:30px;height:30px;border-radius:50%;background:#1c1d22;color:#f4f1ea;display:flex;align-items:center;justify-content:center;font-size:13px;">☎</div><div style="display:flex;flex-direction:column;gap:6px;font-size:19px;padding-top:2px;"><div><span style="font-weight:600;">Agent</span> · I have your RPL-2400 on Deck 7. What is it doing?</div><div><span style="font-weight:600;">Avery</span> · My replicator is making cold coffee.</div></div></div>
+<sc-if value="{{ c3 }}" hint-placeholder-val="{{ true }}">
+<div style="display:grid;grid-template-columns:64px 34px minmax(0,1fr);gap:14px;align-items:start;"><div style="font-family:'IBM Plex Mono',monospace;font-size:14px;color:#5d5a52;padding-top:14px;">14:02</div><div style="width:30px;height:30px;border-radius:6px;background:#b5701b;color:#fff;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:600;margin-top:10px;">E</div>
+<div style="background:#fff;border:1px solid #d3ccbd;border-radius:10px;padding:18px 20px;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:6px 16px;"><div style="font-size:14px;font-family:'IBM Plex Mono',monospace;letter-spacing:.06em;color:#b5701b;">ENGINEERING TASK</div><div style="font-size:15px;font-weight:600;color:#b5701b;grid-row:1 / 3;align-self:center;border:1.5px solid #b5701b;border-radius:999px;padding:4px 12px;">Working</div><div style="font-size:19px;">Check the thermal calibration procedure for this model.</div></div></div>
+<div style="display:grid;grid-template-columns:64px 34px minmax(0,1fr);gap:14px;align-items:start;"><div style="font-family:'IBM Plex Mono',monospace;font-size:14px;color:#5d5a52;padding-top:14px;">—</div><div style="width:30px;height:30px;border-radius:6px;border:1.5px dashed #3f5fa8;color:#3f5fa8;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:600;margin-top:10px;">L</div>
+<div style="border:1.5px dashed #b8b0a0;border-radius:10px;padding:16px 20px;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:6px 16px;"><div style="font-size:14px;font-family:'IBM Plex Mono',monospace;letter-spacing:.06em;color:#3f5fa8;">LOGISTICS TASK</div><div style="font-size:15px;color:#3f5fa8;grid-row:1 / 3;align-self:center;">Queued</div><div style="font-size:18px;color:#4a4840;">Check availability of a compatible thermal regulator.</div></div></div>
+<div style="display:grid;grid-template-columns:64px 34px minmax(0,1fr);gap:14px;align-items:start;padding:18px 0 24px;border-top:2px solid #1c1d22;"><div style="font-family:'IBM Plex Mono',monospace;font-size:14px;font-weight:500;padding-top:8px;">LIVE</div><div style="width:30px;height:30px;border-radius:50%;background:#1c1d22;color:#f4f1ea;display:flex;align-items:center;justify-content:center;font-size:13px;margin-top:4px;">◆</div><div style="display:flex;flex-direction:column;gap:4px;"><div style="font-size:15px;font-weight:600;letter-spacing:.04em;">AGENT SPEAKING</div><div style="font-size:32px;line-height:1.25;font-weight:500;">Engineering is checking the thermal calibration procedure.</div></div></div>
+</sc-if>
+<sc-if value="{{ a3 }}" hint-placeholder-val="{{ false }}">
+<div style="display:grid;grid-template-columns:64px 34px minmax(0,1fr);gap:14px;align-items:start;"><div style="font-family:'IBM Plex Mono',monospace;font-size:14px;color:#5d5a52;padding-top:14px;">14:04</div><div style="width:30px;height:30px;border-radius:6px;background:#b5701b;color:#fff;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:600;margin-top:10px;">E</div>
+<div style="background:#fff;border:1px solid #d3ccbd;border-radius:10px;padding:16px 20px;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:6px 16px;"><div style="font-size:14px;font-family:'IBM Plex Mono',monospace;letter-spacing:.06em;color:#b5701b;">ENGINEERING RESULT</div><div style="font-size:15px;font-weight:600;color:#2f7d57;grid-row:1 / 3;align-self:center;">✓ Result ready</div><div style="font-size:18px;">Calibration drift is a possible cause. Next: check whether other hot drinks are cold.</div></div></div>
+<div style="display:grid;grid-template-columns:64px 34px minmax(0,1fr);gap:14px;align-items:start;"><div style="font-family:'IBM Plex Mono',monospace;font-size:14px;color:#5d5a52;padding-top:4px;">14:06</div><div style="width:30px;height:30px;border-radius:50%;background:#1c1d22;color:#f4f1ea;display:flex;align-items:center;justify-content:center;font-size:13px;">☎</div><div style="font-size:19px;padding-top:2px;"><span style="font-weight:600;">Avery</span> · Text me the details.</div></div>
+<div style="display:grid;grid-template-columns:64px 34px minmax(0,1fr);gap:14px;align-items:start;padding-bottom:24px;"><div style="font-family:'IBM Plex Mono',monospace;font-size:14px;color:#5d5a52;padding-top:14px;">14:06</div><div style="width:30px;height:30px;border-radius:6px;background:#2f7d57;color:#fff;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:600;margin-top:10px;">SMS</div>
+<div style="background:#fff;border:2px solid #2f7d57;border-radius:10px;padding:20px 22px;display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:24px;">
+<div style="display:flex;flex-direction:column;gap:12px;">
+<div style="font-size:14px;font-family:'IBM Plex Mono',monospace;letter-spacing:.06em;color:#2f7d57;">FOLLOW-UP · REPAIR SUMMARY</div>
+<div style="background:#e8f1ec;border-radius:16px 16px 16px 4px;padding:14px 16px;font-size:17px;line-height:1.45;">HF-042 · RPL-2400, Deck 7. Possible cause: thermal calibration drift. Next step: replicate a different hot drink and check if it is cold. Reply here to continue this case.</div>
+<div style="font-size:15px;color:#4a4840;">To Mobile ···· 0147 · <span style="color:#7a3f1d;text-decoration:underline;text-underline-offset:3px;">Send by email instead</span></div>
+</div>
+<div style="display:flex;flex-direction:column;gap:12px;border-left:1px solid #d3ccbd;padding-left:22px;">
+<div style="font-size:14px;font-family:'IBM Plex Mono',monospace;letter-spacing:.06em;color:#5d5a52;">DELIVERY</div>
+<div style="display:flex;align-items:center;gap:10px;font-size:17px;"><span style="width:20px;height:20px;border-radius:50%;background:#2f7d57;color:#fff;display:flex;align-items:center;justify-content:center;font-size:12px;">✓</span>Requested</div>
+<div style="display:flex;align-items:center;gap:10px;font-size:17px;font-weight:600;"><span style="width:20px;height:20px;border-radius:50%;border:3px solid #2f7d57;box-sizing:border-box;"></span>Repair summary queued</div>
+<div style="display:flex;align-items:center;gap:10px;font-size:17px;color:#8a857a;"><span style="width:20px;height:20px;border-radius:50%;border:1.5px dashed #8a857a;box-sizing:border-box;"></span>Delivered</div>
+<div style="font-size:14px;color:#5d5a52;line-height:1.4;">Shows “Delivered” only once the carrier confirms it.</div>
+</div>
+</div></div>
+</sc-if>
+<div style="position:absolute;top:20px;right:40px;font-size:14px;background:#1c1d22;color:#f4f1ea;padding:6px 14px;border-radius:999px;">↓ Jump to live</div>
+</div>
+</div>
+
+<sc-if value="{{ c3 }}" hint-placeholder-val="{{ true }}">
+<div style="position:absolute;top:240px;left:300px;width:30px;height:30px;border-radius:50%;background:#ffe14d;color:#111;font-weight:700;display:flex;align-items:center;justify-content:center;box-shadow:0 0 0 3px #111;">1</div>
+<div style="position:absolute;top:520px;left:1390px;width:30px;height:30px;border-radius:50%;background:#ffe14d;color:#111;font-weight:700;display:flex;align-items:center;justify-content:center;box-shadow:0 0 0 3px #111;">2</div>
+<div style="position:absolute;top:118px;left:1200px;width:30px;height:30px;border-radius:50%;background:#ffe14d;color:#111;font-weight:700;display:flex;align-items:center;justify-content:center;box-shadow:0 0 0 3px #111;">3</div>
+</sc-if>
+<sc-if value="{{ a3 }}" hint-placeholder-val="{{ false }}">
+<div style="position:absolute;top:240px;left:300px;width:30px;height:30px;border-radius:50%;background:#ffe14d;color:#111;font-weight:700;display:flex;align-items:center;justify-content:center;box-shadow:0 0 0 3px #111;">1</div>
+<div style="position:absolute;top:590px;left:300px;width:30px;height:30px;border-radius:50%;background:#ffe14d;color:#111;font-weight:700;display:flex;align-items:center;justify-content:center;box-shadow:0 0 0 3px #111;">2</div>
+<div style="position:absolute;top:610px;left:1390px;width:30px;height:30px;border-radius:50%;background:#ffe14d;color:#111;font-weight:700;display:flex;align-items:center;justify-content:center;box-shadow:0 0 0 3px #111;">3</div>
+</sc-if>
+</div>
+
+<div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:40px;">
+<ol style="margin:0;padding-left:22px;display:flex;flex-direction:column;gap:10px;font-size:17px;line-height:1.5;color:#33303a;">
+<li>The contact and preference panel stays visible the whole time. A phone number is labelled as a contact reference, not as proof of identity.</li>
+<li>Active call: voice, specialist tasks and texts share one timeline, each with its own glyph, label and edge (☎ circle, E/L square, SMS tag). Text follow-up: the panel explains why SMS was chosen, keeping the saved preference separate from Avery’s request.</li>
+<li>Active call: “Jump to live” appears only after the reader scrolls back, so reviewing history is never interrupted. The call pill names both phone setups; controls live in whichever client is in use. Text follow-up: the delivery steps stop at “queued” until the carrier confirms, with another eligible channel one tap away.</li>
+</ol>
+<div style="display:flex;flex-direction:column;gap:12px;font-size:17px;line-height:1.5;color:#33303a;">
+<div><strong>Emphasis.</strong> The case as one continuous record. Voice, findings and texts are steps in the same story, which also makes this screen the case recap after the call.</div>
+<div><strong>Voice support.</strong> The live line is pinned at the bottom of the timeline. It is less dramatic than 1a or 1b, but cross-channel follow-up is easiest to understand here.</div>
+<div><strong>Tradeoff.</strong> Least theatrical, and closest to a support-ticket tool. On camera the live moment is smaller, and building it needs one feed that combines events from several separate records.</div>
+</div>
+</div>
+</div>
+</div>
+
+<!-- FLOW -->
+<div id="flow" style="display:flex;flex-direction:column;gap:24px;max-width:1440px;">
+<h2 style="margin:0;font-size:36px;">Annotated flow</h2>
+<p style="margin:0;font-size:18px;line-height:1.5;color:#45414a;max-width:900px;">The same steps in every concept. Solid cards are the smallest complete demo; dashed cards are stretch features to add on top.</p>
+<div style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;">
+<div style="background:#fff;border:1px solid #c9c3b8;border-radius:12px;padding:20px;display:flex;flex-direction:column;gap:8px;"><div style="font-family:'IBM Plex Mono',monospace;font-size:13px;color:#6b6670;">01 · CORE · START</div><div style="font-size:20px;font-weight:700;">Contact</div><div style="font-size:16px;line-height:1.45;color:#45414a;">Product name, ship and equipment context, any open case, and a single “Call support” action showing the number to dial from Dev Phone.</div></div>
+<div style="background:#fff;border:1px solid #c9c3b8;border-radius:12px;padding:20px;display:flex;flex-direction:column;gap:8px;"><div style="font-family:'IBM Plex Mono',monospace;font-size:13px;color:#6b6670;">02–03 · CORE · CONNECTING</div><div style="font-size:20px;font-weight:700;">Greeting and profile</div><div style="font-size:16px;line-height:1.45;color:#45414a;">Status goes Connecting → Connected. The tagline appears as a caption. After the spoken phrase: “Demo profile loaded”, then equipment and preferences fill in.</div></div>
+<div style="background:#fff;border:1px solid #c9c3b8;border-radius:12px;padding:20px;display:flex;flex-direction:column;gap:8px;"><div style="font-family:'IBM Plex Mono',monospace;font-size:13px;color:#6b6670;">04–05 · CORE · ACTIVE CALL</div><div style="font-size:20px;font-weight:700;">Diagnosis</div><div style="font-size:16px;line-height:1.45;color:#45414a;">The symptom is added to case HF-042 and an Engineering task opens with its assignment. The caller can keep talking or correct the symptom.</div></div>
+<div style="background:#fff;border:1px solid #c9c3b8;border-radius:12px;padding:20px;display:flex;flex-direction:column;gap:8px;"><div style="font-family:'IBM Plex Mono',monospace;font-size:13px;color:#6b6670;">06 · CORE · RESULT</div><div style="font-size:20px;font-weight:700;">Specialist result</div><div style="font-size:16px;line-height:1.45;color:#45414a;">Finding, source from the catalog, and one proposed next step. Actions: try the step, ask a question, or bring in another specialist.</div></div>
+<div style="background:transparent;border:1.5px dashed #9a9387;border-radius:12px;padding:20px;display:flex;flex-direction:column;gap:8px;"><div style="font-family:'IBM Plex Mono',monospace;font-size:13px;color:#6b6670;">07 · STRETCH · PARTS</div><div style="font-size:20px;font-weight:700;">Logistics</div><div style="font-size:16px;line-height:1.45;color:#45414a;">A visible hand-off from Engineering. One compatible regulator at the station depot, with “no reservation made” stated plainly.</div></div>
+<div style="background:#fff;border:1px solid #c9c3b8;border-radius:12px;padding:20px;display:flex;flex-direction:column;gap:8px;"><div style="font-family:'IBM Plex Mono',monospace;font-size:13px;color:#6b6670;">08 · CORE · FOLLOW-UP</div><div style="font-size:20px;font-weight:700;">Requested text</div><div style="font-size:16px;line-height:1.45;color:#45414a;">Message preview, channel, destination label and reason. Delivery goes Requested → Queued → Delivered, or “Delivery not confirmed”.</div></div>
+<div style="background:#fff;border:1px solid #c9c3b8;border-radius:12px;padding:20px;display:flex;flex-direction:column;gap:8px;"><div style="font-family:'IBM Plex Mono',monospace;font-size:13px;color:#6b6670;">09 · CORE · AFTER THE CALL</div><div style="font-size:20px;font-weight:700;">Case recap</div><div style="font-size:16px;line-height:1.45;color:#45414a;">Diagnosis, steps tried, open items, messages sent. “Your call has ended. The parts check is still pending.” Action: Resume case.</div></div>
+<div style="background:transparent;border:1.5px dashed #9a9387;border-radius:12px;padding:20px;display:flex;flex-direction:column;gap:8px;"><div style="font-family:'IBM Plex Mono',monospace;font-size:13px;color:#6b6670;">STRETCH</div><div style="font-size:20px;font-weight:700;">Later layers</div><div style="font-size:16px;line-height:1.45;color:#45414a;">SMS reply continues the case (asks which case if several match) · photo upload attached to the case · requested callback · Klingon support · Borg emergency.</div></div>
+</div>
+<div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px 32px;font-size:16px;line-height:1.45;color:#33303a;padding-top:8px;">
+<div><strong>Reconnecting.</strong> Status pill changes to “Reconnecting”, captions pause and grey out, and the case stays put. Once recovery fails, a “Call again” action appears.</div>
+<div><strong>Specialist delayed.</strong> The task card reads “Still working, longer than usual”, and the rest of the screen stays usable.</div>
+<div><strong>Specialist failed.</strong> “Engineering couldn’t finish this check.” Offers Retry or Ask Logistics. No diagnosis is shown.</div>
+<div><strong>Symptom changed.</strong> The new symptom replaces the old one, and any earlier result is marked as replaced (see <a href="#1b">1b</a>).</div>
+<div><strong>Delivery failed.</strong> The result stays in the case. Another eligible channel is offered along with “Try again”.</div>
+<div><strong>Late result.</strong> A result that arrives after hang-up attaches to its own task and case, and appears in the recap marked “arrived after call”.</div>
+</div>
+</div>
+
+<!-- SYSTEM -->
+<div id="system" style="display:flex;flex-direction:column;gap:24px;max-width:1440px;">
+<h2 style="margin:0;font-size:36px;">Type, color, shape and motion</h2>
+<div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;">
+<div style="background:#0b0a0f;color:#f3eee6;border-radius:16px;padding:28px;display:flex;flex-direction:column;gap:18px;">
+<div style="font-family:'IBM Plex Mono',monospace;font-size:13px;color:#a59fb0;">1A BRIDGE CONSOLE</div>
+<div style="font-family:'Antonio',sans-serif;font-size:40px;font-weight:700;color:#f4a83a;letter-spacing:.04em;">ANTONIO LABELS</div>
+<div style="font-size:20px;">Atkinson Hyperlegible for captions and body, chosen for legibility at small video sizes.</div>
+<div style="display:flex;gap:8px;"><div style="flex:1;height:44px;border-radius:22px 0 0 22px;background:#f4a83a;"></div><div style="flex:1;height:44px;background:#f07a5f;"></div><div style="flex:1;height:44px;background:#b7a3f0;"></div><div style="flex:1;height:44px;background:#7fd6a4;"></div><div style="flex:1;height:44px;border-radius:0 22px 22px 0;background:#17151d;border:1px solid #2a2433;"></div></div>
+<div style="font-size:15px;line-height:1.5;color:#c9c2d4;">Amber: structure and Engineering · Coral: agent voice · Lavender: caller and Logistics · Green: connection and “ready”.<br>Shape: 8px inner corners, 28–56px elbows. 8px spacing grid, 16px gutters.<br>Motion: speaker bar color swaps in 150ms; a new result card slides 12px in from the rail. No looping animation.</div>
+</div>
+<div style="background:#0f1416;color:#eef3f1;border-radius:16px;padding:28px;display:flex;flex-direction:column;gap:18px;font-family:'Bricolage Grotesque',sans-serif;">
+<div style="font-family:'IBM Plex Mono',monospace;font-size:13px;color:#8a9a95;">1B PERSONAL COMMUNICATOR</div>
+<div style="font-size:40px;font-weight:300;letter-spacing:-.02em;">Bricolage Grotesque</div>
+<div style="font-size:20px;">One family throughout. Light weight at 48px for the live caption, semibold for labels.</div>
+<div style="display:flex;gap:8px;"><div style="flex:1;height:44px;border-radius:22px;background:#8fe3c8;"></div><div style="flex:1;height:44px;border-radius:22px;background:#f2c46b;"></div><div style="flex:1;height:44px;border-radius:22px;background:#9bb8ff;"></div><div style="flex:1;height:44px;border-radius:22px;background:#e5675a;"></div><div style="flex:1;height:44px;border-radius:22px;background:#1a2225;border:1px solid #2c3a3e;"></div></div>
+<div style="font-size:15px;line-height:1.5;color:#b8c6c1;">Mint: the agent and listening · Gold: Engineering · Periwinkle: Logistics · Red: end call only.<br>Shape: pills and 22px cards. Generous spacing, 40px margins.<br>Motion: a 3.2s breath while speaking, an outward ring while listening. Reduced motion holds a static ring.</div>
+</div>
+<div style="background:#f4f1ea;color:#1c1d22;border:1px solid #d3ccbd;border-radius:16px;padding:28px;display:flex;flex-direction:column;gap:18px;font-family:'IBM Plex Sans',sans-serif;">
+<div style="font-family:'IBM Plex Mono',monospace;font-size:13px;color:#5d5a52;">1C COMMUNICATIONS DESK</div>
+<div style="font-size:40px;font-weight:600;letter-spacing:-.01em;">IBM Plex <span style="font-family:'IBM Plex Mono',monospace;font-weight:400;font-size:32px;">+ Mono</span></div>
+<div style="font-size:20px;">Sans for content, Mono for timestamps and record labels.</div>
+<div style="display:flex;gap:8px;"><div style="flex:1;height:44px;border-radius:6px;background:#1c1d22;"></div><div style="flex:1;height:44px;border-radius:6px;background:#b5701b;"></div><div style="flex:1;height:44px;border-radius:6px;background:#3f5fa8;"></div><div style="flex:1;height:44px;border-radius:6px;background:#2f7d57;"></div><div style="flex:1;height:44px;border-radius:6px;background:#e9e4d8;border:1px solid #d3ccbd;"></div></div>
+<div style="font-size:15px;line-height:1.5;color:#4a4840;">Ink: voice · Ochre: Engineering · Blue: Logistics · Green: SMS and confirmed states.<br>Shape: 10px cards, a circle for voice, a square for tasks. 64px time column.<br>Motion: new entries fade up 8px. Delivery steps fill only when the record changes.</div>
+</div>
+</div>
+<div style="font-size:16px;line-height:1.5;color:#45414a;max-width:1100px;"><strong>Shared components:</strong> connection pill · speaker label (text + glyph + color) · caption line (live and earlier) · specialist task card (Queued, Working, Delayed, Result ready, Failed, Replaced) · next-step card (Proposed / Confirmed by caller) · follow-up card with delivery steps · context strip · preference row with “Change”.</div>
+</div>
+
+<!-- REC -->
+<div id="rec" style="display:flex;flex-direction:column;gap:24px;max-width:1100px;">
+<h2 style="margin:0;font-size:36px;">Recommendation</h2>
+<div style="display:grid;grid-template-columns:200px repeat(3,minmax(0,1fr));gap:1px;background:#c9c3b8;border:1px solid #c9c3b8;font-size:16px;">
+<div style="background:#e9e6df;padding:12px 14px;"></div><div style="background:#e9e6df;padding:12px 14px;font-weight:700;"><a href="#1a">1a</a> Bridge</div><div style="background:#e9e6df;padding:12px 14px;font-weight:700;"><a href="#1b">1b</a> Communicator</div><div style="background:#e9e6df;padding:12px 14px;font-weight:700;"><a href="#1c">1c</a> Desk</div>
+<div style="background:#fff;padding:12px 14px;font-weight:700;">Clarity for the caller</div><div style="background:#fff;padding:12px 14px;">Good; lots on screen</div><div style="background:#fff;padding:12px 14px;">Best</div><div style="background:#fff;padding:12px 14px;">Good after the call</div>
+<div style="background:#fff;padding:12px 14px;font-weight:700;">Readable on camera</div><div style="background:#fff;padding:12px 14px;">Best: zones read even when small</div><div style="background:#fff;padding:12px 14px;">Captions strong, specialists weak</div><div style="background:#fff;padding:12px 14px;">Weakest: small type, light ground</div>
+<div style="background:#fff;padding:12px 14px;font-weight:700;">Personality</div><div style="background:#fff;padding:12px 14px;">Strongest</div><div style="background:#fff;padding:12px 14px;">Warm, quiet</div><div style="background:#fff;padding:12px 14px;">Low</div>
+<div style="background:#fff;padding:12px 14px;font-weight:700;">Implementation effort</div><div style="background:#fff;padding:12px 14px;">Medium: fixed layout</div><div style="background:#fff;padding:12px 14px;">Lowest</div><div style="background:#fff;padding:12px 14px;">Highest: combined event feed</div>
+</div>
+<div style="display:flex;flex-direction:column;gap:14px;font-size:18px;line-height:1.55;color:#33303a;">
+<p style="margin:0;text-wrap:pretty;">Use <a href="#1a">1a</a> as the desktop recording screen. It does the best job of showing a viewer who is being helped, which specialist is working, and what changed, and its framing carries the humor without needing more copy.</p>
+<p style="margin:0;text-wrap:pretty;">Borrow two things. Put <a href="#1b">1b</a>’s caption treatment and listening/speaking element in 1a’s center panel, and use 1b as the 390px mobile companion. Use <a href="#1c">1c</a>’s timeline for the Case recap and the text follow-up screens. All three can share the task card, delivery steps and speaker labels, so they will still feel like one product.</p>
+<p style="margin:0;text-wrap:pretty;">Avoid using 1c’s timeline during the live call in 1a. Two scrolling regions would compete for attention on camera.</p>
+</div>
+</div>
+
+</section>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { s1: 'call', s2: 'call', s3: 'call' };
+  orb(mode) {
+    const h = React.createElement;
+    const reduce = typeof window !== 'undefined' && window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const speak = mode === 'speak';
+    const core = h('div', { key: 'c', style: { position: 'absolute', inset: 30, borderRadius: '50%', background: speak ? 'radial-gradient(circle at 40% 35%, #c9f5e6, #8fe3c8 45%, #3e8f78)' : '#0f1416', border: speak ? 'none' : '3px solid #8fe3c8', animation: speak && !reduce ? 'hfBreathe 3.2s ease-in-out infinite' : 'none' } });
+    const ring = h('div', { key: 'r', style: { position: 'absolute', inset: 30, borderRadius: '50%', border: '2px solid #8fe3c8', opacity: reduce ? 0.5 : 0, transform: reduce ? 'scale(1.2)' : 'none', animation: !speak && !reduce ? 'hfRing 1.8s ease-out infinite' : 'none' } });
+    const halo = h('div', { key: 'h', style: { position: 'absolute', inset: 0, borderRadius: '50%', background: 'rgba(143,227,200,0.08)' } });
+    return h('div', { role: 'img', 'aria-label': speak ? 'Agent speaking' : 'Listening', style: { position: 'relative', width: 200, height: 200 } }, [halo, ring, core]);
+  }
+  renderVals() {
+    const v = {};
+    [1, 2, 3].forEach(i => {
+      const on = this.state['s' + i] === 'call';
+      v['c' + i] = on; v['a' + i] = !on;
+      v['t' + i + 'cBg'] = on ? '#1c1b20' : 'transparent'; v['t' + i + 'cFg'] = on ? '#fff' : '#1c1b20';
+      v['t' + i + 'aBg'] = !on ? '#1c1b20' : 'transparent'; v['t' + i + 'aFg'] = !on ? '#fff' : '#1c1b20';
+      v['set' + i + 'c'] = () => this.setState({ ['s' + i]: 'call' });
+      v['set' + i + 'a'] = () => this.setState({ ['s' + i]: 'alt' });
+    });
+    v.orbSpeak = this.orb('speak');
+    v.orbListen = this.orb('listen');
+    return v;
+  }
+}
+</script>
+</body>
+</html>

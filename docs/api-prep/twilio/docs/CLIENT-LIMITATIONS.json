@@ -1,0 +1,45 @@
+{
+  "v": 1,
+  "date": "2026-10-09",
+  "basis": "authored summaries of existing prep findings",
+  "api_requests_executed": 0,
+  "execution_verified": false,
+  "notes": [
+    {
+      "api": "twilio",
+      "stack": "twilio",
+      "operation": "GET /2010-04-01/Accounts.json",
+      "source_bug": "CAPTURE-001",
+      "note": "Sannr client limitation (@sannr/sannr 0.1.0-alpha.10), reported in CodeTV preparation October 7\u20139, 2026; not a provider defect or a new execution: A multi-request capture echoed the Account SID in the returned captures object. Keep batch output private and redact identifiers before sharing a transcript; a captured value is not automatically safe for publication. Source: BUGS.md / CAPTURE-001; this package retains the authored summary, not private raw evidence.",
+      "note_sha256": "57416361737a980e620634ae9f40fdcbd0d48e43582054e742ffa67726b9eb48",
+      "saved_and_cli_retrieved": true
+    },
+    {
+      "api": "twilio",
+      "stack": "twilio",
+      "operation": "GET /2010-04-01/Accounts.json",
+      "source_bug": "VERIFY-001",
+      "note": "Sannr client limitation (@sannr/sannr 0.1.0-alpha.10), reported in CodeTV preparation October 7\u20139, 2026; not a provider defect or a new execution: A passing api_request assertion did not update the legacy verified-operation counter. Inspect the scoped execution receipt and its assertions rather than interpreting a zero counter as proof no request passed. Shared authored notes are still not execution verification. Source: BUGS.md / VERIFY-001; this package retains the authored summary, not private raw evidence.",
+      "note_sha256": "cdb2c484676f16b4fa4b53c43bb671c9caf540257423a73195b43041c65437bd",
+      "saved_and_cli_retrieved": true
+    },
+    {
+      "api": "twilio",
+      "stack": "messaging",
+      "operation": "GET /v1/Services",
+      "source_bug": "MAP-001",
+      "note": "Sannr client limitation (@sannr/sannr 0.1.0-alpha.10), reported in CodeTV preparation October 7\u20139, 2026; not a provider defect or a new execution: The earlier default map command sent unrequested probes and tested paths from other stacks against the wrong Twilio host. Do not use it as a no-traffic setup check. Retrieve the selected stack locally; when a request is authorized, use this operation with its own stack/host. Source: BUGS.md / MAP-001; this package retains the authored summary, not private raw evidence.",
+      "note_sha256": "3cd1a982834d5c0efe08e72889eec4acd0582999e14b8958b9fad9f6d7333f43",
+      "saved_and_cli_retrieved": true
+    },
+    {
+      "api": "twilio",
+      "stack": "verify",
+      "operation": "GET /v2/Services",
+      "source_bug": "MAP-001",
+      "note": "Sannr client limitation (@sannr/sannr 0.1.0-alpha.10), reported in CodeTV preparation October 7\u20139, 2026; not a provider defect or a new execution: The earlier default map command sent unrequested probes and tested paths from other stacks against the wrong Twilio host. Do not use it as a no-traffic setup check. Retrieve the selected stack locally; when a request is authorized, use this operation with its own stack/host. Source: BUGS.md / MAP-001; this package retains the authored summary, not private raw evidence.",
+      "note_sha256": "3cd1a982834d5c0efe08e72889eec4acd0582999e14b8958b9fad9f6d7333f43",
+      "saved_and_cli_retrieved": true
+    }
+  ]
+}

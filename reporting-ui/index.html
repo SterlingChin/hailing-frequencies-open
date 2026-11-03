@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#0b0a0f" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="description" content="Open a channel, confirm your crew identity, and report an issue." />
+    <title>Hailing Frequencies · Communicator</title>
+    <link rel="icon" type="image/svg+xml" href="/communicator.svg" />
+  </head>
+  <body class="hf-app" data-hf-theme="bridge">
+    <div class="communicator">
+      <header class="masthead">
+        <a class="brand" href="/" aria-label="Hailing Frequencies home">
+          <svg viewBox="0 0 48 56" aria-hidden="true"><path d="M24 4 44 50 24 36 4 50Z" fill="none" stroke="currentColor" stroke-width="3"/><path d="M24 15v17M17 25h14" stroke="currentColor" stroke-width="2"/></svg>
+          <span>Hailing<br />Frequencies<span class="brand-sub">We actually want to help you...</span></span>
+        </a>
+        <span class="console-id" aria-hidden="true">HF—01<br /><span>● ● ●</span></span>
+      </header>
+      <div class="top-rail" aria-hidden="true"><span></span><span></span><span></span></div>
+
+      <main class="hf-console mobile-console">
+        <section class="live-zone" aria-labelledby="channel-title">
+          <div class="channel-toolbar">
+            <span class="hf-kicker channel-label">GPT-LIVE VOICE</span>
+            <span id="connection" class="hf-status" data-state="ready" role="status">Standby</span>
+          </div>
+          <p id="mode-note" class="mode-note">Tap Engage to connect to your support officer.</p>
+
+          <div class="caption-area">
+            <p id="speaker" class="hf-kicker">COMMUNICATIONS / STANDBY</p>
+            <h1 id="channel-title" class="hf-caption">Ready when<br />you are.</h1>
+            <p id="next-step" class="hf-muted">Open a channel to report an issue.</p>
+          </div>
+          <div class="engage-orbit" id="orbit">
+            <span class="orbit-marker marker-one" aria-hidden="true"></span>
+            <span class="orbit-marker marker-two" aria-hidden="true"></span>
+            <button id="engage" class="engage-button" disabled>
+              <svg id="engage-icon" viewBox="0 0 48 56" aria-hidden="true"><path d="M24 4 44 50 24 36 4 50Z" fill="none" stroke="currentColor" stroke-width="3"/><path d="M24 15v17M17 25h14" stroke="currentColor" stroke-width="2"/></svg>
+              <span id="engage-label">Engage</span><span id="engage-hint">OPEN A CHANNEL</span>
+            </button>
+          </div>
+          <div class="channel-controls">
+            <button id="microphone" class="hf-action" data-kind="secondary" hidden>Speak</button>
+            <button id="play-audio" class="hf-action" data-kind="secondary" hidden>Play agent audio</button>
+          </div>
+          <p id="notice" class="notice" role="status" hidden></p>
+          <p id="error" class="error-message" role="alert" hidden></p>
+          <p id="announcement" class="sr-only" aria-live="polite" aria-atomic="true"></p>
+
+          <ol class="steps" aria-label="Reporting progress">
+            <li id="step-identity" aria-current="step"><span>01</span> Identity</li>
+            <li id="step-report"><span>02</span> Report</li>
+            <li id="step-review"><span>03</span> Confirm</li>
+          </ol>
+
+          <details id="transcript-details" class="transcript-panel" hidden>
+            <summary>Conversation <span id="transcript-count">0</span></summary>
+            <ol id="transcript" class="conversation-log"></ol>
+          </details>
+        </section>
+
+        <section id="report-section" class="hf-app report-zone" data-hf-theme="desk" hidden aria-labelledby="report-title">
+          <div class="section-heading"><h2 id="report-title">Issue recap</h2><span id="report-delivery" class="not-sent">Awaiting spoken confirmation</span></div>
+          <p id="report-id" class="hf-kicker"></p>
+          <h3>Reported issue</h3><p id="report-issue"></p>
+          <h3>Location</h3><p id="report-location"></p>
+          <button id="download-report" type="button" class="hf-action" data-kind="secondary">Download recap</button>
+          <ol class="hf-timeline recap-timeline">
+            <li class="hf-timeline__item"><span class="hf-timeline__time">01</span><span class="hf-timeline__mark">✓</span><div class="hf-timeline__body"><strong>Profile loaded</strong><p id="recap-crew"></p></div></li>
+            <li class="hf-timeline__item"><span class="hf-timeline__time">02</span><span class="hf-timeline__mark">≡</span><div class="hf-timeline__body"><strong id="review-state">Draft captured</strong><p>Confirm the officer’s spoken readback to submit the issue.</p></div></li>
+            <li class="hf-timeline__item" data-kind="message"><span class="hf-timeline__time">03</span><span class="hf-timeline__mark">—</span><div class="hf-timeline__body"><strong>Voice confirmation</strong><p>The officer asks “Is that correct?” before submission. Refreshing the page clears this conversation and its recaps. Download a copy to keep it.</p></div></li>
+          </ol>
+          <p id="report-feedback" role="status" class="report-feedback"></p>
+          <details id="report-history" hidden><summary>Saved reports</summary><ul id="report-list" class="report-list"></ul></details>
+        </section>
+      </main>
+      <details id="debug-panel" class="debug-panel">
+        <summary>Debug <span id="debug-count">0</span></summary>
+        <p id="debug-note">API response bodies for this conversation. Credentials and session tokens are redacted.</p>
+        <div id="debug-responses"><p>No API responses yet. Engage to start a conversation.</p></div>
+      </details>
+      <footer><span>WAYFINDER / COMMUNICATIONS</span><span>HF—01</span></footer>
+    </div>
+    <audio id="agent-audio" autoplay playsinline></audio>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

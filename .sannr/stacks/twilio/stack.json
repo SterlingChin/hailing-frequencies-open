@@ -1,0 +1,15 @@
+{
+  "v": 1,
+  "name": "twilio",
+  "title": "Twilio CodeTV API context",
+  "environments": {
+    "production": {
+      "baseUrl": "https://api.twilio.com",
+      "auth": "basic:TWILIO_ACCOUNT_SID:TWILIO_AUTH_TOKEN",
+      "envFile": "../../../.env",
+      "production": true
+    }
+  },
+  "default_environment": "production",
+  "contract": "twilio_api_v2010.yaml"
+}

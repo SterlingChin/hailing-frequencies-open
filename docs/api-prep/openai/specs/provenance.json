@@ -1,0 +1,20 @@
+{
+  "retrieved_on": "2026-10-06",
+  "repository": "https://github.com/openai/openai-openapi",
+  "commit": "4a4020d8c2ed211f795b98a14a6c8fa2b633cad0",
+  "files": [
+    {
+      "file": "specs/openapi.yaml",
+      "upstream_path": "openapi.yaml",
+      "sha256": "9e0991b213ec975ac36134f0b3218450b534fd2dea15aa4d5a98c90de821aecf"
+    }
+  ],
+  "export_date": "2026-10-09",
+  "current_locations": [
+    {
+      "original_path": "specs/openapi.yaml",
+      "file": ".sannr/stacks/openai/openapi.yaml",
+      "sha256": "9e0991b213ec975ac36134f0b3218450b534fd2dea15aa4d5a98c90de821aecf"
+    }
+  ]
+}

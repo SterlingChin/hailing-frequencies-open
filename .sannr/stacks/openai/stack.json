@@ -1,0 +1,20 @@
+{
+  "v": 1,
+  "name": "openai",
+  "title": "OpenAI API",
+  "environments": {
+    "production": {
+      "baseUrl": "https://api.openai.com/v1",
+      "auth": "bearer:OPENAI_API_KEY",
+      "envFile": "../../../.env",
+      "production": true
+    },
+    "reporting-test": {
+      "baseUrl": "https://api.openai.com/v1",
+      "auth": "bearer:REPORTING_OPENAI_API_KEY",
+      "production": true
+    }
+  },
+  "default_environment": "production",
+  "contract": "openapi.yaml"
+}

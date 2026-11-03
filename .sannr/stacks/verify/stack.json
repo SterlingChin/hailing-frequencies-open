@@ -1,0 +1,14 @@
+{
+  "v": 1,
+  "name": "verify",
+  "environments": {
+    "default": {
+      "baseUrl": "https://verify.twilio.com",
+      "auth": "basic:TWILIO_ACCOUNT_SID:TWILIO_AUTH_TOKEN",
+      "envFile": "../../../.env",
+      "production": true
+    }
+  },
+  "default_environment": "default",
+  "contract": "twilio_verify_v2.yaml"
+}

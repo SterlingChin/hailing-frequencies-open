@@ -1,0 +1,189 @@
+{
+  "v": 1,
+  "date": "2026-10-09",
+  "basis": "authored summaries of existing prep findings",
+  "api_requests_executed": 0,
+  "execution_verified": false,
+  "notes": [
+    {
+      "api": "openai",
+      "stack": "openai",
+      "operation": "POST /images/edits",
+      "source_bug": "CLI-006",
+      "note": "Sannr client limitation (@sannr/sannr 0.1.0-alpha.10), reported in CodeTV preparation October 7\u20139, 2026; not a provider defect or a new execution: The client sends multipart file parts without explicit MIME types; the PNG edit probe was rejected as application/octet-stream. Confirm per-part MIME support in the client before attempting this route. Do not retry unchanged input or bypass a refusal. Source: BUGS.md / CLI-006; this package retains the authored summary, not private raw evidence.",
+      "note_sha256": "403d8f47fccfa271644ad935ad227ead74ac858c8f399e0662a1987b717b1958",
+      "saved_and_cli_retrieved": true
+    },
+    {
+      "api": "openai",
+      "stack": "openai",
+      "operation": "POST /skills",
+      "source_bug": "CLI-008",
+      "note": "Sannr client limitation (@sannr/sannr 0.1.0-alpha.10), reported in CodeTV preparation October 7\u20139, 2026; not a provider defect or a new execution: Multipart filenames are reduced to basenames. The tested skills upload required files under one top-level directory and failed. Confirm directory-preserving multipart support before attempting that upload; a plain SKILL.md basename does not meet the tested requirement. Source: BUGS.md / CLI-008; this package retains the authored summary, not private raw evidence.",
+      "note_sha256": "579fb0bdf713d1fb1646968850121ef142654dd9a08a22e0e59efe6a0163cca7",
+      "saved_and_cli_retrieved": true
+    },
+    {
+      "api": "openai",
+      "stack": "openai",
+      "operation": "POST /evals",
+      "source_bug": "CLI-005",
+      "note": "Sannr client limitation (@sannr/sannr 0.1.0-alpha.10), reported in CodeTV preparation October 7\u20139, 2026; not a provider defect or a new execution: Double-brace eval/grader template strings were parsed as unresolved client placeholders and refused before traffic. Replacing a dynamic template with literal text changes the eval and is not an equivalent workaround. Confirm supported literal-template handling before building this workflow. Source: BUGS.md / CLI-005; this package retains the authored summary, not private raw evidence.",
+      "note_sha256": "6e9a7e5af0ead646b8fd1940e68d2cc79eea3b6da21891a23c382f3420df4f43",
+      "saved_and_cli_retrieved": true
+    },
+    {
+      "api": "openai",
+      "stack": "openai",
+      "operation": "POST /fine_tuning/alpha/graders/validate",
+      "source_bug": "CLI-005",
+      "note": "Sannr client limitation (@sannr/sannr 0.1.0-alpha.10), reported in CodeTV preparation October 7\u20139, 2026; not a provider defect or a new execution: Double-brace eval/grader template strings were parsed as unresolved client placeholders and refused before traffic. Replacing a dynamic template with literal text changes the eval and is not an equivalent workaround. Confirm supported literal-template handling before building this workflow. Source: BUGS.md / CLI-005; this package retains the authored summary, not private raw evidence.",
+      "note_sha256": "6e9a7e5af0ead646b8fd1940e68d2cc79eea3b6da21891a23c382f3420df4f43",
+      "saved_and_cli_retrieved": true
+    },
+    {
+      "api": "openai",
+      "stack": "openai",
+      "operation": "POST /responses",
+      "source_bug": "CLI-007",
+      "note": "Sannr client limitation (@sannr/sannr 0.1.0-alpha.10), reported in CodeTV preparation October 7\u20139, 2026; not a provider defect or a new execution: The protocol CLI accepts at most 1 MiB of JSON input. A large inline image data URL exceeded this local limit. Use a smaller valid input or a supported uploaded-file workflow; this is a CLI input cap, not a provider API limit. Source: BUGS.md / CLI-007; this package retains the authored summary, not private raw evidence.",
+      "note_sha256": "d23895c5955ec0c036b16e7e3c59462eddc0abc77fbb85cf0e4e3173018382a7",
+      "saved_and_cli_retrieved": true
+    },
+    {
+      "api": "openai",
+      "stack": "openai",
+      "operation": "POST /chat/completions",
+      "source_bug": "CLI-007",
+      "note": "Sannr client limitation (@sannr/sannr 0.1.0-alpha.10), reported in CodeTV preparation October 7\u20139, 2026; not a provider defect or a new execution: The protocol CLI accepts at most 1 MiB of JSON input. A large inline image data URL exceeded this local limit. Use a smaller valid input or a supported uploaded-file workflow; this is a CLI input cap, not a provider API limit. Source: BUGS.md / CLI-007; this package retains the authored summary, not private raw evidence.",
+      "note_sha256": "d23895c5955ec0c036b16e7e3c59462eddc0abc77fbb85cf0e4e3173018382a7",
+      "saved_and_cli_retrieved": true
+    },
+    {
+      "api": "openai",
+      "stack": "openai",
+      "operation": "POST /chat/completions",
+      "source_bug": "CLI-003",
+      "note": "Sannr client limitation (@sannr/sannr 0.1.0-alpha.10), reported in CodeTV preparation October 7\u20139, 2026; not a provider defect or a new execution: The client regex guard can reject complex matches assertions while reporting an ordinary mismatch. For structured-output checks, use simple assertions and separately parse/validate JSON rather than treating that mismatch as proof the model returned invalid JSON. Source: BUGS.md / CLI-003; this package retains the authored summary, not private raw evidence.",
+      "note_sha256": "62b812f716a262c09f8aa29d2a9ff74d5fc245b03c4ac28a1eac2e1c87824526",
+      "saved_and_cli_retrieved": true
+    },
+    {
+      "api": "openai",
+      "stack": "openai",
+      "operation": "GET /files/{file_id}",
+      "source_bug": "CLI-004",
+      "note": "Sannr client limitation (@sannr/sannr 0.1.0-alpha.10), reported in CodeTV preparation October 7\u20139, 2026; not a provider defect or a new execution: Captured placeholders are not substituted inside expect clauses. A literal comparison such as equals:{resourceId} can fail and stop a lifecycle chain before cleanup. Check existence/type and explicitly compare the captured ID separately; track created resources and run authorized cleanup even after a failed assertion. Source: BUGS.md / CLI-004; this package retains the authored summary, not private raw evidence.",
+      "note_sha256": "9b5643d401aaf7ef1de3f3ab57112c7a622cb67eb852d35b949bff76f2fa8c35",
+      "saved_and_cli_retrieved": true
+    },
+    {
+      "api": "openai",
+      "stack": "openai",
+      "operation": "GET /conversations/{conversation_id}",
+      "source_bug": "CLI-004",
+      "note": "Sannr client limitation (@sannr/sannr 0.1.0-alpha.10), reported in CodeTV preparation October 7\u20139, 2026; not a provider defect or a new execution: Captured placeholders are not substituted inside expect clauses. A literal comparison such as equals:{resourceId} can fail and stop a lifecycle chain before cleanup. Check existence/type and explicitly compare the captured ID separately; track created resources and run authorized cleanup even after a failed assertion. Source: BUGS.md / CLI-004; this package retains the authored summary, not private raw evidence.",
+      "note_sha256": "9b5643d401aaf7ef1de3f3ab57112c7a622cb67eb852d35b949bff76f2fa8c35",
+      "saved_and_cli_retrieved": true
+    },
+    {
+      "api": "openai",
+      "stack": "openai",
+      "operation": "GET /vector_stores/{vector_store_id}",
+      "source_bug": "CLI-004",
+      "note": "Sannr client limitation (@sannr/sannr 0.1.0-alpha.10), reported in CodeTV preparation October 7\u20139, 2026; not a provider defect or a new execution: Captured placeholders are not substituted inside expect clauses. A literal comparison such as equals:{resourceId} can fail and stop a lifecycle chain before cleanup. Check existence/type and explicitly compare the captured ID separately; track created resources and run authorized cleanup even after a failed assertion. Source: BUGS.md / CLI-004; this package retains the authored summary, not private raw evidence.",
+      "note_sha256": "9b5643d401aaf7ef1de3f3ab57112c7a622cb67eb852d35b949bff76f2fa8c35",
+      "saved_and_cli_retrieved": true
+    },
+    {
+      "api": "openai",
+      "stack": "openai",
+      "operation": "GET /batches/{batch_id}",
+      "source_bug": "CLI-004",
+      "note": "Sannr client limitation (@sannr/sannr 0.1.0-alpha.10), reported in CodeTV preparation October 7\u20139, 2026; not a provider defect or a new execution: Captured placeholders are not substituted inside expect clauses. A literal comparison such as equals:{resourceId} can fail and stop a lifecycle chain before cleanup. Check existence/type and explicitly compare the captured ID separately; track created resources and run authorized cleanup even after a failed assertion. Source: BUGS.md / CLI-004; this package retains the authored summary, not private raw evidence.",
+      "note_sha256": "9b5643d401aaf7ef1de3f3ab57112c7a622cb67eb852d35b949bff76f2fa8c35",
+      "saved_and_cli_retrieved": true
+    },
+    {
+      "api": "openai",
+      "stack": "openai",
+      "operation": "GET /containers/{container_id}",
+      "source_bug": "CLI-004",
+      "note": "Sannr client limitation (@sannr/sannr 0.1.0-alpha.10), reported in CodeTV preparation October 7\u20139, 2026; not a provider defect or a new execution: Captured placeholders are not substituted inside expect clauses. A literal comparison such as equals:{resourceId} can fail and stop a lifecycle chain before cleanup. Check existence/type and explicitly compare the captured ID separately; track created resources and run authorized cleanup even after a failed assertion. Source: BUGS.md / CLI-004; this package retains the authored summary, not private raw evidence.",
+      "note_sha256": "9b5643d401aaf7ef1de3f3ab57112c7a622cb67eb852d35b949bff76f2fa8c35",
+      "saved_and_cli_retrieved": true
+    },
+    {
+      "api": "openai",
+      "stack": "openai",
+      "operation": "GET /responses/{response_id}",
+      "source_bug": "CLI-004",
+      "note": "Sannr client limitation (@sannr/sannr 0.1.0-alpha.10), reported in CodeTV preparation October 7\u20139, 2026; not a provider defect or a new execution: Captured placeholders are not substituted inside expect clauses. A literal comparison such as equals:{resourceId} can fail and stop a lifecycle chain before cleanup. Check existence/type and explicitly compare the captured ID separately; track created resources and run authorized cleanup even after a failed assertion. Source: BUGS.md / CLI-004; this package retains the authored summary, not private raw evidence.",
+      "note_sha256": "9b5643d401aaf7ef1de3f3ab57112c7a622cb67eb852d35b949bff76f2fa8c35",
+      "saved_and_cli_retrieved": true
+    },
+    {
+      "api": "openai",
+      "stack": "openai",
+      "operation": "GET /evals/{eval_id}",
+      "source_bug": "CLI-004",
+      "note": "Sannr client limitation (@sannr/sannr 0.1.0-alpha.10), reported in CodeTV preparation October 7\u20139, 2026; not a provider defect or a new execution: Captured placeholders are not substituted inside expect clauses. A literal comparison such as equals:{resourceId} can fail and stop a lifecycle chain before cleanup. Check existence/type and explicitly compare the captured ID separately; track created resources and run authorized cleanup even after a failed assertion. Source: BUGS.md / CLI-004; this package retains the authored summary, not private raw evidence.",
+      "note_sha256": "9b5643d401aaf7ef1de3f3ab57112c7a622cb67eb852d35b949bff76f2fa8c35",
+      "saved_and_cli_retrieved": true
+    },
+    {
+      "api": "openai",
+      "stack": "openai",
+      "operation": "POST /batches",
+      "source_bug": "CLI-009",
+      "note": "Sannr client limitation (@sannr/sannr 0.1.0-alpha.10), reported in CodeTV preparation October 7\u20139, 2026; not a provider defect or a new execution: Earlier note --supersedes writes had inconsistent evidence links on these operations and were not diagnosed. After authoring a correction, read back the note text and its evidence references; command success alone does not establish a correct evidence relationship. Do not invent or refresh verification. Source: BUGS.md / CLI-009; this package retains the authored summary, not private raw evidence.",
+      "note_sha256": "c5dcfc9b76723694d69fbf4b2f7d9700b22ba11bbce3582a0147d8dee240be7d",
+      "saved_and_cli_retrieved": true
+    },
+    {
+      "api": "openai",
+      "stack": "openai",
+      "operation": "POST /uploads",
+      "source_bug": "CLI-009",
+      "note": "Sannr client limitation (@sannr/sannr 0.1.0-alpha.10), reported in CodeTV preparation October 7\u20139, 2026; not a provider defect or a new execution: Earlier note --supersedes writes had inconsistent evidence links on these operations and were not diagnosed. After authoring a correction, read back the note text and its evidence references; command success alone does not establish a correct evidence relationship. Do not invent or refresh verification. Source: BUGS.md / CLI-009; this package retains the authored summary, not private raw evidence.",
+      "note_sha256": "c5dcfc9b76723694d69fbf4b2f7d9700b22ba11bbce3582a0147d8dee240be7d",
+      "saved_and_cli_retrieved": true
+    },
+    {
+      "api": "openai",
+      "stack": "openai",
+      "operation": "POST /live/sessions",
+      "source_bug": "CLI-010",
+      "note": "Sannr client limitation (@sannr/sannr 0.1.0-alpha.10), reported in CodeTV preparation October 7\u20139, 2026; not a provider defect or a new execution: The alpha.10 legacy note command rejected --env with NOTE_OPTION_INVALID. Use supported --stack note syntax and include date/account scope in the prose. That authored note is not an environment-bound execution observation. Source: BUGS.md / CLI-010; this package retains the authored summary, not private raw evidence.",
+      "note_sha256": "480fc74fa1385ac3ce0942e8433ec4625d61a003e1877459dab40c09d3d4e907",
+      "saved_and_cli_retrieved": true
+    },
+    {
+      "api": "openai",
+      "stack": "openai",
+      "operation": "POST /responses",
+      "source_bug": "QUOTA-429",
+      "note": "Sannr client limitation (@sannr/sannr 0.1.0-alpha.10), reported in CodeTV preparation October 7\u20139, 2026; not a provider defect or a new execution: On the tested credit_balance_exhausted 429s, client metadata reported throttled_by_server and waited even though the body named insufficient_quota. Inspect the provider error type/code before treating every 429 as temporary throttling; retries do not replenish API credits. Source: BUGS.md / QUOTA-429; this package retains the authored summary, not private raw evidence.",
+      "note_sha256": "da9620848d85401b08883c663a91a5446b9f5f8a983742be0426af33a5d2bb5f",
+      "saved_and_cli_retrieved": true
+    },
+    {
+      "api": "openai",
+      "stack": "openai",
+      "operation": "POST /chat/completions",
+      "source_bug": "QUOTA-429",
+      "note": "Sannr client limitation (@sannr/sannr 0.1.0-alpha.10), reported in CodeTV preparation October 7\u20139, 2026; not a provider defect or a new execution: On the tested credit_balance_exhausted 429s, client metadata reported throttled_by_server and waited even though the body named insufficient_quota. Inspect the provider error type/code before treating every 429 as temporary throttling; retries do not replenish API credits. Source: BUGS.md / QUOTA-429; this package retains the authored summary, not private raw evidence.",
+      "note_sha256": "da9620848d85401b08883c663a91a5446b9f5f8a983742be0426af33a5d2bb5f",
+      "saved_and_cli_retrieved": true
+    },
+    {
+      "api": "openai",
+      "stack": "openai",
+      "operation": "POST /embeddings",
+      "source_bug": "QUOTA-429",
+      "note": "Sannr client limitation (@sannr/sannr 0.1.0-alpha.10), reported in CodeTV preparation October 7\u20139, 2026; not a provider defect or a new execution: On the tested credit_balance_exhausted 429s, client metadata reported throttled_by_server and waited even though the body named insufficient_quota. Inspect the provider error type/code before treating every 429 as temporary throttling; retries do not replenish API credits. Source: BUGS.md / QUOTA-429; this package retains the authored summary, not private raw evidence.",
+      "note_sha256": "da9620848d85401b08883c663a91a5446b9f5f8a983742be0426af33a5d2bb5f",
+      "saved_and_cli_retrieved": true
+    }
+  ]
+}

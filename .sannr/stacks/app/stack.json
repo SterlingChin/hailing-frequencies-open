@@ -1,0 +1,25 @@
+{
+  "v": 1,
+  "name": "app",
+  "default_environment": "production",
+  "contract": "app.openapi.json",
+  "environments": {
+    "production": {
+      "baseUrl": "https://hailing-frequencies-app-production.up.railway.app",
+      "production": true,
+      "auth": "bearer:CONTEXT_API_TOKEN",
+      "envFile": "../../../.env"
+    },
+    "reporting": {
+      "baseUrl": "https://hailing-frequencies-app-production.up.railway.app",
+      "production": true,
+      "auth": "bearer:REPORTING_API_TOKEN",
+      "envFile": "../../../.env"
+    },
+    "reporting-test": {
+      "baseUrl": "https://hailing-frequencies-app-production.up.railway.app",
+      "production": true,
+      "auth": "bearer:REPORTING_CONTEXT_API_TOKEN"
+    }
+  }
+}
